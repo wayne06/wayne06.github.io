@@ -2,22 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CI/CD on WZhong</title>
-    <link>http://wayne06.github.io/tags/ci/cd/</link>
+    <link>https://wayne06.github.io/tags/ci/cd/</link>
     <description>Recent content in CI/CD on WZhong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 17 Jan 2020 10:50:12 +0800</lastBuildDate>
     
-	<atom:link href="http://wayne06.github.io/tags/ci/cd/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://wayne06.github.io/tags/ci/cd/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>The 1st blog for testing</title>
-      <link>http://wayne06.github.io/post/test/</link>
+      <link>https://wayne06.github.io/post/the-1st-blog-for-testing/</link>
       <pubDate>Fri, 17 Jan 2020 10:50:12 +0800</pubDate>
       
-      <guid>http://wayne06.github.io/post/test/</guid>
-      <description>项目复盘 目标复盘 之 Dev 掌握微服务架构和前后端架构设计 掌握基于Spring Boot搭建微服务基础框架 进一步提升Java/Spring微服务开发技</description>
+      <guid>https://wayne06.github.io/post/the-1st-blog-for-testing/</guid>
+      <description>Hugo  The world’s fastest framework for building websites.Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.
+ Algolia  Deliver what your customers want every time.Algolia’s search-as-a-service and full suite of APIs allow teams to easily develop tailored, fast search and discovery experiences that delight and convert.
+   Static site search with Hugo + Algolia</description>
     </item>
     
   </channel>

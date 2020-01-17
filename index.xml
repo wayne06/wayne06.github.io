@@ -2,39 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>WZhong</title>
-    <link>http://wayne06.github.io/</link>
+    <link>https://wayne06.github.io/</link>
     <description>Recent content on WZhong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 17 Jan 2020 10:50:12 +0800</lastBuildDate>
     
-	<atom:link href="http://wayne06.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://wayne06.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>The 1st blog for testing</title>
-      <link>http://wayne06.github.io/post/test/</link>
+      <link>https://wayne06.github.io/post/the-1st-blog-for-testing/</link>
       <pubDate>Fri, 17 Jan 2020 10:50:12 +0800</pubDate>
       
-      <guid>http://wayne06.github.io/post/test/</guid>
-      <description>项目复盘 目标复盘 之 Dev 掌握微服务架构和前后端架构设计 掌握基于Spring Boot搭建微服务基础框架 进一步提升Java/Spring微服务开发技</description>
+      <guid>https://wayne06.github.io/post/the-1st-blog-for-testing/</guid>
+      <description>Hugo  The world’s fastest framework for building websites.Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.
+ Algolia  Deliver what your customers want every time.Algolia’s search-as-a-service and full suite of APIs allow teams to easily develop tailored, fast search and discovery experiences that delight and convert.
+   Static site search with Hugo + Algolia</description>
     </item>
     
     <item>
       <title></title>
-      <link>http://wayne06.github.io/search/placeholder/</link>
+      <link>https://wayne06.github.io/search/placeholder/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://wayne06.github.io/search/placeholder/</guid>
+      <guid>https://wayne06.github.io/search/placeholder/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>http://wayne06.github.io/top/about/</link>
+      <link>https://wayne06.github.io/top/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://wayne06.github.io/top/about/</guid>
+      <guid>https://wayne06.github.io/top/about/</guid>
       <description>Huabing Zhao is an ICT veteran with a passion for open source. He has a solid experience in the telecommunication and information technology industry for more than 17 years.
 Throughout his career, he has built a number of large-scale, cross-country OSS/BSS platforms/systems and operation tools, most of them are still running in productions.
 He loves open source and has been contributing to a variety of open source projects, including Istio(Service Mesh https://istio.</description>
@@ -42,10 +44,10 @@ He loves open source and has been contributing to a variety of open source proje
     
     <item>
       <title></title>
-      <link>http://wayne06.github.io/top/books/</link>
+      <link>https://wayne06.github.io/top/books/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://wayne06.github.io/top/books/</guid>
+      <guid>https://wayne06.github.io/top/books/</guid>
       <description>Machine learning学习笔记 Coursera 在线课程 Machine learning 笔记讲师: 吴恩达(Andrew Ng) 课程地址：https://www.</description>
     </item>
     

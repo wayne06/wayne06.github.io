@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on WZhong</title>
-    <link>http://wayne06.github.io/tags/</link>
+    <link>https://wayne06.github.io/tags/</link>
     <description>Recent content in Tags on WZhong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 17 Jan 2020 10:50:12 +0800</lastBuildDate>
     
-	<atom:link href="http://wayne06.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://wayne06.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>CI/CD</title>
-      <link>http://wayne06.github.io/tags/ci/cd/</link>
+      <link>https://wayne06.github.io/tags/ci/cd/</link>
       <pubDate>Fri, 17 Jan 2020 10:50:12 +0800</pubDate>
       
-      <guid>http://wayne06.github.io/tags/ci/cd/</guid>
+      <guid>https://wayne06.github.io/tags/ci/cd/</guid>
       <description></description>
     </item>
     
     <item>
       <title>DevOps</title>
-      <link>http://wayne06.github.io/tags/devops/</link>
+      <link>https://wayne06.github.io/tags/devops/</link>
       <pubDate>Fri, 17 Jan 2020 10:50:12 +0800</pubDate>
       
-      <guid>http://wayne06.github.io/tags/devops/</guid>
+      <guid>https://wayne06.github.io/tags/devops/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SaaS</title>
-      <link>http://wayne06.github.io/tags/saas/</link>
+      <link>https://wayne06.github.io/tags/saas/</link>
       <pubDate>Fri, 17 Jan 2020 10:50:12 +0800</pubDate>
       
-      <guid>http://wayne06.github.io/tags/saas/</guid>
+      <guid>https://wayne06.github.io/tags/saas/</guid>
       <description></description>
     </item>
     
