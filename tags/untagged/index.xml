@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Untagged on WZhong</title>
+    <link>http://example.org/tags/untagged/</link>
+    <description>Recent content in Untagged on WZhong</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 17 Jan 2020 10:50:12 +0800</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/untagged/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Test</title>
+      <link>http://example.org/post/test/</link>
+      <pubDate>Fri, 17 Jan 2020 10:50:12 +0800</pubDate>
+      
+      <guid>http://example.org/post/test/</guid>
+      <description>Insert Lead paragraph here. 项目复盘、扩展和应用 项目复盘 目标复盘 之 Dev 掌握微服务架构和前后端架构设计 掌握基于Spring Boot搭建微服务基础框架 进一步提升Jav</description>
+    </item>
+    
+  </channel>
+</rss>

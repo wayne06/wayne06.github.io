@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DevOps on WZhong</title>
+    <link>http://wayne06.github.io/tags/devops/</link>
+    <description>Recent content in DevOps on WZhong</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 17 Jan 2020 10:50:12 +0800</lastBuildDate>
+    
+	<atom:link href="http://wayne06.github.io/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The 1st blog for testing</title>
+      <link>http://wayne06.github.io/post/test/</link>
+      <pubDate>Fri, 17 Jan 2020 10:50:12 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/post/test/</guid>
+      <description>项目复盘 目标复盘 之 Dev 掌握微服务架构和前后端架构设计 掌握基于Spring Boot搭建微服务基础框架 进一步提升Java/Spring微服务开发技</description>
+    </item>
+    
+  </channel>
+</rss>
