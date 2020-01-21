@@ -2,111 +2,111 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>DevOps on WZhong</title>
-    <link>http://example.org/tags/devops/</link>
+    <link>http://wayne06.github.io/tags/devops/</link>
     <description>Recent content in DevOps on WZhong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 21 Jan 2020 00:11:12 +0800</lastBuildDate>
     
-	<atom:link href="http://example.org/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://wayne06.github.io/tags/devops/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>源代码解析</title>
-      <link>http://example.org/post/11-staffjoy%E9%A1%B9%E7%9B%AE%E6%BA%90%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90/</link>
+      <link>http://wayne06.github.io/post/11-staffjoy%E9%A1%B9%E7%9B%AE%E6%BA%90%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90/</link>
       <pubDate>Tue, 21 Jan 2020 00:11:12 +0800</pubDate>
       
-      <guid>http://example.org/post/11-staffjoy%E9%A1%B9%E7%9B%AE%E6%BA%90%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90/</guid>
+      <guid>http://wayne06.github.io/post/11-staffjoy%E9%A1%B9%E7%9B%AE%E6%BA%90%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90/</guid>
       <description>Code Review 服务API客户端 服务实现端 POM Configuration &amp;amp; Properties DB Schema Model + Repository Service Controller Main App 接口样例 项目架构 Account服务 服务接口 Company服务 Shift服务接口 Mai</description>
     </item>
     
     <item>
       <title>项目复盘、扩展和应用</title>
-      <link>http://example.org/post/10-%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%9B%98/</link>
+      <link>http://wayne06.github.io/post/10-%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%9B%98/</link>
       <pubDate>Tue, 21 Jan 2020 00:10:12 +0800</pubDate>
       
-      <guid>http://example.org/post/10-%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%9B%98/</guid>
+      <guid>http://wayne06.github.io/post/10-%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%9B%98/</guid>
       <description>项目复盘 目标复盘 之 Dev 掌握微服务架构和前后端架构设计 第二章分析了整体架构设计：在实践中，可根据实际业务需求，采用微服务架构思想，首相将业务领域</description>
     </item>
     
     <item>
       <title>云原生架构和Kubernetes容器云部署</title>
-      <link>http://example.org/post/09-%E4%BA%91%E5%8E%9F%E7%94%9F%E6%9E%B6%E6%9E%84%E5%92%8Ckubernetes%E5%AE%B9%E5%99%A8%E4%BA%91%E9%83%A8%E7%BD%B2/</link>
+      <link>http://wayne06.github.io/post/09-%E4%BA%91%E5%8E%9F%E7%94%9F%E6%9E%B6%E6%9E%84%E5%92%8Ckubernetes%E5%AE%B9%E5%99%A8%E4%BA%91%E9%83%A8%E7%BD%B2/</link>
       <pubDate>Tue, 21 Jan 2020 00:09:12 +0800</pubDate>
       
-      <guid>http://example.org/post/09-%E4%BA%91%E5%8E%9F%E7%94%9F%E6%9E%B6%E6%9E%84%E5%92%8Ckubernetes%E5%AE%B9%E5%99%A8%E4%BA%91%E9%83%A8%E7%BD%B2/</guid>
+      <guid>http://wayne06.github.io/post/09-%E4%BA%91%E5%8E%9F%E7%94%9F%E6%9E%B6%E6%9E%84%E5%92%8Ckubernetes%E5%AE%B9%E5%99%A8%E4%BA%91%E9%83%A8%E7%BD%B2/</guid>
       <description>到底什么是云原生架构 云原生应用定义 软件开发行业，早前从XP(ExtremeProgramming)极限编程、敏捷Agile、DevOps等，</description>
     </item>
     
     <item>
       <title>服务容器化和Docker Compose部署</title>
-      <link>http://example.org/post/08-%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96%E5%92%8Cdocker-compose%E9%83%A8%E7%BD%B2/</link>
+      <link>http://wayne06.github.io/post/08-%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96%E5%92%8Cdocker-compose%E9%83%A8%E7%BD%B2/</link>
       <pubDate>Tue, 21 Jan 2020 00:08:12 +0800</pubDate>
       
-      <guid>http://example.org/post/08-%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96%E5%92%8Cdocker-compose%E9%83%A8%E7%BD%B2/</guid>
+      <guid>http://wayne06.github.io/post/08-%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96%E5%92%8Cdocker-compose%E9%83%A8%E7%BD%B2/</guid>
       <description>在面对复杂的分布式微服务应用时，传统的手工的基于物理机或虚拟机的部署方式效率低下且容易出错；Docker容器技术的出现，提供了一种可靠的打包</description>
     </item>
     
     <item>
       <title>可运维架构设计和实践</title>
-      <link>http://example.org/post/07-%E5%8F%AF%E8%BF%90%E7%BB%B4%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/</link>
+      <link>http://wayne06.github.io/post/07-%E5%8F%AF%E8%BF%90%E7%BB%B4%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/</link>
       <pubDate>Tue, 21 Jan 2020 00:07:12 +0800</pubDate>
       
-      <guid>http://example.org/post/07-%E5%8F%AF%E8%BF%90%E7%BB%B4%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/</guid>
+      <guid>http://wayne06.github.io/post/07-%E5%8F%AF%E8%BF%90%E7%BB%B4%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/</guid>
       <description>架构的可运维性主要和配置、监控(日志，调用链，metrics，告警)、部署相关 何谓生产就绪 Production Ready 经典软件工程阶段 需求分析 -&amp;gt; 架构设计 -&amp;gt; 实现测试 -&amp;gt;</description>
     </item>
     
     <item>
       <title>微服务测试设计和实践</title>
-      <link>http://example.org/post/06-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B5%8B%E8%AF%95%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/</link>
+      <link>http://wayne06.github.io/post/06-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B5%8B%E8%AF%95%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/</link>
       <pubDate>Tue, 21 Jan 2020 00:06:12 +0800</pubDate>
       
-      <guid>http://example.org/post/06-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B5%8B%E8%AF%95%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/</guid>
+      <guid>http://wayne06.github.io/post/06-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B5%8B%E8%AF%95%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/</guid>
       <description>微服务测试的最大挑战：依赖。解决方案是采用分而治之的策略：a.先针对每一个微服务进行隔离测试，在对每一个微服务进行测试的时候再按照分层的方式</description>
     </item>
     
     <item>
       <title>安全框架设计和实践</title>
-      <link>http://example.org/post/05-%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/</link>
+      <link>http://wayne06.github.io/post/05-%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/</link>
       <pubDate>Tue, 21 Jan 2020 00:05:12 +0800</pubDate>
       
-      <guid>http://example.org/post/05-%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/</guid>
+      <guid>http://wayne06.github.io/post/05-%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/</guid>
       <description>网站安全认证架构演进 ~ 单块阶段 Auth V1 (2006) 认证(authentication)和授权(authorization) 登录阶段 传统安全认证基于服务器端</description>
     </item>
     
     <item>
       <title>可编程网关设计和实践</title>
-      <link>http://example.org/post/04-%E5%8F%AF%E7%BC%96%E7%A8%8B%E7%BD%91%E5%85%B3%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/</link>
+      <link>http://wayne06.github.io/post/04-%E5%8F%AF%E7%BC%96%E7%A8%8B%E7%BD%91%E5%85%B3%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/</link>
       <pubDate>Tue, 21 Jan 2020 00:04:12 +0800</pubDate>
       
-      <guid>http://example.org/post/04-%E5%8F%AF%E7%BC%96%E7%A8%8B%E7%BD%91%E5%85%B3%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/</guid>
+      <guid>http://wayne06.github.io/post/04-%E5%8F%AF%E7%BC%96%E7%A8%8B%E7%BD%91%E5%85%B3%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/</guid>
       <description>网关和BFF是如何演化出来的 接入 网关即Gateway，是整个微服务的集中入口，是实现前后分离的关键 网关的可编程性对微服务的升级及部署灵活性非</description>
     </item>
     
     <item>
       <title>服务开发框架设计和实现</title>
-      <link>http://example.org/post/03-%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/</link>
+      <link>http://wayne06.github.io/post/03-%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/</link>
       <pubDate>Tue, 21 Jan 2020 00:03:12 +0800</pubDate>
       
-      <guid>http://example.org/post/03-%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/</guid>
+      <guid>http://wayne06.github.io/post/03-%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/</guid>
       <description>Staffjoy项目代码组织 项目代码组织 依赖管理 微服务为什么采用单体仓库Mono-Repo Multi-Repo vs Mono-Repo 单体仓库优势 易于规范代码，标准化依赖管理，易</description>
     </item>
     
     <item>
       <title>系统架构设计和技术栈选型</title>
-      <link>http://example.org/post/02-%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E6%8A%80%E6%9C%AF%E6%A0%88%E9%80%89%E5%9E%8B/</link>
+      <link>http://wayne06.github.io/post/02-%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E6%8A%80%E6%9C%AF%E6%A0%88%E9%80%89%E5%9E%8B/</link>
       <pubDate>Tue, 21 Jan 2020 00:02:12 +0800</pubDate>
       
-      <guid>http://example.org/post/02-%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E6%8A%80%E6%9C%AF%E6%A0%88%E9%80%89%E5%9E%8B/</guid>
+      <guid>http://wayne06.github.io/post/02-%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E6%8A%80%E6%9C%AF%E6%A0%88%E9%80%89%E5%9E%8B/</guid>
       <description>为何采用微服务架构 观点1：单块优先，再逐块解耦拆分 观点2：微服务优先，因微服务技术已逐渐成熟：灵活性、易扩展 架构设计和技术栈选型 总体架构设计</description>
     </item>
     
     <item>
       <title>介绍与案例需求</title>
-      <link>http://example.org/post/01-%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%A1%88%E4%BE%8B%E9%9C%80%E6%B1%82/</link>
+      <link>http://wayne06.github.io/post/01-%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%A1%88%E4%BE%8B%E9%9C%80%E6%B1%82/</link>
       <pubDate>Tue, 21 Jan 2020 00:01:12 +0800</pubDate>
       
-      <guid>http://example.org/post/01-%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%A1%88%E4%BE%8B%E9%9C%80%E6%B1%82/</guid>
+      <guid>http://wayne06.github.io/post/01-%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%A1%88%E4%BE%8B%E9%9C%80%E6%B1%82/</guid>
       <description>Dev 掌握微服务架构和前后分离架构设计 掌握基于Spring Boot搭建微服务基础框架 进一步提升Java/Spring微服务开发技能 掌握Sprin</description>
     </item>
     
