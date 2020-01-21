@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta property="twitter:title" content="" />
+    <meta name="title" content="服务容器化和Docker Compose部署" />
+    <meta property="og:title" content="服务容器化和Docker Compose部署" />
+    <meta property="twitter:title" content="服务容器化和Docker Compose部署" />
     
 
     
@@ -34,7 +34,7 @@
     <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Wayne Zhong Blog</title>
+    <title>服务容器化和Docker Compose部署-Wayne Zhong Blog</title>
 
     <link rel="canonical" href="/post/08-%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96%E5%92%8Cdocker-compose%E9%83%A8%E7%BD%B2/">
 
@@ -105,6 +105,10 @@
                     </li>
                     
                     <li>
+                        <a href="/categories/microservice">microservice</a>
+                    </li>
+                    
+                    <li>
                         <a href="/categories/software-development">software-development</a>
                     </li>
                     
@@ -161,7 +165,7 @@
 
 <style type="text/css">
     header.intro-header {
-        background-image: url('/img/home-bg-jeep.jpg')
+        background-image: url('https://img.zhaohuabing.com/post-bg-2015.jpg')
     }
 </style>
 <header class="intro-header">
@@ -171,8 +175,20 @@
                 <div class="post-heading">
                     <div class="tags">
                         
+                        <a class="tag" href="/tags/devops" title="DevOps">
+                            DevOps
+                        </a>
+                        
+                        <a class="tag" href="/tags/ci/cd" title="CI/CD">
+                            CI/CD
+                        </a>
+                        
+                        <a class="tag" href="/tags/saas" title="SaaS">
+                            SaaS
+                        </a>
+                        
                     </div>
-                    <h1></h1>
+                    <h1>服务容器化和Docker Compose部署</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by 
@@ -180,7 +196,7 @@
                                 WZhong
                          
                         on 
-                        Monday, January 1, 0001
+                        Tuesday, January 21, 2020
                         
                         
                         
@@ -220,8 +236,7 @@
   </ul>
 </nav>
                 
-                <h1 id="服务容器化和docker-compose部署">服务容器化和Docker Compose部署</h1>
-<blockquote>
+                <blockquote>
 <p>在面对复杂的分布式微服务应用时，传统的手工的基于物理机或虚拟机的部署方式效率低下且容易出错；Docker容器技术的出现，提供了一种可靠的打包和交付微服务的机制；另外向K8s这样的容器云平台的引入，可以进一步简化分布式微服务的部署和管理；通过K8s可以做到一键部署整个微服务应用，也可以一键扩容微服务应用；因此业界开始提出云原生Cloud Native架构理念，也就是说应用开发不仅要用微服务的方式组织架构，而且在架构上一开始就要考虑直接面向容器云环境部署。微服务架构和云原生架构相辅相成，微服务若离开了容器或容器云，部署和运维效率就会大打折扣</p>
 </blockquote>
 <h2 id="本地开发部署架构和需求">本地开发部署架构和需求</h2>
@@ -798,13 +813,13 @@ docker push wnzhong/cheers2019
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/09-%E4%BA%91%E5%8E%9F%E7%94%9F%E6%9E%B6%E6%9E%84%E5%92%8Ckubernetes%E5%AE%B9%E5%99%A8%E4%BA%91%E9%83%A8%E7%BD%B2/" data-toggle="tooltip" data-placement="top" title="">&larr;
+                        <a href="/post/07-%E5%8F%AF%E8%BF%90%E7%BB%B4%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/" data-toggle="tooltip" data-placement="top" title="可运维架构设计和实践">&larr;
                             Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/07-%E5%8F%AF%E8%BF%90%E7%BB%B4%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/" data-toggle="tooltip" data-placement="top" title="">Next
+                        <a href="/post/09-%E4%BA%91%E5%8E%9F%E7%94%9F%E6%9E%B6%E6%9E%84%E5%92%8Ckubernetes%E5%AE%B9%E5%99%A8%E4%BA%91%E9%83%A8%E7%BD%B2/" data-toggle="tooltip" data-placement="top" title="云原生架构和Kubernetes容器云部署">Next
                             Post &rarr;</a>
                     </li>
                     
@@ -833,7 +848,23 @@ docker push wnzhong/cheers2019
                         
                         
                         
+                        <a href="/tags/ci/cd" title="ci/cd">
+                            ci/cd
+                        </a>
                         
+                        
+                        
+                        <a href="/tags/devops" title="devops">
+                            devops
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/saas" title="saas">
+                            saas
+                        </a>
                         
                         
                     </div>
