@@ -190,45 +190,30 @@
             
 
 <div class="post-preview">
-    <a href="http://example.org/post/the-1st-blog-for-testing/">
-        <h2 class="post-title">
-            The 1st blog for testing
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            Hugo  The world’s fastest framework for building websites.Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.
- Algolia  Deliver what your customers want every time.Algolia’s search-as-a-service and full suite of APIs allow teams to easily develop tailored, fast search and discovery experiences that delight and convert.
-   Static site search with Hugo + Algolia
-       
-        </div>
-    </a>
-    <p class="post-meta">
-    Posted by WZhong Friday, January 17, 2020
-    
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="http://example.org/post/01-%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%A1%88%E4%BE%8B%E9%9C%80%E6%B1%82/">
+    <a href="http://example.org/post/10-%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%9B%98/">
         <h2 class="post-title">
             
         </h2>
 	
         <div class="post-content-preview">
 	
-            学习目标 Dev   掌握微服务架构和前后分离架构设计
-  掌握基于Spring Boot搭建微服务基础框架
-  进一步提升Java/Spring微服务开发技能
-  掌握Spring Boot微服务测试和相关实践
-  理解SaaS多租户应用的架构和设计
-  Ops   理解可运维架构理念和相关实践
-  掌握服务容器化和容器云部署相关实践
-  理解云时代的软件工程流程和实践
-  案例需求：Staffjoy工时排班（Scheduling）SaaS服务 功能  管理员Admin管理公司和排班 雇员Worker管理个人信息  非功能  SaaS + 定制部署 一键部署到Kubernetes容器云 营销和客服友好（Marketing &amp; Customer Friendly）  一些说明 先决条件  应用开发工程师、DevOps工程师、架构师 Java/Spring、Web/HTML/JavaScript、MySQL  开发工具  JDK8 + Maven IntelliJ IDEA MySQL + Workbench Node.js + npm Docker  重点  微服务和云原生架构 Spring Boot + Kubernetes应用  非重点  案例本身 React.
+            项目复盘、扩展和应用 项目复盘   目标复盘 之 Dev
+  掌握微服务架构和前后端架构设计
+  第二章分析了整体架构设计：在实践中，可根据实际业务需求，采用微服务架构思想，首相将业务领域划分出多个微服务，然后再设计并给出整体应用的架构；第二章中还对dubbo、spring cloud、kubernetes这些主流微服务开发框架和平台进行了全面的比对，以作出合理的技术栈选型，为进一步开发微服务打下平台和框架基础
+  前后分离架构主要是由网关+安全框架配合实现，在第四、五章单独分析了
+    掌握基于Spring Boot搭建微服务基础框架
+  Spring Boot是业界微服务开发的主流框架之一，但是真正开发生产级微服务之前，仍需要对Spring Boot进行一些必要的封装，以适应业务和架构需求；这些封装沉淀下来，就是一个企业的微服务基础框架，标准化和重用这个框架可大大提升后续开发微服务的效率
+  基础框架主要包括服务开发框架、网关、安全认证框架；第三章介绍了如何在Spring Boot基础上做一些轻量级的封装，并将这些封装作为后续开发微服务应用的开发框架；第四章先介绍了微服务网关是如何演化出来的，再剖析了一个最简网关faraday的架构设计和实现；第五章介绍了安全认证架构从单块到微服务的演进历史，再剖析了微服务的安全认证框架的设计细节。完全理解第三、四、五章，就具备了开发微服务基础框架的能力
+    进一步提升Java/Spring微服务开发技能
+  Java/Spring是软件开发的绝对主流
+  第三章介绍了如何在Spring Boot基础上做一些封装使其成为一个微服务开发的基础框架；第六章演示了如何使用Spring提供的测试支持，对微服务进行单元、组件、集成测试等；第十一章对Spring Boot开发的微服务做了全面的剖析
+    掌握Spring Boot微服务测试和相关实践
+  微服务测试的一般性方法，采用分而治之的策略，先对每个微服务进行测试，测试时按照分层的方式进行隔离测试，测试过程中采用mock等技术手段隔离依赖，以简化测试；每个微服务都通过测试后，再进行整个应用的集成测试
+  第六章对Spring微服务应用的测试方法进行了分类，案例说明单元、组件、集成测试的方法，也介绍了测试最佳实践和常用工具
+    理解SaaS多租户应用的架构和设计
+  SaaS应用不同于一般应用，需要支持多租户和租户隔离，案例中采用的方案是：由包括数据库层、安全框架、网关层多个层次配合实现
+  案例采用共享数据库表的逻辑隔离机制，实际企业中的SaaS项目可能需要更强的隔离性，可考虑表隔离、数据库隔离等物理隔离机制
+      目标复盘 之 Ops
        
         </div>
     </a>
@@ -242,80 +227,21 @@
 <hr>
 
 <div class="post-preview">
-    <a href="http://example.org/post/02-%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E6%8A%80%E6%9C%AF%E6%A0%88%E9%80%89%E5%9E%8B/">
+    <a href="http://example.org/post/11-staffjoy%E9%A1%B9%E7%9B%AE%E6%BA%90%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90/">
         <h2 class="post-title">
             
         </h2>
 	
         <div class="post-content-preview">
 	
-            系统架构设计和技术栈选型 为何采用微服务架构   观点1：单块优先，再逐块解耦拆分
-  观点2：微服务优先，因微服务技术已逐渐成熟：灵活性、易扩展
-  架构设计和技术栈选型   总体架构设计
-  Skywalking依赖监控图
-  架构设计思想
- 分而治之 单一职责 关注分离    技术栈选型
- 微服务：Spring/Rest 数据访问：Spring Data JPA 数据库：MySQL WWW服务：Spring MVC + Thymeleaf模版引擎 Faraday网关：Spring + Servlet Filter SPA单页应用：React.js + Redux 支持一键部署到本地Docker Compose环境 支持一键部署到Kubernetes容器云环境    SaaS多租户设计
-  数据和接口模型设计   账户服务
- 账户数据模型 账户接口模型    公司服务
- 公司数据模型 实体关系ER图 公司Company服务接口模型 公司管理员Admin服务接口模型 员工目录Directory服务接口模型 团队Team服务接口模型 雇员Worker服务接口模型 任务Job服务接口模型 班次Shift服务接口模型    Dubbo、Spring Cloud和K8s如何选型   微服务公共关注点Common Concerns
-       
-        </div>
-    </a>
-    <p class="post-meta">
-    Posted by WZhong Monday, January 1, 0001
-    
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="http://example.org/post/03-%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/">
-        <h2 class="post-title">
-            
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            服务开发框架设计和实现 Staffjoy项目代码组织   项目代码组织
-  依赖管理
-  微服务为什么采用单体仓库Mono-Repo   Multi-Repo vs Mono-Repo
-  单体仓库优势
- 易于规范代码，标准化依赖管理，易于Code Review，统一代码风格 易于集成和部署 易于开发人员理解项目整体 易于重用代码，易于重构    微服务接口参数校验为何重要   控制器接口参数校验
- javax.validation.constraints内的标注，如@NotBlank、@Min(0)    DTO参数校验
- javax.validation的标注，@Valid DTO类中，各field添加标注，如@NotBlank、@Email    自定义标注
- 自定义@PhoneNumber + 自定义PhoneNumberValidator类(实现ConstraintValidator接口)    如何实现统一异常处理   统一异常处理
- Controller、Service、Repository层发生的异常，都会被RestControolerAdvice机制处理    RestControllerAdvice
- 统一异常处理类GlobalExceptionTranslator使用@RestControllerAdvice标注    统一异常捕获
- 捕获Spring框架本身产生的异常，如MethodArgumentTypeMismatchException 捕获应用自定义异常，如自定义的ServiceException、PermissionDeniedException 捕获不到的异常归入Throwable中，返回INTERNAL_SERVER_ERRO    BaseResponse
-       
-        </div>
-    </a>
-    <p class="post-meta">
-    Posted by WZhong Monday, January 1, 0001
-    
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="http://example.org/post/04-%E5%8F%AF%E7%BC%96%E7%A8%8B%E7%BD%91%E5%85%B3%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/">
-        <h2 class="post-title">
-            
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            可编程网关设计和实践 网关和BFF是如何演化出来的   接入
- 网关即Gateway，是整个微服务的集中入口，是实现前后分离的关键 网关的可编程性对微服务的升级及部署灵活性非常重要 所以需要设计一款轻量级的可编程网关，以应对不断变化的业务需求    网关和BFF(Backend For Frontend)的演化进程
-  MyShop SOA V1，2011年左右
- 外网：浏览器 -&gt; Nginx：反向代理+负载均衡 -&gt; 服务端web应用 -&gt; 微服务：认证、用户、购物车、商品、支付    MyShop SOA V2，2012年，移动端发展
- 移动端 -&gt; Nginx -&gt; 微服务 浏览器 -&gt; Nginx -&gt; 服务端web应用 -&gt; 微服务    MyShop SOA V2.5，移动端添加无线BFF层
- 移动端 -&gt; Nginx -&gt; 无线BFF -&gt; 微服务 浏览器 -&gt; Nginx -&gt; 服务端web应用 -&gt; 微服务    MyShop SOA V3，移动端添加无线网关层
+            源代码解析 Code Review   服务API客户端
+  服务实现端
+ POM Configuration &amp; Properties DB Schema Model + Repository Service Controller Main App 接口样例    项目架构 Account服务  服务接口  Company服务  Shift服务接口  Mail、SMS和Bot服务 Faraday网关服务  Faraday网关内核  WhoAmI服务  Intercom客服系统集成  WWW服务   注册激活流程
+  Auth ~ 登录认证阶段
+  登录流程
+  MyAccount &amp; App单页应用   ReactJS架构
+  Why Redux
+  Redux架构
        
         </div>
     </a>
@@ -334,10 +260,10 @@
 
 <ul class="pager">
     
-    
-    <li class="next">
-        <a href="/page/2/">Older Posts &rarr;</a>
+    <li class="previous">
+        <a href="/page/2/">&larr; Newer Posts</a>
     </li>
+    
     
 </ul>
 

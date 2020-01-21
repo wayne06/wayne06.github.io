@@ -34,9 +34,9 @@
     <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Posts-Wayne Zhong Blog</title>
+    <title>Wayne Zhong Blog</title>
 
-    <link rel="canonical" href="/post/">
+    <link rel="canonical" href="/post/10-%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%9B%98/">
 
     <link rel="stylesheet" href="/css/iDisqus.min.css"/>
 	
@@ -158,14 +158,33 @@
 
 
 
-<header class="intro-header" style="background-image: url('/img/home-bg-jeep.jpg')">
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/home-bg-jeep.jpg')
+    }
+</style>
+<header class="intro-header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>WZhong </h1>
-                    
-		    <span class="subheading">In the morning, I think I can build everything. In the night, I don&#39;t know what is a computer.</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1></h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                WZhong
+                         
+                        on 
+                        Monday, January 1, 0001
+                        
+                        
+                        
+                    </span>
                 </div>
             </div>
         </div>
@@ -178,13 +197,261 @@
 <article>
     <div class="container">
         <div class="row">
+
             
             <div class="
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 post-container">
 
-         	
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#项目复盘">项目复盘</a></li>
+    <li><a href="#项目扩展和应用">项目扩展和应用</a></li>
+  </ul>
+</nav>
+                
+                <h1 id="项目复盘扩展和应用">项目复盘、扩展和应用</h1>
+<h2 id="项目复盘">项目复盘</h2>
+<ol>
+<li>
+<p>目标复盘 之 Dev</p>
+<ul>
+<li>
+<p>掌握微服务架构和前后端架构设计</p>
+<ul>
+<li>
+<p>第二章分析了整体架构设计：在实践中，可根据实际业务需求，采用微服务架构思想，首相将业务领域划分出多个微服务，然后再设计并给出整体应用的架构；第二章中还对dubbo、spring cloud、kubernetes这些主流微服务开发框架和平台进行了全面的比对，以作出合理的技术栈选型，为进一步开发微服务打下平台和框架基础</p>
+</li>
+<li>
+<p>前后分离架构主要是由网关+安全框架配合实现，在第四、五章单独分析了</p>
+</li>
+</ul>
+</li>
+<li>
+<p>掌握基于Spring Boot搭建微服务基础框架</p>
+<ul>
+<li>
+<p>Spring Boot是业界微服务开发的主流框架之一，但是真正开发生产级微服务之前，仍需要对Spring Boot进行一些必要的封装，以适应业务和架构需求；这些封装沉淀下来，就是一个企业的微服务基础框架，标准化和重用这个框架可大大提升后续开发微服务的效率</p>
+</li>
+<li>
+<p>基础框架主要包括服务开发框架、网关、安全认证框架；第三章介绍了如何在Spring Boot基础上做一些轻量级的封装，并将这些封装作为后续开发微服务应用的开发框架；第四章先介绍了微服务网关是如何演化出来的，再剖析了一个最简网关faraday的架构设计和实现；第五章介绍了安全认证架构从单块到微服务的演进历史，再剖析了微服务的安全认证框架的设计细节。完全理解第三、四、五章，就具备了开发微服务基础框架的能力</p>
+</li>
+</ul>
+</li>
+<li>
+<p>进一步提升Java/Spring微服务开发技能</p>
+<ul>
+<li>
+<p>Java/Spring是软件开发的绝对主流</p>
+</li>
+<li>
+<p>第三章介绍了如何在Spring Boot基础上做一些封装使其成为一个微服务开发的基础框架；第六章演示了如何使用Spring提供的测试支持，对微服务进行单元、组件、集成测试等；第十一章对Spring Boot开发的微服务做了全面的剖析</p>
+</li>
+</ul>
+</li>
+<li>
+<p>掌握Spring Boot微服务测试和相关实践</p>
+<ul>
+<li>
+<p>微服务测试的一般性方法，采用分而治之的策略，先对每个微服务进行测试，测试时按照分层的方式进行隔离测试，测试过程中采用mock等技术手段隔离依赖，以简化测试；每个微服务都通过测试后，再进行整个应用的集成测试</p>
+</li>
+<li>
+<p>第六章对Spring微服务应用的测试方法进行了分类，案例说明单元、组件、集成测试的方法，也介绍了测试最佳实践和常用工具</p>
+</li>
+</ul>
+</li>
+<li>
+<p>理解SaaS多租户应用的架构和设计</p>
+<ul>
+<li>
+<p>SaaS应用不同于一般应用，需要支持多租户和租户隔离，案例中采用的方案是：由包括数据库层、安全框架、网关层多个层次配合实现</p>
+</li>
+<li>
+<p>案例采用共享数据库表的逻辑隔离机制，实际企业中的SaaS项目可能需要更强的隔离性，可考虑表隔离、数据库隔离等物理隔离机制</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>目标复盘 之 Ops</p>
+<ul>
+<li>
+<p>理解可运维架构理念和相关实践</p>
+<ul>
+<li>
+<p>第八章讲述了生产就绪(Production Ready)和可运维(Ops Ready)架构理念，同时介绍了常用的微服务配置和监控相关的工具，以及一些相关实践</p>
+</li>
+<li>
+<p>强化Production Ready的意识，记住Production Ready的检查项，项目编码完成后到上线前，严格依照检查项进行比对检查</p>
+</li>
+</ul>
+</li>
+<li>
+<p>掌握服务容器化和容器云部署相关实践</p>
+<ul>
+<li>
+<p>手工方法部署案例微服务应用，指出这种方式的繁琐、低效、易出错</p>
+</li>
+<li>
+<p>引入docker和docker-compose，实现了案例应用在本地开发环境中的一键部署</p>
+</li>
+<li>
+<p>第九章进一步引入云原生应用的架构和理念，深度剖析了k8s云原生平台的架构的新概念和网络原理；在此基础上，展示了将案例应用一键部署到本地的k8s环境，以及部署到aliyun的k8s环境</p>
+</li>
+<li>
+<p>微服务和云原生相辅相成，都是未来应用架构的发展趋势；而k8s则是未来微服务和云原生应用的标配的平台</p>
+</li>
+<li>
+<p>可以设计云原生的微服务应用，并能够将应用快速的自动部署到k8s容器云平台</p>
+</li>
+</ul>
+</li>
+<li>
+<p>理解云时代的软件工程流程和实践</p>
+<ul>
+<li>
+<p>软件工程化一直在不断演进中，经历了传统的经典软件工程、现代的敏捷软件工程，现在随着云原生、微服务应用的兴起，来到了云时代的SaaS软件工程，相关的工程流程的技术实践一直在不断推陈出新</p>
+</li>
+<li>
+<p>案例应用的设计，从业务需求、架构设计、框架搭建、服务实现、服务测试、可运维架构，一直到容器云的部署，相当于经历了一个云时代的软件工程的流程，过程中给出了各个流程环节的一些业界最佳实践</p>
+</li>
+<li>
+<p>同时，通过全流程的案例开发过程，进一步理解DevOps研发运维一体化的视角和理念</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="项目扩展和应用">项目扩展和应用</h2>
+<ol>
+<li>
+<p>扩展</p>
+<ul>
+<li>
+<p>HTTPS：生产环境需要启用HTTPS</p>
+</li>
+<li>
+<p>测试</p>
+<ul>
+<li>编码规范</li>
+<li>测试覆盖率</li>
+<li>性能测试</li>
+</ul>
+</li>
+<li>
+<p>CI/CD：把构建、测试、打成镜像、部署到k8s云环境自动化起来，如使用Jenkins使其自动化</p>
+</li>
+<li>
+<p>监控</p>
+<ul>
+<li>Log/Trace/Metrics/Alerting：埋点需要更精细化</li>
+<li>业务指标监控：如用户注册、登录数量、下单数量等核心业务指标</li>
+<li>端用户体验监控：使用工具，如监控云服务</li>
+<li>网站分析Web Analytics：用户体验、网站使用情况做分析，如统计PV/UV</li>
+</ul>
+</li>
+<li>
+<p>帮助文档</p>
+</li>
+</ul>
+</li>
+<li>
+<p>应用</p>
+<ul>
+<li>
+<p>商城 as a Service</p>
+<ul>
+<li><a href="https://www.shopify.com">Shopify</a></li>
+</ul>
+</li>
+<li>
+<p>客服 as a Service</p>
+<ul>
+<li><a href="https://www.intercom.com">Intercom</a></li>
+</ul>
+</li>
+<li>
+<p>异常日志 as a Service</p>
+<ul>
+<li><a href="https://sentry.io">Sentry</a></li>
+</ul>
+</li>
+<li>
+<p>配置中心 as a Service</p>
+<ul>
+<li><a href="https://launchdarkly.com">Launch Darkly</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="http://example.org/"><img src="/img/favicon.png" />WZhong</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/11-staffjoy%E9%A1%B9%E7%9B%AE%E6%BA%90%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90/" data-toggle="tooltip" data-placement="top" title="">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/09-%E4%BA%91%E5%8E%9F%E7%94%9F%E6%9E%B6%E6%9E%84%E5%92%8Ckubernetes%E5%AE%B9%E5%99%A8%E4%BA%91%E9%83%A8%E7%BD%B2/" data-toggle="tooltip" data-placement="top" title="">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
                 
 <div id="disqus-comment"></div>
 
@@ -242,7 +509,7 @@
                 <ul class="list-inline text-center">
                    
                    <li>
-                       <a href='/post/index.xml' rel="alternate" type="application/rss+xml" title="WZhong" >
+                       <a href='' rel="alternate" type="application/rss+xml" title="WZhong" >
                            <span class="fa-stack fa-lg">
                                <i class="fa fa-circle fa-stack-2x"></i>
                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>

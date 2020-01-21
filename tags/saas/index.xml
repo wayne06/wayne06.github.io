@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SaaS on WZhong</title>
-    <link>https://wayne06.github.io/tags/saas/</link>
+    <link>http://example.org/tags/saas/</link>
     <description>Recent content in SaaS on WZhong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 17 Jan 2020 10:50:12 +0800</lastBuildDate>
     
-	<atom:link href="https://wayne06.github.io/tags/saas/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://example.org/tags/saas/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>The 1st blog for testing</title>
-      <link>https://wayne06.github.io/post/the-1st-blog-for-testing/</link>
+      <link>http://example.org/post/the-1st-blog-for-testing/</link>
       <pubDate>Fri, 17 Jan 2020 10:50:12 +0800</pubDate>
       
-      <guid>https://wayne06.github.io/post/the-1st-blog-for-testing/</guid>
+      <guid>http://example.org/post/the-1st-blog-for-testing/</guid>
       <description>Hugo  The world’s fastest framework for building websites.Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.
  Algolia  Deliver what your customers want every time.Algolia’s search-as-a-service and full suite of APIs allow teams to easily develop tailored, fast search and discovery experiences that delight and convert.
    Static site search with Hugo + Algolia</description>

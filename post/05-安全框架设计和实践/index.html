@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="WZhong">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="http://example.org//img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="http://example.org//img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="" />
+    <meta property="og:title" content="" />
+    <meta property="twitter:title" content="" />
+    
+
+    
+    <meta name="description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan.">
+    <meta property="og:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    <meta property="twitter:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Wayne Zhong Blog</title>
+
+    <link rel="canonical" href="/post/05-%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/docco.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">WZhong</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/software-development">software-development</a>
+                    </li>
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/home-bg-jeep.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1></h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                WZhong
+                         
+                        on 
+                        Monday, January 1, 0001
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#网站安全认证架构演进--单块阶段">网站安全认证架构演进 ~ 单块阶段</a></li>
+    <li><a href="#网站安全认证架构演进--微服务阶段">网站安全认证架构演进 ~ 微服务阶段</a></li>
+    <li><a href="#jwt令牌原理">JWT令牌原理</a></li>
+    <li><a href="#两种jwt流程">两种JWT流程</a></li>
+    <li><a href="#staffjoy安全认证架构和sso">Staffjoy安全认证架构和SSO</a></li>
+    <li><a href="#安全认证代码剖析--用户认证">安全认证代码剖析 ~ 用户认证</a></li>
+    <li><a href="#安全认证代码剖析--服务间调用鉴权">安全认证代码剖析 ~ 服务间调用鉴权</a></li>
+    <li><a href="#用户角色鉴权扩展">用户角色鉴权扩展</a></li>
+  </ul>
+</nav>
+                
+                <h1 id="安全框架设计和实践">安全框架设计和实践</h1>
+<h2 id="网站安全认证架构演进--单块阶段">网站安全认证架构演进 ~ 单块阶段</h2>
+<ol>
+<li>
+<p>Auth V1 (2006)</p>
+<ul>
+<li>认证(authentication)和授权(authorization)</li>
+<li>登录阶段
+<ul>
+<li>传统安全认证基于服务器端session+浏览器端cookie机制实现，会话session是用户登录状态的一种存储机制，http协议本身是无状态的，一个http请求和下一个http请求是相互独立，互不关联</li>
+<li>客户端发起Post请求/user/login；通过校验后，服务器向内存中session添加一条记录：sessionId + 对应用户登录信息；然后服务器将登录成功信息返回给客户端浏览器，同时把sessionId以cookie的形式放入客户端浏览器中</li>
+<li>session也可存储其他信息，如购物车，相当于用户数据的临时存储</li>
+</ul>
+</li>
+<li>访问阶段
+<ul>
+<li>后续访问阶段，浏览器会在后续请求中将sessionId以cookie的方式发送到web服务器端</li>
+<li>在操作必须登录的操作时，服务器在收到带sessionId的请求后，在内存session表中进行比对，若能匹配上，说明用户已经登录认证过，服务器就可以提取用户信息，进行下一步操作；也可以在进行操作前，服务器可以根据用户信息中的角色等信息进行鉴权，判断用户是否有足够权限进行操作</li>
+</ul>
+</li>
+<li>Spring Security以SecurityFilter机制来实现安全认证</li>
+</ul>
+</li>
+<li>
+<p>Auth V1.1 ~ Sticky Session</p>
+<ul>
+<li>V1版本无法应对服务器集群方式部署的情况，导致session只存在于一台服务器</li>
+<li>解决方案：Sticky Session，即将用户会话粘在一台服务器上
+<ul>
+<li>通过负载均衡器截获并记录sessionId和后台服务器ip的关联信息，请求转发时通过关联信息来做转发，保证在一个会话期间，用户请求和某台服务器绑定</li>
+<li>Nginx配置即可</li>
+</ul>
+</li>
+<li>问题：
+<ul>
+<li>若需要对服务器正常升级部署，或服务器本身出现延迟或宕机，一拨用户的会话会瞬间消失，用户体验差；又如一部分固定用户反馈网站反应慢</li>
+<li>扩展性差。粘性会话在负载均衡器和web服务器都保存了状态，整体是有状态架构，随着流量增长，会话对web服务器和负载均衡器都带来了压力，有状态系统难以扩展</li>
+</ul>
+</li>
+<li>解决方案：
+<ul>
+<li>会话同步复制：会话数据在服务器间同步复制；服务器间需要复杂的状态同步协议，整体性能和扩展性变低</li>
+<li>无状态会话：会话数据不存在服务器，而存在客户端浏览器；通过请求响应循环捎带来传递用户数据；有泄漏风险，需要加密；浏览器对cookie大小有限制，一般4kb，不能存放较大的会话数据</li>
+<li>集中状态会话</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Auth V1.5 ~ Centralized Session (2009)</p>
+<ul>
+<li>将会话数据在专门的服务器上集中存储</li>
+<li>会话数据存取性能要求较高，业界一般采用redis这种高性能缓存来做</li>
+<li>负载均衡器和服务器都可以水平扩展，集中会话服务器扩展也有很多方案，如redis集群；所以这种方案是高性能、易扩展的解决方案</li>
+</ul>
+</li>
+</ol>
+<h2 id="网站安全认证架构演进--微服务阶段">网站安全认证架构演进 ~ 微服务阶段</h2>
+<ol>
+<li>
+<p>微服务认证授权挑战 (2014)</p>
+<ul>
+<li>后台应用和服务众多，如何对每一个服务应用进行认证鉴权，传统的用户名+密码存入session是否还适用</li>
+<li>前端用户体验众多，如果每一个都做登录认证，成本高且难以扩展，并且为了避免重复登录，需要考虑SSO的新需求</li>
+</ul>
+</li>
+<li>
+<p>Auth V3.0 ~ Auth Service + Token</p>
+<ul>
+<li>基于session的安全机制无法完全套用在微服务上，但可以借鉴其思想</li>
+<li>a. 将登录认证抽取为一个独立的服务，跟独立的用户数据库，该服务统一承担登录认证、会话管理、令牌办法、校验等职责</li>
+<li>b. 引入令牌token作为服务调用认证鉴权的主要凭证；透明令牌是指令牌是一个无意义的随机字符串，但是令牌是跟Auth service上一次登录会话是相关联的，后续可以通过令牌到Auth service上去校验用户的会话是否有效，也可以进一步查询用户详情信息，所以令牌也称为引用令牌：本身不包含数据，但是是auth service上一次用户会话的引用标识符；引用令牌和sessionId类似</li>
+<li>基于Auth Service + Token的登录认证流程：
+<ul>
+<li>用户输入用户名、密码，发起post请求；Auth Service收到请求，从数据库中校验用户信息；校验成功后，则建立用户会话session；session可存数据库或redis中</li>
+<li>Auth Service返回token到客户端，客户端临时存储token(存于cookie或local storage中)</li>
+<li>客户端向后台微服务发起请求，会带上本地存储的token(通过cookie或http header)</li>
+<li>微服务接收到带token的请求，通过向auth service发送一个validate token的请求，去校验token的合法性；如果通过校验，则执行后续操作(取出token和校验token动作一般放在web或服务框架的过滤器中实现)</li>
+<li>在执行后续操作的过程中，微服务若需要额外的用户详情数据，可用token去auth service上获取用户详情信息；根据需要，微服务可通过用户详情中的角色等信息做进一步的鉴权动作</li>
+<li>调用完成，响应返回到客户端</li>
+</ul>
+</li>
+<li>可认为是集中式会话的一个改造版，专门针对微服务场景进行了扩展</li>
+<li>问题：每个微服务都要实现认证鉴权的逻辑，给微服务的开发方引入了复杂性，无法聚焦于业务逻辑的开发；认证鉴权分布在各个微服务中，会带来不规范容易出错的问题，另一方面有潜在的安全风险，如令牌被开发人员忽略，或使用了老版本有漏洞的认证库</li>
+</ul>
+</li>
+<li>
+<p>Auth V3.5 ~ Token + Gateway</p>
+<ul>
+<li>网关截获令牌，并集中到auth service上进行令牌的校验；适合于大部分安全比较严格的微服务应用场景，如电商等</li>
+<li>网关可从auth service获取与token对应的userInfo</li>
+<li>引入网关统一认证鉴权之后，对于基于浏览器的客户端应用，如web、spa应用，登录成功之后，auth service可以把token以cookie的形式，种到客户端浏览器中，并种在同一个根域下面，这样的话，如果在同一个浏览器中访问myStore的不同子域的应用和服务时，网关可以统一处理登录态校验，相当于实现了单点登录，提升用户体验</li>
+<li>一方面解决了微服务安全认证带来的新挑战，另一方面为myStore网站解耦拆分和微服务化，间接为公司后续业务进一步成长奠定了坚实基础</li>
+<li>问题：网站流量大时，为auth service的访问压力比较大，可能成为性能和扩展性的瓶颈，需要严格监控，做好HA，并按序扩容，投入成本高；对于安全不是特别敏感的微服务场景，集中状态校验太笨重，可采用基于JWT的无状态安全校验</li>
+</ul>
+</li>
+<li>
+<p>Auth 3.6 ~ JWT + Gateway</p>
+<ul>
+<li>auth service颁发的不是透明令牌，而是JWT令牌(Json Web Token)；JWT令牌自包含数据和签名，因此，网关可以自己解析和检验JWT令牌，而不需去auth service上集中校验，校验完成后网关可取出用户标识信息，并通过请求向后传递</li>
+<li>可认为是无状态session扩展出来的，根据微服务进行了扩展</li>
+<li>简化了架构，降低了auth service的压力，是一种高性能、可扩展的架构，适用于大部分安全要求不太敏感的微服务场景</li>
+</ul>
+</li>
+</ol>
+<h2 id="jwt令牌原理">JWT令牌原理</h2>
+<ol>
+<li>
+<p>JWT结构</p>
+<ul>
+<li>Json Web Token，是RFC7519定义的一个开放标准，一种紧凑和自包含的Json对象格式，通过它可以在多个系统间安全的传输信息；信息经过数字签名，可以校验，而且是可信任的</li>
+<li>JWT可通过HMAC算法+secret这种方式进行签名，也可基于RSA或ESDSA+公钥密钥对的方式进行签名</li>
+<li>主要用于认证授权的信息交换场景</li>
+<li>结构为：Header . Payload . Signature，三个部分都是通过base64编码的，可通过jwt.io站点进行反编码查看</li>
+</ul>
+</li>
+<li>
+<p>JWT示例</p>
+</li>
+<li>
+<p>JWT类比签名支票</p>
+</li>
+</ol>
+<h2 id="两种jwt流程">两种JWT流程</h2>
+<ol>
+<li>
+<p>HMAC流程</p>
+<ul>
+<li>auth server和resource server提前协商好用于签名的secret，并严格保密</li>
+<li>用户登录请求；auth server通过HMAC算法加secret进行签名，将签名的JWT发送回客户端，客户端收到后进行本地存储；客户端向resource server发出api调用请求，请求中会带上JWT；resource server收到请求后，采用同样的secret对JWT进行解签和校验，通过后执行后续操作，可进一步根据JWT中的数据进行鉴权；最后再进行相应</li>
+</ul>
+</li>
+<li>
+<p>RSA流程</p>
+<ul>
+<li>auth server使用private key生成签名，resource server使用public key进行解签</li>
+<li>总体上比HMAC更加安全，因只用auth server保存私钥，泄漏概率比secret小</li>
+<li>流程与HMAC方式类似</li>
+</ul>
+</li>
+<li>
+<p>JWT优劣</p>
+<table>
+<thead>
+<tr>
+<th>优势</th>
+<th>不足</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>紧凑轻量，尤其适合无线传输场景<!-- raw HTML omitted -->资源服务器自校验，对authServer压力小<!-- raw HTML omitted -->简化authServer实现，无需对用户会话状态进行维护和管理</td>
+<td>无状态和吊销无法两全<!-- raw HTML omitted -->传输开销</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>透明令牌 vs JWT</p>
+<ul>
+<li>类似Java中的引用传递和值传递</li>
+</ul>
+</li>
+</ol>
+<h2 id="staffjoy安全认证架构和sso">Staffjoy安全认证架构和SSO</h2>
+<ol>
+<li>
+<p>Staffjoy Auth</p>
+<ul>
+<li>登录认证由WWW服务承担，令牌集中校验由Faraday网关承担</li>
+<li>登录认证阶段
+<ul>
+<li>用户通过浏览器向WWW服务的login端口post一个登录请求；WWW服务接收到请求，通过调用Account API校验email和password是否正确，校验通过后，WWW服务生成JWT，并以cookie的形式将JWT种到用户浏览器中(种在根域上，即staffjoy.com)；登录成功后，WWW服务还会向浏览器发送302跳转指令，将用户跳转到默认应用(管理员跳转App应用，普通雇员跳转MyAccount应用)或原先视图访问的应用</li>
+</ul>
+</li>
+<li>后续访问阶段
+<ul>
+<li>App单页应用通过浏览器向应用发送http请求，假设请求Account API的数据，英文整个staffjoy的所有应用服务都会在同一个根域下，所以请求会自动带上cookie+JWT，faraday网关会截获请求，提取出cookie中的JWT，并进行校验，同时提取其中的用户信息userId，然后将请求向后台account API进行转发，并在http header中带上userId；account API接收到带有userId的http请求，相当于已经知道这个请求是哪个用户发起的，可以进行进一步的操作，将操作结果通过faraday网关简介返回到用户的浏览器</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Staffjoy JWT Cookie</p>
+<ul>
+<li>通过浏览器查看cookie，value值即JWT</li>
+</ul>
+</li>
+</ol>
+<h2 id="安全认证代码剖析--用户认证">安全认证代码剖析 ~ 用户认证</h2>
+<ol>
+<li>
+<p>引入JWT生成和检验库</p>
+<ul>
+<li>com.auth0.java-jwt 3.6.0</li>
+</ul>
+</li>
+<li>
+<p>xyz.staffjoy.common.crypto.Sign</p>
+<ul>
+<li>生成算法：generateSessionToken()</li>
+<li>校验算法：verifySessionToken()</li>
+</ul>
+</li>
+<li>
+<p>xyz.staffjoy.common.auth.Sessions</p>
+<ul>
+<li>登录login种cookie：loginUser()</li>
+<li>cookie中取出JWT：getToken()</li>
+<li>登出logout清空cookie：logout()</li>
+</ul>
+</li>
+<li>
+<p>xyz.staffjoy.faraday.core.interceptor.AuthRequestInterceptor</p>
+<ul>
+<li>JWT校验 + 取出用户会话数据：getSession()</li>
+<li>网关传递认证授权信息：setAuthHeader()</li>
+</ul>
+</li>
+<li>
+<p>xyz.staffjoy.common.auth.AuthContext 认证上下文助手类</p>
+<ul>
+<li>获取userId：getUserId()</li>
+<li>获取授权信息：getAuthz()</li>
+</ul>
+</li>
+<li>
+<p>xyz.staffjoy.common.auth.FeignRequestHeaderInterceptor</p>
+<ul>
+<li>Feign客户端传递用户认证信息</li>
+</ul>
+</li>
+</ol>
+<h2 id="安全认证代码剖析--服务间调用鉴权">安全认证代码剖析 ~ 服务间调用鉴权</h2>
+<blockquote>
+<p>鉴权：如Account API上的createAccount操作，只允许通过WWW服务或Company服务间接操作，不允许通过Faraday网关直接操作</p>
+</blockquote>
+<ol>
+<li>
+<p>服务间调用授权截获器 xyz.staffjoy.common.auth.AuthorizeInterceptor</p>
+<ul>
+<li>preHandle() 检查是否有授权标注</li>
+<li>xyz.staffjoy.common.auth.Authorize 授权标注类</li>
+</ul>
+</li>
+<li>
+<p>控制器调用鉴权，如xyz.staffjoy.account.controller.AccountController中</p>
+<ul>
+<li>如createAccount接口用@Authorize标注，定义http头有哪些权限才可调用该操作</li>
+<li>用户角色鉴权：validateAuthenticatedUser()</li>
+<li>环境鉴权：validateEnv()</li>
+</ul>
+</li>
+<li>
+<p>API Client传递服务调用方，如xyz.staffjoy.account.client.AccountClient中</p>
+<ul>
+<li>方法参数添加@RequestHeader(AuthConstant.AUTHORIZATION_HEADER) String authz</li>
+</ul>
+</li>
+<li>
+<p>授权Header定义：xyz.staffjoy.common.auth.AuthConstant</p>
+</li>
+<li>
+<p>Staffjoy Auth Enforcement</p>
+<ul>
+<li>用户认证在架构上可强制执行，这点是由网关来保证，因为所有用户操作必须通过网关来转发；网关调内部服务，需要强制加合法的授权header；保证外部访问内部是安全的</li>
+<li>服务间调用的鉴权，是一种内部约定机制，即，服务提供方和消费方相互约定一些授权的header，这个机制无法完全强制执行，可能被绕开，比方说某个内部调用方冒充使用别人的授权header，这个问题在内部服务之间的调用是ok的，因为假定内部服务在同一个授信域里，都会遵循这个规范</li>
+</ul>
+</li>
+</ol>
+<h2 id="用户角色鉴权扩展">用户角色鉴权扩展</h2>
+<ol>
+<li>
+<p>参考权限模型</p>
+<ul>
+<li>实体：App、User、Role、Group</li>
+<li>关联关系：
+<ul>
+<li>UserRegistration：App &lt;-&gt; User</li>
+<li>GroupMember：User &lt;-&gt; Group</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Auth 3.7 ~ JWT + RBAC(Role Based Access Control)</p>
+<ul>
+<li>增加RBAC service：Auth Service在生成令牌时，可通过RBAC service获取用户关联了哪些app、关联了哪些group、有哪些role，这些信息可以填充到JWT数据结构中，一起返回给用户端</li>
+<li>之后客户端访问后台服务时，网关做初步解析和校验，将相关信息继续往后传递</li>
+<li>后面的服务拿到该用户的信息，可以做进一步的鉴权动作</li>
+</ul>
+</li>
+</ol>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="http://example.org/"><img src="/img/favicon.png" />WZhong</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/06-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B5%8B%E8%AF%95%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/" data-toggle="tooltip" data-placement="top" title="">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/04-%E5%8F%AF%E7%BC%96%E7%A8%8B%E7%BD%91%E5%85%B3%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/" data-toggle="tooltip" data-placement="top" title="">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="https://zhaozhihan.com">Linda的博客</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="WZhong" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:zs577215@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    <li>
+                        <a target="_blank" href="/your%20wechat%20qr%20code%20image">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/yourgithub">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yourlinkedinid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/yourstackoverflowid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+            
+                    
+                    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; WZhong 2020
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>

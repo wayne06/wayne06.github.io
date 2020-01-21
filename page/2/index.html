@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta name="generator" content="Hugo 0.62.2" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="WZhong">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="http://example.org//img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="http://example.org//img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="" />
+    <meta property="og:title" content="" />
+    <meta property="twitter:title" content="" />
+    
+
+    
+    <meta name="description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan.">
+    <meta property="og:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    <meta property="twitter:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>WZhong-Wayne Zhong Blog</title>
+
+    <link rel="canonical" href="/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/docco.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">WZhong</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/software-development">software-development</a>
+                    </li>
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+<header class="intro-header" style="background-image: url('/img/home-bg-jeep.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>WZhong </h1>
+                    
+		    <span class="subheading">In the morning, I think I can build everything. In the night, I don&#39;t know what is a computer.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+  
+<div class="container">
+    <div class="row">
+        
+        
+   	    <div class="
+            col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            post-container
+        ">
+            
+
+<div class="post-preview">
+    <a href="http://example.org/post/05-%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/">
+        <h2 class="post-title">
+            
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            安全框架设计和实践 网站安全认证架构演进 ~ 单块阶段   Auth V1 (2006)
+ 认证(authentication)和授权(authorization) 登录阶段  传统安全认证基于服务器端session+浏览器端cookie机制实现，会话session是用户登录状态的一种存储机制，http协议本身是无状态的，一个http请求和下一个http请求是相互独立，互不关联 客户端发起Post请求/user/login；通过校验后，服务器向内存中session添加一条记录：sessionId + 对应用户登录信息；然后服务器将登录成功信息返回给客户端浏览器，同时把sessionId以cookie的形式放入客户端浏览器中 session也可存储其他信息，如购物车，相当于用户数据的临时存储   访问阶段  后续访问阶段，浏览器会在后续请求中将sessionId以cookie的方式发送到web服务器端 在操作必须登录的操作时，服务器在收到带sessionId的请求后，在内存session表中进行比对，若能匹配上，说明用户已经登录认证过，服务器就可以提取用户信息，进行下一步操作；也可以在进行操作前，服务器可以根据用户信息中的角色等信息进行鉴权，判断用户是否有足够权限进行操作   Spring Security以SecurityFilter机制来实现安全认证    Auth V1.1 ~ Sticky Session
+ V1版本无法应对服务器集群方式部署的情况，导致session只存在于一台服务器 解决方案：Sticky Session，即将用户会话粘在一台服务器上  通过负载均衡器截获并记录sessionId和后台服务器ip的关联信息，请求转发时通过关联信息来做转发，保证在一个会话期间，用户请求和某台服务器绑定 Nginx配置即可   问题：  若需要对服务器正常升级部署，或服务器本身出现延迟或宕机，一拨用户的会话会瞬间消失，用户体验差；又如一部分固定用户反馈网站反应慢 扩展性差。粘性会话在负载均衡器和web服务器都保存了状态，整体是有状态架构，随着流量增长，会话对web服务器和负载均衡器都带来了压力，有状态系统难以扩展   解决方案：  会话同步复制：会话数据在服务器间同步复制；服务器间需要复杂的状态同步协议，整体性能和扩展性变低 无状态会话：会话数据不存在服务器，而存在客户端浏览器；通过请求响应循环捎带来传递用户数据；有泄漏风险，需要加密；浏览器对cookie大小有限制，一般4kb，不能存放较大的会话数据 集中状态会话      Auth V1.5 ~ Centralized Session (2009)
+ 将会话数据在专门的服务器上集中存储 会话数据存取性能要求较高，业界一般采用redis这种高性能缓存来做 负载均衡器和服务器都可以水平扩展，集中会话服务器扩展也有很多方案，如redis集群；所以这种方案是高性能、易扩展的解决方案    网站安全认证架构演进 ~ 微服务阶段   微服务认证授权挑战 (2014)
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    Posted by WZhong Monday, January 1, 0001
+    
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="http://example.org/post/06-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B5%8B%E8%AF%95%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/">
+        <h2 class="post-title">
+            
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            微服务测试设计和实践  微服务测试的最大挑战：依赖。解决方案是采用分而治之的策略：a.先针对每一个微服务进行隔离测试，在对每一个微服务进行测试的时候再按照分层的方式进行隔离测试；测试过程中采用mock等技术来隔离依赖简化测试；b.在确保每个微服务通过隔离测试后，再进行整个应用的端到端集成测试
+ 微服务测试分类和技术   Spring(Boot)应用分层
+ controller  服务的对外接口层，负责接收请求和发送响应 中间涉及到消息，一般是json跟对象间的转换，术语叫做序列化，一般由框架封装 控制器需要对输入数据进行校验，由开发人员定制 控制器一般不包含业务逻辑，而是将业务逻辑代理给服务层去做   service + domain  相互配合，共同实现服务的业务逻辑 两种做法：一是业务逻辑主要包含在领域对象内，服务层是领域对象的协调器，称为胖领域模型；一是业务逻辑主要包含在服务层，领域对象除了状态字段基本不包含业务逻辑，称为瘦领域模型   proxy  微服务一般不孤立存在，而是会和其他服务协作实现功能，这时服务会通过服务代理proxy去访问其他服务 服务代理其实就是目标服务的一个客户端；如果采用feign这样的框架，可以实现基于接口代理直接访问目标服务，背后是采用反射+httpClient操作的方式来实现   repository  封装领域对象的数据库存取逻辑，底层基于ORM框架，如hibernate、mybatis；hibernate相对较重，抽象层次较高；mybatis相对轻量、灵活 领域驱动设计(DDD)中的一种数据访问设计模式 在spring data中，直接支持基于repository接口的抽象数据访问层，背后是通过接口反射+调用ORM操作数据库   重点  每个层次及层次间的交互是测试需要覆盖的重点 持久层和服务代理层，涉及到跨越网络边界的调用，较容易出问题 控制器是对外的接口，对入参的校验也特别需要关注      单元测试(Unit Test)：最细粒度的测试
+ 工作在方法、类、若干个协作类级别 单元测试的点：  controller层的测试：入参校验、错误处理逻辑；spring提供MockMVC机制，方便对控制器进行单元测试；对于涉及service层的调用，或proxy调用的地方，采用mock进行隔离 service和domain的测试：如果有业务规则逻辑计算，需进行充分的单元测试，保证业务逻辑规则的正确性；对于涉及repository层的调用，或proxy调用的地方，采用mock进行隔离 repository层的测试：repository层涉及领域对象的存储和修改，是微服务应用的底层基础，为了保证数据存取逻辑的正确性，repository层需要充分的测试；因为持久层涉及和数据库进行跨进程网络的交互，为了方便单元测试，在单元测试时使用嵌入式内存数据库，通过隔离外部依赖，让测试做到自包含，这样单元测试更稳定，反馈周期更快；比如在spring进行单元测试时，可使用H2内存数据库暂时替代外部数据库 对于proxy层，基本是目标服务的接口，没有特别的业务逻辑，没有必要进行单元测试；对于设计底层通讯和错误处理的部分，由集成测试进行覆盖 对于微服务中抽取出来的公共类，由于逻辑相对独立，适合充分的单元测试   工具：  junit mockito spring提供的MockMVC、@SpringBootTest   单元测试即使有充分的覆盖度，最多也只能保证每个层次独立工作的正确性，不能保证层次间协作逻辑的正确性，更不能保证系统工作的正确性    集成测试(Integration Test)
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    Posted by WZhong Monday, January 1, 0001
+    
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="http://example.org/post/07-%E5%8F%AF%E8%BF%90%E7%BB%B4%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/">
+        <h2 class="post-title">
+            
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            可运维架构设计和实践  架构的可运维性主要和配置、监控(日志，调用链，metrics，告警)、部署相关
+ 何谓生产就绪 Production Ready   经典软件工程阶段
+ 需求分析 -&gt; 架构设计 -&gt; 实现测试 -&gt; 部署运维    互联网软件交付阶段
+ 编码完成 -&gt; 生产就绪 -&gt; 价值交付    何谓生产就绪
+ 功能测试OK 性能测试OK 配置管理 日志监控 Metrics监控：调用树，调用延迟，出错树 健康检查 调用链监控 安全性考量 高可用考量 扩展升级考量    Spring Boot如何实现分环境配置   Staffjoy环境
+ Dev：IntelliJ IDEA TEST：Docker Compose UAT/PROD：K8s    示例：accountService
+ resources下有5个yml配置文件，利用spring profile机制实现  公共配置文件：application.yml 分环境配置文件：application-dev.yml，application-test.yml，application-uat.yml，application-prod.yml      配置管理：Apollo vs.
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    Posted by WZhong Monday, January 1, 0001
+    
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="http://example.org/post/08-%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96%E5%92%8Cdocker-compose%E9%83%A8%E7%BD%B2/">
+        <h2 class="post-title">
+            
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            服务容器化和Docker Compose部署  在面对复杂的分布式微服务应用时，传统的手工的基于物理机或虚拟机的部署方式效率低下且容易出错；Docker容器技术的出现，提供了一种可靠的打包和交付微服务的机制；另外向K8s这样的容器云平台的引入，可以进一步简化分布式微服务的部署和管理；通过K8s可以做到一键部署整个微服务应用，也可以一键扩容微服务应用；因此业界开始提出云原生Cloud Native架构理念，也就是说应用开发不仅要用微服务的方式组织架构，而且在架构上一开始就要考虑直接面向容器云环境部署。微服务架构和云原生架构相辅相成，微服务若离开了容器或容器云，部署和运维效率就会大打折扣
+ 本地开发部署架构和需求   本地IDE部署架构
+ 各服务对应不同端口    软件需求
+ SwitchHosts SkyWalking 6.1.0：配置agent.service_name、collector.backend_service MySQL 5.7 阿里云邮箱账户：用于校验功能    手工服务部署和测试   部署步骤
+  清理释放内存
+ 活动监控器 关闭Docker等大进程    部署数据库
+ staffjoy_account staffjoy_company    部署SkyWalking
+ bin/startup.sh(字节码注入的方式运行) IDE设置skywalking-agent  VM options: -javaagent:D:\apache-skywalking-apm-bin\agent Environment variables: SW_AGENT_NAME:account-svc      部署服务
+ 本地机密数据配置  config/*.yml   faraday网关配置review  mappings:-name: faraday_route host: faraday.
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    Posted by WZhong Monday, January 1, 0001
+    
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="http://example.org/post/09-%E4%BA%91%E5%8E%9F%E7%94%9F%E6%9E%B6%E6%9E%84%E5%92%8Ckubernetes%E5%AE%B9%E5%99%A8%E4%BA%91%E9%83%A8%E7%BD%B2/">
+        <h2 class="post-title">
+            
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            云原生架构和Kubernetes容器云部署 到底什么是云原生架构   云原生应用定义
+ 软件开发行业，早前从XP(ExtremeProgramming)极限编程、敏捷Agile、DevOps等，没有明确定义，是业界最佳实践的一些统称 Applications adoptiong the principles of Microservices packaged as Containers orchestracted by Platforms running on top of Cloud infrastructure, developed using practices such as Continous Delivery and DevOps. 基于微服务原理开发的应用，以容器方式打包；在运行时，容器由运行于云基础设施之上的平台进行调度；应用开发采用持续交付和DevOps实践    云演进史
+ Non-Virtualized：企业计算一般直接采用硬件服务器，如sun提供的中高端企业计算服务器 Virtualization：可以用软件方式按需创建虚拟机 IaaS(Infrastructure as a Service)：基础设施即服务，把计算、网络、存储封装成可以按需使用的资源，amazon将其商业化，退出了AWS公有云 PaaS(Platform as a Service)：平台即服务，比IaaS的抽象层次更高，IaaS主要面向计算、网络、存储这些计算资源，PaaS是一个应用的运行时平台，用户在PaaS平台上可直接部署应用，不需要关心底层的计算资源；HEROKU可认为是现代云原生平台的鼻祖或原型 Open Souce IaaS：开源IaaS产品，标志性的就是Openstack，它满足中大型企业自建私有云的需求 Open Souce PaaS：开源PaaS产品，标志性的就是Cloud Foundry，后被Pivotal收购 Containers：颠覆式的Docker容器技术出现，从开始就走开源路线，使得容器技术在行业内快速普及 Cloud Native：随着Docker和K8s的快速普及，大厂开始了立标准的过程，成立了CNCF组织，专门推动云原生项目的治理、推广和应用，标志着计算进入了云原生时代     2000 2001 2006 2009 2010 2011 2013 2015     Sun vmware amazon HEROKU openstack CLOUD FOUNDRY docker CLOUD NATIVE   Non-Virtualized Hardware Virtualization IaaS PaaS Open Source IaaS Open Source PaaS Containers Cloud Native      CNCF - Cloud Native Computing Foundation
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    Posted by WZhong Monday, January 1, 0001
+    
+    
+    </p>
+
+</div>
+<hr>
+
+
+            
+
+
+<ul class="pager">
+    
+    <li class="previous">
+        <a href="/">&larr; Newer Posts</a>
+    </li>
+    
+    
+    <li class="next">
+        <a href="/page/3/">Older Posts &rarr;</a>
+    </li>
+    
+</ul>
+
+
+       	</div>
+        
+
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5>FEATURED TAGS</h5>
+        <div class="tags">
+             
+            
+                
+            
+                
+            
+                
+            
+        </div>
+    </section>
+    
+
+    
+	
+    <section class="visible-md visible-lg">
+	<hr><h5><a href="/top/about">ABOUT ME</a></h5>
+        <div class="short-about">
+            
+            <a href="/top/about">
+               <img src="/img/wnzhong.png" alt="avatar" style="cursor: pointer" />
+            </a>
+            
+            
+                <p>Software Developer, Open Source Enthusiast and Life Adventurer</p>
+            
+           
+           <ul class="list-inline"> 
+               
+               <li>
+                   <a href='/index.xml' rel="alternate" type="application/rss+xml" title="WZhong" >
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+               
+               
+               
+               
+               <li>
+                   <a target="_blank" href="/your%20wechat%20qr%20code%20image">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+               <li>
+                   <a target="_blank" href="https://github.com/yourgithub">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+               
+               
+               <li>
+                   <a target="_blank" href="https://www.linkedin.com/in/yourlinkedinid">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+               
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/yourstackoverflowid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+            
+            
+            
+               
+                </ul>
+            </div>
+    </section>
+	
+    
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5>FRIENDS</h5>
+        <ul class="list-inline">
+            
+            <li><a target="_blank" href="https://zhaozhihan.com">Linda的博客</a></li>
+            
+        </ul>
+    </section>
+    
+
+    
+    
+</div>
+
+	</div>
+</div>
+
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='/index.xml' rel="alternate" type="application/rss+xml" title="WZhong" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:zs577215@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    <li>
+                        <a target="_blank" href="/your%20wechat%20qr%20code%20image">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/yourgithub">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yourlinkedinid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/yourstackoverflowid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+            
+                    
+                    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; WZhong 2020
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>

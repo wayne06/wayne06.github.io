@@ -34,9 +34,9 @@
     <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Posts-Wayne Zhong Blog</title>
+    <title>Wayne Zhong Blog</title>
 
-    <link rel="canonical" href="/post/">
+    <link rel="canonical" href="/post/01-%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%A1%88%E4%BE%8B%E9%9C%80%E6%B1%82/">
 
     <link rel="stylesheet" href="/css/iDisqus.min.css"/>
 	
@@ -158,14 +158,33 @@
 
 
 
-<header class="intro-header" style="background-image: url('/img/home-bg-jeep.jpg')">
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/home-bg-jeep.jpg')
+    }
+</style>
+<header class="intro-header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>WZhong </h1>
-                    
-		    <span class="subheading">In the morning, I think I can build everything. In the night, I don&#39;t know what is a computer.</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1></h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                WZhong
+                         
+                        on 
+                        Monday, January 1, 0001
+                        
+                        
+                        
+                    </span>
                 </div>
             </div>
         </div>
@@ -178,13 +197,171 @@
 <article>
     <div class="container">
         <div class="row">
+
             
             <div class="
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 post-container">
 
-         	
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#dev">Dev</a></li>
+    <li><a href="#ops">Ops</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#功能">功能</a></li>
+    <li><a href="#非功能">非功能</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#先决条件">先决条件</a></li>
+    <li><a href="#开发工具">开发工具</a></li>
+    <li><a href="#重点">重点</a></li>
+    <li><a href="#非重点">非重点</a></li>
+    <li><a href="#staffjoy改造">Staffjoy改造</a></li>
+  </ul>
+</nav>
+                
+                <h1 id="学习目标">学习目标</h1>
+<h2 id="dev">Dev</h2>
+<ol>
+<li>
+<p>掌握<strong>微服务架构</strong>和<strong>前后分离架构</strong>设计</p>
+</li>
+<li>
+<p>掌握<strong>基于Spring Boot搭建微服务基础框架</strong></p>
+</li>
+<li>
+<p>进一步提升<strong>Java/Spring微服务开发技能</strong></p>
+</li>
+<li>
+<p>掌握<strong>Spring Boot微服务测试</strong>和相关实践</p>
+</li>
+<li>
+<p>理解<strong>SaaS多租户应用的架构和设计</strong></p>
+</li>
+</ol>
+<h2 id="ops">Ops</h2>
+<ol>
+<li>
+<p>理解<strong>可运维架构</strong>理念和相关实践</p>
+</li>
+<li>
+<p>掌握<strong>服务容器化</strong>和<strong>容器云部署</strong>相关实践</p>
+</li>
+<li>
+<p>理解<strong>云时代的软件工程流程</strong>和实践</p>
+</li>
+</ol>
+<h1 id="案例需求staffjoy工时排班schedulingsaas服务">案例需求：Staffjoy工时排班（Scheduling）SaaS服务</h1>
+<h2 id="功能">功能</h2>
+<ol>
+<li>管理员Admin管理公司和排班</li>
+<li>雇员Worker管理个人信息</li>
+</ol>
+<h2 id="非功能">非功能</h2>
+<ol>
+<li>SaaS + 定制部署</li>
+<li>一键部署到Kubernetes容器云</li>
+<li>营销和客服友好（Marketing &amp; Customer Friendly）</li>
+</ol>
+<h1 id="一些说明">一些说明</h1>
+<h2 id="先决条件">先决条件</h2>
+<ol>
+<li>应用开发工程师、DevOps工程师、架构师</li>
+<li>Java/Spring、Web/HTML/JavaScript、MySQL</li>
+</ol>
+<h2 id="开发工具">开发工具</h2>
+<ol>
+<li>JDK8 + Maven</li>
+<li>IntelliJ IDEA</li>
+<li>MySQL + Workbench</li>
+<li>Node.js + npm</li>
+<li>Docker</li>
+</ol>
+<h2 id="重点">重点</h2>
+<ol>
+<li>微服务和云原生架构</li>
+<li>Spring Boot + Kubernetes应用</li>
+</ol>
+<h2 id="非重点">非重点</h2>
+<ol>
+<li>案例本身</li>
+<li>React.js</li>
+</ol>
+<h2 id="staffjoy改造">Staffjoy改造</h2>
+<ol>
+<li>Golang -&gt; Java/Spring</li>
+<li>去掉gRPC API Gateway</li>
+<li>默认采用邮件通知</li>
+<li>使用Lombok减少编码</li>
+</ol>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="http://example.org/"><img src="/img/favicon.png" />WZhong</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/02-%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E6%8A%80%E6%9C%AF%E6%A0%88%E9%80%89%E5%9E%8B/" data-toggle="tooltip" data-placement="top" title="">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/the-1st-blog-for-testing/" data-toggle="tooltip" data-placement="top" title="The 1st blog for testing">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
                 
 <div id="disqus-comment"></div>
 
@@ -242,7 +419,7 @@
                 <ul class="list-inline text-center">
                    
                    <li>
-                       <a href='/post/index.xml' rel="alternate" type="application/rss+xml" title="WZhong" >
+                       <a href='' rel="alternate" type="application/rss+xml" title="WZhong" >
                            <span class="fa-stack fa-lg">
                                <i class="fa fa-circle fa-stack-2x"></i>
                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>

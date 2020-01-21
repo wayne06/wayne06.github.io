@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="WZhong">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="http://example.org//img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="http://example.org//img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="" />
+    <meta property="og:title" content="" />
+    <meta property="twitter:title" content="" />
+    
+
+    
+    <meta name="description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan.">
+    <meta property="og:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    <meta property="twitter:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Wayne Zhong Blog</title>
+
+    <link rel="canonical" href="/post/06-%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B5%8B%E8%AF%95%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/docco.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">WZhong</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/software-development">software-development</a>
+                    </li>
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/home-bg-jeep.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1></h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                WZhong
+                         
+                        on 
+                        Monday, January 1, 0001
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#微服务测试分类和技术">微服务测试分类和技术</a></li>
+    <li><a href="#测试金字塔和实践">测试金字塔和实践</a></li>
+    <li><a href="#test-case-review--单元测试">Test Case Review ~ 单元测试</a></li>
+    <li><a href="#test-case-review--集成测试">Test Case Review ~ 集成测试</a></li>
+    <li><a href="#test-case-review--组件测试">Test Case Review ~ 组件测试</a></li>
+    <li><a href="#测试补充">测试补充</a></li>
+  </ul>
+</nav>
+                
+                <h1 id="微服务测试设计和实践">微服务测试设计和实践</h1>
+<blockquote>
+<p>微服务测试的最大挑战：依赖。<!-- raw HTML omitted -->解决方案是采用分而治之的策略：<!-- raw HTML omitted -->a.先针对每一个微服务进行隔离测试，在对每一个微服务进行测试的时候再按照分层的方式进行隔离测试；测试过程中采用mock等技术来隔离依赖简化测试；<!-- raw HTML omitted -->b.在确保每个微服务通过隔离测试后，再进行整个应用的端到端集成测试</p>
+</blockquote>
+<h2 id="微服务测试分类和技术">微服务测试分类和技术</h2>
+<ol>
+<li>
+<p>Spring(Boot)应用分层</p>
+<ul>
+<li>controller
+<ul>
+<li>服务的对外接口层，负责接收请求和发送响应</li>
+<li>中间涉及到消息，一般是json跟对象间的转换，术语叫做序列化，一般由框架封装</li>
+<li>控制器需要对输入数据进行校验，由开发人员定制</li>
+<li>控制器一般不包含业务逻辑，而是将业务逻辑代理给服务层去做</li>
+</ul>
+</li>
+<li>service + domain
+<ul>
+<li>相互配合，共同实现服务的业务逻辑</li>
+<li>两种做法：一是业务逻辑主要包含在领域对象内，服务层是领域对象的协调器，称为胖领域模型；一是业务逻辑主要包含在服务层，领域对象除了状态字段基本不包含业务逻辑，称为瘦领域模型</li>
+</ul>
+</li>
+<li>proxy
+<ul>
+<li>微服务一般不孤立存在，而是会和其他服务协作实现功能，这时服务会通过服务代理proxy去访问其他服务</li>
+<li>服务代理其实就是目标服务的一个客户端；如果采用feign这样的框架，可以实现基于接口代理直接访问目标服务，背后是采用反射+httpClient操作的方式来实现</li>
+</ul>
+</li>
+<li>repository
+<ul>
+<li>封装领域对象的数据库存取逻辑，底层基于ORM框架，如hibernate、mybatis；hibernate相对较重，抽象层次较高；mybatis相对轻量、灵活</li>
+<li>领域驱动设计(DDD)中的一种数据访问设计模式</li>
+<li>在spring data中，直接支持基于repository接口的抽象数据访问层，背后是通过接口反射+调用ORM操作数据库</li>
+</ul>
+</li>
+<li>重点
+<ul>
+<li>每个层次及层次间的交互是测试需要覆盖的重点</li>
+<li>持久层和服务代理层，涉及到跨越网络边界的调用，较容易出问题</li>
+<li>控制器是对外的接口，对入参的校验也特别需要关注</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>单元测试(Unit Test)：最细粒度的测试</p>
+<ul>
+<li>工作在方法、类、若干个协作类级别</li>
+<li>单元测试的点：
+<ul>
+<li>controller层的测试：入参校验、错误处理逻辑；spring提供MockMVC机制，方便对控制器进行单元测试；对于涉及service层的调用，或proxy调用的地方，采用mock进行隔离</li>
+<li>service和domain的测试：如果有业务规则逻辑计算，需进行充分的单元测试，保证业务逻辑规则的正确性；对于涉及repository层的调用，或proxy调用的地方，采用mock进行隔离</li>
+<li>repository层的测试：repository层涉及领域对象的存储和修改，是微服务应用的底层基础，为了保证数据存取逻辑的正确性，repository层需要充分的测试；因为持久层涉及和数据库进行跨进程网络的交互，为了方便单元测试，在单元测试时使用嵌入式内存数据库，通过隔离外部依赖，让测试做到自包含，这样单元测试更稳定，反馈周期更快；比如在spring进行单元测试时，可使用H2内存数据库暂时替代外部数据库</li>
+<li>对于proxy层，基本是目标服务的接口，没有特别的业务逻辑，没有必要进行单元测试；对于设计底层通讯和错误处理的部分，由集成测试进行覆盖</li>
+<li>对于微服务中抽取出来的公共类，由于逻辑相对独立，适合充分的单元测试</li>
+</ul>
+</li>
+<li>工具：
+<ul>
+<li>junit</li>
+<li>mockito</li>
+<li>spring提供的MockMVC、@SpringBootTest</li>
+</ul>
+</li>
+<li>单元测试即使有充分的覆盖度，最多也只能保证每个层次独立工作的正确性，不能保证层次间协作逻辑的正确性，更不能保证系统工作的正确性</li>
+</ul>
+</li>
+<li>
+<p>集成测试(Integration Test)</p>
+<ul>
+<li>针对组件之间有交互的地方，保证服务接口和通讯链路的正确性</li>
+<li>微服务场景下，集成测试的点包括：
+<ul>
+<li>服务通过proxy访问外部服务的地方：需要测试请求响应交互逻辑，包括成功和失败、底层序列化、http处理、请求参数(包括http头参数)校验、错误处理逻辑；对远端服务集成测试时，为避免状态依赖，可以mock后端或预置一些mock数据，因为集成重点是发现接口交互错误，而不是后台逻辑</li>
+<li>持久层通过网络存取远程数据库的地方</li>
+</ul>
+</li>
+<li>与单元测试互为补充，一个关注交互，一个关注内核模块</li>
+</ul>
+</li>
+<li>
+<p>组件测试(Component Test)</p>
+<ul>
+<li>讲一个微服务看作一个独立的逻辑组件，不关心内部细节，而是看作一个黑箱，仅对其暴露的公开接口进行测试，这时一般需要把微服务的外部依赖给mock掉，这样才能保证其逻辑独立性</li>
+<li>对外部依赖mock有两种方式：
+<ul>
+<li>组件内部Mock：具有更好的自包含性和测试稳定性，是开发人员常用的方法；spring支持mockbean，直接把依赖的proxy给mock掉；wiremock工具也常用来mock外部依赖，比mockbean工作在更低层次的协议层次，可做更细粒度的mock控制</li>
+<li>组件外部Mock：这种方式对组件无侵入，通过搭建独立的mock service来实现，是测试人员常用的测试方法，可在mock service上定制各种灵活复杂的微服务测试场景；高级的mock service还支持录制回放的功能、模拟网络延迟、随机失败的场景；业界称为API simulation；工具有HoverFly、mbtest</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>契约测试(Contract Test)</p>
+<ul>
+<li>由来
+<ul>
+<li>微服务作为业务服务的提供方，需要有消费者使用才能共同产生业务价值，而服务提供方和消费方之所以能够正确交互，是因为他们之间共同约定并遵守一个契约，契约规范了双方交互输入输出所必须的字段和格式；同时服务提供方一直在升级当中</li>
+<li>如果没有相应的测试手段，服务提供方可能由于某次疏忽而break了某个消费方，现实生产中经常发生</li>
+<li>所以需要契约测试，来保证提供方和消费方之间的契约没有被违反</li>
+</ul>
+</li>
+<li>契约测试一般由消费方开发，根据自己的业务需要定义契约，先验证自己测试通过，然后将契约交给生产方去验证；相当于消费方提供给服务方的接口需求，可以用来驱动服务方的生产设计和开发，所以业界称为消费者驱动契约(Consumer Driven Contract)</li>
+<li>工具：PACT、Spring-cloud-contract</li>
+</ul>
+</li>
+<li>
+<p>契约驱动测试</p>
+<ul>
+<li>Contract is input for Mock Provider</li>
+<li>Contract is input for Mock Consumer</li>
+</ul>
+</li>
+<li>
+<p>端到端测试(End-to-End Test)</p>
+<ul>
+<li>将整个系统看作一个黑盒，通过其接口(gui或api)对整个应用整体进行业务功能和非功能的测试</li>
+<li>工具：Selenium、REST-assured</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单元测试</td>
+<td>确保类、模块功能正确</td>
+</tr>
+<tr>
+<td>集成测试</td>
+<td>确保组件间接口、交互、链路正确</td>
+</tr>
+<tr>
+<td>组件测试</td>
+<td>确保微服务作为独立整体，接口功能正确</td>
+</tr>
+<tr>
+<td>契约测试</td>
+<td>确保服务提供方和消费方都遵循契约规范</td>
+</tr>
+<tr>
+<td>端到端测试</td>
+<td>确保整个应用满足用户需求</td>
+</tr>
+<tr>
+<td>探索测试</td>
+<td>手工探索学习系统功能，改进自动化测试</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h2 id="测试金字塔和实践">测试金字塔和实践</h2>
+<ol>
+<li>
+<p>测试金字塔</p>
+<ul>
+<li>Unit -&gt; Integration -&gt; Component -&gt; End-to-End -&gt; Exploratory</li>
+<li>数量减少，粒度变粗，覆盖面增加，稳定性降低，测试变慢</li>
+</ul>
+</li>
+<li>
+<p>端到端测试实践</p>
+<ul>
+<li>粒度最粗， 涉及到依赖、状态、异步等可变因素很多，是最不稳定的测试</li>
+<li>开发投入和维护成本最高</li>
+<li>最佳实践
+<ul>
+<li>80/20，聚焦核心业务服务</li>
+<li>用户使用场景驱动</li>
+<li>适当使用Mock来覆盖不稳定的测试点</li>
+<li>规范测试环境和环境自动化：如k8s一键创建微服务测试环境</li>
+<li>测试数据管理：快速创建测试数据</li>
+<li>灰度测试：线上测试，一部分新功能让一部分用户使用，如beta测试，通过后再放量</li>
+<li>生产监控：弥补线下测试的不足</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="test-case-review--单元测试">Test Case Review ~ 单元测试</h2>
+<ol>
+<li>
+<p>case1：repository层测试，使用In Memory DB</p>
+<ul>
+<li>application.yml：account-svc\src\test\resources\application.yml</li>
+<li>AccountRepoTest：xyz.staffjoy.account.repo.AccountRepoTest</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#75715e"># ****** H2 In Memory Database Connection Info *******</span>
+spring:
+...
+datasource: <span style="color:#75715e"># use in-memory db for unit testing</span>
+    url: jdbc:h2:mem:staffjoy_account;DB_CLOSE_DELAY=-<span style="color:#ae81ff">1</span>;DB_CLOSE_ON_EXIT=FALSE;MODE=MYSQL
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+    continue-on-error: <span style="color:#66d9ef">false</span>
+    platform: h2
+    schema: classpath:/db/schema.sql
+h2:
+    console:
+    enabled: <span style="color:#66d9ef">true</span>
+jpa:
+    hibernate:
+    ddl-auto: validate
+    show-sql: <span style="color:#66d9ef">true</span>
+    properties:
+    hibernate:
+        format_sql: <span style="color:#66d9ef">true</span>
+output:
+    ansi:
+    enabled: always
+
+staffjoy:
+common:
+    sentry-dsn: ${SENTRY_DSN:https://8822f4ae889b433f9fe72e3904665246@sentry.io/<span style="color:#ae81ff">1234888</span>} <span style="color:#75715e"># mock for test</span>
+    deploy-env: ${DEPLOY:V2}
+signing-secret: ${SIGNING_SECRET:TEST_SECRET}
+email-service-endpoint: http://email-service
+company-service-endpoint: http://company-service
+bot-service-endpoint: http://bot-service
+account-service-endpoint: http://localhost:<span style="color:#ae81ff">8080</span> <span style="color:#75715e"># for testing only</span>
+intercom-access-token: ${INTERCOM_ACCESS_TOKEN:TEST_INTERCOM_ACCESS_TOKEN}
+
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@SpringBootTest</span><span style="color:#f92672">(</span>webEnvironment<span style="color:#f92672">=</span> SpringBootTest<span style="color:#f92672">.</span><span style="color:#a6e22e">WebEnvironment</span><span style="color:#f92672">.</span><span style="color:#a6e22e">NONE</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@RunWith</span><span style="color:#f92672">(</span>SpringRunner<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AccountRepoTest</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">private</span> AccountRepo accountRepo<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">private</span> AccountSecretRepo accountSecretRepo<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">private</span> Account newAccount<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Before</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setUp</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        newAccount <span style="color:#f92672">=</span> Account<span style="color:#f92672">.</span><span style="color:#a6e22e">builder</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;testAccount&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">email</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;test@staffjoy.net&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">memberSince</span><span style="color:#f92672">(</span>LocalDateTime<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span>2019<span style="color:#f92672">,</span> 1<span style="color:#f92672">,</span> 20<span style="color:#f92672">,</span> 12<span style="color:#f92672">,</span> 50<span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">atZone</span><span style="color:#f92672">(</span>ZoneId<span style="color:#f92672">.</span><span style="color:#a6e22e">systemDefault</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">toInstant</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">confirmedAndActive</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">photoUrl</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;https://staffjoy.xyz/photo/test.png&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">phoneNumber</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;18001801266&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">support</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#75715e">// sanity check
+</span><span style="color:#75715e"></span>        accountRepo<span style="color:#f92672">.</span><span style="color:#a6e22e">deleteAll</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Test</span><span style="color:#75715e">//(expected = DuplicateKeyException.class)
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">createSampleAccount</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        accountRepo<span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>newAccount<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertTrue<span style="color:#f92672">(</span>accountRepo<span style="color:#f92672">.</span><span style="color:#a6e22e">existsById</span><span style="color:#f92672">(</span>newAccount<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">getAccountById</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        accountRepo<span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>newAccount<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertEquals<span style="color:#f92672">(</span>1<span style="color:#f92672">,</span> accountRepo<span style="color:#f92672">.</span><span style="color:#a6e22e">count</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        Account foundAccount <span style="color:#f92672">=</span> accountRepo<span style="color:#f92672">.</span><span style="color:#a6e22e">findById</span><span style="color:#f92672">(</span>newAccount<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertEquals<span style="color:#f92672">(</span>newAccount<span style="color:#f92672">,</span> foundAccount<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>case2：controller层测试，校验输入输出是否合法</p>
+<ul>
+<li>xyz.staffjoy.company.controller.ut.CompanyControllerUnitTest</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RunWith</span><span style="color:#f92672">(</span>SpringRunner<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@SpringBootTest</span>
+<span style="color:#a6e22e">@AutoConfigureMockMvc</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CompanyControllerUnitTest</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    MockMvc mockMvc<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@MockBean</span>
+    CompanyService companyService<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    ObjectMapper objectMapper<span style="color:#f92672">;</span>
+
+    CompanyDto newCompanyDto<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Rule</span>
+    <span style="color:#66d9ef">public</span> ExpectedException expectedEx <span style="color:#f92672">=</span> ExpectedException<span style="color:#f92672">.</span><span style="color:#a6e22e">none</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Before</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setUp</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        newCompanyDto <span style="color:#f92672">=</span> CompanyDto<span style="color:#f92672">.</span><span style="color:#a6e22e">builder</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">archived</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;test-company&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">defaultDayWeekStarts</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Monday&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">defaultTimezone</span><span style="color:#f92672">(</span>TimeZone<span style="color:#f92672">.</span><span style="color:#a6e22e">getDefault</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getID</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Test</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testCreateCompanyAuthorizeMissing</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+
+        MvcResult mvcResult <span style="color:#f92672">=</span> mockMvc<span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>post<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/v1/company/create&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">contentType</span><span style="color:#f92672">(</span>MediaType<span style="color:#f92672">.</span><span style="color:#a6e22e">APPLICATION_JSON</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">content</span><span style="color:#f92672">(</span>objectMapper<span style="color:#f92672">.</span><span style="color:#a6e22e">writeValueAsBytes</span><span style="color:#f92672">(</span>newCompanyDto<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isOk</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andReturn</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+        GenericCompanyResponse genericCompanyResponse <span style="color:#f92672">=</span> objectMapper<span style="color:#f92672">.</span><span style="color:#a6e22e">readValue</span><span style="color:#f92672">(</span>mvcResult<span style="color:#f92672">.</span><span style="color:#a6e22e">getResponse</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getContentAsString</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">,</span> GenericCompanyResponse<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>genericCompanyResponse<span style="color:#f92672">.</span><span style="color:#a6e22e">isSuccess</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isFalse</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>genericCompanyResponse<span style="color:#f92672">.</span><span style="color:#a6e22e">getCode</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isEqualTo</span><span style="color:#f92672">(</span>ResultCode<span style="color:#f92672">.</span><span style="color:#a6e22e">UN_AUTHORIZED</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testCreateCompanyPermissionDeniedException</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+
+        MvcResult mvcResult <span style="color:#f92672">=</span> mockMvc<span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>post<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/v1/company/create&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">contentType</span><span style="color:#f92672">(</span>MediaType<span style="color:#f92672">.</span><span style="color:#a6e22e">APPLICATION_JSON</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">header</span><span style="color:#f92672">(</span>AuthConstant<span style="color:#f92672">.</span><span style="color:#a6e22e">AUTHORIZATION_HEADER</span><span style="color:#f92672">,</span> AuthConstant<span style="color:#f92672">.</span><span style="color:#a6e22e">AUTHORIZATION_COMPANY_SERVICE</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">content</span><span style="color:#f92672">(</span>objectMapper<span style="color:#f92672">.</span><span style="color:#a6e22e">writeValueAsBytes</span><span style="color:#f92672">(</span>newCompanyDto<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isOk</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andReturn</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+        GenericCompanyResponse genericCompanyResponse <span style="color:#f92672">=</span> objectMapper<span style="color:#f92672">.</span><span style="color:#a6e22e">readValue</span><span style="color:#f92672">(</span>mvcResult<span style="color:#f92672">.</span><span style="color:#a6e22e">getResponse</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getContentAsString</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">,</span> GenericCompanyResponse<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>genericCompanyResponse<span style="color:#f92672">.</span><span style="color:#a6e22e">isSuccess</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isFalse</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>genericCompanyResponse<span style="color:#f92672">.</span><span style="color:#a6e22e">getCode</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isEqualTo</span><span style="color:#f92672">(</span>ResultCode<span style="color:#f92672">.</span><span style="color:#a6e22e">UN_AUTHORIZED</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+</ol>
+<h2 id="test-case-review--集成测试">Test Case Review ~ 集成测试</h2>
+<ol>
+<li>
+<p>repository访问外部数据库，涉及到跨进程调用</p>
+<ul>
+<li>代码略</li>
+</ul>
+</li>
+<li>
+<p>proxy调用外部服务，涉及到跨进程调用</p>
+<ul>
+<li>accountClient去调用accountController</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RunWith</span><span style="color:#f92672">(</span>SpringRunner<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@SpringBootTest</span><span style="color:#f92672">(</span>webEnvironment <span style="color:#f92672">=</span> SpringBootTest<span style="color:#f92672">.</span><span style="color:#a6e22e">WebEnvironment</span><span style="color:#f92672">.</span><span style="color:#a6e22e">DEFINED_PORT</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@EnableFeignClients</span><span style="color:#f92672">(</span>basePackages <span style="color:#f92672">=</span> <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;xyz.staffjoy.account.client&#34;</span><span style="color:#f92672">}</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Import</span><span style="color:#f92672">(</span>TestConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Slf4j</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AccountControllerTest</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    AccountClient accountClient<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    EnvConfig envConfig<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@MockBean</span>
+    MailClient mailClient<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@MockBean</span>
+    BotClient botClient<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">private</span> AccountRepo accountRepo<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">private</span> AccountSecretRepo accountSecretRepo<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">private</span> Account newAccount<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Before</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setUp</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">// sanity check
+</span><span style="color:#75715e"></span>        accountRepo<span style="color:#f92672">.</span><span style="color:#a6e22e">deleteAll</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#75715e">// clear CURRENT_USER_HEADER for testing
+</span><span style="color:#75715e"></span>        TestConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">TEST_USER_ID</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testUpdateAccount</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">// arrange mock
+</span><span style="color:#75715e"></span>        when<span style="color:#f92672">(</span>mailClient<span style="color:#f92672">.</span><span style="color:#a6e22e">send</span><span style="color:#f92672">(</span>any<span style="color:#f92672">(</span>EmailRequest<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">thenReturn</span><span style="color:#f92672">(</span>BaseResponse<span style="color:#f92672">.</span><span style="color:#a6e22e">builder</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">message</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;email sent&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        when<span style="color:#f92672">(</span>botClient<span style="color:#f92672">.</span><span style="color:#a6e22e">sendSmsGreeting</span><span style="color:#f92672">(</span>any<span style="color:#f92672">(</span>GreetingRequest<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">thenReturn</span><span style="color:#f92672">(</span>BaseResponse<span style="color:#f92672">.</span><span style="color:#a6e22e">builder</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">message</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;sms sent&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+        <span style="color:#75715e">// first account
+</span><span style="color:#75715e"></span>        String name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;testAccount001&#34;</span><span style="color:#f92672">;</span>
+        String email <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;test001@staffjoy.xyz&#34;</span><span style="color:#f92672">;</span>
+        String phoneNumber <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;18001801236&#34;</span><span style="color:#f92672">;</span>
+        String subject <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Activate your Staffjoy account&#34;</span><span style="color:#f92672">;</span>
+        CreateAccountRequest createAccountRequest <span style="color:#f92672">=</span> CreateAccountRequest<span style="color:#f92672">.</span><span style="color:#a6e22e">builder</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">(</span>name<span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">email</span><span style="color:#f92672">(</span>email<span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">phoneNumber</span><span style="color:#f92672">(</span>phoneNumber<span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#75715e">// create
+</span><span style="color:#75715e"></span>        GenericAccountResponse genericAccountResponse <span style="color:#f92672">=</span> accountClient<span style="color:#f92672">.</span><span style="color:#a6e22e">createAccount</span><span style="color:#f92672">(</span>AuthConstant<span style="color:#f92672">.</span><span style="color:#a6e22e">AUTHORIZATION_WWW_SERVICE</span><span style="color:#f92672">,</span> createAccountRequest<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>genericAccountResponse<span style="color:#f92672">.</span><span style="color:#a6e22e">isSuccess</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isTrue</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        AccountDto accountDto <span style="color:#f92672">=</span> genericAccountResponse<span style="color:#f92672">.</span><span style="color:#a6e22e">getAccount</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+        <span style="color:#75715e">// update
+</span><span style="color:#75715e"></span>        accountDto<span style="color:#f92672">.</span><span style="color:#a6e22e">setName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;testAccountUpdate&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        accountDto<span style="color:#f92672">.</span><span style="color:#a6e22e">setConfirmedAndActive</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        accountDto<span style="color:#f92672">.</span><span style="color:#a6e22e">setPhoneNumber</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;18001801237&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        GenericAccountResponse genericAccountResponse1 <span style="color:#f92672">=</span> accountClient<span style="color:#f92672">.</span><span style="color:#a6e22e">updateAccount</span><span style="color:#f92672">(</span>AuthConstant<span style="color:#f92672">.</span><span style="color:#a6e22e">AUTHORIZATION_WWW_SERVICE</span><span style="color:#f92672">,</span> accountDto<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        log<span style="color:#f92672">.</span><span style="color:#a6e22e">info</span><span style="color:#f92672">(</span>genericAccountResponse1<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>genericAccountResponse1<span style="color:#f92672">.</span><span style="color:#a6e22e">isSuccess</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isTrue</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        AccountDto updatedAccountDto <span style="color:#f92672">=</span> genericAccountResponse1<span style="color:#f92672">.</span><span style="color:#a6e22e">getAccount</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>updatedAccountDto<span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isEqualTo</span><span style="color:#f92672">(</span>accountDto<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+        <span style="color:#75715e">// capture and verify
+</span><span style="color:#75715e"></span>        ArgumentCaptor<span style="color:#f92672">&lt;</span>GreetingRequest<span style="color:#f92672">&gt;</span> argument <span style="color:#f92672">=</span> ArgumentCaptor<span style="color:#f92672">.</span><span style="color:#a6e22e">forClass</span><span style="color:#f92672">(</span>GreetingRequest<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        verify<span style="color:#f92672">(</span>botClient<span style="color:#f92672">,</span> times<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">sendSmsGreeting</span><span style="color:#f92672">(</span>argument<span style="color:#f92672">.</span><span style="color:#a6e22e">capture</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        GreetingRequest greetingRequest <span style="color:#f92672">=</span> argument<span style="color:#f92672">.</span><span style="color:#a6e22e">getValue</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>greetingRequest<span style="color:#f92672">.</span><span style="color:#a6e22e">getUserId</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isEqualTo</span><span style="color:#f92672">(</span>accountDto<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+</ol>
+<h2 id="test-case-review--组件测试">Test Case Review ~ 组件测试</h2>
+<ol>
+<li>
+<p>示例：测试WWW服务</p>
+<ul>
+<li>xyz.staffjoy.web.controller.LoginControllerTest</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RunWith</span><span style="color:#f92672">(</span>SpringRunner<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@SpringBootTest</span>
+<span style="color:#a6e22e">@AutoConfigureMockMvc</span>
+<span style="color:#a6e22e">@Slf4j</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LoginControllerTest</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Autowired</span>
+    MockMvc mockMvc<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@MockBean</span>
+    AccountClient accountClient<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    EnvConfig envConfig<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    PageFactory pageFactory<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    LoginController loginController<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testAleadyLoggedIn</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        MvcResult mvcResult <span style="color:#f92672">=</span> mockMvc<span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>post<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/login&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">header</span><span style="color:#f92672">(</span>AuthConstant<span style="color:#f92672">.</span><span style="color:#a6e22e">AUTHORIZATION_HEADER</span><span style="color:#f92672">,</span> AuthConstant<span style="color:#f92672">.</span><span style="color:#a6e22e">AUTHORIZATION_AUTHENTICATED_USER</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">is3xxRedirection</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>view<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;redirect:&#34;</span> <span style="color:#f92672">+</span>
+                        HelperService<span style="color:#f92672">.</span><span style="color:#a6e22e">buildUrl</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;http&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;myaccount.&#34;</span> <span style="color:#f92672">+</span> envConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getExternalApex</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andReturn</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testGet</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        MvcResult mvcResult <span style="color:#f92672">=</span> mockMvc<span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>get<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/login&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isOk</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>view<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">(</span>Constant<span style="color:#f92672">.</span><span style="color:#a6e22e">VIEW_LOGIN</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>content<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">string</span><span style="color:#f92672">(</span>containsString<span style="color:#f92672">(</span>pageFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">buildLoginPage</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getDescription</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andReturn</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        log<span style="color:#f92672">.</span><span style="color:#a6e22e">info</span><span style="color:#f92672">(</span>mvcResult<span style="color:#f92672">.</span><span style="color:#a6e22e">getResponse</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getContentAsString</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testLoginAndLogout</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        String name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;test_user&#34;</span><span style="color:#f92672">;</span>
+        String email <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;test@staffjoy.xyz&#34;</span><span style="color:#f92672">;</span>
+        Instant memberSince <span style="color:#f92672">=</span> Instant<span style="color:#f92672">.</span><span style="color:#a6e22e">now</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">minus</span><span style="color:#f92672">(</span>100<span style="color:#f92672">,</span> ChronoUnit<span style="color:#f92672">.</span><span style="color:#a6e22e">DAYS</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        String userId <span style="color:#f92672">=</span> UUID<span style="color:#f92672">.</span><span style="color:#a6e22e">randomUUID</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        AccountDto accountDto <span style="color:#f92672">=</span> AccountDto<span style="color:#f92672">.</span><span style="color:#a6e22e">builder</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">id</span><span style="color:#f92672">(</span>userId<span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">(</span>name<span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">email</span><span style="color:#f92672">(</span>email<span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">memberSince</span><span style="color:#f92672">(</span>memberSince<span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">phoneNumber</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;18001112222&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">confirmedAndActive</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">photoUrl</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;http://www.staffjoy.xyz/photo/test_user.png&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        when<span style="color:#f92672">(</span>accountClient<span style="color:#f92672">.</span><span style="color:#a6e22e">verifyPassword</span><span style="color:#f92672">(</span>anyString<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">,</span> any<span style="color:#f92672">(</span>VerifyPasswordRequest<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">thenReturn</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> GenericAccountResponse<span style="color:#f92672">(</span>accountDto<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+        when<span style="color:#f92672">(</span>accountClient<span style="color:#f92672">.</span><span style="color:#a6e22e">trackEvent</span><span style="color:#f92672">(</span>any<span style="color:#f92672">(</span>TrackEventRequest<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">thenReturn</span><span style="color:#f92672">(</span>BaseResponse<span style="color:#f92672">.</span><span style="color:#a6e22e">builder</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">message</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;event tracked&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        when<span style="color:#f92672">(</span>accountClient<span style="color:#f92672">.</span><span style="color:#a6e22e">syncUser</span><span style="color:#f92672">(</span>any<span style="color:#f92672">(</span>SyncUserRequest<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">thenReturn</span><span style="color:#f92672">(</span>BaseResponse<span style="color:#f92672">.</span><span style="color:#a6e22e">builder</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">message</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;user synced&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+        MvcResult mvcResult <span style="color:#f92672">=</span> mockMvc<span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>post<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/login&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">is3xxRedirection</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>view<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;redirect:&#34;</span> <span style="color:#f92672">+</span>
+                        HelperService<span style="color:#f92672">.</span><span style="color:#a6e22e">buildUrl</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;http&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;app.&#34;</span> <span style="color:#f92672">+</span> envConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getExternalApex</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andReturn</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        Cookie cookie <span style="color:#f92672">=</span> mvcResult<span style="color:#f92672">.</span><span style="color:#a6e22e">getResponse</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getCookie</span><span style="color:#f92672">(</span>AuthConstant<span style="color:#f92672">.</span><span style="color:#a6e22e">COOKIE_NAME</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>cookie<span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isNotNull</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isEqualTo</span><span style="color:#f92672">(</span>AuthConstant<span style="color:#f92672">.</span><span style="color:#a6e22e">COOKIE_NAME</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">getPath</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isEqualTo</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">getDomain</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isEqualTo</span><span style="color:#f92672">(</span>envConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getExternalApex</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">isHttpOnly</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isTrue</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">getValue</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isNotBlank</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">getMaxAge</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isEqualTo</span><span style="color:#f92672">(</span>Sessions<span style="color:#f92672">.</span><span style="color:#a6e22e">SHORT_SESSION</span> <span style="color:#f92672">/</span> 1000<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+        <span style="color:#75715e">// remember-me
+</span><span style="color:#75715e"></span>        mvcResult <span style="color:#f92672">=</span> mockMvc<span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>post<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/login&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">param</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;remember-me&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">is3xxRedirection</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>view<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;redirect:&#34;</span> <span style="color:#f92672">+</span>
+                        HelperService<span style="color:#f92672">.</span><span style="color:#a6e22e">buildUrl</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;http&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;app.&#34;</span> <span style="color:#f92672">+</span> envConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getExternalApex</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andReturn</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        cookie <span style="color:#f92672">=</span> mvcResult<span style="color:#f92672">.</span><span style="color:#a6e22e">getResponse</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getCookie</span><span style="color:#f92672">(</span>AuthConstant<span style="color:#f92672">.</span><span style="color:#a6e22e">COOKIE_NAME</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>cookie<span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isNotNull</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isEqualTo</span><span style="color:#f92672">(</span>AuthConstant<span style="color:#f92672">.</span><span style="color:#a6e22e">COOKIE_NAME</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">getPath</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isEqualTo</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">getDomain</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isEqualTo</span><span style="color:#f92672">(</span>envConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getExternalApex</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">isHttpOnly</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isTrue</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">getValue</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isNotBlank</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">getMaxAge</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isEqualTo</span><span style="color:#f92672">(</span>Sessions<span style="color:#f92672">.</span><span style="color:#a6e22e">LONG_SESSION</span> <span style="color:#f92672">/</span> 1000<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+        <span style="color:#75715e">// redirect-to
+</span><span style="color:#75715e"></span>        mvcResult <span style="color:#f92672">=</span> mockMvc<span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>post<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/login&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">param</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;return_to&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;ical.&#34;</span> <span style="color:#f92672">+</span> envConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getExternalApex</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/test&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">is3xxRedirection</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>view<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;redirect:http://ical.&#34;</span> <span style="color:#f92672">+</span> envConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getExternalApex</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/test&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andReturn</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+        <span style="color:#75715e">// redirect-to invalid
+</span><span style="color:#75715e"></span>        mvcResult <span style="color:#f92672">=</span> mockMvc<span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>post<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/login&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">param</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;return_to&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;signalx.&#34;</span> <span style="color:#f92672">+</span> envConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getExternalApex</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/test&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">is3xxRedirection</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>view<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;redirect:&#34;</span> <span style="color:#f92672">+</span>
+                        HelperService<span style="color:#f92672">.</span><span style="color:#a6e22e">buildUrl</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;http&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;myaccount.&#34;</span> <span style="color:#f92672">+</span> envConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getExternalApex</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andReturn</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+        <span style="color:#75715e">// logout
+</span><span style="color:#75715e"></span>        mvcResult <span style="color:#f92672">=</span> mockMvc<span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>get<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/logout&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">is3xxRedirection</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>view<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;redirect:/&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andReturn</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        cookie <span style="color:#f92672">=</span> mvcResult<span style="color:#f92672">.</span><span style="color:#a6e22e">getResponse</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getCookie</span><span style="color:#f92672">(</span>AuthConstant<span style="color:#f92672">.</span><span style="color:#a6e22e">COOKIE_NAME</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>cookie<span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isNotNull</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isEqualTo</span><span style="color:#f92672">(</span>AuthConstant<span style="color:#f92672">.</span><span style="color:#a6e22e">COOKIE_NAME</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">getPath</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isEqualTo</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">getDomain</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isEqualTo</span><span style="color:#f92672">(</span>envConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">getExternalApex</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">getValue</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isBlank</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        assertThat<span style="color:#f92672">(</span>cookie<span style="color:#f92672">.</span><span style="color:#a6e22e">getMaxAge</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isEqualTo</span><span style="color:#f92672">(</span>0<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+</ol>
+<h2 id="测试补充">测试补充</h2>
+<ol>
+<li>
+<p>Mock vs. Spy</p>
+<ul>
+<li>Mock针对接口场景，Spy针对类的场景，部分mock</li>
+<li>如 xyz.staffjoy.account.service.helper.ServiceHelperTest</li>
+</ul>
+</li>
+<li>
+<p>BDD：行为驱动测试</p>
+<ul>
+<li>面向用户的接受测试，通常由产品、开发、QA协作开发</li>
+<li>使用贴近用户产品的语言</li>
+<li>faraday项目里使用的spock BDD框架</li>
+<li>REST-assured也支持BDD</li>
+</ul>
+</li>
+<li>
+<p>性能测试</p>
+<ul>
+<li>JMeter：UI操作，可编程性不好</li>
+<li>Gatling：基于脚本，CI/CD集成能力好</li>
+</ul>
+</li>
+</ol>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="http://example.org/"><img src="/img/favicon.png" />WZhong</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/07-%E5%8F%AF%E8%BF%90%E7%BB%B4%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/" data-toggle="tooltip" data-placement="top" title="">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/05-%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/" data-toggle="tooltip" data-placement="top" title="">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="https://zhaozhihan.com">Linda的博客</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="WZhong" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:zs577215@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    <li>
+                        <a target="_blank" href="/your%20wechat%20qr%20code%20image">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/yourgithub">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yourlinkedinid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/yourstackoverflowid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+            
+                    
+                    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; WZhong 2020
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>

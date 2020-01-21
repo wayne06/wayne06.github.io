@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="WZhong">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="http://example.org//img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="http://example.org//img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="" />
+    <meta property="og:title" content="" />
+    <meta property="twitter:title" content="" />
+    
+
+    
+    <meta name="description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan.">
+    <meta property="og:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    <meta property="twitter:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Wayne Zhong Blog</title>
+
+    <link rel="canonical" href="/post/08-%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96%E5%92%8Cdocker-compose%E9%83%A8%E7%BD%B2/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/docco.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">WZhong</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/software-development">software-development</a>
+                    </li>
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/home-bg-jeep.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1></h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                WZhong
+                         
+                        on 
+                        Monday, January 1, 0001
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#本地开发部署架构和需求">本地开发部署架构和需求</a></li>
+    <li><a href="#手工服务部署和测试">手工服务部署和测试</a></li>
+    <li><a href="#skywalking调用链监控实验">SkyWalking调用链监控实验</a></li>
+    <li><a href="#docker和docker-compose简介">Docker和Docker Compose简介</a></li>
+    <li><a href="#容器镜像构建dockerfile解析">容器镜像构建Dockerfile解析</a></li>
+    <li><a href="#docker-compose部署文件解析">Docker Compose部署文件解析</a></li>
+    <li><a href="#将staffjoy部署到本地docker-compose环境">将Staffjoy部署到本地Docker Compose环境</a></li>
+  </ul>
+</nav>
+                
+                <h1 id="服务容器化和docker-compose部署">服务容器化和Docker Compose部署</h1>
+<blockquote>
+<p>在面对复杂的分布式微服务应用时，传统的手工的基于物理机或虚拟机的部署方式效率低下且容易出错；Docker容器技术的出现，提供了一种可靠的打包和交付微服务的机制；另外向K8s这样的容器云平台的引入，可以进一步简化分布式微服务的部署和管理；通过K8s可以做到一键部署整个微服务应用，也可以一键扩容微服务应用；因此业界开始提出云原生Cloud Native架构理念，也就是说应用开发不仅要用微服务的方式组织架构，而且在架构上一开始就要考虑直接面向容器云环境部署。微服务架构和云原生架构相辅相成，微服务若离开了容器或容器云，部署和运维效率就会大打折扣</p>
+</blockquote>
+<h2 id="本地开发部署架构和需求">本地开发部署架构和需求</h2>
+<ol>
+<li>
+<p>本地IDE部署架构</p>
+<ul>
+<li>各服务对应不同端口</li>
+</ul>
+</li>
+<li>
+<p>软件需求</p>
+<ul>
+<li>SwitchHosts</li>
+<li>SkyWalking 6.1.0：配置agent.service_name、collector.backend_service</li>
+<li>MySQL 5.7</li>
+<li>阿里云邮箱账户：用于校验功能</li>
+</ul>
+</li>
+</ol>
+<h2 id="手工服务部署和测试">手工服务部署和测试</h2>
+<ol>
+<li>
+<p>部署步骤</p>
+<ul>
+<li>
+<p>清理释放内存</p>
+<ul>
+<li>活动监控器</li>
+<li>关闭Docker等大进程</li>
+</ul>
+</li>
+<li>
+<p>部署数据库</p>
+<ul>
+<li>staffjoy_account</li>
+<li>staffjoy_company</li>
+</ul>
+</li>
+<li>
+<p>部署SkyWalking</p>
+<ul>
+<li>bin/startup.sh(字节码注入的方式运行)</li>
+<li>IDE设置skywalking-agent
+<ul>
+<li>VM options: -javaagent:D:\apache-skywalking-apm-bin\agent</li>
+<li>Environment variables: SW_AGENT_NAME:account-svc</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>部署服务</p>
+<ul>
+<li>本地机密数据配置
+<ul>
+<li>config/*.yml</li>
+</ul>
+</li>
+<li>faraday网关配置review</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">mappings:
+    <span style="color:#e6db74">-
+</span><span style="color:#e6db74">   </span><span style="color:#e6db74"> </span><span style="color:#e6db74">name: faraday_route</span>
+    host: faraday.staffjoy-v2.local
+    destinations: httpbin.org
+    <span style="color:#e6db74">-
+</span><span style="color:#e6db74">   </span><span style="color:#e6db74"> </span><span style="color:#e6db74">name: account_route</span>
+    host: account.staffjoy-v2.local
+    destinations: localhost:<span style="color:#ae81ff">8081</span>
+    <span style="color:#e6db74">-
+</span><span style="color:#e6db74">   </span><span style="color:#e6db74"> </span><span style="color:#e6db74">name: company_route</span>
+    host: company.staffjoy-v2.local
+    destinations: localhost:<span style="color:#ae81ff">8082</span>
+    <span style="color:#e6db74">-
+</span><span style="color:#e6db74">   </span><span style="color:#e6db74"> </span><span style="color:#e6db74">name: ical_route</span>
+    host: ical.staffjoy-v2.local
+    destinations: localhost:<span style="color:#ae81ff">8083</span>
+    <span style="color:#e6db74">-
+</span><span style="color:#e6db74">   </span><span style="color:#e6db74"> </span><span style="color:#e6db74">name: whoami_route</span>
+    host: whoami.staffjoy-v2.local
+    destinations: localhost:<span style="color:#ae81ff">8084</span>
+    timeout:
+        connect: <span style="color:#ae81ff">10000</span>
+        read: <span style="color:#ae81ff">10000</span>
+    <span style="color:#e6db74">-
+</span><span style="color:#e6db74">   </span><span style="color:#e6db74"> </span><span style="color:#e6db74">name: superpowers_route</span>
+    host: superpowers.staffjoy-v2.local
+    destinations: localhost:<span style="color:#ae81ff">8085</span>
+    <span style="color:#e6db74">-
+</span><span style="color:#e6db74">   </span><span style="color:#e6db74"> </span><span style="color:#e6db74">name: www_route</span>
+    host: www.staffjoy-v2.local
+    destinations: localhost:<span style="color:#ae81ff">8086</span>
+    <span style="color:#e6db74">-
+</span><span style="color:#e6db74">   </span><span style="color:#e6db74"> </span><span style="color:#e6db74">name: myaccount_route</span>
+    host: myaccount.staffjoy-v2.local
+    destinations: localhost:<span style="color:#ae81ff">9000</span>
+    <span style="color:#e6db74">-
+</span><span style="color:#e6db74">   </span><span style="color:#e6db74"> </span><span style="color:#e6db74">name: app_route</span>
+    host: app.staffjoy-v2.local
+    destinations: localhost:<span style="color:#ae81ff">9001</span>
+</code></pre></div><ul>
+<li>启动顺序：mail -&gt; bot -&gt; account -&gt; company -&gt; www -&gt; whoami -&gt; faraday</li>
+</ul>
+</li>
+<li>
+<p>部署单页应用(staffjoy/frontend下的app和myaccount)</p>
+<ul>
+<li>npm install</li>
+<li>npm start</li>
+</ul>
+</li>
+<li>
+<p>启用SwitchHosts</p>
+<ul>
+<li>hosts文件是用于本地DNS服务的，采用 [ip 域名] 的格式卸载一个文本文档中，作用是将一些常用的网址域名与其对应的ip地址建立一个关联数据库：当用户在浏览器中输入一个网址时，系统会首先自动从hosts文件中寻找对应的ip地址，一旦找到会立即打开对应网页，若没找到则再会将网址提交DNS域名解析服务器进行ip地址的解析</li>
+</ul>
+<pre><code class="language-properties" data-lang="properties">127.0.0.1 account.staffjoy-v2.local
+127.0.0.1 faraday.staffjoy-v2.local
+127.0.0.1 myaccount.staffjoy-v2.local
+127.0.0.1 whoami.staffjoy-v2.local
+127.0.0.1 www.staffjoy-v2.local
+127.0.0.1 ical.staffjoy-v2.local
+127.0.0.1 staffjoy-v2.local
+127.0.0.1 app.staffjoy-v2.local
+127.0.0.1 company.staffjoy-v2.local
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p>测试步骤</p>
+<ul>
+<li>浏览器访问 <a href="http://www.staffjoy-v2.local">www.staffjoy-v2.local</a></li>
+<li>校验业务流程：注册管理员和公司，登录；注册雇员，登录；排班
+<ul>
+<li>输入邮箱-&gt;邮箱点击激活链接-&gt;设置密码、全名、手机号-&gt;设置公司名、地址-&gt;跳转到app.staffjoy-v2.local</li>
+<li>创建雇员-&gt;设置雇员全名、邮箱、手机号-&gt;雇员到邮箱激活-&gt;雇员完善密码-&gt;跳转到myaccount.staffjoy-v2.local</li>
+<li>logout-&gt;管理员登录-&gt;SETTINGS-&gt;Add New Job-&gt;SCHEDULER-&gt;选择日期、时间、雇员和Job-&gt;Publish Week</li>
+</ul>
+</li>
+<li>校验cookie
+<ul>
+<li>chrome dev tools-&gt;Application-&gt;Cookies</li>
+<li>name为staffjoy-faraday，value为JWT令牌</li>
+</ul>
+</li>
+<li>校验DB</li>
+</ul>
+</li>
+</ol>
+<h2 id="skywalking调用链监控实验">SkyWalking调用链监控实验</h2>
+<ol>
+<li>测试步骤
+<ul>
+<li>浏览器访问dashboard
+<ul>
+<li><a href="http://localhost:8080">http://localhost:8080</a></li>
+<li>admin/admin</li>
+</ul>
+</li>
+<li>校验拓扑图</li>
+<li>校验仪表盘</li>
+<li>校验追踪</li>
+<li>结束清理
+<ul>
+<li>关闭服务</li>
+<li>关闭单页应用</li>
+<li>关闭SkyWalking(jps)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="docker和docker-compose简介">Docker和Docker Compose简介</h2>
+<ol>
+<li>
+<p>容器用途</p>
+<ul>
+<li>标准化打包机制：由容器镜像技术实现</li>
+<li>隔离：由linux control groups、namespace技术实现</li>
+<li>标准化部署：容器在软件应用和操作系统之间引入一层抽象，一方面保证部署时环境的一致性，另一方面使大规模标准化部署称为可能。这就是为什么在docker容器技术出现之前很难做到标准化部署，发布平台一般和具体语言和技术栈绑定，如java的tomcat部署方式和python、ruby要开发不同的发布工具；容器技术出现后，像k8s这些和应用无关的标准化发布平台开始出现，发布可以统一，不需要为语言栈、框架开发单独的发布工具，可以用统一的平台来进行部署</li>
+</ul>
+</li>
+<li>
+<p>OS &amp; Kernel 操作系统和内核</p>
+<ul>
+<li>User Space：User Progress/Applications/Programs 用户空间，调用内核空间的功能</li>
+<li>Kernel Space：Operating System：Kernel 管理硬件，调度进程</li>
+<li>Hardware：Memory - Disk - Network Interface - CPU</li>
+</ul>
+</li>
+<li>
+<p>虚拟机和容器</p>
+<ul>
+<li>虚拟机：由硬件虚拟化和内核虚拟化共同实现，在宿主机操作系统或物理机硬件基础上，通过引入Hypervisor来创建一层虚拟化的硬件，可以虚拟出cpu、磁盘、网卡等，这之上再运行guest操作系统；隔离性较好，是一种强隔离性机制，但是比较重量，启动较慢，消耗资源多</li>
+<li>容器：直接构建于宿主机操作系统之上，共享宿主机操作系统的内核，只引入了少量的guest os的部分，所以容器相对比较轻量；隔离性不如虚拟机，是一种软件隔离，但是轻量、启动快、消耗资源少；在同一个物理机上能启动的容器数量远远多于虚拟机数量
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>虚拟机</td>
+<td></td>
+</tr>
+<tr>
+<td>Application</td>
+<td>容器</td>
+</tr>
+<tr>
+<td>Bins/Libs</td>
+<td>Application</td>
+</tr>
+<tr>
+<td>Guest OS</td>
+<td>Bins/Libs</td>
+</tr>
+<tr>
+<td>Hypervisor</td>
+<td>Minimal Guest OS</td>
+</tr>
+<tr>
+<td></td>
+<td>Container Engine</td>
+</tr>
+<tr>
+<td>Host OS</td>
+<td>Host OS</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>Hardware</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+<li>
+<p>Docker容器核心技术</p>
+<ul>
+<li>容器主要基于linux内核的一些机制实现</li>
+<li>Linux Kernel
+<ul>
+<li>CGroups(控制容器对cpu和内存资源的使用量): cpu, cpuset, memory, device</li>
+<li>Networking(实现容器网络的底层技术，包括虚拟网卡、虚拟网桥、iptables这些技术): veth, bridge, iptables</li>
+<li>Namespaces(控制每个容器都有相互隔离的进程、文件系统、网络等空间): PID, MNT, IPC, UTS, NET</li>
+<li>Storage(存储驱动): Device Mapper, Btrfs, Aufs</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>容器镜像</p>
+<ul>
+<li>可认为是一个固化的操作系统，不同于宿主机上的完整的操作系统(包括文件系统、二进制库、内核)，容器的操作系统只包含文件系统和二进制库，是共享宿主机操作系统内核的</li>
+<li>容器镜像采用分层的方式来组织
+<ul>
+<li>底层基础镜像Base Image，是容器所采用的操作系统，如Ubuntu，可以和宿主机的操作系统不一样，但是它们共享宿主机操作系统的内核</li>
+<li>基础镜像之上可以有多层镜像，如JDK依赖层</li>
+<li>之上可以包含Java应用程序的二进制文件的依赖层等</li>
+<li>容器镜像的分层组织形式也被称为洋葱头文件系统，这种方式可以很方便的实现镜像层的重用：如果两个容器底层镜像相同，镜像层可以有一个唯一的hash值来标识，可以共用这个镜像层，大大节省存储和传输的开销</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Docker架构</p>
+<ul>
+<li>Docker client
+<ul>
+<li>指挥docker执行操作的命令行工具，可在本地或远程操作</li>
+<li>docker build：可根据dockerfile构建镜像</li>
+<li>docker pull：从镜像仓库拉去镜像</li>
+<li>docker run：运行容器</li>
+</ul>
+</li>
+<li>Docker host
+<ul>
+<li>驻有Docker daemon，接收docker client的指令，执行拉取镜像、缓存、启动、运行、管理容器、生成镜像这些操作</li>
+<li>Images</li>
+<li>Containers</li>
+</ul>
+</li>
+<li>Docker registry
+<ul>
+<li>集中存储容器镜像的仓库，官方的就是dockerhub，也可自建私有的仓库</li>
+</ul>
+</li>
+<li>流程举例：
+<ul>
+<li>用户通过docker client运行docker run helloworld</li>
+<li>docker host上的daemon接收到运行命令会先到本地缓存查找helloworld镜像，若无则去docker registry拉取，然后做本地缓存；有了镜像后就会创建并启动容器，最后执行容器里面的命令</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Docker Compose</p>
+<ul>
+<li>docker主要用于运行单容器应用，docker compose用于定义和运行多容器应用的工具</li>
+<li>使用docker compose可以将多容器应用的部署架构规范在一个yml文件里面，如一个比较复杂的微服务依赖的整个依赖关系、部署架构规范在一个docker-compose.yml文件里面</li>
+<li>通过docker-compose up一键的方式启动整个应用，也可通过docker-compose down一键销毁整个应用</li>
+<li>主要适用于开发测试环境，可用来运行微服务快速部署和测试，对于生产环境则应该使用k8s这些生产级的容器云平台</li>
+</ul>
+</li>
+</ol>
+<h2 id="容器镜像构建dockerfile解析">容器镜像构建Dockerfile解析</h2>
+<ol>
+<li>
+<p>Account服务Dockerfile</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#75715e"># 构建用基础镜像</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> java:8-jdk-alpine</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># 将maven build生成的jar包拷贝到镜像的/usr/app/目录下</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> ./target/account-svc-1.0.0.jar /usr/app/<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># 设置工作目录</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> /usr/app</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> sh -c <span style="color:#e6db74">&#39;touch account-svc-1.0.0.jar&#39;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># 容器启动后，如何运行account service</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENTRYPOINT</span> [<span style="color:#e6db74">&#34;java&#34;</span>, <span style="color:#e6db74">&#34;-jar&#34;</span>, <span style="color:#e6db74">&#34;account-svc-1.0.0.jar&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div></li>
+<li>
+<p>MyAccount单页应用Dockerfile</p>
+<ul>
+<li>两阶段构建：单页应用的构建先要生成静态资源，然后拷贝到nginx里</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#75715e"># 构建用的基础镜像</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> node:alpine as builder</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># 设置工作目录</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> &#39;/build&#39;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># 将单页应用源代码、构建需要的资源、第三方依赖拷贝到镜像中</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> myaccount ./myaccount<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> resources ./resources<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> third_party ./third_party<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># 设置工作目录</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> &#39;/build/myaccount&#39;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># 构建：安装reactJs需要的依赖</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> npm install<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># 构建：构建node-sass</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> npm rebuild node-sass<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># 构建：生成静态html和js文件</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> npm run build<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> ls /build/myaccount/dist<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># 换新的基础镜像</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> nginx</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># 暴露80端口</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">EXPOSE</span><span style="color:#e6db74"> 80</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># 把生成的builder资源拷贝到nginx镜像里</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> --from<span style="color:#f92672">=</span>builder /build/myaccount/dist /usr/share/nginx/html<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div></li>
+</ol>
+<h2 id="docker-compose部署文件解析">Docker Compose部署文件解析</h2>
+<ol>
+<li>
+<p>Docker Compose部署架构</p>
+<ul>
+<li>用IDE时每个服务用不同的端口，如果用docker compose的方式：微服务、前端应用、网关都用的是80端口，因为docker compose环境内部有独立的网络，这些微服务可以认为是独立的小型虚拟环境，有自己的网络栈，所有每个都可以用相同的端口，不会有冲突</li>
+</ul>
+</li>
+<li>
+<p>部署文件解析</p>
+<ul>
+<li>.env 放私密配置</li>
+</ul>
+<pre><code class="language-properties" data-lang="properties">SPRING_PROFILES_ACTIVE=test
+SERVER_PORT=80
+EMAIL_SERVICE_ENDPOINT=http://email-service
+COMPANY_SERVICE_ENDPOINT=http://company-service
+ACCOUNT_SERVICE_ENDPOINT=http://account-service
+BOT_SERVICE_ENDPOINT=http://bot-service
+SMS_SERVICE_ENDPOINT=http://sms-service
+SENTRY_DSN=https://80aaf4ae889b414f9fe72e3904cd5246@sentry.io/1380198
+SIGNING_SECRET=secret
+INTERCOM_ACCESS_TOKEN=YOUR_INTERCOM_ACCESS_TOKEN
+INTERCOM_APP_ID=TBD
+INTERCOM_SIGNING_SECRET=TBD
+ALIYUN_ACCESS_KEY=YOUR_ALIYUN_ACCESS_KEY
+ALIYUN_ACCESS_SECRET=YOUR_ALIYUN_ACCESS_SECRET
+RECAPTCHA_PUBLIC=test-recaptcha-public
+RECAPTCHA_PRIVATE=test-recaptcha-private
+ACCOUNT_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/staffjoy_account?useUnicode=true&amp;characterEncoding=utf-8
+ACCOUNT_DATASOURCE_USERNAME=root
+ACCOUNT_DATASOURCE_PASSWORD=root
+COMPANY_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/staffjoy_company?useUnicode=true&amp;characterEncoding=utf-8
+COMPANY_DATASOURCE_USERNAME=root
+COMPANY_DATASOURCE_PASSWORD=root
+</code></pre><ul>
+<li>docker-compose.yml</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">version: <span style="color:#e6db74">&#39;3.7&#39;</span>
+
+services:
+account-service:
+    build: ./account-svc  <span style="color:#75715e"># dockerfile路径，用于做构建</span>
+    image: boboweike/account-svc  <span style="color:#75715e"># 构建产生的镜像名称</span>
+    environment:  <span style="color:#75715e"># 环境变量</span>
+    - SPRING_PROFILES_ACTIVE
+    - SERVER_PORT
+    - SIGNING_SECRET
+    - SENTRY_DSN
+    - EMAIL_SERVICE_ENDPOINT
+    - COMPANY_SERVICE_ENDPOINT
+    - BOT_SERVICE_ENDPOINT
+    - INTERCOM_ACCESS_TOKEN
+    - ACCOUNT_DATASOURCE_URL
+    - ACCOUNT_DATASOURCE_USERNAME
+    - ACCOUNT_DATASOURCE_PASSWORD
+    depends_on:  <span style="color:#75715e"># 服务之间依赖的指定</span>
+    - bot-service
+    - email-service
+    networks:  <span style="color:#75715e"># 网络配置</span>
+    - internal_access
+    - external_access <span style="color:#75715e"># db access</span>
+
+...
+
+faraday-service:
+    build: ./faraday
+    image: boboweike/faraday-svc
+    ports:
+    - <span style="color:#ae81ff">80</span>:<span style="color:#ae81ff">80</span>  <span style="color:#75715e"># 不仅内部有80端口，还要向外暴露80端口</span>
+    environment:
+    - SPRING_PROFILES_ACTIVE
+    - SERVER_PORT
+    - SENTRY_DSN
+    - SIGNING_SECRET
+    depends_on:
+    - account-service
+    - company-service
+    - www-service
+    - whoami-service
+<span style="color:#75715e">#      - ical-service # commented for demo</span>
+    - myaccount-service
+    - app-service
+    networks:
+    - internal_access
+    - external_access
+
+
+myaccount-service:
+    build:
+    context: ./frontend
+    dockerfile: myaccount/Dockerfile
+    image: boboweike/myaccount-spa
+    networks:
+    - internal_access
+
+...
+
+networks:
+internal_access:
+    internal: <span style="color:#66d9ef">true</span>
+external_access:
+
+
+</code></pre></div></li>
+</ol>
+<h2 id="将staffjoy部署到本地docker-compose环境">将Staffjoy部署到本地Docker Compose环境</h2>
+<ol>
+<li>
+<p>Docker Desktop for Mac/Win</p>
+<ul>
+<li>
+<p>下载安装：<a href="https://docs.docker.com/docker-for-windows/install/">https://docs.docker.com/docker-for-windows/install/</a></p>
+</li>
+<li>
+<p>download example</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git clone https://github.com/docker/doodle.git
+</code></pre></div><ul>
+<li>Build &amp; tag一个docker镜像</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd doodle<span style="color:#ae81ff">\c</span>heers2019
+docker build -t wnzhong/cheers2019
+</code></pre></div><ul>
+<li>run container</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker run -it --rm wnzhong/cheers2019
+</code></pre></div><ul>
+<li>share image on Docker Hub</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker login
+docker push wnzhong/cheers2019
+</code></pre></div></li>
+<li>
+<p>构建和部署</p>
+<ul>
+<li>镜像构建
+<ul>
+<li>mvn clean package -DskipTests</li>
+<li>docker-compose build</li>
+<li>docker images</li>
+</ul>
+</li>
+<li>部署MySQL数据库
+<ul>
+<li>staffjoy_account</li>
+<li>staffjoy_company</li>
+</ul>
+</li>
+<li>部署Staffjoy
+<ul>
+<li>docker-compose up</li>
+<li>docker-compose ps</li>
+</ul>
+</li>
+<li>启用SwitchHosts</li>
+<li>校验Staffjoy</li>
+<li>清理
+<ul>
+<li>docker-compose down</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="http://example.org/"><img src="/img/favicon.png" />WZhong</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/09-%E4%BA%91%E5%8E%9F%E7%94%9F%E6%9E%B6%E6%9E%84%E5%92%8Ckubernetes%E5%AE%B9%E5%99%A8%E4%BA%91%E9%83%A8%E7%BD%B2/" data-toggle="tooltip" data-placement="top" title="">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/07-%E5%8F%AF%E8%BF%90%E7%BB%B4%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/" data-toggle="tooltip" data-placement="top" title="">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="https://zhaozhihan.com">Linda的博客</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="WZhong" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:zs577215@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    <li>
+                        <a target="_blank" href="/your%20wechat%20qr%20code%20image">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/yourgithub">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yourlinkedinid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/yourstackoverflowid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+            
+                    
+                    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; WZhong 2020
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>
