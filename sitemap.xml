@@ -13,6 +13,11 @@
   </url>
   
   <url>
+    <loc>http://wayne06.github.io/categories/japanese/</loc>
+    <lastmod>2020-01-22T00:01:12+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://wayne06.github.io/tags/japanese-language/</loc>
     <lastmod>2020-01-22T00:01:12+08:00</lastmod>
   </url>
@@ -29,11 +34,6 @@
   
   <url>
     <loc>http://wayne06.github.io/</loc>
-    <lastmod>2020-01-22T00:01:12+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://wayne06.github.io/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/</loc>
     <lastmod>2020-01-22T00:01:12+08:00</lastmod>
   </url>
   
@@ -138,7 +138,7 @@
   </url>
   
   <url>
-    <loc>http://wayne06.github.io/categories/software-development/</loc>
+    <loc>http://wayne06.github.io/categories/others/</loc>
     <lastmod>2020-01-17T10:50:12+08:00</lastmod>
   </url>
   
