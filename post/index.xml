@@ -6,10 +6,19 @@
     <description>Recent content in Posts on WZhong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 Jan 2020 00:11:12 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jan 2020 00:01:12 +0800</lastBuildDate>
     
 	<atom:link href="http://wayne06.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>01 李さんは中国人です</title>
+      <link>http://wayne06.github.io/post/00/</link>
+      <pubDate>Wed, 22 Jan 2020 00:01:12 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/post/00/</guid>
+      <description>语法 森さんは日本人です わたしは田中じゃありません / わたしは田中ではありません 小野さんは学生ですか はい，そうです いいえ，ちがいます 大学の先生で</description>
+    </item>
     
     <item>
       <title>源代码解析</title>
