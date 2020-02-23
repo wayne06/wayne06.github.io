@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DESIGN PATTERN on WZhong</title>
+    <link>http://wayne06.github.io/categories/design-pattern/</link>
+    <description>Recent content in DESIGN PATTERN on WZhong</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 25 Jan 2020 00:04:12 +0800</lastBuildDate>
+    
+	<atom:link href="http://wayne06.github.io/categories/design-pattern/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ID生成器代码重构</title>
+      <link>http://wayne06.github.io/post/%E5%AE%9E%E6%88%98%E4%B8%80id%E7%94%9F%E6%88%90%E5%99%A8/</link>
+      <pubDate>Sat, 25 Jan 2020 00:04:12 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/post/%E5%AE%9E%E6%88%98%E4%B8%80id%E7%94%9F%E6%88%90%E5%99%A8/</guid>
+      <description>重构就是发现代码质量问题，并且对其进行优化的过程。 如何发现代码质量问题 常规checklist：可读、可扩展、可维护、灵活、简洁、可复用、可测</description>
+    </item>
+    
+  </channel>
+</rss>
