@@ -6,10 +6,19 @@
     <description>Recent content in Posts on WZhong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Jan 2020 00:04:12 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 12 Mar 2020 00:04:12 +0800</lastBuildDate>
     
 	<atom:link href="http://wayne06.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>01 创建型模式</title>
+      <link>http://wayne06.github.io/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F01%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 12 Mar 2020 00:04:12 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F01%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/</guid>
+      <description>单例模式 单例的定义 一个类只允许创建一个对象，那这个类就是一个单例类，这种设计模式就叫做单例设计模式 单例的用处 有些数据在系统中只应该保存一份：</description>
+    </item>
     
     <item>
       <title>ID生成器代码重构</title>
