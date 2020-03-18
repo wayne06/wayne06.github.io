@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="WZhong">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="总结面向对象、设计原则、编程规范、重构技巧" />
+    <meta property="og:title" content="总结面向对象、设计原则、编程规范、重构技巧" />
+    <meta property="twitter:title" content="总结面向对象、设计原则、编程规范、重构技巧" />
+    
+
+    
+    <meta name="description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan.">
+    <meta property="og:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    <meta property="twitter:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>总结面向对象、设计原则、编程规范、重构技巧-Wayne Zhong Blog</title>
+
+    <link rel="canonical" href="/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83%E9%87%8D%E6%9E%84%E6%8A%80%E5%B7%A7/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/docco.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">WZhong</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/design-pattern">design-pattern</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/japanese">japanese</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/microservice">microservice</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/others">others</a>
+                    </li>
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://img.zhaohuabing.com/post-bg-2015.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/design-pattern" title="DESIGN PATTERN">
+                            DESIGN PATTERN
+                        </a>
+                        
+                    </div>
+                    <h1>总结面向对象、设计原则、编程规范、重构技巧</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                WZhong
+                         
+                        on 
+                        Wednesday, March 18, 2020
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#0-代码质量评判标准">0. 代码质量评判标准</a>
+      <ul>
+        <li><a href="#评价标准">评价标准</a></li>
+        <li><a href="#如何写出高质量代码">如何写出高质量代码</a></li>
+      </ul>
+    </li>
+    <li><a href="#1-面向对象">1. 面向对象</a>
+      <ul>
+        <li><a href="#面向对象概述">面向对象概述</a></li>
+        <li><a href="#面向对象四大特性">面向对象四大特性</a></li>
+        <li><a href="#面向对象-vs-面向过程">面向对象 vs 面向过程</a></li>
+        <li><a href="#面向对象分析设计与编程">面向对象分析、设计与编程</a></li>
+        <li><a href="#接口-vs-抽象类">接口 vs 抽象类</a></li>
+        <li><a href="#基于接口而非实现编程">基于接口而非实现编程</a></li>
+        <li><a href="#多用组合少用继承">多用组合少用继承</a></li>
+        <li><a href="#贫血模型-vs-充血模型">贫血模型 vs 充血模型</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-设计原则">3. 设计原则</a>
+      <ul>
+        <li><a href="#solid">SOLID</a></li>
+        <li><a href="#kisskeep-it-simple-and-stupidshortstraightforward保持简单">KISS（Keep It Simple and Stupid/Short/Straightforward）：保持简单</a></li>
+        <li><a href="#yagniyou-aint-gonna-need-it不要做过度设计">YAGNI（You Ain't Gonna Need It）：不要做过度设计</a></li>
+        <li><a href="#drydont-repeat-yourself不要写重复的代码">DRY（Don't Repeat Yourself）：不要写重复的代码</a></li>
+        <li><a href="#lodlaw-of-demeter迪米特法则---the-least-knowledge-principle最小知识原则">LOD（Law Of Demeter）：迪米特法则 - The Least Knowledge Principle最小知识原则</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-规范与重构">4. 规范与重构</a>
+      <ul>
+        <li><a href="#重构概述">重构概述</a></li>
+        <li><a href="#单元测试">单元测试</a></li>
+        <li><a href="#代码的可测试性">代码的可测试性</a></li>
+        <li><a href="#大型重构解耦">大型重构：解耦</a></li>
+        <li><a href="#小型重构编码规范">小型重构：编码规范</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                
+                <h2 id="0-代码质量评判标准">0. 代码质量评判标准</h2>
+<h3 id="评价标准">评价标准</h3>
+<ul>
+<li>
+<p>可维护性、可读性、可扩展性、灵活性、简洁性、可复用性、可测试性</p>
+</li>
+<li>
+<p>可维护性、可读性、可扩展性又是提到最多的、最重要的三个评价标准</p>
+</li>
+</ul>
+<h3 id="如何写出高质量代码">如何写出高质量代码</h3>
+<ul>
+<li>包含面向对象设计思想、设计原则、设计模式、编码规范、重构技巧等</li>
+</ul>
+<h2 id="1-面向对象">1. 面向对象</h2>
+<h3 id="面向对象概述">面向对象概述</h3>
+<ul>
+<li>
+<p>面向过程、面向对象和函数式编程</p>
+</li>
+<li>
+<p>面向对象编程因为其具有丰富的特性（封装、抽象、继承、多态），可以实现很多复杂的设计思路，是很多设计原则、设计模式编码实现的基础</p>
+</li>
+</ul>
+<h3 id="面向对象四大特性">面向对象四大特性</h3>
+<ul>
+<li>
+<p>封装也叫作信息隐藏或数据访问保护。意义是：一方面保护数据不被随意修改，提高代码的可维护性；另一方面仅暴露有限的必要接口，提高类的易用性</p>
+</li>
+<li>
+<p>抽象就是讲如何隐藏方法的具体实现。意义是，一方面修改实现不需要改变定义；另一方面它是处理复杂系统的有效手段，能有效过滤掉不必关注的信息</p>
+</li>
+<li>
+<p>继承用来表示类之间的is-a关系。主要用来解决代码复用的问题</p>
+</li>
+<li>
+<p>多态是指子类可以替换父类，在代码的实际运行过程中，调用子类的方法实现。可以提高代码的扩展性和复用性，是很多设计模式、设计原则、编程技巧的代码实现基础</p>
+</li>
+</ul>
+<h3 id="面向对象-vs-面向过程">面向对象 vs 面向过程</h3>
+<ul>
+<li>
+<p>更能应对这种复杂类型的程序开发</p>
+</li>
+<li>
+<p>具有更加丰富的特性</p>
+</li>
+<li>
+<p>更加人性化、更加高级、更加智能</p>
+</li>
+</ul>
+<h3 id="面向对象分析设计与编程">面向对象分析、设计与编程</h3>
+<ul>
+<li>
+<p>OOA、OOD、OOP</p>
+</li>
+<li>
+<p>详细的需求描述 -&gt; 具体的类的设计</p>
+<ul>
+<li>
+<p>划分职责进而识别有哪些类：罗列功能点，功能相近归为一个类</p>
+</li>
+<li>
+<p>定义类及其属性和方法：动词做候选方法，名词做候选属性</p>
+</li>
+<li>
+<p>定义类与类之间的交互关系：泛化、实现、组合、依赖</p>
+</li>
+<li>
+<p>将类组装起来并提供执行入口：一个main()函数、一组给外部用的api接口</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="接口-vs-抽象类">接口 vs 抽象类</h3>
+<table>
+<thead>
+<tr>
+<th>接口</th>
+<th>抽象类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>对方法的抽象，has-a关系，表示具有某一组行为特性</td>
+<td>对成员变量和方法的抽象，is-a关系</td>
+</tr>
+<tr>
+<td>为了解决解耦问题，隔离接口和具体实现，提高代码扩展性</td>
+<td>为了解决代码复用问题</td>
+</tr>
+<tr>
+<td>不能包含属性（Java可定义静态常量）</td>
+<td>不允许被实例化，只能被继承，可以包含属性</td>
+</tr>
+<tr>
+<td>方法不能包含实现（Java8后可以有默认实现）</td>
+<td>方法可包含代码实现，也可不包含，不包含代码实现的方法叫作抽象方法</td>
+</tr>
+<tr>
+<td>类实现接口时，必须实现接口中声明的所有方法</td>
+<td>子类继承抽象类，必须实现抽线类中所有抽象方法</td>
+</tr>
+</tbody>
+</table>
+<h3 id="基于接口而非实现编程">基于接口而非实现编程</h3>
+<ul>
+<li>
+<p>将接口和实现想分离，封装不稳定的实现，暴露稳定的接口</p>
+</li>
+<li>
+<p>上游系统面向接口而非实现编程，当实现发生变化，上游不需要改动</p>
+</li>
+<li>
+<p>降低耦合性，提高扩展性</p>
+</li>
+</ul>
+<h3 id="多用组合少用继承">多用组合少用继承</h3>
+<ul>
+<li>
+<p>继承层次过深、过复杂，也会影响到代码的可维护性</p>
+</li>
+<li>
+<p>如果类之间的继承结构稳定，层次比较浅，关系不复杂，我们就可以大胆地使用继承。反之，我们就尽量使用组合来替代继承</p>
+</li>
+</ul>
+<h3 id="贫血模型-vs-充血模型">贫血模型 vs 充血模型</h3>
+<ul>
+<li>
+<p>基于贫血模型的传统开发模式，是典型的面向过程的编程风格。相反，基于充血模型的 DDD 开发模式，是典型的面向对象的编程风格</p>
+</li>
+<li>
+<p>对于业务不复杂的系统开发来说，基于贫血模型的传统开发模式简单够用，基于充血模型的 DDD 开发模式有点大材小用，无法发挥作用。相反，对于业务复杂的系统开发来说，基于充血模型的 DDD 开发模式，因为前期需要在设计上投入更多时间和精力，来提高代码的复用性和可维护性，所以相比基于贫血模型的开发模式，更加有优势。</p>
+</li>
+<li>
+<p>在基于充血模型的开发模式下，我们将部分原来在 Service 类中的业务逻辑移动到了一个充血的 Domain 领域模型中，让 Service 类的实现依赖这个 Domain 类。不过，Service 类并不会完全移除，而是负责一些不适合放在 Domain 类中的功能。比如，负责与 Repository 层打交道、跨领域模型的业务聚合功能、幂等事务等非功能性的工作</p>
+</li>
+<li>
+<p>业务逻辑主要集中在 Service 层。所以，Repository 层和 Controller 层继续沿用贫血模型的设计思路是没有问题的</p>
+</li>
+</ul>
+<h2 id="3-设计原则">3. 设计原则</h2>
+<h3 id="solid">SOLID</h3>
+<ul>
+<li>
+<p>SRP（Single Responsibility Principle）：单一职责原则</p>
+<ul>
+<li>一个类只负责完成一个职责或者功能</li>
+<li>避免将不相关的功能耦合在一起，来提高类的内聚性</li>
+<li>类职责单一，类依赖的和被依赖的其他类也会变少，减少了代码的耦合性</li>
+</ul>
+</li>
+<li>
+<p>OCP（Open Closed Principle）：开闭原则</p>
+<ul>
+<li>添加一个新的功能，应该是通过在已有代码基础上扩展代码（新增模块、类、方法、属性等），而非修改已有代码（修改模块、类、方法、属性等）的方式来完成</li>
+<li>最常用来提高代码扩展性的方法有：多态、依赖注入、基于接口而非实现编程，以及大部分的设计模式（比如，装饰、策略、模板、职责链、状态）</li>
+</ul>
+</li>
+<li>
+<p>LSP（Liskov Substitution Principle）：里氏替换原则</p>
+<ul>
+<li>子类对象能够替换程序中父类对象出现的任何地方，并且保证原来程序的逻辑行为不变及正确性不被破坏</li>
+<li>“design by contract，按照协议来设计”</li>
+<li>多态是面向对象编程的一大特性，也是面向对象编程语言的一种语法。它是一种代码实现的思路。而里式替换是一种设计原则，用来指导继承关系中子类该如何设计，子类的设计要保证在替换父类的时候，不改变原有程序的逻辑及不破坏原有程序的正确性</li>
+</ul>
+</li>
+<li>
+<p>ISP（Interface Segregation Principle）：接口隔离原则</p>
+<ul>
+<li>客户端不应该强迫依赖它不需要的接口</li>
+<li>接口隔离原则提供了一种判断接口的职责是否单一的标准：通过调用者如何使用接口来间接地判定。如果调用者只使用部分接口或接口的部分功能，那接口的设计就不够职责单一</li>
+</ul>
+</li>
+<li>
+<p>DIP（Dependency Inversion Principle）：依赖反转原则</p>
+<ul>
+<li>控制反转：一个比较笼统的设计思想。流程的控制权从程序员“反转”给了框架</li>
+<li>依赖注入：一种具体的编码技巧。不通过 new 的方式在类内部创建依赖类的对象，而是将依赖的类对象在外部创建好之后，通过构造函数、函数参数等方式传递（或“注入”）给类来使用</li>
+<li>依赖注入框架：配置一下所有需要的类及其类与类之间的依赖关系，就可以实现由框架来自动创建对象、管理对象的生命周期、依赖注入等原本需要程序员来做的事情</li>
+<li>依赖反转原则：高层模块不依赖低层模块，它们共同依赖同一个抽象。抽象不需要依赖具体实现细节，具体实现细节依赖抽象</li>
+</ul>
+</li>
+</ul>
+<h3 id="kisskeep-it-simple-and-stupidshortstraightforward保持简单">KISS（Keep It Simple and Stupid/Short/Straightforward）：保持简单</h3>
+<ul>
+<li>不要使用同事可能不懂的技术来实现代码</li>
+<li>不要重复造轮子，善于使用已经有的工具类库</li>
+<li>不要过度优化</li>
+</ul>
+<h3 id="yagniyou-aint-gonna-need-it不要做过度设计">YAGNI（You Ain't Gonna Need It）：不要做过度设计</h3>
+<ul>
+<li>不要去设计当前用不到的功能；不要去编写当前用不到的代码</li>
+<li>KISS 原则讲的是“如何做”的问题（尽量保持简单），而 YAGNI 原则说的是“要不要做”的问题（当前不需要的就不要做）</li>
+</ul>
+<h3 id="drydont-repeat-yourself不要写重复的代码">DRY（Don't Repeat Yourself）：不要写重复的代码</h3>
+<h3 id="lodlaw-of-demeter迪米特法则---the-least-knowledge-principle最小知识原则">LOD（Law Of Demeter）：迪米特法则 - The Least Knowledge Principle最小知识原则</h3>
+<ul>
+<li>高内聚，就是指相近的功能应该放到同一个类中，不相近的功能不要放到同一类中。相近的功能往往会被同时修改，放到同一个类中，修改会比较集中。</li>
+<li>松耦合，指的是在代码中，类与类之间的依赖关系简单清晰。即使两个类有依赖关系，一个类的代码改动也不会或者很少导致依赖类的代码改动</li>
+<li>迪米特法则的描述为：不该有直接依赖关系的类之间，不要有依赖；有依赖关系的类之间，尽量只依赖必要的接口</li>
+</ul>
+<h2 id="4-规范与重构">4. 规范与重构</h2>
+<h3 id="重构概述">重构概述</h3>
+<ul>
+<li>
+<p>为什么重构：重构可以保持代码质量持续处于一个可控状态</p>
+</li>
+<li>
+<p>重构什么</p>
+<ul>
+<li>
+<p>大规模高层次重构包括对代码分层、模块化、解耦、梳理类之间的交互关系、抽象复用组件等等。这部分工作利用的更多的是比较抽象、比较顶层的设计思想、原则、模式</p>
+</li>
+<li>
+<p>小规模低层次的重构包括规范命名、注释、修正函数参数过多、消除超大类、提取重复代码等编程细节问题，主要是针对类、函数级别的重构。小规模低层次的重构更多的是利用编码规范这一理论知识</p>
+</li>
+</ul>
+</li>
+<li>
+<p>什么时候重构：建立持续重构意识，把重构作为开发必不可少的部分融入到开发中，而不是等到代码出现很大问题的时候，再大刀阔斧地重构</p>
+</li>
+<li>
+<p>如何重构</p>
+<ul>
+<li>
+<p>大规模高层次的重构难度比较大，需要有组织、有计划地进行，分阶段地小步快跑，时刻保持代码处于一个可运行的状态</p>
+</li>
+<li>
+<p>小规模低层次的重构，因为影响范围小，改动耗时短，所以，只要你愿意并且有时间，随时随地都可以去做</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="单元测试">单元测试</h3>
+<ul>
+<li>
+<p>什么是单元测试：这个“单元”一般是类或函数，而不是模块或者系统</p>
+</li>
+<li>
+<p>为什么要写单元测试</p>
+<ul>
+<li>
+<p>能有效地发现代码中的 Bug、代码设计上的问题</p>
+</li>
+<li>
+<p>单元测试是对集成测试的有力补充，能帮助我们快速熟悉代码，是 TDD 可落地执行的折中方案</p>
+</li>
+</ul>
+</li>
+<li>
+<p>如何写单元测试</p>
+<ul>
+<li>
+<p>写单元测试就是针对代码设计覆盖各种输入、异常、边界条件的测试用例，并将其翻译成代码的过程</p>
+</li>
+<li>
+<p>编写单元测试尽管繁琐，但并不是太耗时；我们可以稍微放低单元测试的质量要求；覆盖率作为衡量单元测试好坏的唯一标准是不合理的；写单元测试一般不需要了解代码的实现逻辑；单元测试框架无法测试多半是代码的可测试性不好</p>
+</li>
+</ul>
+</li>
+<li>
+<p>单元测试为何难落地执行</p>
+<ul>
+<li>
+<p>一方面，写单元测试本身比较繁琐，技术挑战不大，很多程序员不愿意去写</p>
+</li>
+<li>
+<p>另一方面，国内研发比较偏向“快糙猛”，容易因为开发进度紧，导致单元测试的执行虎头蛇尾</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="代码的可测试性">代码的可测试性</h3>
+<ul>
+<li>
+<p>什么是代码的可测试性</p>
+<ul>
+<li>如果很难为其编写单元测试，或者单元测试写起来很费劲，需要依靠单元测试框架很高级的特性，那往往就意味着代码设计得不够合理，代码的可测试性不好</li>
+</ul>
+</li>
+<li>
+<p>编写可测试性代码的最有效手段</p>
+<ul>
+<li>
+<p>依赖注入是编写可测试性代码的最有效手段。通过依赖注入，我们在编写单元测试代码的时候，可以通过 mock 的方法将不可控的依赖变得可控，这也是我们在编写单元测试的过程中最有技术挑战的地方</p>
+</li>
+<li>
+<p>还可以利用二次封装来解决某些代码行为不可控的情况</p>
+</li>
+</ul>
+</li>
+<li>
+<p>常见的测试不友好的代码Anti-Patterns</p>
+<ul>
+<li>
+<p>代码中包含未决行为逻辑</p>
+</li>
+<li>
+<p>滥用可变全局变量</p>
+</li>
+<li>
+<p>滥用静态方法</p>
+</li>
+<li>
+<p>使用复杂的继承关系</p>
+</li>
+<li>
+<p>高度耦合的代码</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="大型重构解耦">大型重构：解耦</h3>
+<ul>
+<li>
+<p>解耦为何重要：保证代码松耦合、高内聚，是控制代码复杂度的有效手段</p>
+</li>
+<li>
+<p>代码是否需要解耦</p>
+<ul>
+<li>
+<p>间接的衡量标准有很多，比如：改动一个模块或类的代码受影响的模块或类是否有很多、改动一个模块或者类的代码依赖的模块或者类是否需要改动、代码的可测试性是否好等等</p>
+</li>
+<li>
+<p>直接的衡量标准是把模块与模块之间及其类与类之间的依赖关系画出来，根据依赖关系图的复杂性来判断是否需要解耦重构</p>
+</li>
+</ul>
+</li>
+<li>
+<p>如何给代码解耦</p>
+<ul>
+<li>给代码解耦的方法有：封装与抽象、中间层、模块化，以及一些其他的设计思想与原则，比如：单一职责原则、基于接口而非实现编程、依赖注入、多用组合少用继承、迪米特法则。当然，还有一些设计模式，比如观察者模式</li>
+</ul>
+</li>
+</ul>
+<h3 id="小型重构编码规范">小型重构：编码规范</h3>
+<ul>
+<li>
+<p>命名与注释</p>
+<ul>
+<li>
+<p>命名的关键是能准确的达意</p>
+</li>
+<li>
+<p>类的信息来简化属性、函数的命名，利用函数的信息来简化函数参数的命名</p>
+</li>
+<li>
+<p>命名要可读、可搜索</p>
+</li>
+<li>
+<p>接口带前缀&quot;I&quot;或在接口的实现类中带后缀“Impl”。抽象类带前缀“Abstract”</p>
+</li>
+<li>
+<p>注释的目的就是让代码更容易看懂：做什么、为什么、怎么做、如何用</p>
+</li>
+<li>
+<p>类和函数一定要写注释</p>
+</li>
+</ul>
+</li>
+<li>
+<p>代码风格</p>
+<ul>
+<li>团队统一即可，最好能跟业内推荐的风格、开源项目的代码风格相一致</li>
+</ul>
+</li>
+<li>
+<p>编程技巧</p>
+<ul>
+<li>将复杂的逻辑提炼拆分成函数和类</li>
+<li>通过拆分成多个函数的方式来处理参数过多的情况</li>
+<li>通过将参数封装为对象来处理参数过多的情况</li>
+<li>函数中不要使用参数来做代码执行逻辑的控制</li>
+<li>移除过深的嵌套层次，方法包括：去掉多余的 if 或 else 语句，用continue、break、return 关键字提前退出嵌套，调整执行顺序来减少嵌套，将部分嵌套逻辑抽象成函数</li>
+<li>用字面常量取代魔法数</li>
+<li>利用解释性变量来解释复杂表达式</li>
+</ul>
+</li>
+<li>
+<p>统一编码规范</p>
+<ul>
+<li>项目、团队，甚至公司，一定要制定统一的编码规范，并且通过 Code Review 督促执行，这对提高代码质量有立竿见影的效果</li>
+</ul>
+</li>
+</ul>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="http://wayne06.github.io/"><img src="/img/favicon.png" />WZhong</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F01%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/" data-toggle="tooltip" data-placement="top" title="01 创建型模式">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/ci/cd" title="ci/cd">
+                            ci/cd
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/design-pattern" title="design-pattern">
+                            design-pattern
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/devops" title="devops">
+                            devops
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/japanese-language" title="japanese-language">
+                            japanese-language
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/saas" title="saas">
+                            saas
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E5%8A%A8%E8%AF%8D%E5%8F%98%E5%BD%A2" title="动词变形">
+                            动词变形
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E5%BA%94%E7%94%A8%E8%AF%BE%E6%96%87" title="日语应用课文">
+                            日语应用课文
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95" title="日语语法">
+                            日语语法
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%A0%87%E5%87%86%E6%97%A5%E6%9C%AC%E8%AF%AD" title="标准日本语">
+                            标准日本语
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="http://jskillcloud.com/">杨波的博客</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="WZhong" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:zs577215@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    <li>
+                        <a target="_blank" href="/img/wechat_qrcode.jpg">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/wayne06">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yourlinkedinid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/yourstackoverflowid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+            
+                    
+                    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; WZhong 2020
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>
