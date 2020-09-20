@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>N3 on WZhong</title>
+    <link>http://wayne06.github.io/tags/n3/</link>
+    <description>Recent content in N3 on WZhong</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 19 Sep 2020 00:25:13 +0800</lastBuildDate>
+    
+	<atom:link href="http://wayne06.github.io/tags/n3/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>N3语法01 - 助词</title>
+      <link>http://wayne06.github.io/post/n3%E8%AF%AD%E6%B3%9501-%E5%8A%A9%E8%AF%8D/</link>
+      <pubDate>Sat, 19 Sep 2020 00:25:13 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/post/n3%E8%AF%AD%E6%B3%9501-%E5%8A%A9%E8%AF%8D/</guid>
+      <description>を 动作、作用的目标、对象：を+他动词 ご飯を食べる 本を読む（よむ） 弟を殴る（なぐる） 母に手紙を書く 猫が好き / 猫を好きになる 移动经过的场所：を+</description>
+    </item>
+    
+  </channel>
+</rss>

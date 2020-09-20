@@ -4,12 +4,52 @@
   
   <url>
     <loc>http://wayne06.github.io/categories/</loc>
-    <lastmod>2020-03-18T00:04:12+08:00</lastmod>
+    <lastmod>2020-09-19T00:25:13+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://wayne06.github.io/tags/design-pattern/</loc>
-    <lastmod>2020-03-18T00:04:12+08:00</lastmod>
+    <loc>http://wayne06.github.io/categories/japanese/</loc>
+    <lastmod>2020-09-19T00:25:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wayne06.github.io/tags/japanese-language/</loc>
+    <lastmod>2020-09-19T00:25:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wayne06.github.io/tags/jlpt/</loc>
+    <lastmod>2020-09-19T00:25:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wayne06.github.io/tags/n3/</loc>
+    <lastmod>2020-09-19T00:25:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wayne06.github.io/post/n3%E8%AF%AD%E6%B3%9501-%E5%8A%A9%E8%AF%8D/</loc>
+    <lastmod>2020-09-19T00:25:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wayne06.github.io/post/</loc>
+    <lastmod>2020-09-19T00:25:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wayne06.github.io/tags/</loc>
+    <lastmod>2020-09-19T00:25:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wayne06.github.io/</loc>
+    <lastmod>2020-09-19T00:25:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wayne06.github.io/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95/</loc>
+    <lastmod>2020-09-19T00:25:13+08:00</lastmod>
   </url>
   
   <url>
@@ -18,17 +58,7 @@
   </url>
   
   <url>
-    <loc>http://wayne06.github.io/post/</loc>
-    <lastmod>2020-03-18T00:04:12+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://wayne06.github.io/tags/</loc>
-    <lastmod>2020-03-18T00:04:12+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://wayne06.github.io/</loc>
+    <loc>http://wayne06.github.io/tags/design-pattern/</loc>
     <lastmod>2020-03-18T00:04:12+08:00</lastmod>
   </url>
   
@@ -45,16 +75,6 @@
   <url>
     <loc>http://wayne06.github.io/post/%E5%AE%9E%E6%88%98%E4%B8%80id%E7%94%9F%E6%88%90%E5%99%A8/</loc>
     <lastmod>2020-01-25T00:04:12+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://wayne06.github.io/categories/japanese/</loc>
-    <lastmod>2020-01-23T00:24:12+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://wayne06.github.io/tags/japanese-language/</loc>
-    <lastmod>2020-01-23T00:24:12+08:00</lastmod>
   </url>
   
   <url>
@@ -89,11 +109,6 @@
   
   <url>
     <loc>http://wayne06.github.io/tags/%E6%97%A5%E8%AF%AD%E5%BA%94%E7%94%A8%E8%AF%BE%E6%96%87/</loc>
-    <lastmod>2020-01-22T00:37:12+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://wayne06.github.io/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95/</loc>
     <lastmod>2020-01-22T00:37:12+08:00</lastmod>
   </url>
   
