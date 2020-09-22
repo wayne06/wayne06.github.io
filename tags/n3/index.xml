@@ -6,10 +6,19 @@
     <description>Recent content in N3 on WZhong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 19 Sep 2020 00:25:13 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2020 00:25:13 +0800</lastBuildDate>
     
 	<atom:link href="http://wayne06.github.io/tags/n3/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>N3语法02 - 时间</title>
+      <link>http://wayne06.github.io/post/n3%E8%AF%AD%E6%B3%9502-%E6%97%B6%E9%97%B4/</link>
+      <pubDate>Sun, 20 Sep 2020 00:25:13 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/post/n3%E8%AF%AD%E6%B3%9502-%E6%97%B6%E9%97%B4/</guid>
+      <description>～おきに 【每～】每间隔&amp;hellip; 今学期は一日おきに授業があります。月曜日、水曜日、金曜日にあります。 2日おきにジムに行きます。 ～ごとに</description>
+    </item>
     
     <item>
       <title>N3语法01 - 助词</title>
