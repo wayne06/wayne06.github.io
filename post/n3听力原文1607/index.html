@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="WZhong">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="N3听力原文1607" />
+    <meta property="og:title" content="N3听力原文1607" />
+    <meta property="twitter:title" content="N3听力原文1607" />
+    
+
+    
+    <meta name="description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan.">
+    <meta property="og:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    <meta property="twitter:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>N3听力原文1607-Wayne Zhong Blog</title>
+
+    <link rel="canonical" href="/post/n3%E5%90%AC%E5%8A%9B%E5%8E%9F%E6%96%871607/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/docco.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">WZhong</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/design-pattern">design-pattern</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/japanese">japanese</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/microservice">microservice</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/others">others</a>
+                    </li>
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://img.zhaohuabing.com/post-bg-2015.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/japanese-language" title="Japanese Language">
+                            Japanese Language
+                        </a>
+                        
+                        <a class="tag" href="/tags/jlpt" title="JLPT">
+                            JLPT
+                        </a>
+                        
+                        <a class="tag" href="/tags/%E6%97%A5%E8%AF%AD%E5%90%AC%E5%8A%9B" title="日语听力">
+                            日语听力
+                        </a>
+                        
+                        <a class="tag" href="/tags/n3" title="N3">
+                            N3
+                        </a>
+                        
+                    </div>
+                    <h1>N3听力原文1607</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                WZhong
+                         
+                        on 
+                        Sunday, October 4, 2020
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#問題１">問題１</a></li>
+    <li><a href="#問題２">問題２</a></li>
+    <li><a href="#問題３">問題３</a>
+      <ul>
+        <li><a href="#1-テレビで女のアナウンサーと男の人が話しています男の人は何についていますか">1. テレビで女のアナウンサーと男の人が話しています。男の人は何についていますか</a></li>
+        <li><a href="#2-アパートの前で女の人と隣の部屋の男の人が話しています女の人が言いていことは何ですか">2. アパートの前で、女の人と隣の部屋の男の人が話しています。女の人が言いていことは何ですか</a></li>
+        <li><a href="#3-ラジオで女の人が話しています女の人は何について話していますか">3. ラジオで女の人が話しています。女の人は何について話していますか</a></li>
+      </ul>
+    </li>
+    <li><a href="#問題４">問題４</a>
+      <ul>
+        <li><a href="#1-机の上に友達の傘があります友達はいま帰るところです何と言いますか">1. 机の上に友達の傘があります。友達はいま帰るところです。何と言いますか</a></li>
+        <li><a href="#2-写真を撮ってほしいです近くにいる人に何と言いますか">2. 写真を撮ってほしいです。近くにいる人に何と言いますか</a></li>
+        <li><a href="#3-おしゃれな店を見つけました友達を誘って一緒に入りたいです何と言いますか">3. おしゃれな店を見つけました。友達を誘って、一緒に入りたいです。何と言いますか</a></li>
+        <li><a href="#4-辞書を忘れたので友達の辞書を借りたいです何と言いますか">4. 辞書を忘れたので、友達の辞書を借りたいです。何と言いますか</a></li>
+      </ul>
+    </li>
+    <li><a href="#問題5">問題5</a>
+      <ul>
+        <li><a href="#1-いらっしゃいませ何名様でしょうか">1. いらっしゃいませ。何名様でしょうか</a></li>
+        <li><a href="#2-森さんちょっと書類の整理を手伝ってほしいんだけど">2. 森さん、ちょっと書類の整理を手伝ってほしいんだけど</a></li>
+        <li><a href="#3-鈴木さん今日はお目にかかれてうれしかったです">3. 鈴木さん、今日はお目にかかれて、うれしかったです</a></li>
+        <li><a href="#4-りんさん日本語ずいぶんうまくなってきたしスピーチ大会に出てみたら">4. りんさん、日本語ずいぶんうまくなってきたし、スピーチ大会に出てみたら</a></li>
+        <li><a href="#5-あっ松本君シャツのボタンが取れそうだよ">5. あっ、松本君、シャツのボタンが取れそうだよ</a></li>
+        <li><a href="#6-先輩先いただいた資料のことでお聞きしたいことがあるんですが">6. 先輩、先、いただいた資料のことで、お聞きしたいことがあるんですが</a></li>
+        <li><a href="#7-お料理冷めないうちにどうぞ召し上がってください">7. お料理、冷めないうちに、どうぞ召し上がってください</a></li>
+        <li><a href="#8-あっアパートの部屋の鍵かけずに出てきちゃったかもしれない">8. あっ、アパートの部屋の鍵、かけずに出てきちゃったかもしれない</a></li>
+        <li><a href="#9-棚の片付けまだ終ってないみたいだけど遅いしそれ明日にしてもかまわないよ">9. 棚の片付け、まだ終ってないみたいだけど。遅いし、それ、明日にしてもかまわないよ</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                
+                <h2 id="問題１">問題１</h2>
+<ol>
+<li>
+<p>市役所で、男の人と女の人が話しています。男の人はこのあと何をしなければなりませんか。</p>
+<ul>
+<li>男：課長、来週行う経済セミナーの件ですが、さっき見てみたら、当日使う予定のマイクが一本壊れてたんです。</li>
+<li>女：そう。確か、市民館に新しいのがあるはずだから、借りてきます。ちょうど今から別の用で行くところですから。</li>
+<li>男：ありがとうございます。</li>
+<li>女：あ、当日配る資料だけど、講演して頂く森先生に前に送ってもらったものでいいか確認しておいてくれますか。</li>
+<li>男：分かりました。すぐメールします。</li>
+<li>女：いいえ、メールはいつ見てもらえるか分からないから、電話でお願いします。</li>
+<li>男：あ、はい。</li>
+<li>女：それから、スピーカーも一応音が出るか確認して、だめだったら市民館に借りに行ってくださいね。</li>
+<li>男：それは、さっきマイクの確認と一緒にしました。</li>
+<li>女：そうですか。</li>
+</ul>
+</li>
+<li>
+<p>会社で、男の人と女の人が話しています。女の人はこのあとまず、何をしなければなりませんか。</p>
+<ul>
+<li>男：鈴木さん、来月田中部長が海外の支店に移られることになったの、聞いた？</li>
+<li>女：はい。</li>
+<li>男：部長にはいろいろお世話になったし、最後に食事会をしようと思うんだけど。その時、プレゼントと一緒にカードを渡したいんだ。悪いんだけど、ガード買って、皆に回してメッセージを書いてもらって。</li>
+<li>女：わかりました。</li>
+<li>男：人数多くて時間かかるかもしれないから、あしたからでも回し始めないとね。プレゼントは私が何か用意しておくよ。</li>
+<li>女：はい。</li>
+<li>男：それから、食事会の場所だね。</li>
+<li>女：私、いいレストラン知ってるので、日が決まったら、予約しておきます。</li>
+<li>男：ありがとう。来週部長が出張から戻られたら、ご予定を伺ってみるよ。</li>
+<li>女：分かりました。</li>
+</ul>
+</li>
+<li>
+<p>日本語学校の教室で先生が話しています。学生はこのあとまず、何をしなければなりませんか。</p>
+<ul>
+<li>今日は中村先生が急な用でいらっしゃらないので、かわりに私が来ました。この時間は、一人ずつ自分の趣味について発表をする予定でしたが、それは明日の授業でしてもらいます。いつもやっている漢字テストは、今日はありません。えー、昨日の授業で物語を読みましたね。原稿用紙を配りますから、感想を400字ぐらいで書いてください。それから、昨日宿題がでましたね、きょうかしょの練習問題。それは、あした中村先生に出してください。じゃ、始めましょう。</li>
+</ul>
+</li>
+<li>
+<p>スーパーで、店長と女の店員が話しています。女の店員はこのあとまず何をしなければなりませんか。</p>
+<ul>
+<li>男：山田さん、おはよう。ちょっといい？</li>
+<li>女：はい、店長。</li>
+<li>男：新しくバイトに入った林君のことなんだけど、山田さんが指導係になって、いろいろ教えてあげてほしいんだ。</li>
+<li>女：え？私がですか。</li>
+<li>男：うん、よろしく頼むよ。いま林君には店の前を掃除してもらってるんだけど、もう終わるころだから、店のどこにどんな商品が並んでるのか教えてあげて。</li>
+<li>女：はい。</li>
+<li>男：それから、午後はレジの仕事の説明をお願い。彼にはできるだけはやくレジを覚えてもらいたいんだ。</li>
+<li>女：わかりました。閉店後の店の中の確認も一緒にしたほうがいいですか。お客さんのおとしもののかいしゅうとか。</li>
+<li>男：そうだね。それもお願いするよ。</li>
+</ul>
+</li>
+<li>
+<p>ゴルフ教室で、男の人と受付の人が話しています。男の人はこのあと、どのクラスに申込みますか。</p>
+<ul>
+<li>男：あのう、すみません。ゴルフのレッスンに申込みたいんですが。どのクラスにすればいいのかよく分からなくて。</li>
+<li>女：はい。クラスは全部で四つありますが。ゴルフは初めてですか。</li>
+<li>男：いいえ、以前やってました。</li>
+<li>女：そうですか。では、入門は始めての方のクラスなので、経験者の方はそれ以外のしょきゅう、ちゅうきゅう、じょうきゅうの三つの中からお選びください。</li>
+<li>男：それぞれどんなことをするんでしょうか。</li>
+<li>女：しょきゅうは入門クラスで習った基本的な打ち方をしっかり身に付けるクラスです。ちゅうきゅうは基礎を身に付けた人がいろいろな技術を学ぶクラスです。</li>
+<li>男：はい。</li>
+<li>女：じょうきゅうは、市の大会を目標に頑張っている方多いですよ。</li>
+<li>男：市の大会ですか。昔はよく出てたんですけど、しばらくやってないし。</li>
+<li>女：あ、すみません、このクラスいま定員がいっぱいになってました。一つしたのクラスから始めてみてはいかがですか。</li>
+<li>男：そうですね、そうします。</li>
+</ul>
+</li>
+<li>
+<p>お城の前で、案内の人が話しています。これからお城の中を見学する人は、入り口で靴を脱いだあと、靴をどうしますか。</p>
+<ul>
+<li>皆様、これからお城の中を見学していただきますが、靴は入り口で脱いで、土が落ちないように、ふくろに入れてお持ちください。ふくろは入り口でお渡しします。本日はたいへん混雑しているため、見学通路は一方通行になっております。入り口と出口が違いますので、入り口に靴を置くたながございますが、これは本日はお使いにならないようにしてください。また、脱いだ靴を入り口のすみに置いていかないようにお願いします。</li>
+</ul>
+</li>
+</ol>
+<h2 id="問題２">問題２</h2>
+<ol>
+<li>
+<p>携帯電話で女の人と男の人が話しています。二人はどこで会いますか。</p>
+<ul>
+<li>女：もしもし、佐藤君？いまどこ？</li>
+<li>男：あ、もう駅の北口のかいさつについてるよ。北口のかいさつで合う約束だよね。</li>
+<li>女：ごめん。わたし、いま南口にいるんだ。さっき、ハイヒールの踵が折れちゃって…たしか、南口のデパートに靴をなおせるところがあったから、ちょっと寄っていきたいんだけど。</li>
+<li>男：そう。じゃ、ぼくも南口のデパートに行こうか？</li>
+<li>女：ううん。北口によく行くカフェがあるよね。時間かかるかもしれないから、そこで待ってて。</li>
+<li>男：分かった、じゃ、あとで。</li>
+</ul>
+</li>
+<li>
+<p>会社で、女の人と男の人が話しています。男の人はどうして今の家に住んでいますか。</p>
+<ul>
+<li>女：木村さんって、通勤に2時間かかるんだって？ご両親の家から通ってるの？</li>
+<li>男：あ、一人暮らしだよ。</li>
+<li>女：うん…一人暮らしなら、会社の近くにも住めるのに、どうして遠くに？会社の近くより、家賃が安いの？</li>
+<li>男：いや、家賃はそんなに変わらないけど、部屋がたくさんあって、庭もあるんだ。ぼく、本をたくさん持ってるから、置いておける部屋があると便利で。</li>
+<li>女：そうなんだ。庭があるんなら、犬とか伺えるよね。</li>
+<li>男：そうだね。でも、出張なんかもあるし、ベットを伺うことは考えてないんだ。</li>
+</ul>
+</li>
+<li>
+<p>テニス教室で、男の人と女の人が話しています。女の人はどうして最近テニスがうまくなったと言っていますか。</p>
+<ul>
+<li>男：山田さん、最近、テニスうまくなったね。</li>
+<li>女：ああ、ありがとう。ラケットとか靴とか新しくしたから。</li>
+<li>男：ええ？道具を変えると、うまくなるの？</li>
+<li>女：はあ、ごめん。それは冗談。うまくなりたくて、何かいい方法がないか、あれこれやってみたの。教室に来て練習する日を増やしてみたり、先生を変えてみたり、それから、自宅でできるトレーニングを始めてみたり…</li>
+<li>男：うん、それで？</li>
+<li>女：それで、わたしの場合は教室に来る回数を増やすより、うちで1人でできることをやるほうが効果的だって分かったんだ。</li>
+<li>男：そっか。なるほど。</li>
+</ul>
+</li>
+<li>
+<p>会社で、女の人と男の人が話しています。男の人はどうしてお弁当を持ってきていますか。</p>
+<ul>
+<li>女：あ、加藤さん。今日もお弁当？毎朝自分で作ってるの？</li>
+<li>男：うん。何を作るか毎日考えなきゃいけないのはちょっと大変だけど。</li>
+<li>女：料理作るのを好きなの？</li>
+<li>男：いや、あまり好きじゃないんだけど。実は車がほしくて、ずっと貯金してて。外食するとけっこうお金がかかるよね。</li>
+<li>女：そうだね。おべんとうだと野菜もたくさんは入れられるから健康にもよさそうだね。</li>
+<li>男：あ、健康のことはあんまり考えてなかったけど…そうだね。</li>
+</ul>
+</li>
+<li>
+<p>男の人と女の人が話しています。男の人はインターネットで服を買わない一番の理由はなんだと言っていますか。</p>
+<ul>
+<li>男：おう、その服、いい色だね。どこで買ったの。</li>
+<li>女：これ、インターネットで買ったの。いいでしょう。</li>
+<li>男：ああ、インターネットショッピングか。実は、僕、インターネットで服を買ったことないんだ。送料がかかるし、品物がとどくまでに時間がかかるんでしょう。</li>
+<li>女：うん、送料がかかるものもあるよ。でも、家にいて、簡単に買い物ができるって、やっぱり便利だと思わない。</li>
+<li>男：うん、そうだね。ただ、たいてい注文する前に実物を着てみることはできないんだよね。僕はそれが一番気になるなあ。いままで、なんか問題なかった。</li>
+<li>女：うん、サイトを見れば、サイズや色はわかるから、大丈夫だよ。私はそれより、始めて注文したとき、店に名前とか、住所とか教えなきゃならないことが気になったけどね。</li>
+</ul>
+</li>
+<li>
+<p>町の体育館の受付で、男の人と係りの人が話しています。男の人は、どうして今日利用の申し込みができませんか。</p>
+<ul>
+<li>男：あのう、始めて体育館を利用するんですけど、今日申し込めますか。来月、12名でバスケットボールをしたいんです。</li>
+<li>女：代表の方ですね。あのう、この町の方ですか。</li>
+<li>男：はい。</li>
+<li>女：じゃ、この町に住んでいることがわかる証明書と、あっ、それから、今日、はんこはありますか。</li>
+<li>男：はい。ええと、証明書は運転免許証でいいですか。</li>
+<li>女：大丈夫です。え…、では、この申請用紙に必要なことを書いてください。利用者の名前も全員分、お願いします。</li>
+<li>男：あっ、みんなの分は、いまちょっと…。全員分必要ですか。</li>
+<li>女：はい。</li>
+<li>男：じゃ、確認して、明日また来ます。</li>
+<li>女：すみません。では、この用紙を渡しますから、これに書いて、はんこを押して、お持ちください。利用料金はそのとき現金でお支払いください。よろしくお願いします。</li>
+</ul>
+</li>
+</ol>
+<h2 id="問題３">問題３</h2>
+<h3 id="1-テレビで女のアナウンサーと男の人が話しています男の人は何についていますか">1. テレビで女のアナウンサーと男の人が話しています。男の人は何についていますか</h3>
+<blockquote>
+<ul>
+<li>1.小鳥の世話で大変なこと。</li>
+<li>2.小鳥を伺ってよかったこと。</li>
+<li>3.小鳥につけた名前の意味。</li>
+<li>4.小鳥を上手に伺う方法。</li>
+</ul>
+</blockquote>
+<ul>
+<li>女：佐藤さんは小鳥を伺っていらっしゃるそうですね。</li>
+<li>男：ええ、シロという名前なんです。</li>
+<li>女：いつごろから伺っていらっしゃるんですか。</li>
+<li>男：二年前です。長男が四歳のとき、自分で世話をするという約束で、最初は大変かと思ったんですが、きちんと世話を続けています。生き物を大切にする気持ちを持ってくれているようで、嬉しいです。</li>
+<li>女：小さいお子さんでも、世話ができるんですね。</li>
+<li>男：ええ、つめを切るとか、そういうことは子供には難しいんで、私がしますけどね。それから、シロを買うようになってから、家族の会話も増えた気がします。</li>
+<li>女：そうですか。</li>
+<li>男：幼稚園などで、家族の絵を描くときには、必ずシロも入っているんですよ。</li>
+<li>女：シロも家族なんですね。</li>
+<li>男：そうですね。私たちがシロと名前を呼ぶと、いつもかわいい声で答えるんです。</li>
+</ul>
+<h3 id="2-アパートの前で女の人と隣の部屋の男の人が話しています女の人が言いていことは何ですか">2. アパートの前で、女の人と隣の部屋の男の人が話しています。女の人が言いていことは何ですか</h3>
+<blockquote>
+<ul>
+<li>1.ペーティーに招待してほしい。</li>
+<li>2.部屋でパーティーをしないでほしい。</li>
+<li>3.外国に行ったときの話を聞いてほしい。</li>
+<li>4.夜遅くに騒がないほしい。</li>
+</ul>
+</blockquote>
+<ul>
+<li>女：中村さん、こんばんは。</li>
+<li>男：ああ、こんばんは。</li>
+<li>女：夕べはお友達たくさん来てたのね。にぎやかでしたね。</li>
+<li>男：あ、はい。昨日はパーティーで。</li>
+<li>女：でも、皆さん、ちょっと声が大きくて、私、夜なかなか眠れなかったんですよ。</li>
+<li>男：ああ、すみませんでした。</li>
+<li>女：いえいえ、パーティーって楽しいですよね。私も若いころ友達とよくパーティーしてたから、わかるんです。外国に住んでいた時なんですけどね。パーティーをするのはいいんですけど。ただ、時間がね。</li>
+<li>男：はい、気をつけます。外国に住んでいらっしゃったんですか。よかったら、今度話を聞きせてください。</li>
+<li>女：ええ、また今度ね。</li>
+</ul>
+<h3 id="3-ラジオで女の人が話しています女の人は何について話していますか">3. ラジオで女の人が話しています。女の人は何について話していますか</h3>
+<blockquote>
+<ul>
+<li>1.冬に病気が流行する理由。</li>
+<li>2.インフルエンザの治し方。</li>
+<li>3.生活習慣が原因の病気。</li>
+<li>4.ウイルスから体を守る方法。</li>
+</ul>
+</blockquote>
+<ul>
+<li>女：寒くなってきましたね。冬は、インフルエンザが流行する季節です。これはウイルスが原因です。インフルエンザは一年中、いつでもかかる可能性がありますが、特に流行する冬は、普段から手洗いや、うがいをきちんと行い、ウイルスを体のなかに取り込まないようにすることが大切です。また、生活習慣を意識し、規則正しい生活を送ると、ウイルスに対する体の力が強くなることが期待できます。</li>
+</ul>
+<h2 id="問題４">問題４</h2>
+<h3 id="1-机の上に友達の傘があります友達はいま帰るところです何と言いますか">1. 机の上に友達の傘があります。友達はいま帰るところです。何と言いますか</h3>
+<blockquote>
+<ul>
+<li>1.傘、忘れてるよ。</li>
+<li>2.傘、持ってこなかったの。</li>
+<li>3.傘、ここに置いたら。</li>
+</ul>
+</blockquote>
+<h3 id="2-写真を撮ってほしいです近くにいる人に何と言いますか">2. 写真を撮ってほしいです。近くにいる人に何と言いますか</h3>
+<blockquote>
+<ul>
+<li>1.すみません、写真を撮っていただけませんか。</li>
+<li>2.あのう、写真を撮ってもよろしいですか。</li>
+<li>3.よければ、写真をお撮りしましょうか。</li>
+</ul>
+</blockquote>
+<h3 id="3-おしゃれな店を見つけました友達を誘って一緒に入りたいです何と言いますか">3. おしゃれな店を見つけました。友達を誘って、一緒に入りたいです。何と言いますか</h3>
+<blockquote>
+<ul>
+<li>1.ここ、行かなきゃいけない。</li>
+<li>2.ここ、この前はいったよね。</li>
+<li>3.ここ、ちょっと見ていかない。</li>
+</ul>
+</blockquote>
+<h3 id="4-辞書を忘れたので友達の辞書を借りたいです何と言いますか">4. 辞書を忘れたので、友達の辞書を借りたいです。何と言いますか</h3>
+<blockquote>
+<ul>
+<li>1.ぜひ、その辞書使って。</li>
+<li>2.その辞書、ちょっと使わせてもらってもいい。</li>
+<li>3.その辞書、使ってみるといいよ。</li>
+</ul>
+</blockquote>
+<h2 id="問題5">問題5</h2>
+<h3 id="1-いらっしゃいませ何名様でしょうか">1. いらっしゃいませ。何名様でしょうか</h3>
+<blockquote>
+<ul>
+<li>1.六回目です。</li>
+<li>2.六人です。</li>
+<li>3.お客様です。</li>
+</ul>
+</blockquote>
+<h3 id="2-森さんちょっと書類の整理を手伝ってほしいんだけど">2. 森さん、ちょっと書類の整理を手伝ってほしいんだけど</h3>
+<blockquote>
+<ul>
+<li>1.そう、もう手伝わなくてもいいの。</li>
+<li>2.ありがとう、じゃ、お願いするね。</li>
+<li>3.ああ、すこし後ならできるけど。</li>
+</ul>
+</blockquote>
+<h3 id="3-鈴木さん今日はお目にかかれてうれしかったです">3. 鈴木さん、今日はお目にかかれて、うれしかったです</h3>
+<blockquote>
+<ul>
+<li>1.こちらこそ、またお会いしたいです。</li>
+<li>2.私も楽しみにしております。</li>
+<li>3.では、どうぞ、ご覧ください。</li>
+</ul>
+</blockquote>
+<h3 id="4-りんさん日本語ずいぶんうまくなってきたしスピーチ大会に出てみたら">4. りんさん、日本語ずいぶんうまくなってきたし、スピーチ大会に出てみたら</h3>
+<blockquote>
+<ul>
+<li>1.じゃあ、寝るのはあきらめます。</li>
+<li>2.はい、私も出てみたいと思ってるんです。</li>
+<li>3.出てみたらいかがですか。</li>
+</ul>
+</blockquote>
+<h3 id="5-あっ松本君シャツのボタンが取れそうだよ">5. あっ、松本君、シャツのボタンが取れそうだよ</h3>
+<blockquote>
+<ul>
+<li>1.どこで落としちゃったんだろう。</li>
+<li>2.ほんとだ。ぜんぜん気がつかなかったよ。</li>
+<li>3.拾ってくれたの。ありがとう。</li>
+</ul>
+</blockquote>
+<h3 id="6-先輩先いただいた資料のことでお聞きしたいことがあるんですが">6. 先輩、先、いただいた資料のことで、お聞きしたいことがあるんですが</h3>
+<blockquote>
+<ul>
+<li>1.どこで聞いたの。</li>
+<li>2.どの資料がほしいの。</li>
+<li>3.うん、どんなこと。</li>
+</ul>
+</blockquote>
+<h3 id="7-お料理冷めないうちにどうぞ召し上がってください">7. お料理、冷めないうちに、どうぞ召し上がってください</h3>
+<blockquote>
+<ul>
+<li>1.はい、では、さっそくいただきます。</li>
+<li>2.では、冷めてからいただくんですね。</li>
+<li>3.冷たいうちに、いただきます。</li>
+</ul>
+</blockquote>
+<h3 id="8-あっアパートの部屋の鍵かけずに出てきちゃったかもしれない">8. あっ、アパートの部屋の鍵、かけずに出てきちゃったかもしれない</h3>
+<blockquote>
+<ul>
+<li>1.部屋に忘れ物しちゃったの。</li>
+<li>2.帰って確かめたほうがいいんじゃない。</li>
+<li>3.かけてきたんなら、大丈夫だね。</li>
+</ul>
+</blockquote>
+<h3 id="9-棚の片付けまだ終ってないみたいだけど遅いしそれ明日にしてもかまわないよ">9. 棚の片付け、まだ終ってないみたいだけど。遅いし、それ、明日にしてもかまわないよ</h3>
+<blockquote>
+<ul>
+<li>1.ああ、今日中に終らせないといけないんですね。</li>
+<li>2.今日はちょっとお手伝いできないんですが。</li>
+<li>3.すみません、じゃ、今日はここまでにします。</li>
+</ul>
+</blockquote>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="http://wayne06.github.io/"><img src="/img/favicon.png" />WZhong</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/n3%E5%90%AC%E5%8A%9B%E5%8E%9F%E6%96%871512/" data-toggle="tooltip" data-placement="top" title="N3听力原文1512">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/ci/cd" title="ci/cd">
+                            ci/cd
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/design-pattern" title="design-pattern">
+                            design-pattern
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/devops" title="devops">
+                            devops
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/japanese-language" title="japanese-language">
+                            japanese-language
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/jlpt" title="jlpt">
+                            jlpt
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n3" title="n3">
+                            n3
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/saas" title="saas">
+                            saas
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E5%8A%A8%E8%AF%8D%E5%8F%98%E5%BD%A2" title="动词变形">
+                            动词变形
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E6%96%87%E6%AD%8C" title="日文歌">
+                            日文歌
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E5%90%AC%E5%8A%9B" title="日语听力">
+                            日语听力
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E5%BA%94%E7%94%A8%E8%AF%BE%E6%96%87" title="日语应用课文">
+                            日语应用课文
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95" title="日语语法">
+                            日语语法
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%A0%87%E5%87%86%E6%97%A5%E6%9C%AC%E8%AF%AD" title="标准日本语">
+                            标准日本语
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="http://jskillcloud.com/">杨波的博客</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="WZhong" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:zs577215@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    <li>
+                        <a target="_blank" href="/img/wechat_qrcode.jpg">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/wayne06">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yourlinkedinid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/yourstackoverflowid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+            
+                    
+                    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; WZhong 2020
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>
