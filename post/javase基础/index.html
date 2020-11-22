@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="WZhong">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="JavaSE基础" />
+    <meta property="og:title" content="JavaSE基础" />
+    <meta property="twitter:title" content="JavaSE基础" />
+    
+
+    
+    <meta name="description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan.">
+    <meta property="og:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    <meta property="twitter:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>JavaSE基础-Wayne Zhong Blog</title>
+
+    <link rel="canonical" href="/post/javase%E5%9F%BA%E7%A1%80/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/docco.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">WZhong</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/design-pattern">design-pattern</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/japanese">japanese</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/java">java</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/microservice">microservice</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/others">others</a>
+                    </li>
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://img.zhaohuabing.com/post-bg-2015.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/interview" title="Interview">
+                            Interview
+                        </a>
+                        
+                    </div>
+                    <h1>JavaSE基础</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                WZhong
+                         
+                        on 
+                        Saturday, October 10, 2020
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#-面向对象">Ⅰ. 面向对象</a></li>
+    <li><a href="#-语法">Ⅱ. 语法</a></li>
+    <li><a href="#-多态">Ⅲ. 多态</a></li>
+    <li><a href="#-异常处理">Ⅳ. 异常处理</a></li>
+    <li><a href="#-常用api">Ⅴ. 常用API</a></li>
+    <li><a href="#-数据类型">Ⅵ. 数据类型</a></li>
+    <li><a href="#-io">Ⅶ. IO</a></li>
+    <li><a href="#-集合">Ⅷ. 集合</a></li>
+    <li><a href="#-多线程">Ⅸ. 多线程</a></li>
+    <li><a href="#-内部类">Ⅹ. 内部类</a></li>
+  </ul>
+</nav>
+                
+                <h2 id="-面向对象">Ⅰ. 面向对象</h2>
+<ol>
+<li>
+<p>面向对象的特性</p>
+</li>
+<li>
+<p>访问权限修饰符</p>
+</li>
+<li>
+<p>clone 对象</p>
+</li>
+</ol>
+<h2 id="-语法">Ⅱ. 语法</h2>
+<ol>
+<li>
+<p>Java 有 goto 语句吗</p>
+</li>
+<li>
+<p>&amp; 和 &amp;&amp; 的区别</p>
+</li>
+<li>
+<p>如何跳出当前的多重嵌套循环</p>
+</li>
+<li>
+<p>「两个对象值相同，即 x.equals(y)==true 时，hashCode 可以不同」这句话对吗</p>
+</li>
+<li>
+<p>String 类是否可以继承</p>
+</li>
+<li>
+<p>当一个对象被当做参数传递到一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里是值传递还是引用传递</p>
+</li>
+<li>
+<p>重载（overload）和重写（override）的区别；重载的方法能否根据返回类型进行区分</p>
+</li>
+<li>
+<p>为什么函数不能根据返回类型来区分重载</p>
+</li>
+<li>
+<p>char 型变量中能不能存储一个中文汉字</p>
+</li>
+<li>
+<p>抽象类和接口的异同</p>
+</li>
+<li>
+<p>抽象方法是否可同时是静态方法（static）；抽象方法是否可同时是本地方法（native）；抽象方法是否可同时被 synchronized 修饰</p>
+</li>
+<li>
+<p>静态变量和实例变量的区别</p>
+</li>
+<li>
+<p>== 和 equals 的区别</p>
+</li>
+<li>
+<p>break 和 continue 的区别</p>
+</li>
+<li>
+<p>下面语句执行后，原始的 String 对象中的内容是否发生了改变</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">String s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello&#34;</span><span style="color:#f92672">;</span>
+s <span style="color:#f92672">=</span> s <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; world!&#34;</span><span style="color:#f92672">;</span>
+</code></pre></div></li>
+</ol>
+<h2 id="-多态">Ⅲ. 多态</h2>
+<ol>
+<li>Java 中实现多态的机制是什么</li>
+</ol>
+<h2 id="-异常处理">Ⅳ. 异常处理</h2>
+<ol>
+<li>
+<p>Java 中异常分为哪些种类</p>
+</li>
+<li>
+<p>下面方法的返回值是什么</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getNum</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> 1<span style="color:#f92672">/</span>0<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">return</span> 1<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> 2<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span> <span style="color:#66d9ef">finally</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> 3<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>error 和 exception 的区别</p>
+</li>
+<li>
+<p>Java 的异常处理机制</p>
+</li>
+<li>
+<p>最常见的 5 个 RuntimeException</p>
+</li>
+<li>
+<p>throw 和 throws 的区别</p>
+</li>
+<li>
+<p>final、finally、finalize 的区别</p>
+</li>
+</ol>
+<h2 id="-常用api">Ⅴ. 常用API</h2>
+<ol>
+<li>
+<p>a 和 b 的值是多少</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">a <span style="color:#f92672">=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">round</span><span style="color:#f92672">(</span>11<span style="color:#f92672">.</span><span style="color:#a6e22e">5</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+b <span style="color:#f92672">=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">round</span><span style="color:#f92672">(</span><span style="color:#f92672">-</span>11<span style="color:#f92672">.</span><span style="color:#a6e22e">5</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</code></pre></div></li>
+<li>
+<p>switch 是否能作用在 byte、long、String 上</p>
+</li>
+<li>
+<p>数组是否有 length() 方法；String 是否有 length() 方法</p>
+</li>
+<li>
+<p>String、StringBuilder、StringBuffer 的区别</p>
+</li>
+<li>
+<p>什么情况下用 &ldquo;+&rdquo; 运算符进行字符串拼接比调用 StringBuilder、StringBuffer 对象的 append 方法性能更好</p>
+</li>
+<li>
+<p>下面程序的输出是什么</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StringEqualTest</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        String s1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Programming&#34;</span><span style="color:#f92672">;</span>
+        String s2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Programming&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        String s3 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Program&#34;</span><span style="color:#f92672">;</span>
+        String s4 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ming&#34;</span><span style="color:#f92672">;</span>
+        String s5 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Program&#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;ming&#34;</span><span style="color:#f92672">;</span>
+        String s6 <span style="color:#f92672">=</span> s3 <span style="color:#f92672">+</span> s4<span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s1 <span style="color:#f92672">=</span><span style="color:#f92672">=</span> s2<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s1 <span style="color:#f92672">=</span><span style="color:#f92672">=</span> s5<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s1 <span style="color:#f92672">=</span><span style="color:#f92672">=</span> s6<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s1 <span style="color:#f92672">=</span><span style="color:#f92672">=</span> s6<span style="color:#f92672">.</span><span style="color:#a6e22e">intern</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s1 <span style="color:#f92672">=</span><span style="color:#f92672">=</span> s2<span style="color:#f92672">.</span><span style="color:#a6e22e">intern</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>Java 中的日期和时间</p>
+</li>
+</ol>
+<h2 id="-数据类型">Ⅵ. 数据类型</h2>
+<ol>
+<li>
+<p>Java 中基本数据类型有哪些，各占几个字节</p>
+</li>
+<li>
+<p>String 是基本数据类型吗</p>
+</li>
+<li>
+<p>下面两段代码是否有错</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">short</span> s1 <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>
+s1 <span style="color:#f92672">=</span> s1 <span style="color:#f92672">+</span> 1<span style="color:#f92672">;</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">short</span> s1 <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>
+s1 <span style="color:#f92672">+</span><span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>
+</code></pre></div></li>
+<li>
+<p>int 和 Integer 的区别</p>
+</li>
+<li>
+<p>下面代码的输出结果是什么</p>
+</li>
+<li>
+<p>String 类常用方法</p>
+</li>
+<li>
+<p>String、StringBuffer、StringBuilder的区别</p>
+</li>
+<li>
+<p>数据类型之间的转换</p>
+</li>
+</ol>
+<h2 id="-io">Ⅶ. IO</h2>
+<ol>
+<li>
+<p>Java 中有几种类型的流</p>
+</li>
+<li>
+<p>字节流如何转为字符流</p>
+</li>
+<li>
+<p>如何将一个 Java 对象序列化到文件里</p>
+</li>
+<li>
+<p>字节流和字符流的区别</p>
+</li>
+<li>
+<p>如何实现对象克隆</p>
+</li>
+<li>
+<p>什么是 Java 的序列化，如何实现 Java 序列化</p>
+</li>
+</ol>
+<h2 id="-集合">Ⅷ. 集合</h2>
+<ol>
+<li>
+<p>HashMap 排序</p>
+<blockquote>
+<p>已知一个 HashMap&lt;Integer， User&gt;集合， User 有 name（String）和 age（int）属性。请写一个方法实现对
+HashMap 的排序功能，该方法接收 HashMap&lt;Integer， User&gt;为形参，返回类型为 HashMap&lt;Integer， User&gt;，
+要求对 HashMap 中的 User 的 age 倒序进行排序。排序时 key=value 键值对不得拆散。</p>
+</blockquote>
+</li>
+<li>
+<p>集合的安全性问题</p>
+</li>
+<li>
+<p>ArrayList 内部用什么实现的</p>
+</li>
+<li>
+<p>并发集合和普通集合如何区别</p>
+</li>
+<li>
+<p>List 的三个子类的特点</p>
+</li>
+<li>
+<p>List、Map、Set 的区别</p>
+</li>
+<li>
+<p>HashMap 和 HashTable 有什么区别</p>
+</li>
+<li>
+<p>数组和链表分别适用于什么场景</p>
+</li>
+<li>
+<p>ArrayList 和 LinkedList 的区别</p>
+</li>
+<li>
+<p>下面两句的区别是什么</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">List a <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+ArrayList b <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</code></pre></div></li>
+<li>
+<p>要对集合进行更新操作时，ArrayList 和 LinkedList 哪个更合适</p>
+</li>
+<li>
+<p>用两个队列模拟堆栈结构</p>
+</li>
+<li>
+<p>Collection 和 Map 的集成体系</p>
+</li>
+<li>
+<p>Map 中的 Key 和 Value 可以为 null 吗</p>
+</li>
+</ol>
+<h2 id="-多线程">Ⅸ. 多线程</h2>
+<ul>
+<li>
+<p>传统线程机制</p>
+<ol>
+<li>
+<p>Thread 类和 Runnable 接口</p>
+</li>
+<li>
+<p>定时器 Timer 和 TimerTask</p>
+</li>
+<li>
+<p>线程互斥与同步</p>
+</li>
+<li>
+<p>线程局部变量 TreadLocal</p>
+</li>
+<li>
+<p>多线程共享数据</p>
+</li>
+</ol>
+</li>
+<li>
+<p>线程并发库</p>
+<ol>
+<li>
+<p>juc 包 - 多线程并发库</p>
+<ul>
+<li>
+<p>执行程序</p>
+<ul>
+<li>Executors 线程池工厂类</li>
+<li>ExecutorService 执行器服务</li>
+<li>ThreadPoolExecutor 定时线程池执行者</li>
+<li>SchedulePoolExecutor 定时线程池执行者</li>
+<li>ForkJoinPool 合并和分叉（线程池）</li>
+</ul>
+</li>
+<li>
+<p>并发队列 - 阻塞队列</p>
+<ul>
+<li>BlockingQueue 阻塞队列</li>
+<li>ArrayBlockingQueue 阻塞队列</li>
+<li>LinkedBlockingQueue 阻塞队列</li>
+<li>PriorityBlockingQueue 无界阻塞优先级队列</li>
+<li>SychronousQueue 同步队列</li>
+<li>DeplayQueue 延时无界阻塞队列</li>
+</ul>
+</li>
+<li>
+<p>并发队列（Collection） - 非阻塞队列</p>
+<ul>
+<li>非阻塞队列</li>
+<li>非阻塞算法 CAS</li>
+<li>ConcurrentLinkedQueue 非阻塞无界链表队列</li>
+<li>ConcurrentHashMap 非阻塞 Hash 集合</li>
+<li>ConcurrentSkipListMap 非阻塞 Hash 跳表集合</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>juc.atomic 包 - 多线程的原子性操作提供的工具类</p>
+<ul>
+<li>AtomicBoolean 原子性布尔</li>
+<li>AtomicInteger 原子性整型</li>
+<li>AtomicIntergerArray 原子性整型数组</li>
+<li>AtomicLong、AtomicLongArray 原子性整型数组</li>
+</ul>
+</li>
+<li>
+<p>juc.lock 包 - 多线程的锁机制</p>
+</li>
+</ol>
+</li>
+<li>
+<p>面试题</p>
+<ol>
+<li>
+<p>多线程的创建方式</p>
+</li>
+<li>
+<p>wait 和 sleep 方法的区别</p>
+</li>
+<li>
+<p>synchronized 和 volatile 的作用</p>
+</li>
+<li>
+<p>下面代码的输出结果是 1000 吗</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Counter</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">volatile</span> <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">inc</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+            Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">sleep</span><span style="color:#f92672">(</span>3<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>InterruptedException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        count<span style="color:#f92672">+</span><span style="color:#f92672">+</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;[count=&#34;</span> <span style="color:#f92672">+</span> count <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;]&#39;</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">VolatileTest</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">final</span> Counter counter <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Counter<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> 1000<span style="color:#f92672">;</span> i<span style="color:#f92672">+</span><span style="color:#f92672">+</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">new</span> Thread<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Runnable<span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                <span style="color:#a6e22e">@Override</span>
+                <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    counter<span style="color:#f92672">.</span><span style="color:#a6e22e">inc</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">}</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>counter<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>线程池是什么，怎么使用</p>
+</li>
+<li>
+<p>常用线程池有哪些</p>
+</li>
+<li>
+<p>对线程池的理解</p>
+</li>
+<li>
+<p>线程池的启动策略</p>
+</li>
+<li>
+<p>如何控制某个方法允许并发访问线程的个数</p>
+</li>
+<li>
+<p>三个线程 a、b、c 并发运行，b、c 需要 a 的数据怎么实现</p>
+</li>
+<li>
+<p>同一个类中的 2 个方法都加了同步锁，多个线程能同时访问同一个类中的这两个方法吗</p>
+</li>
+<li>
+<p>什么情况会导致线程死锁，遇到死锁该怎么解决</p>
+</li>
+<li>
+<p>多线程间通信怎么实现</p>
+</li>
+<li>
+<p>线程和进程的区别</p>
+</li>
+<li>
+<p>同步线程及线程调度相关的方法</p>
+</li>
+<li>
+<p>启动一个线程是调用 run 还是 start 方法</p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="-内部类">Ⅹ. 内部类</h2>
+<ol>
+<li>
+<p>静态嵌套类（Static Nested Class）和内部类（Inner Class）的不同</p>
+</li>
+<li>
+<p>下面代码哪里会产生编译错误</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Outer</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Inner</span> <span style="color:#f92672">{</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">foo</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">new</span> Inner<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">bar</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">new</span> Inner<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">new</span> Inner<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+</ol>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="http://wayne06.github.io/"><img src="/img/favicon.png" />WZhong</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/n3%E5%90%AC%E5%8A%9B%E5%8E%9F%E6%96%871812/" data-toggle="tooltip" data-placement="top" title="N3听力原文1812">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/ci/cd" title="ci/cd">
+                            ci/cd
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/design-pattern" title="design-pattern">
+                            design-pattern
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/devops" title="devops">
+                            devops
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/japanese-language" title="japanese-language">
+                            japanese-language
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/jlpt" title="jlpt">
+                            jlpt
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n3" title="n3">
+                            n3
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/saas" title="saas">
+                            saas
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E5%8A%A8%E8%AF%8D%E5%8F%98%E5%BD%A2" title="动词变形">
+                            动词变形
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E6%96%87%E6%AD%8C" title="日文歌">
+                            日文歌
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E5%90%AC%E5%8A%9B" title="日语听力">
+                            日语听力
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E5%BA%94%E7%94%A8%E8%AF%BE%E6%96%87" title="日语应用课文">
+                            日语应用课文
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95" title="日语语法">
+                            日语语法
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%A0%87%E5%87%86%E6%97%A5%E6%9C%AC%E8%AF%AD" title="标准日本语">
+                            标准日本语
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="http://jskillcloud.com/">杨波的博客</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="WZhong" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:zs577215@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    <li>
+                        <a target="_blank" href="/img/wechat_qrcode.jpg">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/wayne06">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yourlinkedinid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/yourstackoverflowid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+            
+                    
+                    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; WZhong 2020
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>
