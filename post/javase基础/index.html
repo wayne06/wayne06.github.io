@@ -247,72 +247,309 @@
 <ol>
 <li>
 <p>面向对象的特性</p>
+<ul>
+<li>继承（inherit）、封装（encapsulate）、多态（polymorphism）、抽象（abstract）</li>
+</ul>
 </li>
 <li>
 <p>访问权限修饰符</p>
+<ul>
+<li>
+<p>public、protected、default、private</p>
+</li>
+<li>
+<p>当前类、同包、子类、其他包</p>
+</li>
+</ul>
 </li>
 <li>
 <p>clone 对象</p>
+<ul>
+<li>
+<p>Object.clone()方法是一个native方法，一个native方法就是一个java调用非java代码的接口。而一般native方法的速度都要比你自己所写的程序运行速度快很多，这也是为什么当我们想要对一个对象进行克隆操作时，推荐使用Object.clone()方法而非自己通过java代码去实现这样一个功能（虽然也可以达到想要的结果）</p>
+</li>
+<li>
+<p>clone()方法是protected的，而且Person和Object并不在一个包里，因此Person里的方法只能访问自身从基类（这个例子中也就是Object）继承而来的受保护成员（也就是clone()方法），而不能访问基类实例本身的受保护成员（也就是试图用a.clone()这样的方式去调用clone()方法）</p>
+</li>
+<li>
+<p>在实际操作中，如果要使用clone()方法，一般要实现Cloneable接口，并重写Person的clone方法。实际上Cloneable是一个标记接口，所谓标记接口，是一个用来对类进行标记的接口，也就是说这个接口实际上没有任何内容</p>
+</li>
+<li>
+<p>如果想要深拷贝一个对象，这个对象必须要实现 Cloneable 接口，实现clone方法，并且在 clone 方法内部，把该对象引用的其他对象也要 clone 一份，再赋值给对象。就要求这个被引用的对象必须也要实现Cloneable 接口并且实现 clone 方法。</p>
+</li>
+</ul>
 </li>
 </ol>
 <h2 id="-语法">Ⅱ. 语法</h2>
 <ol>
 <li>
 <p>Java 有 goto 语句吗</p>
+<ul>
+<li>goto 和 const 是无法使用的关键字，称为保留字</li>
+</ul>
 </li>
 <li>
 <p>&amp; 和 &amp;&amp; 的区别</p>
+<ul>
+<li>
+<p>&amp;：按位与；逻辑与</p>
+</li>
+<li>
+<p>&amp;&amp;：短路与（左边为false时右边不进行运算）</p>
+</li>
+</ul>
 </li>
 <li>
 <p>如何跳出当前的多重嵌套循环</p>
+<ul>
+<li>在最外层循环前加一个标记如 A，然后用 break A，可以跳出多重循环（不推荐）</li>
+</ul>
 </li>
 <li>
 <p>「两个对象值相同，即 x.equals(y)==true 时，hashCode 可以不同」这句话对吗</p>
+<ul>
+<li>
+<p>不对，如果两个对象 x 和 y 满足 x.equals(y) == true，它们的hashCode应当相同</p>
+</li>
+<li>
+<p>Java中的规定：（如果违背了原则就会发现在使用容器时，相同的对象可以出现在Set 集合中；同时增加新元素的效率会大大下降，因为对于使用哈希存储的系统，如果哈希码频繁的冲突将会造成存取性能急剧下降）</p>
+<ul>
+<li>如果两个对象 equals 方法返回 true，那么它们的 hashCode 一定要相同</li>
+<li>如果两个对象的 hashCode 相同，它们并不一定 equals 方法返回 true</li>
+</ul>
+</li>
+<li>
+<p>equals 方法必须满足：</p>
+<ul>
+<li>自反性：x.equals(x) 必须返回 true；</li>
+<li>对称性：x.equals(y) 返回 true 时，y.equals(x) 也必须返回 true；</li>
+<li>传递性：x.equals(y) 和 y.equals(z) 都返回 true 时，x.equals(z) 也必须返回 true；</li>
+<li>一致性：当x 和 y 引用的对象信息没有被修改时，多次调用 x.equals(y)应该得到同样的返回值；</li>
+<li>非空性：对于任何非 null 值的引用 x， x.equals(null)必须返回 false</li>
+</ul>
+</li>
+<li>
+<p>实现高质量 equals 方法的 tips：</p>
+<ul>
+<li>使用 == 操作符检查“参数是否为这个对象的引用”</li>
+<li>使用 instanceof 操作符检查“参数是否为正确的类型”</li>
+<li>对于类中的关键属性，检查参数传入对象的属性是否与之相匹配</li>
+<li>编写完 equals 方法后，检查是否满足对称性，传递性，一致性</li>
+<li>重写 equals 时总是要重写 hashCode 方法</li>
+<li>不要将 equals 方法参数中的 Object 对象替换为其他类型，重写时不要忘记 @Override 注解</li>
+</ul>
+</li>
+<li>
+<p>Objects.equals()</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>Object a<span style="color:#f92672">,</span> Object b<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">(</span>a <span style="color:#f92672">=</span><span style="color:#f92672">=</span> b<span style="color:#f92672">)</span> <span style="color:#f92672">|</span><span style="color:#f92672">|</span> <span style="color:#f92672">(</span>a <span style="color:#f92672">!</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> a<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>b<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>为什么要重写 equals 方法</p>
+<ul>
+<li>如果不重写，执行 user1.equals(user2) 比较的就是两个对象的地址（即 user1 == user2），肯定是不相等的</li>
+</ul>
+</li>
+<li>
+<p>为什么要重写 hashcode 方法</p>
+<ul>
+<li>hashCode 是用于散列数据的快速存取，如利用 HashSet/HashMap/Hashtable 类来存储数据时，都会根据存储对象的 hashCode 值来进行判断是否相同的。</li>
+<li>HashSet 的 add 方法使用了 HashMap 的 put ，而 HashMap 的 put 方法比较了 hashcode</li>
+</ul>
+</li>
+<li>
+<p>如何重写 hashcode</p>
+<ul>
+<li>生成一个 int 类型的变量 result，并且初始化一个值，比如17；对类中每一个重要字段，也就是影响对象的值的字段，也就是 equals 方法里有比较的字段，进行以下操作：a. 计算这个字段的值 filedHashValue = filed.hashCode(); b. 执行 result = 31 * result + filedHashValue;</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">hashCode</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">int</span> result <span style="color:#f92672">=</span> 17<span style="color:#f92672">;</span>
+        result <span style="color:#f92672">=</span> 31 <span style="color:#f92672">*</span> result <span style="color:#f92672">+</span> <span style="color:#f92672">(</span>name <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">?</span> 0 <span style="color:#f92672">:</span> name<span style="color:#f92672">.</span><span style="color:#a6e22e">hashCode</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        result <span style="color:#f92672">=</span> 31 <span style="color:#f92672">*</span> result <span style="color:#f92672">+</span> <span style="color:#f92672">(</span>age <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">?</span> 0 <span style="color:#f92672">:</span> age<span style="color:#f92672">.</span><span style="color:#a6e22e">hashCode</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">return</span> result<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>为什么使用 31：String 类中，空字符串的 hashCode 方法返回是 0。并且注释中也给了个公式</p>
+<ul>
+<li>更少的乘积结果冲突（31是质子数中一个“不大不小”的存在，如果你使用的是一个如2的较小质数，那么得出的乘积会在一个很小的范围，很容易造成哈希值的冲突。而如果选择一个100以上的质数，得出的哈希值会超出int的最大范围，这两种都不合适。而如果对超过 50,000 个英文单词（由两个不同版本的 Unix 字典合并而成）进行 hash code 运算，并使用常数 31, 33, 37, 39 和 41 作为乘子，每个常数算出的哈希值冲突数都小于7个（国外大神做的测试），那么这几个数就被作为生成hashCode值得备选乘数了。所以从 31,33,37,39 等中间选择了 31 的原因看原因二。）</li>
+<li>31 可以被 JVM 优化（JVM里最有效的计算方式就是进行位运算：a.左移 &laquo; : 左边的最高位丢弃，右边补全0（把 &laquo; 左边的数据 <em>2的移动次幂）。b.右移 &raquo; : 把&raquo;左边的数据/2的移动次幂。c.无符号右移 &raquo;&gt; : 无论最高位是0还是1，左边补齐0。所以，31</em>i = (i &laquo; 5) - i（左边  31<em>2=62,右边   2</em>2^5-2=62） - 两边相等，JVM就可以高效的进行计算）。</li>
+</ul>
+</li>
+</ul>
 </li>
 <li>
 <p>String 类是否可以继承</p>
+<ul>
+<li>
+<p>String 类是 final 类，不可被继承</p>
+</li>
+<li>
+<p>对 String 类型最好的重用方式是关联关系（Has-A）和依赖关系（UseA）而不是继承关系（Is-A）</p>
+</li>
+<li>
+<p>String 类为什么要设计成 final</p>
+<ul>
+<li>String 类不可变，给一个已有字符串 abc 第二次赋值成 abcd，不是在原内存地址上修改数据，而是重新指向一个新对象、新地址</li>
+<li>String 类不可变，是因为在 String 方法里没有去动 array 的元素，没有暴露内部成员字段。private final char value[] 这句里，是 private 的私有访问权限。整个 String 类也是被 final 修饰，禁止继承，避免被其他类继承后破坏</li>
+</ul>
+</li>
+</ul>
 </li>
 <li>
 <p>当一个对象被当做参数传递到一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里是值传递还是引用传递</p>
+<ul>
+<li>
+<p>值传递。Java 语言的方法调用只支持参数的值传递。当一个对象实例作为一个参数被传递到方法中时，参数的值就是对该对象的引用。对象的属性可以在被调用过程中被改变，但对对象引用的改变是不会影响到调用者的。</p>
+</li>
+<li>
+<p>C++和 C#中可以通过传引用或传输出参数来改变传入的参数的值。说明：Java 中没有传引用实在是非常的不方便，这一点在 Java 8 中仍然没有得到改进，正是如此在 Java 编写的代码中才会出现大量的 Wrapper 类（将需要通过方法调用修改的引用置于一个 Wrapper 类中，再将 Wrapper 对象传入方法），这样的做法只会让代码变得臃肿，尤其是让从 C 和 C++转型为 Java 程序员的开发者无法容忍。</p>
+</li>
+</ul>
 </li>
 <li>
 <p>重载（overload）和重写（override）的区别；重载的方法能否根据返回类型进行区分</p>
+<ul>
+<li>
+<p>方法的重载和重写都是实现多态的方式，区别在于前者实现的是编译时的多态性，而后者实现的是运行时的多态性。</p>
+</li>
+<li>
+<p>重载发生在一个类中，同名的方法如果有不同的参数列表（参数类型不同、参数个数不同或者二者都不同）则视为重载；重载对返回类型没有特殊的要求。</p>
+</li>
+<li>
+<p>重写发生在子类与父类之间，重写要求子类被重写方法与父类被重写方法有相同的返回类型，比父类被重写方法更好访问，不能比父类被重写方法声明更多的异常（里氏代换原则）。</p>
+</li>
+</ul>
 </li>
 <li>
 <p>为什么函数不能根据返回类型来区分重载</p>
+<ul>
+<li>因为调用时不能指定类型信息，编译器不知道你要调用哪个函数。</li>
+</ul>
 </li>
 <li>
 <p>char 型变量中能不能存储一个中文汉字</p>
+<ul>
+<li>char 类型可以存储一个中文汉字，因为 Java 中使用的编码是 Unicode（不选择任何特定的编码，直接使用字符在字符集中的编号，这是统一的唯一方法），一个 char 类型占 2 个字节（16 比特），所以放一个中文是没问题的。</li>
+</ul>
 </li>
 <li>
 <p>抽象类和接口的异同</p>
+<ul>
+<li>
+<p>相同点：</p>
+<ul>
+<li>不能实例化</li>
+<li>可作为引用类型</li>
+<li>一个类如果继承了某抽象类或实现了某接口，需要对其中的抽象方法全部进行实现，否则该类仍然需要被声明为抽象类</li>
+</ul>
+</li>
+<li>
+<p>不同点：</p>
+<ul>
+<li>抽象类可以定义构造器，接口不能</li>
+<li>抽象类可以有抽象方法和具体方法，接口的方法都是抽象方法</li>
+<li>抽象类的成员可以是private、default、protected、public，接口的成员只能是public的</li>
+<li>抽象类中可以定义成员变量，接口的成员变量都是常量</li>
+<li>抽象类可以有静态方法，接口不能有静态方法</li>
+<li>一个类只能继承一个抽象类，一个类可以实现多个接口</li>
+<li>有抽象方法的类必须被声明为抽象类，而抽象类未必要有抽象方法</li>
+</ul>
+</li>
+</ul>
 </li>
 <li>
 <p>抽象方法是否可同时是静态方法（static）；抽象方法是否可同时是本地方法（native）；抽象方法是否可同时被 synchronized 修饰</p>
+<ul>
+<li>不能。抽象方法需要子类重写，而静态方法是无法被重写的</li>
+<li>不能。本地方法是由本地代码实现的方法，而抽象方法是没有实现的</li>
+<li>不能。synchronized 和方法的实现细节有关，而抽象方法不涉及实现细节</li>
+</ul>
 </li>
 <li>
 <p>静态变量和实例变量的区别</p>
+<ul>
+<li>静态变量属于类，不属于类的任何一个对象，一个类不管创建多少对象，静态变量在内存中有且仅有一个拷贝</li>
+<li>实例变量必须依存某一个实例，需要先创建对象，然后通过对象才能访问它。静态变量可以实现让多个对象共享内存</li>
+</ul>
 </li>
 <li>
 <p>== 和 equals 的区别</p>
+<ul>
+<li>
+<p>equals 方法用来比较两个对象的内容是否相等（如果没有重写，则比较的是引用类型的变量所指向对象的地址）</p>
+</li>
+<li>
+<p>== 运算符用来比较基本数据类型的数值是否相等，用来比较对象的地址值是否相等</p>
+</li>
+</ul>
 </li>
 <li>
 <p>break 和 continue 的区别</p>
+<ul>
+<li>
+<p>break 跳出循环体，执行循环后面的语句</p>
+</li>
+<li>
+<p>continue 跳过本次循环，执行下次循环</p>
+</li>
+</ul>
 </li>
 <li>
 <p>下面语句执行后，原始的 String 对象中的内容是否发生了改变</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">String s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello&#34;</span><span style="color:#f92672">;</span>
 s <span style="color:#f92672">=</span> s <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; world!&#34;</span><span style="color:#f92672">;</span>
-</code></pre></div></li>
+</code></pre></div><ul>
+<li>
+<p>未改变。因为 String 被设计成不可变(immutable)类，所以它的所有对象都是不可变对象。s 不指向原来那个对象了，而指向了另一个 String 对象，内容为&quot;Hello world!&quot;，原来那个对象还存在于内存之中，只是 s 这个引用变量不再指向它了。</p>
+</li>
+<li>
+<p>如果经常对字符串进行各种各样的修改，或者说，不可预见的修改，那么使用 String 来代表字符串的话会引起很大的内存开销。因为 String 对象建立之后不能再改变，所以对于每一个不同的字符串，都需要一个 String 对象来表示。这时，应该考虑使用 StringBuffer 类，它允许修改，而不是每个不同的字符串都要生成一个新的对象。并且，这两种类的对象转换十分容易</p>
+</li>
+<li>
+<p>如果要使用内容相同的字符串，不必每次都 new 一个 String。后者每次都会调用构造器，生成新对象，性能低下且内存开销大，并且没有意义，因为 String 对象不可改变，所以对于内容相同的字符串，只要一个 String 对象来表示就可以了。</p>
+</li>
+<li>
+<p>对于字符串常量，如果内容相同， Java 认为它们代表同一个 String 对象。而用关键字 new 调用构造器，总是会创建一个新的对象，无论内容是否相同。</p>
+</li>
+<li>
+<p>至于为什么要把 String 类设计成不可变类，是它的用途决定的。其实不只 String，很多 Java 标准类库中的类都是不可变的。在开发一个系统的时候，我们有时候也需要设计不可变类，来传递一组相关的值，这也是面向对象思想的体现。不可变类有一些优点，比如因为它的对象是只读的，所以多线程并发访问也不会有任何问题。当然也有一些缺点，比如每个不同的状态都要一个对象来代表，可能会造成性能上的问题。所以 Java 标准类库还提供了一个可变版本，即 StringBuffer。</p>
+</li>
+</ul>
+</li>
 </ol>
 <h2 id="-多态">Ⅲ. 多态</h2>
 <ol>
-<li>Java 中实现多态的机制是什么</li>
+<li>
+<p>Java 中实现多态的机制是什么</p>
+<ul>
+<li>靠的是父类或接口定义的引用变量可以指向子类或具体实现类的实例对象，而程序调用的方法在运行期才动态绑定，就是引用变量所指向的具体实例对象的方法，也就是内存里正在运行的那个对象的方法，而不是引用变量的类型中定义的方法。</li>
+</ul>
+</li>
 </ol>
 <h2 id="-异常处理">Ⅳ. 异常处理</h2>
 <ol>
 <li>
 <p>Java 中异常分为哪些种类</p>
+<ul>
+<li>
+<p>编译时异常，也叫强制性异常（CheckedException）</p>
+<ul>
+<li>都是可以被处理的异常，所以 Java 程序必须显式处理 CheckedException；如果没有处理，程序在编译时就会报错。这体现了 Java 的设计哲学：没有完善错误处理的代码根本没有机会被执行</li>
+<li>当前方法知道如何处理该异常，则用 try&hellip;catch 块来处理该异常；当前方法不知道如何处理，则在定义该方法是声明抛出该异常。</li>
+</ul>
+</li>
+<li>
+<p>运行时异常，也叫非强制性异常（RuntimeException）</p>
+<ul>
+<li>只有当代码在运行时才发行的异常。如除数是 0 和数组下标越界等</li>
+<li>其产生频繁，处理麻烦，若显示申明或者捕获将会对程序的可读性和运行效率影响很大。所以由系统自动检测并将它们交给缺省的异常处理程序。</li>
+<li>当然如果有处理要求也可以显示捕获它们。</li>
+</ul>
+</li>
+</ul>
 </li>
 <li>
 <p>下面方法的返回值是什么</p>
@@ -326,15 +563,44 @@ s <span style="color:#f92672">=</span> s <span style="color:#f92672">+</span> <s
         <span style="color:#66d9ef">return</span> 3<span style="color:#f92672">;</span>
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
-</code></pre></div></li>
+</code></pre></div><ul>
+<li>遇到 ArithmeticException，代码直接跳转到 catch语句中，（异常机制有这么一个原则如果在 catch 中遇到了 return 或者异常等能使该函数终止的话那么有 finally 就必须先执行完 finally 代码块里面的代码然后再返回值）。因此代码又跳到 finally 中，但其中是一个return 语句，那么这个时候方法就结束了，因此return 2 就无法被真正返回。如果 finally 仅仅是处理了一个释放资源的操作，那么该道题最终返回的结果就是 2。因此上面返回值是3。</li>
+</ul>
+</li>
 <li>
 <p>error 和 exception 的区别</p>
+<ul>
+<li>
+<p>Error 类和 Exception 类的父类都是 Throwable 类</p>
+</li>
+<li>
+<p>Error 类一般是指与虚拟机相关的问题，如系统崩溃，虚拟机错误，内存空间不足，方法调用栈溢出等。对于这类错误的导致的应用程序中断，仅靠程序本身无法恢复和和预防，遇到这样的错误，建议让程序终止。</p>
+</li>
+<li>
+<p>Exception 类表示程序可以处理的异常，可以捕获且可能恢复。遇到这类异常，应该尽可能处理异常，使程序恢复运行，而不应该随意终止异常。</p>
+</li>
+</ul>
 </li>
 <li>
 <p>Java 的异常处理机制</p>
+<ul>
+<li>见 1，3</li>
+</ul>
 </li>
 <li>
 <p>最常见的 5 个 RuntimeException</p>
+<ul>
+<li>java.lang.NullPointerException</li>
+<li>java.lang.ClassNotFoundException</li>
+<li>java.lang.NumberFormatException</li>
+<li>java.lang.IndexOutOfBoundsException</li>
+<li>java.lang.IllegalArgumentException</li>
+<li>java.lang.ClassCastException</li>
+<li>java.lang.NoClassDefFoundException</li>
+<li>java.sql.SQLException</li>
+<li>java.lang.InstantiationException</li>
+<li>java.lang.NoSuchMethodException</li>
+</ul>
 </li>
 <li>
 <p>throw 和 throws 的区别</p>
