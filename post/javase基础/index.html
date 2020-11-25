@@ -604,9 +604,47 @@ s <span style="color:#f92672">=</span> s <span style="color:#f92672">+</span> <s
 </li>
 <li>
 <p>throw 和 throws 的区别</p>
+<ul>
+<li>
+<p>throw</p>
+<ul>
+<li>用在方法体内，表示抛出异常，由方法体内的语句处理</li>
+<li>具体向外抛出异常的动作，所以抛出的是一个异常实例，执行 throw 一定是抛出了某种实例</li>
+</ul>
+</li>
+<li>
+<p>throws</p>
+<ul>
+<li>用在方法声明后面，表示如果抛出异常，由该方法的调用者来进行异常处理</li>
+<li>主要是声明这个方法会抛出某种类型的异常，让它的使用者要知道需要捕获的异常的类型</li>
+<li>表示出现异常的一种可能性，并不一定会发生这种异常</li>
+</ul>
+</li>
+</ul>
 </li>
 <li>
 <p>final、finally、finalize 的区别</p>
+<ul>
+<li>
+<p>fianl</p>
+<ul>
+<li>声明属性表示属性不可变，声明方法表示方法不可覆盖，声明类表示类不可继承</li>
+</ul>
+</li>
+<li>
+<p>finally</p>
+<ul>
+<li>异常处理语句的一部分，表示总执行</li>
+</ul>
+</li>
+<li>
+<p>finalize</p>
+<ul>
+<li>Object 类的一个方法，在 GC 执行时会调用被回收对象的此方法，可以覆盖此方法提供 GC 时的其他资源回收，如关闭文件</li>
+<li>该方法更像是一个对象生命周期的临终方法，当该方法被系统调用则代表该对象即将死亡，但需注意的是，主动行为上调用该方法并不会导致该对象死亡，这是一个被动的方法（其实就是回调方法），不需要主动调用</li>
+</ul>
+</li>
+</ul>
 </li>
 </ol>
 <h2 id="-常用api">Ⅴ. 常用API</h2>
@@ -615,18 +653,63 @@ s <span style="color:#f92672">=</span> s <span style="color:#f92672">+</span> <s
 <p>a 和 b 的值是多少</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">a <span style="color:#f92672">=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">round</span><span style="color:#f92672">(</span>11<span style="color:#f92672">.</span><span style="color:#a6e22e">5</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
 b <span style="color:#f92672">=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">round</span><span style="color:#f92672">(</span><span style="color:#f92672">-</span>11<span style="color:#f92672">.</span><span style="color:#a6e22e">5</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-</code></pre></div></li>
+</code></pre></div><ul>
+<li>12，-11（四舍五入的原理是在参数上加 0.5 然后取整）</li>
+<li>Math.ceil，Math.floor</li>
+</ul>
+</li>
 <li>
-<p>switch 是否能作用在 byte、long、String 上</p>
+<p>switch(expr) 中，expr 可以是 byte、long、String 吗</p>
+<ul>
+<li>
+<p>可以是 byte、short、char、int、enum、String</p>
+</li>
+<li>
+<p>不可以是 long</p>
+</li>
+<li>
+<p>可以是 Byte，Short，Character，Integer 对象，因为自动拆箱</p>
+</li>
+</ul>
 </li>
 <li>
 <p>数组是否有 length() 方法；String 是否有 length() 方法</p>
+<ul>
+<li>
+<p>数组只有 length 属性</p>
+</li>
+<li>
+<p>String 有 length() 方法</p>
+</li>
+<li>
+<p>JS 中，获取字符串长度是通过 length 属性获取（注意区分）</p>
+</li>
+</ul>
 </li>
 <li>
 <p>String、StringBuilder、StringBuffer 的区别</p>
+<ul>
+<li>
+<p>String 是只读字符串，其引用的字符串内容不能被改变</p>
+</li>
+<li>
+<p>StringBuilder、StringBuffer 表示的字符串可以直接进行修改，前者单线程环境下使用，后者的方法都被 synchronized 修饰，多线程安全</p>
+</li>
+</ul>
 </li>
 <li>
 <p>什么情况下用 &ldquo;+&rdquo; 运算符进行字符串拼接比调用 StringBuilder、StringBuffer 对象的 append 方法性能更好</p>
+<ul>
+<li>
+<p>在 Java 中无论使用何种方式进行字符串连接，实际上都使用的是 StringBuilder（使用 javap 查看字节码后得出）</p>
+</li>
+<li>
+<p>从运行结果来解释，那么 &ldquo;+&rdquo; 和 StringBuilder 是完全等效的</p>
+</li>
+<li>
+<p>从运行效率和资源消耗方面看，它们存在很大的区别</p>
+</li>
+</ul>
 </li>
 <li>
 <p>下面程序的输出是什么</p>
