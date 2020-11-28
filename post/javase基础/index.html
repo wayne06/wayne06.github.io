@@ -1058,13 +1058,63 @@ s1 <span style="color:#f92672">+</span><span style="color:#f92672">=</span> 1<sp
 HashMap 的排序功能，该方法接收 HashMap&lt;Integer， User&gt;为形参，返回类型为 HashMap&lt;Integer， User&gt;，
 要求对 HashMap 中的 User 的 age 倒序进行排序。排序时 key=value 键值对不得拆散。</p>
 </blockquote>
+<ul>
+<li>要做出这道题必须对集合的体系结构非常的熟悉。</li>
+<li>HashMap 本身就是不可排序的，那就得想在 API 中有没有这样的 Map 结构是有序的， LinkedHashMap就是Map 结构，也是链表结构，有序的，而且是 HashMap 的子类，返回 LinkedHashMap即可，还符合面向接口（父类编程的思想）</li>
+<li>对集合的操作，应该保持一个原则：就是能用 JDK 中的 API 就有 JDK 中的 API，比如排序算法我们不应该去用冒泡或者选择，而是首先想到用Collections 集合工具类</li>
+</ul>
 </li>
 <li>
 <p>集合的安全性问题</p>
-</li>
+<ul>
+<li>ArrayList、HashSet、HashMap中每个方法都没有加锁，是线程不安全的</li>
+<li>Vector、HashTable是线程安全的，核心方法上都添加了 synchronized 关键字</li>
+<li>java.util.Collections 工具类提供了相关 API，让不安全集合变为安全的集合，传入什么类型返回什么类型（就是将给核心方法添加了 synchronized 关键字）</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">synchronizedCollection</span><span style="color:#f92672">(</span>c<span style="color:#f92672">)</span>
+Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">synchronizedList</span><span style="color:#f92672">(</span>list<span style="color:#f92672">)</span>
+Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">synchronizedMap</span><span style="color:#f92672">(</span>m<span style="color:#f92672">)</span>
+Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">synchronizedSet</span><span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>
+</code></pre></div></li>
 <li>
 <p>ArrayList 内部用什么实现的</p>
-</li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ArrayList</span><span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">extends</span> AbstractList<span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span>
+        <span style="color:#66d9ef">implements</span> List<span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span><span style="color:#f92672">,</span> RandomAccess<span style="color:#f92672">,</span> Cloneable<span style="color:#f92672">,</span> java<span style="color:#f92672">.</span><span style="color:#a6e22e">io</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Serializable</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#75715e">// 内部数据结构为数组
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">transient</span> Object<span style="color:#f92672">[</span><span style="color:#f92672">]</span> elementData<span style="color:#f92672">;</span> <span style="color:#75715e">// non-private to simplify nested class access
+</span><span style="color:#75715e"></span>
+    <span style="color:#75715e">// 新建数组
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ArrayList</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> initialCapacity<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>initialCapacity <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">elementData</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Object<span style="color:#f92672">[</span>initialCapacity<span style="color:#f92672">]</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>initialCapacity <span style="color:#f92672">=</span><span style="color:#f92672">=</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">elementData</span> <span style="color:#f92672">=</span> EMPTY_ELEMENTDATA<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Illegal Capacity: &#34;</span> <span style="color:#f92672">+</span> initialCapacity<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">// 数组扩容
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">grow</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> minCapacity<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">// overflow-conscious code
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span> oldCapacity <span style="color:#f92672">=</span> elementData<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">int</span> newCapacity <span style="color:#f92672">=</span> oldCapacity <span style="color:#f92672">+</span> <span style="color:#f92672">(</span>oldCapacity <span style="color:#f92672">&gt;</span><span style="color:#f92672">&gt;</span> 1<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>newCapacity <span style="color:#f92672">-</span> minCapacity <span style="color:#f92672">&lt;</span> 0<span style="color:#f92672">)</span>
+        newCapacity <span style="color:#f92672">=</span> minCapacity<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>newCapacity <span style="color:#f92672">-</span> MAX_ARRAY_SIZE <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">)</span>
+        newCapacity <span style="color:#f92672">=</span> hugeCapacity<span style="color:#f92672">(</span>minCapacity<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#75715e">// minCapacity is usually close to size, so this is a win:
+</span><span style="color:#75715e"></span>        elementData <span style="color:#f92672">=</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">copyOf</span><span style="color:#f92672">(</span>elementData<span style="color:#f92672">,</span> newCapacity<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">// 没有用锁和相关的CAS算法，所以是线程不安全的
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>E e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        ensureCapacityInternal<span style="color:#f92672">(</span>size <span style="color:#f92672">+</span> 1<span style="color:#f92672">)</span><span style="color:#f92672">;</span>  <span style="color:#75715e">// Increments modCount!!
+</span><span style="color:#75715e"></span>        elementData<span style="color:#f92672">[</span>size<span style="color:#f92672">+</span><span style="color:#f92672">+</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> e<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div></li>
 <li>
 <p>并发集合和普通集合如何区别</p>
 </li>
@@ -1096,6 +1146,62 @@ ArrayList b <span style="color:#f92672">=</span> <span style="color:#66d9ef">new
 </li>
 <li>
 <p>Collection 和 Map 的集成体系</p>
+<ul>
+<li>
+<p>Collection 接口</p>
+<ul>
+<li>Queue 接口（队列）
+<ul>
+<li>PriorityQueue</li>
+<li>Deque 接口
+<ul>
+<li>ArrayDeque</li>
+<li>LinkedList</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>List 接口（有序，可重复）
+<ul>
+<li>ArrayList</li>
+<li>Vector
+<ul>
+<li>Stack</li>
+</ul>
+</li>
+<li>LinkedList</li>
+</ul>
+</li>
+<li>Set 接口（无序，不重复）
+<ul>
+<li>EnumSet</li>
+<li>SortedSet 接口
+<ul>
+<li>TreeSet</li>
+</ul>
+</li>
+<li>HashSet
+<ul>
+<li>LinkedHashSet</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Map 接口</p>
+<ul>
+<li>HashMap 类</li>
+<li>LinkedHashMap 类</li>
+<li>SortedMap 接口
+<ul>
+<li>TreeMap 类</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </li>
 <li>
 <p>Map 中的 Key 和 Value 可以为 null 吗</p>
