@@ -1117,33 +1117,258 @@ Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">synch
 </code></pre></div></li>
 <li>
 <p>并发集合和普通集合如何区别</p>
+<ul>
+<li>
+<p>普通集合</p>
+<ul>
+<li>性能最高，但是不保证多线程的安全性和并发的可靠性</li>
+</ul>
+</li>
+<li>
+<p>同步集合（线程安全）</p>
+<ul>
+<li>仅仅是给集合添加了 synchronized 同步锁，牺牲了性能，对并发的效率更低</li>
+</ul>
+</li>
+<li>
+<p>并发集合</p>
+<ul>
+<li>通过复杂策略，不仅保证了多线程的安全，又提高了并发时的效率</li>
+<li>java.util.concurrent.ConcurrentHashMap、ConcurrentLinkedQueue、ConcurrentLinkedDeque</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>数组结构</th>
+<th>线程安全</th>
+<th>实现线程安全的方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HashMap</td>
+<td>数组+链表+红黑树</td>
+<td>不安全</td>
+<td></td>
+</tr>
+<tr>
+<td>HashTable</td>
+<td>数组+链表</td>
+<td>安全</td>
+<td>锁住整个对象，效率低</td>
+</tr>
+<tr>
+<td>ConcurrentHashMap</td>
+<td>数组+链表+红黑树</td>
+<td>安全</td>
+<td>CAS+同步锁，锁细粒度化到table每个元素</td>
+</tr>
+</tbody>
+</table>
 </li>
 <li>
 <p>List 的三个子类的特点</p>
+<ul>
+<li>
+<p>ArrayList：底层是数组，底层查询快、增删慢</p>
 </li>
 <li>
-<p>List、Map、Set 的区别</p>
+<p>Vector：底层是数组，增删慢，查询慢，线程安全</p>
+</li>
+<li>
+<p>LinkedList：底层是链表，增删快，查询慢</p>
+</li>
+</ul>
+</li>
+<li>
+<p>List、Set、Map 的区别</p>
+<ul>
+<li>
+<p>结构特点</p>
+<ul>
+<li>List、Set存储单列数据，Map存储键值对</li>
+<li>List存储数据有序，允许重复；Set无序，不允许重复（元素位置由元素hashCode决定，位置固定）；Map无序，键不可重复</li>
+</ul>
+</li>
+<li>
+<p>实现类</p>
+<ul>
+<li>
+<p>List</p>
+<ul>
+<li>LinkedList：基于链表实现，链表内存是散乱的，每一个元素存储本身内存地址的同时还存储下一个元素的地址。链表增删快，查找慢</li>
+<li>ArrayList：基于数组实现，非线程安全的，效率高，便于索引，但不便于插入删除</li>
+<li>Vector：基于数组实现，线程安全的，效率低</li>
+</ul>
+</li>
+<li>
+<p>Set</p>
+<ul>
+<li>HashSet：底层是由 HashMap 实现，不允许集合中有重复的值，使用该方式时需要重写 equals()和 hashCode()方法</li>
+<li>LinkedHashSet：继承于 HashSet，同时又基于 LinkedHashMap 来进行实现，底层使用的是 LinkedHashMp）</li>
+</ul>
+</li>
+<li>
+<p>Map</p>
+<ul>
+<li>HashMap：基于 hash 表的 Map 接口实现，非线程安全，高效，支持 null 值和 null键</li>
+<li>HashTable：线程安全，低效，不支持 null 值和 null 键</li>
+<li>LinkedHashMap：是 HashMap 的一个子类，保存了记录的插入顺序</li>
+<li>SortMap 接口： TreeMap，能够把它保存的记录根据键排序，默认是键值的升序排序</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>区别</p>
+<ul>
+<li>
+<p>List：集合中的对象按照索引位置排序，可以有重复对象，允许按照对象在集合中的索引位置检索对象，例如通过list.get(i)方法来获取集合中的元素</p>
+</li>
+<li>
+<p>Set：集合中的对象不按照特定的方式排序，并且没有重复对象，但它的实现类能对集合中的对象按照特定的方式排序，例如 TreeSet 类，可以按照默认顺序，也可以通过实现 Java.util.Comparator 接口来自定义排序方式</p>
+</li>
+<li>
+<p>Map：中的每一个元素包含一个键和一个值，成对出现，键对象不可以重复，值对象可以重复</p>
+</li>
+</ul>
+</li>
+</ul>
 </li>
 <li>
 <p>HashMap 和 HashTable 有什么区别</p>
+<ul>
+<li>
+<p>HashMap：是 Map 的实现类；不允许键重复，允许空键和空值；非线程安全，效率比 HashTable 高；被多个线程访问的时候需要自己为它的方法实现同步</p>
+</li>
+<li>
+<p>HashTable：是 Map 的实现类；不允许键重复，不允许空键和空值；线程安全；由 sychronized 修饰，多个线程访问时不需要自己为它的方法实现同步</p>
+</li>
+</ul>
 </li>
 <li>
 <p>数组和链表分别适用于什么场景</p>
+<ul>
+<li>
+<p>来源：</p>
+<ul>
+<li>数据的物理存储结构由连续存储和离散存储，对应了数组和链表</li>
+</ul>
 </li>
 <li>
+<p>区别：</p>
+<ul>
+<li>数组：是将元素在内存中连续存储的；它的优点：因为数据是连续存储的，内存地址连续，所以在查找数据的时候效率比较高；它的缺点：在存储之前，我们需要申请一块连续的内存空间，并且在编译的时候就必须确定好它的空间的大小。在运行的时候空间的大小是无法随着你的需要进行增加和减少而改变的，当数据两比较大的时候，有可能会出现越界的情况，数据比较小的时候，又有可能会浪费掉内存空间。在改变数据个数时，增加、插入、删除数据效率比较低</li>
+<li>链表：是动态申请内存空间，不需要像数组需要提前申请好内存的大小，链表只需在用的时候申请就可以，根据需要来动态申请或者删除内存空间，对于数据增加和删除以及插入比数组灵活。还有就是链表中数据在内存中可以在任意的位置，通过应用来关联数据（就是通过存在元素的指针来联系）</li>
+</ul>
+</li>
+<li>
+<p>适用场景</p>
+<ul>
+<li>数组：数据比较少；经常做的运算是按序号访问数据元素；数组更容易实现，任何高级语言都支持；构建的线性表较稳定</li>
+<li>链表：对线性表的长度或者规模难以估计；频繁做插入删除操作；构建动态性比较强的线性表</li>
+</ul>
+</li>
+<li>
+<p>一个题目：</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">int</span><span style="color:#f92672">[</span><span style="color:#f92672">]</span> arr <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 4<span style="color:#f92672">,</span> 1<span style="color:#f92672">,</span> 4<span style="color:#f92672">,</span> 2<span style="color:#f92672">,</span> 5<span style="color:#f92672">,</span> 4<span style="color:#f92672">,</span> 5<span style="color:#f92672">,</span> 8<span style="color:#f92672">,</span> 7<span style="color:#f92672">,</span> 8<span style="color:#f92672">,</span> 77<span style="color:#f92672">,</span> 88<span style="color:#f92672">,</span> 5<span style="color:#f92672">,</span> 4<span style="color:#f92672">,</span> 9<span style="color:#f92672">,</span> 6<span style="color:#f92672">,</span> 2<span style="color:#f92672">,</span> 4<span style="color:#f92672">,</span> 1<span style="color:#f92672">,</span> 5<span style="color:#f92672">}</span><span style="color:#f92672">;</span>
+Map<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;</span> map <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Integer i <span style="color:#f92672">:</span> arr<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>i<span style="color:#f92672">)</span> <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">?</span> 1 <span style="color:#f92672">:</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>i<span style="color:#f92672">)</span> <span style="color:#f92672">+</span> 1<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Map<span style="color:#f92672">.</span><span style="color:#a6e22e">Entry</span><span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;</span> entry <span style="color:#f92672">:</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">entrySet</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>entry<span style="color:#f92672">.</span><span style="color:#a6e22e">getKey</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;出现： &#34;</span> <span style="color:#f92672">+</span> entry<span style="color:#f92672">.</span><span style="color:#a6e22e">getValue</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;次&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
 <p>ArrayList 和 LinkedList 的区别</p>
+<ul>
+<li>
+<p>ArrayList 和 Vector 使用了数组的实现，可以认为 ArrayList 或者 Vector 封装了对内部数组的操作，比如向数组中添加，删除，插入新的元素或者数据的扩展和重定向</p>
+</li>
+<li>
+<p>LinkedList 使用了循环双向链表数据结构。LinkedList 链表由一系列表项连接而成。一个表项总是包含 3 个部分：元素内容，前驱表和后驱表。在 JDK 的实现中，无论 LikedList 是否为空，链表内部都有一个 header 表项，它既表示链表的开始，也表示链表的结尾。表项 header 的后驱表项便是链表中第一个元素，表项 header 的前驱表项便是链表中最后一个元素</p>
+</li>
+</ul>
 </li>
 <li>
 <p>下面两句的区别是什么</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">List a <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-ArrayList b <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-</code></pre></div></li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">List list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+ArrayList arrayList <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</code></pre></div><ul>
+<li>
+<p>前句创建了一个 ArrayList 的对象后把上溯到了 List。此时它是一个 List 对象了，有些ArrayList 有但是 List 没有的属性和方法，它就不能再用了</p>
+</li>
+<li>
+<p>后句创建的对象则保留了ArrayList 的所有属性。所以需要用到 ArrayList 独有的方法的时候不能用前句，如 前句不可使用 list.trimToSize，后者可以使用 arrayList.trimToSize</p>
+</li>
+</ul>
+</li>
 <li>
 <p>要对集合进行更新操作时，ArrayList 和 LinkedList 哪个更合适</p>
+<ul>
+<li>
+<p>基础</p>
+<ul>
+<li>1.ArrayList 是实现了基于动态数组的数据结构， LinkedList 基于链表的数据结构。</li>
+<li>2.如果集合数据是对于集合随机访问 get 和 set， ArrayList 绝对优于 LinkedList，因为 LinkedList 要移动指针。</li>
+<li>3.如果集合数据是对于集合新增和删除操作 add 和 remove， LinedList 比较占优势，因为 ArrayList 要移动数据</li>
+</ul>
+</li>
+<li>
+<p>时间复杂度</p>
+</li>
+<li>
+<p>空间复杂度</p>
+</li>
+<li>
+<p>总结</p>
+</li>
+</ul>
 </li>
 <li>
 <p>用两个队列模拟堆栈结构</p>
-</li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    Queue<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> queue1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedList<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    Queue<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> queue2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedList<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    ArrayList<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> tmpList <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    <span style="color:#75715e">// 向队列一添加元素
+</span><span style="color:#75715e"></span>    queue1<span style="color:#f92672">.</span><span style="color:#a6e22e">offer</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;a&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    queue1<span style="color:#f92672">.</span><span style="color:#a6e22e">offer</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;b&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    queue1<span style="color:#f92672">.</span><span style="color:#a6e22e">offer</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;c&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    queue1<span style="color:#f92672">.</span><span style="color:#a6e22e">offer</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;d&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    queue1<span style="color:#f92672">.</span><span style="color:#a6e22e">offer</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;e&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;进栈： &#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    <span style="color:#75715e">// 队列一的元素一次加入 list 集合中
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>String s <span style="color:#f92672">:</span> queue1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        tmpList<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>s<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span>s<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">// 以倒序的方法取出 list 集合中的值，加入队列二
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//Collections.reverse(tmpList);
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//for (String s : tmpList) {
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//    queue2.offer(s);
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//}
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> tmpList<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">;</span> i <span style="color:#f92672">&gt;</span><span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i<span style="color:#f92672">-</span><span style="color:#f92672">-</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        queue2<span style="color:#f92672">.</span><span style="color:#a6e22e">offer</span><span style="color:#f92672">(</span>tmpList<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>i<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">// 打印出栈队列
+</span><span style="color:#75715e"></span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;出栈： &#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>String q <span style="color:#f92672">:</span> queue2<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span>q<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
 <li>
 <p>Collection 和 Map 的集成体系</p>
 <ul>
@@ -1205,6 +1430,17 @@ ArrayList b <span style="color:#f92672">=</span> <span style="color:#66d9ef">new
 </li>
 <li>
 <p>Map 中的 Key 和 Value 可以为 null 吗</p>
+<ul>
+<li>
+<p>HashMap 对象的 key、value 可以是 null</p>
+</li>
+<li>
+<p>HashTable 对象的 key、value 不可是 null</p>
+</li>
+<li>
+<p>两者的 key 不能重复，若添加 key 相同的键值对，后面的 value 会自动覆盖前面的 value，但不会报错</p>
+</li>
+</ul>
 </li>
 </ol>
 <h2 id="-多线程">Ⅸ. 多线程</h2>
