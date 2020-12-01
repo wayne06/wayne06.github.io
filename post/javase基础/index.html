@@ -1322,12 +1322,27 @@ ArrayList arrayList <span style="color:#f92672">=</span> <span style="color:#66d
 </li>
 <li>
 <p>时间复杂度</p>
+<ul>
+<li>二分查找法使用的随机访问(random access)策略，而 LinkedList 是不支持快速的随机访问的。对一个 LinkedList 做随机访问所消耗的时间与这个 list 的大小是成比例的。而相应的，在 ArrayList 中进行随机访问所消耗的时间是固定的。</li>
+<li>有一个列表，要对其进行大量的插入和删除操作，在这种情况下 LinkedList 就是一个较好的选择。如多次执行 list.add(0, o)</li>
+</ul>
 </li>
 <li>
 <p>空间复杂度</p>
+<ul>
+<li>LinkedList 中有一个私有的内部类 Node，列表中的一个元素，同时还有在 LinkedList 中它的上一个元素和下一个元素</li>
+<li>ArrayList 使用一个内置的数组来存 储元素，这个数组的起始容量是 10.当数组需要增长时，每一次容量大概会增长 50%。如果没有足够的空间来存放新的元素，数组将不得不被重新进行分配以便能够增加新的元素。对数组进行重新分配，将会导致性能急剧下降。如果我们知道一个 ArrayList 将会有多少个元素，我们可以通过构造方法来指定容量。我们还可以通过 trimToSize 方法在 ArrayList 分配完毕之后去掉浪 费掉的空间</li>
+</ul>
 </li>
 <li>
 <p>总结</p>
+<ul>
+<li>对 ArrayList 和 LinkedList 而言，在列表末尾增加一个元素所花的开销都是固定的。对 ArrayList 而言，主要是在内部数组中增加一项，指向所添加的元素，偶尔可能会导致对数组重新进行分配；而对 LinkedList 而言，这个开销是统一的，分配一个内部 Node 对象。</li>
+<li>在 ArrayList 的中间插入或删除一个元素意味着这个列表中剩余的元素都会被移动；而在 LinkedList 的中间插入或删除一个元素的开销是固定的。</li>
+<li>LinkedList 不支持高效的随机元素访问。</li>
+<li>ArrayList 的空间浪费主要体现在在 list 列表的结尾预留一定的容量空间，而 LinkedList 的空间花费则体现在它的每一个元素都需要消耗相当的空间。</li>
+<li>当操作是在一列数据的后面添加数据而不是在前面或中间，并且需要随机地访问其中的元素时，使用ArrayList 会提供比较好的性能；当你的操作是在一列数据的前面或中间添加或删除数据,并且按照顺序访问其中的元素时，就应该使用 LinkedList 了</li>
+</ul>
 </li>
 </ul>
 </li>
