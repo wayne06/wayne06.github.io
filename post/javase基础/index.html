@@ -1572,9 +1572,41 @@ ArrayList arrayList <span style="color:#f92672">=</span> <span style="color:#66d
 </code></pre></div></li>
 <li>
 <p>线程局部变量 TreadLocal</p>
+<ul>
+<li>
+<p>作用：用于实现线程内的数据共享，即对于相同的程序代码，多个模块在同一个线程中运行时要共享一份数据，而在另外线程中运行时又共享另外一份数据</p>
+</li>
+<li>
+<p>原理：每个线程调用全局 ThreadLocal 对象的 set 方法，在 set 方法中，首先根据当前线程获取当前线程的ThreadLocalMap 对象，然后往这个 map 中插入一条记录， key 其实是 ThreadLocal 对象， value 是各自的 set方法传进去的值。也就是每个线程其实都有一份自己独享的 ThreadLocalMap 对象，该对象的 Key 是 ThreadLocal对象，值是用户设置的具体值。在线程结束时可以调用 ThreadLocal.remove()方法，这样会更快释放内存，不调用也可以，因为线程结束后也可以自动释放相关的 ThreadLocal 变量</p>
+</li>
+<li>
+<p>应用场景：</p>
+<ul>
+<li>订单处理包含一系列操作：减少库存量、增加一条流水台账、修改总账，这几个操作要在同一个事务中完成，通常也即同一个线程中进行处理，如果累加公司应收款的操作失败了，则应该把前面的操作回滚，否则，提交所有操作，这要求这些操作使用相同的数据库连接对象，而这些操作的代码分别位于不同的模块类中。</li>
+<li>银行转账包含一系列操作：把转出帐户的余额减少，把转入帐户的余额增加，这两个操作要在同一个事务中完成，它们必须使用相同的数据库连接对象，转入和转出操作的代码分别是两个不同的帐户对象的方法。</li>
+<li>例如 Strut2 的 ActionContext，同一段代码被不同的线程调用运行时，该代码操作的数据是每个线程各自的状态和数据，对于不同的线程来说， getContext 方法拿到的对象都不相同，对同一个线程来说，不管调用 getContext 方法多少次和在哪个模块中 getContext 方法，拿到的都是同一个</li>
+</ul>
+</li>
+<li>
+<p>使用方法：</p>
+<ul>
+<li>在关联数据类中创建 private static ThreadLocal</li>
+<li>在 Util 类中创建 ThreadLocal</li>
+<li>在 Runnable 中创建 ThreadLocal</li>
+</ul>
+</li>
+</ul>
 </li>
 <li>
 <p>多线程共享数据</p>
+<ul>
+<li>
+<p>多个线程行为一致，共同操作一个数据：也就是每个线程执行的代码相同，可以使用同一个 Runnable 对象，这个 Runnable 对象中有那个共享数据，例如，卖票系统就可以这么做。</p>
+</li>
+<li>
+<p>多个线程行为不一致，共同操作一个数据：也就是每个线程执行的代码不同，这时候需要用不同的Runnable 对象。例如，银行存取款</p>
+</li>
+</ul>
 </li>
 </ol>
 </li>
@@ -1582,20 +1614,69 @@ ArrayList arrayList <span style="color:#f92672">=</span> <span style="color:#66d
 <p>线程并发库</p>
 <ol>
 <li>
-<p>juc 包 - 多线程并发库</p>
+<p>juc 包 - 多线程并发库：实现 Collection 框架对数据结构所执行的并发操作</p>
 <ul>
 <li>
 <p>执行程序</p>
 <ul>
 <li>Executors 线程池工厂类</li>
-<li>ExecutorService 执行器服务</li>
-<li>ThreadPoolExecutor 定时线程池执行者</li>
-<li>SchedulePoolExecutor 定时线程池执行者</li>
-<li>ForkJoinPool 合并和分叉（线程池）</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//创建固定大小的线程池
+</span><span style="color:#75715e"></span>ExecutorService fPool <span style="color:#f92672">=</span> Executors<span style="color:#f92672">.</span><span style="color:#a6e22e">newFixedThreadPool</span><span style="color:#f92672">(</span>3<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#75715e">//创建缓存大小的线程池
+</span><span style="color:#75715e"></span>ExecutorService cPool <span style="color:#f92672">=</span> Executors<span style="color:#f92672">.</span><span style="color:#a6e22e">newCachedThreadPool</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#75715e">//创建单一的线程池
+</span><span style="color:#75715e"></span>ExecutorService sPool <span style="color:#f92672">=</span> Executors<span style="color:#f92672">.</span><span style="color:#a6e22e">newSingleThreadExecutor</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#75715e">//创建延迟线程池
+</span><span style="color:#75715e"></span>ExecutorService scPool <span style="color:#f92672">=</span> Executors<span style="color:#f92672">.</span><span style="color:#a6e22e">newScheduledThreadPool</span><span style="color:#f92672">(</span>2<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</code></pre></div><ul>
+<li>
+<p>ExecutorService接口 执行器服务</p>
+<ul>
+<li>实现类
+<ul>
+<li>ThreadPoolExecutor</li>
+<li>ScheduledThreadPoolExecutor</li>
+</ul>
+</li>
+<li>创建
+<ul>
+<li>使用 Executors 工厂类来创建 ExecuotrService 实例</li>
+</ul>
+</li>
+<li>使用（有几种不同方式将任务委托给 ExecutorServcie 去执行）
+<ul>
+<li>execute(Runnable) 没有办法得知被执行的 Runnable 的执行结果</li>
+<li>submit(Runnable) 返回一个 Future 对象。这个 Future 对象可以用来检查 Runnable 是否已经执行完毕</li>
+<li>submit(Callable) Runnable.run() 不能够返回一个结果。Callable 的结果可以通过 submit(Callable) 方法返回的 Future 对象进行获取</li>
+<li>invokeAny(&hellip;)</li>
+<li>invokeAll(&hellip;)</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
-<p>并发队列 - 阻塞队列</p>
+<p>ThreadPoolExecutor 线程池执行者</p>
+<ul>
+<li>当一个任务委托给线程池时，如果池中线程数量低于 corePoolSize，一个新的线程将被创建，即使池中可能尚有空 闲线程。如果内部任务队列已满，而且有至少 corePoolSize 正在运行，但是运行线程的数量低于 maximumPoolSize，一个新的线程将被创建去执行该任务</li>
+</ul>
+</li>
+<li>
+<p>SchedulePoolExecutor 定时线程池执行者</p>
+<ul>
+<li>能够将任务延后执行，或者间隔固定时间多次执行。 任务由一个工作者线程异步执行，而不是由提交任务给ScheduledExecutorService 的那个线程执行</li>
+</ul>
+</li>
+<li>
+<p>ForkJoinPool 合并和分叉（线程池）</p>
+<ul>
+<li>可以很方便地把任务分裂成几个更小的任务，这些分裂出来的任务也将会提交给 ForkJoinPool。任务可以继续分割成更小的子任务，只要它还能分割</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>并发队列 - 阻塞队列（使用锁实现）：BlockingQueue 提供了线程安全的队列访问方式：当阻塞队列进行插入数据时，如果队列已满，线程将会阻塞等待直到队列非满；从阻塞队列取数据时，如果队列已空，线程将会阻塞等待直到队列非空</p>
 <ul>
 <li>BlockingQueue 阻塞队列</li>
 <li>ArrayBlockingQueue 阻塞队列</li>
@@ -1606,7 +1687,7 @@ ArrayList arrayList <span style="color:#f92672">=</span> <span style="color:#66d
 </ul>
 </li>
 <li>
-<p>并发队列（Collection） - 非阻塞队列</p>
+<p>并发队列（Collection） - 非阻塞队列（使用CAS非阻塞算法实现）</p>
 <ul>
 <li>非阻塞队列</li>
 <li>非阻塞算法 CAS</li>
@@ -1618,7 +1699,7 @@ ArrayList arrayList <span style="color:#f92672">=</span> <span style="color:#66d
 </ul>
 </li>
 <li>
-<p>juc.atomic 包 - 多线程的原子性操作提供的工具类</p>
+<p>juc.atomic 包 - 多线程的原子性操作提供的工具类：对多线程的基本数据、数组中的基本数据和对象中的基本数据进行多线程的操作</p>
 <ul>
 <li>AtomicBoolean 原子性布尔</li>
 <li>AtomicInteger 原子性整型</li>
@@ -1627,7 +1708,12 @@ ArrayList arrayList <span style="color:#f92672">=</span> <span style="color:#66d
 </ul>
 </li>
 <li>
-<p>juc.lock 包 - 多线程的锁机制</p>
+<p>juc.lock 包 - 多线程的锁机制：为锁和等待条件提供一个框架的接口和类</p>
+<ul>
+<li>Lock 接口</li>
+<li>ReadWrite 接口</li>
+<li>Condition 接口</li>
+</ul>
 </li>
 </ol>
 </li>
@@ -1636,6 +1722,11 @@ ArrayList arrayList <span style="color:#f92672">=</span> <span style="color:#66d
 <ol>
 <li>
 <p>多线程的创建方式</p>
+<ul>
+<li>1.继承 Thread 类，复写 run() 方法</li>
+<li>2.实现 Runnable 接口，复写 run() 方法</li>
+<li>3.使用 ExecutorService、Callable、Future 实现：可返回值的任务必须实现 Callable 接口，无返回值的任务必须实现 Runnable 接口。执行 Callable 任务后，可以获取一个 Future 对象，在该对象上调用 get 就可以获取到 Callable 任务返回的 Object。</li>
+</ul>
 </li>
 <li>
 <p>wait 和 sleep 方法的区别</p>
@@ -1721,6 +1812,14 @@ ArrayList arrayList <span style="color:#f92672">=</span> <span style="color:#66d
 <ol>
 <li>
 <p>静态嵌套类（Static Nested Class）和内部类（Inner Class）的不同</p>
+<ul>
+<li>
+<p>静态嵌套类：被声明为 static 的内部类，可以不依赖于外部类实例被实例化</p>
+</li>
+<li>
+<p>内部类：需要在外部类实例化后才能实例化</p>
+</li>
+</ul>
 </li>
 <li>
 <p>下面代码哪里会产生编译错误</p>
@@ -1741,7 +1840,10 @@ ArrayList arrayList <span style="color:#f92672">=</span> <span style="color:#66d
         <span style="color:#66d9ef">new</span> Inner<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
-</code></pre></div></li>
+</code></pre></div><ul>
+<li>Java 中非静态内部类对象的创建要依赖其外部类对象，上面的面试题中 foo 和 main 方法都是静态方法，静态方法中没有 this，也就是说没有所谓的外部类对象，因此无法创建内部类对象，如果要在静态方法中创建内部类对象，可以这样做 new Outer().new Inner();</li>
+</ul>
+</li>
 </ol>
 
 
@@ -1796,6 +1898,11 @@ ArrayList arrayList <span style="color:#f92672">=</span> <span style="color:#66d
                     </li>
                     
                     
+                    <li class="next">
+                        <a href="/post/javase%E8%BF%9B%E9%98%B6/" data-toggle="tooltip" data-placement="top" title="JavaSE进阶">Next
+                            Post &rarr;</a>
+                    </li>
+                    
                 </ul>
 
                 
@@ -1840,6 +1947,10 @@ ArrayList arrayList <span style="color:#f92672">=</span> <span style="color:#66d
                         
                         
                         
+                        
+                        <a href="/tags/interview" title="interview">
+                            interview
+                        </a>
                         
                         
                         

@@ -6,10 +6,19 @@
     <description>Recent content on WZhong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 10 Oct 2020 00:25:13 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 18 Oct 2020 00:25:13 +0800</lastBuildDate>
     
 	<atom:link href="http://wayne06.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JavaSE进阶</title>
+      <link>http://wayne06.github.io/post/javase%E8%BF%9B%E9%98%B6/</link>
+      <pubDate>Sun, 18 Oct 2020 00:25:13 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/post/javase%E8%BF%9B%E9%98%B6/</guid>
+      <description>Ⅰ. 反射 对反射的理解 Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方</description>
+    </item>
     
     <item>
       <title>JavaSE基础</title>

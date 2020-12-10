@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="33 電車が急に止まりました" />
-    <meta property="og:title" content="33 電車が急に止まりました" />
-    <meta property="twitter:title" content="33 電車が急に止まりました" />
+    <meta name="title" content="JavaSE进阶" />
+    <meta property="og:title" content="JavaSE进阶" />
+    <meta property="twitter:title" content="JavaSE进阶" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>33 電車が急に止まりました-Wayne Zhong Blog</title>
+    <title>JavaSE进阶-Wayne Zhong Blog</title>
 
-    <link rel="canonical" href="/post/33/">
+    <link rel="canonical" href="/post/javase%E8%BF%9B%E9%98%B6/">
 
     <link rel="stylesheet" href="/css/iDisqus.min.css"/>
 	
@@ -187,24 +187,12 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/japanese-language" title="Japanese Language">
-                            Japanese Language
-                        </a>
-                        
-                        <a class="tag" href="/tags/%E6%A0%87%E5%87%86%E6%97%A5%E6%9C%AC%E8%AF%AD" title="标准日本语">
-                            标准日本语
-                        </a>
-                        
-                        <a class="tag" href="/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95" title="日语语法">
-                            日语语法
-                        </a>
-                        
-                        <a class="tag" href="/tags/%E6%97%A5%E8%AF%AD%E5%BA%94%E7%94%A8%E8%AF%BE%E6%96%87" title="日语应用课文">
-                            日语应用课文
+                        <a class="tag" href="/tags/interview" title="Interview">
+                            Interview
                         </a>
                         
                     </div>
-                    <h1>33 電車が急に止まりました</h1>
+                    <h1>JavaSE进阶</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by 
@@ -212,7 +200,7 @@
                                 WZhong
                          
                         on 
-                        Wednesday, January 22, 2020
+                        Sunday, October 18, 2020
                         
                         
                         
@@ -242,409 +230,132 @@
                 </header>
                 <nav id="TableOfContents">
   <ul>
-    <li><a href="#生词表">生词表</a></li>
-    <li><a href="#语法">语法</a></li>
-    <li><a href="#应用课文再会さいかい">应用课文：再会（さいかい）</a></li>
+    <li><a href="#-反射">Ⅰ. 反射</a></li>
+    <li><a href="#-动态代理">Ⅱ. 动态代理</a></li>
+    <li><a href="#-设计模式">Ⅲ. 设计模式</a></li>
+    <li><a href="#-回收机制">Ⅳ. 回收机制</a></li>
+    <li><a href="#-类加载器">Ⅴ. 类加载器</a></li>
+    <li><a href="#-jvm">Ⅵ. JVM</a></li>
+    <li><a href="#-gc">Ⅶ. GC</a></li>
+    <li><a href="#-java8-新特性">Ⅷ. Java8 新特性</a></li>
+    <li><a href="#-内存溢出">Ⅸ. 内存溢出</a></li>
   </ul>
 </nav>
                 
-                <h2 id="生词表">生词表</h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>スーツケース</td>
-<td></td>
-<td>旅行箱</td>
-</tr>
-<tr>
-<td>トランク</td>
-<td></td>
-<td>后备箱，手提箱，皮箱</td>
-</tr>
-<tr>
-<td>スーツ</td>
-<td></td>
-<td>西服，女套装</td>
-</tr>
-<tr>
-<td>ズボン</td>
-<td></td>
-<td>裤子</td>
-</tr>
-<tr>
-<td>サンダル</td>
-<td></td>
-<td>凉鞋</td>
-</tr>
-<tr>
-<td>帽子</td>
-<td>ぼうし</td>
-<td>帽子</td>
-</tr>
-<tr>
-<td>腕時計</td>
-<td>うでどけい</td>
-<td>手表</td>
-</tr>
-<tr>
-<td>小物</td>
-<td>こもの</td>
-<td>小东西</td>
-</tr>
-<tr>
-<td>運転者</td>
-<td>うんてんしゃ</td>
-<td>司机</td>
-</tr>
-<tr>
-<td>空</td>
-<td>から</td>
-<td>空</td>
-</tr>
-<tr>
-<td>運動会</td>
-<td>うんどうかい</td>
-<td>运动会</td>
-</tr>
-<tr>
-<td>チーム</td>
-<td></td>
-<td>队，团体</td>
-</tr>
-<tr>
-<td>最後</td>
-<td>さいご</td>
-<td>最后</td>
-</tr>
-<tr>
-<td>再会</td>
-<td>さいかい</td>
-<td>重逢，再会</td>
-</tr>
-<tr>
-<td>久しぶり</td>
-<td>ひさしぶり</td>
-<td>好久不见</td>
-</tr>
-<tr>
-<td>カキ</td>
-<td></td>
-<td>柿子</td>
-</tr>
-<tr>
-<td>清涼飲料水</td>
-<td>せいりょういんりょうすい</td>
-<td>清凉饮料</td>
-</tr>
-<tr>
-<td>閉まります</td>
-<td>しまります</td>
-<td>关闭，关</td>
-</tr>
-<tr>
-<td>壊します</td>
-<td>こわします</td>
-<td>弄坏</td>
-</tr>
-<tr>
-<td>割ります</td>
-<td>わります</td>
-<td>割开，打破，打坏</td>
-</tr>
-<tr>
-<td>付きます</td>
-<td>つきます</td>
-<td>附带，附加</td>
-</tr>
-<tr>
-<td>掛かります</td>
-<td>かかります</td>
-<td>挂，悬挂</td>
-</tr>
-<tr>
-<td>汚します</td>
-<td>よごします</td>
-<td>弄脏</td>
-</tr>
-<tr>
-<td>やみます</td>
-<td></td>
-<td>停，停止</td>
-</tr>
-<tr>
-<td>建ちます</td>
-<td>たちます</td>
-<td>盖，建</td>
-</tr>
-<tr>
-<td>並びます</td>
-<td>ならびます</td>
-<td>排队，列队</td>
-</tr>
-<tr>
-<td>着きます</td>
-<td>つきます</td>
-<td>到达，到</td>
-</tr>
-<tr>
-<td>かぶります</td>
-<td></td>
-<td>戴</td>
-</tr>
-<tr>
-<td>はきます</td>
-<td></td>
-<td>穿（鞋、裤子）</td>
-</tr>
-<tr>
-<td>飼います</td>
-<td>かいます</td>
-<td>饲养</td>
-</tr>
-<tr>
-<td>消えます</td>
-<td>きえます</td>
-<td>熄灭，消失</td>
-</tr>
-<tr>
-<td>掛けます</td>
-<td>かけます</td>
-<td>挂</td>
-</tr>
-<tr>
-<td>落ちます</td>
-<td>おちます</td>
-<td>落下，掉</td>
-</tr>
-<tr>
-<td>建てます</td>
-<td>たてます</td>
-<td>盖，建造</td>
-</tr>
-<tr>
-<td>負けます</td>
-<td>まけます</td>
-<td>输，败</td>
-</tr>
-<tr>
-<td>汚れます</td>
-<td>よごれます</td>
-<td>脏</td>
-</tr>
-<tr>
-<td>偉い</td>
-<td>えらい</td>
-<td>了不起，伟大</td>
-</tr>
-<tr>
-<td>楽</td>
-<td>らく</td>
-<td>容易，简单，快乐，轻松</td>
-</tr>
-<tr>
-<td>残念</td>
-<td>ざんねん</td>
-<td>可惜，遗憾</td>
-</tr>
-<tr>
-<td>急に</td>
-<td>きゅうに</td>
-<td>突然</td>
-</tr>
-<tr>
-<td>全部</td>
-<td>ぜんぶ</td>
-<td>全部</td>
-</tr>
-<tr>
-<td>相変わらず</td>
-<td>あいかわらず</td>
-<td>照旧，依然</td>
-</tr>
-<tr>
-<td>うっかり</td>
-<td></td>
-<td>不留神，不注意</td>
-</tr>
-<tr>
-<td>それにしても</td>
-<td></td>
-<td>即便那样，话虽如此</td>
-</tr>
-<tr>
-<td>お久しぶりです</td>
-<td>おひさしぶりです</td>
-<td>好久不见</td>
-</tr>
-</tbody>
-</table>
-<h2 id="语法">语法</h2>
+                <h2 id="-反射">Ⅰ. 反射</h2>
+<ol>
+<li>
+<p>对反射的理解</p>
 <ul>
-<li>
-<p>自动词和他动词</p>
-<ul>
-<li>
-<p>自动词词尾aru，他动词词尾eru</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>自动词</th>
-<th>他动词</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>挂</td>
-<td>掛かるー掛かります</td>
-<td>掛けるー掛けます</td>
-</tr>
-<tr>
-<td>关闭</td>
-<td>閉まるー閉まりまし</td>
-<td>閉めるー閉めます</td>
-</tr>
-<tr>
-<td>停</td>
-<td>止まるー止まります</td>
-<td>止めるー止めます</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>自动词词尾eru，ru，他动词词尾su</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>自动词</th>
-<th>他动词</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>熄灭</td>
-<td>消えるー消えます</td>
-<td>消すー消します</td>
-</tr>
-<tr>
-<td>坏</td>
-<td>壊れるー壊れます</td>
-<td>壊すー壊します</td>
-</tr>
-<tr>
-<td>落</td>
-<td>落ちるー落ちます</td>
-<td>落とすー落とします</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>对应关系不规则的</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>自动词</th>
-<th>他动词</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>割裂</td>
-<td>割れるー割れます</td>
-<td>割るー割ります</td>
-</tr>
-<tr>
-<td>加上</td>
-<td>付くー付きます</td>
-<td>付けるー付けます</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>自动词和他动词相同的，极少</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>自动词</th>
-<th>他动词</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>关闭</td>
-<td>閉じる</td>
-<td>閉じる</td>
-</tr>
-</tbody>
-</table>
-</li>
+<li>Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性</li>
+<li>这种动态获取信息以及动态调用对象方法的功能称为 Java 语言的反射机制</li>
 </ul>
 </li>
+</ol>
+<h2 id="-动态代理">Ⅱ. 动态代理</h2>
+<ol>
 <li>
-<p>自动词+ています：表示动作正在进行，或表示结果的存续</p>
-<p>部屋の電気が消えています。<br>
-壁には大きな絵が掛かっています。<br>
-この自動車は壊れています。</p>
+<p>写一个 ArrayList 的动态代理类</p>
 </li>
 <li>
-<p>动词て形+しまいます：表示该动作产生的结果是令人不愉快的事情</p>
-<p>森さんはボーナスを全部使ってしまいました。<br>
-大切な書類をうっかり忘れてしまいました。<br>
-無理をすると，病気になってしまいますよ。</p>
+<p>动态代理 和 静态代理的区别及使用场景</p>
+</li>
+</ol>
+<h2 id="-设计模式">Ⅲ. 设计模式</h2>
+<ol>
+<li>
+<p>你知道哪些设计模式</p>
 </li>
 <li>
-<p>动词/形容词+そうです：对某事物样态的观感，或根据某种情景推测事态的发展</p>
-<ul>
-<li>
-<p>动词去ます形+そうです；一类形去い+そうです；二类型直接+そうです</p>
-<p>このケーキはとてもおいしそうです。<br>
-李さんは仕事が大変そうですね。<br>
-雨が降りそうです。<br>
-あの人は将来偉くなりそうです。</p>
+<p>单例模式</p>
 </li>
 <li>
-<p>否定形式：动词用～そうにありません；形容词用～そうではありません</p>
-<p>あまりおいしそうではありません。<br>
-雨はやみそうにありません。</p>
+<p>工厂模式</p>
 </li>
 <li>
-<p>ないーなさそうです；いいーよさそうです</p>
-<p>今日は会議がなさそうです。<br>
-この本はとてもよさそうです。</p>
+<p>建造者模式</p>
 </li>
 <li>
-<p>名词前：～そうな；动词前：～そうに</p>
-<p>おいしそうなケーキですね。<br>
-子供たちは楽しそうに遊んでいます。</p>
+<p>适配器模式</p>
 </li>
-</ul>
+<li>
+<p>装饰模式</p>
 </li>
-</ul>
-<h2 id="应用课文再会さいかい">应用课文：再会（さいかい）</h2>
-<p>小野：ちょっと早く着いてしまったけど，森さんたちもう来ているかしら。それにしても，大勢並んでいるわね。</p>
-<p>小野：李さん！<br>
-李：小野さん，お久しぶりです。<br>
-小野：本当にお久しぶり。お元気そうですね。<br>
-李：ええ，小野さんも。</p>
-<p>森：すみません，小野さん。遅刻してしまいました。<br>
-小野：相変わらずですね，森さん。でも，お元気そうで，何よりです。</p>
-<p>森：小野さん，ずいぶん重そうなスーツケースですね。<br>
-小野：そうですか？服や小物が入っていますが，中はほとんど空ですよ。北京は始めてなので，お土産をたくさん買った，入れようと思っているんです。</p>
-<p>森：あれっ，トランクが開いていないな。<br>
-李：運転手さんに開けてもらいましょう。</p>
+<li>
+<p>策略模式</p>
+</li>
+<li>
+<p>观察者模式</p>
+</li>
+</ol>
+<h2 id="-回收机制">Ⅳ. 回收机制</h2>
+<ol>
+<li>
+<p>JVM 垃圾回收机制和常见算法</p>
+</li>
+<li>
+<p>JVM 的内存结构和内存分配</p>
+</li>
+<li>
+<p>Java 中的引用类型有哪些</p>
+</li>
+<li>
+<p>heap 和 stack 的区别</p>
+</li>
+<li>
+<p>解释内存中的 栈、堆、方法区 的用法</p>
+</li>
+</ol>
+<h2 id="-类加载器">Ⅴ. 类加载器</h2>
+<ol>
+<li>
+<p>Java 的类加载器的种类有哪些</p>
+</li>
+<li>
+<p>类什么时候被初始化</p>
+</li>
+<li>
+<p>ClassLoader 的双亲委托机制</p>
+</li>
+<li>
+<p>描述一下 JVM 加载 class</p>
+</li>
+<li>
+<p>获得一个类对象有哪些方式</p>
+</li>
+</ol>
+<h2 id="-jvm">Ⅵ. JVM</h2>
+<ol>
+<li>既然有了 GC 机制，为什么还会有内存泄漏情况</li>
+</ol>
+<h2 id="-gc">Ⅶ. GC</h2>
+<ol>
+<li>
+<p>Java 为什么会有 GC 机制</p>
+</li>
+<li>
+<p>哪些内存需要回收</p>
+</li>
+<li>
+<p>什么时候回收垃圾</p>
+</li>
+</ol>
+<h2 id="-java8-新特性">Ⅷ. Java8 新特性</h2>
+<ol>
+<li>
+<p>lambda 表达式的适用场景</p>
+</li>
+<li>
+<p>lambda 表达式要点</p>
+</li>
+<li>
+<p>Optional 类</p>
+</li>
+</ol>
+<h2 id="-内存溢出">Ⅸ. 内存溢出</h2>
+<ol>
+<li>内存溢出的原因，如果解决</li>
+</ol>
 
 
                 
@@ -693,15 +404,10 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/32/" data-toggle="tooltip" data-placement="top" title="32 今度の日曜日に遊園地へ行くつもりです">&larr;
+                        <a href="/post/javase%E5%9F%BA%E7%A1%80/" data-toggle="tooltip" data-placement="top" title="JavaSE基础">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/post/34/" data-toggle="tooltip" data-placement="top" title="34 壁にカレンダーが掛けてあります">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
 
