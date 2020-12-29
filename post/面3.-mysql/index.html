@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="Lemon" />
-    <meta property="og:title" content="Lemon" />
-    <meta property="twitter:title" content="Lemon" />
+    <meta name="title" content="MySQL" />
+    <meta property="og:title" content="MySQL" />
+    <meta property="twitter:title" content="MySQL" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Lemon-Wayne Zhong Blog</title>
+    <title>MySQL-Wayne Zhong Blog</title>
 
-    <link rel="canonical" href="/post/%E8%99%B9/">
+    <link rel="canonical" href="/post/%E9%9D%A23.-mysql/">
 
     <link rel="stylesheet" href="/css/iDisqus.min.css"/>
 	
@@ -187,16 +187,12 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/japanese-language" title="Japanese Language">
-                            Japanese Language
-                        </a>
-                        
-                        <a class="tag" href="/tags/%E6%97%A5%E6%96%87%E6%AD%8C" title="日文歌">
-                            日文歌
+                        <a class="tag" href="/tags/interview" title="Interview">
+                            Interview
                         </a>
                         
                     </div>
-                    <h1>Lemon</h1>
+                    <h1>MySQL</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by 
@@ -204,7 +200,7 @@
                                 WZhong
                          
                         on 
-                        Thursday, October 29, 2020
+                        Wednesday, October 28, 2020
                         
                         
                         
@@ -234,34 +230,51 @@
                 </header>
                 <nav id="TableOfContents">
   <ul>
-    <li><a href="#虹">虹</a></li>
+    <li><a href="#-select-语句完整的执行顺序">Ⅰ. SELECT 语句完整的执行顺序</a></li>
+    <li><a href="#-聚合函数">Ⅱ. 聚合函数</a></li>
+    <li><a href="#-连接查询">Ⅲ. 连接查询</a></li>
+    <li><a href="#-sql-注入">Ⅳ. SQL 注入</a></li>
+    <li><a href="#-性能优化">Ⅴ. 性能优化</a></li>
+    <li><a href="#-面试题">Ⅵ. 面试题</a></li>
+    <li><a href="#-架构及模块">Ⅶ. 架构及模块</a></li>
+    <li><a href="#-存储引擎">Ⅷ. 存储引擎</a></li>
+    <li><a href="#-事务">Ⅸ. 事务</a></li>
+    <li><a href="#-存储过程">Ⅹ. 存储过程</a></li>
+    <li><a href="#-触发器">ⅩⅠ. 触发器</a></li>
+    <li><a href="#-语句优化">ⅩⅡ. 语句优化</a></li>
+    <li><a href="#-中文乱码的解决">ⅩⅢ. 中文乱码的解决</a></li>
+    <li><a href="#-提高安全性">ⅩⅣ. 提高安全性</a></li>
   </ul>
 </nav>
                 
-                <h2 id="虹">虹</h2>
-<p>泣いていいんだよ</p>
-<p>そんなひと言に、僕は救われたんだよ、本当にありがとう</p>
-<p>情けないけれど、だらしないけれど</p>
-<p>君を想うことだけで、明日が輝く</p>
-<p>ありのままの二人でいいよ、陽だまり見つけて遊ぼうよ</p>
-<p>ベランダで水をやる君の、足元に小さな虹</p>
-<p>一生そばにいるから、一生そばにいて</p>
-<p>一生離れないように、一生懸命に</p>
-<p>きつく結んだ目が、解けないように</p>
-<p>かたく繋いだ手を、離さないから</p>
-<p>ママの優しさと、パパの泣き虫は、まるで僕らのようでさ</p>
-<p>未来が愛しい、大きな夢じゃなくていいよ、自分らしくいれたらいいよ</p>
-<p>ひとりぼっち迷ったときは、あの頃を思い出して</p>
-<p>寂しい夜を半分、僕に預けてほしい</p>
-<p>嬉しい日々は、十分に笑い合っていたい</p>
-<p>どんな言葉でも、足りないような、君の温もりに、触れたせいかな</p>
-<p>家族や友達のこと、こんな僕のこと、いつも大事に笑うから、泣けてくるんだよ</p>
-<p>何にもなかった空に、ぽつんと輝いていた</p>
-<p>ありがとうに替わる言葉、ずっと探していたんだ</p>
-<p>一生そばにいるから、一生そばにいて</p>
-<p>一生離れないように、一生懸命に</p>
-<p>きつく結んだ目が、解けないように</p>
-<p>かたく繋いだ手を、離さないから、離さないから</p>
+                <h2 id="-select-语句完整的执行顺序">Ⅰ. SELECT 语句完整的执行顺序</h2>
+<h2 id="-聚合函数">Ⅱ. 聚合函数</h2>
+<h2 id="-连接查询">Ⅲ. 连接查询</h2>
+<h2 id="-sql-注入">Ⅳ. SQL 注入</h2>
+<h2 id="-性能优化">Ⅴ. 性能优化</h2>
+<ol>
+<li>
+<p>当只有一行数据时使用 limit 1</p>
+</li>
+<li>
+<p>选择正确的数据库引擎</p>
+</li>
+<li>
+<p>用 not exists 代替 not in</p>
+</li>
+<li>
+<p>对操作符的优化，尽量不采用不利于索引的操作符</p>
+</li>
+</ol>
+<h2 id="-面试题">Ⅵ. 面试题</h2>
+<h2 id="-架构及模块">Ⅶ. 架构及模块</h2>
+<h2 id="-存储引擎">Ⅷ. 存储引擎</h2>
+<h2 id="-事务">Ⅸ. 事务</h2>
+<h2 id="-存储过程">Ⅹ. 存储过程</h2>
+<h2 id="-触发器">ⅩⅠ. 触发器</h2>
+<h2 id="-语句优化">ⅩⅡ. 语句优化</h2>
+<h2 id="-中文乱码的解决">ⅩⅢ. 中文乱码的解决</h2>
+<h2 id="-提高安全性">ⅩⅣ. 提高安全性</h2>
 
 
                 
@@ -310,10 +323,15 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/%E9%9D%A23.-mysql/" data-toggle="tooltip" data-placement="top" title="MySQL">&larr;
+                        <a href="/post/%E9%9D%A22.-javase%E8%BF%9B%E9%98%B6/" data-toggle="tooltip" data-placement="top" title="JavaSE进阶">&larr;
                             Previous Post</a>
                     </li>
                     
+                    
+                    <li class="next">
+                        <a href="/post/%E8%99%B9/" data-toggle="tooltip" data-placement="top" title="Lemon">Next
+                            Post &rarr;</a>
+                    </li>
                     
                 </ul>
 

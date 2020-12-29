@@ -1,0 +1,2181 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="WZhong">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="JavaSE基础" />
+    <meta property="og:title" content="JavaSE基础" />
+    <meta property="twitter:title" content="JavaSE基础" />
+    
+
+    
+    <meta name="description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan.">
+    <meta property="og:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    <meta property="twitter:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>JavaSE基础-Wayne Zhong Blog</title>
+
+    <link rel="canonical" href="/post/%E9%9D%A21.-javase%E5%9F%BA%E7%A1%80/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/docco.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">WZhong</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/design-pattern">design-pattern</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/japanese">japanese</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/java">java</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/microservice">microservice</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/others">others</a>
+                    </li>
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://img.zhaohuabing.com/post-bg-2015.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/interview" title="Interview">
+                            Interview
+                        </a>
+                        
+                    </div>
+                    <h1>JavaSE基础</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                WZhong
+                         
+                        on 
+                        Saturday, October 10, 2020
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#-面向对象">Ⅰ. 面向对象</a></li>
+    <li><a href="#-语法">Ⅱ. 语法</a></li>
+    <li><a href="#-多态">Ⅲ. 多态</a></li>
+    <li><a href="#-异常处理">Ⅳ. 异常处理</a></li>
+    <li><a href="#-常用api">Ⅴ. 常用API</a></li>
+    <li><a href="#-数据类型">Ⅵ. 数据类型</a></li>
+    <li><a href="#-io">Ⅶ. IO</a></li>
+    <li><a href="#-集合">Ⅷ. 集合</a></li>
+    <li><a href="#-多线程">Ⅸ. 多线程</a></li>
+    <li><a href="#-内部类">Ⅹ. 内部类</a></li>
+  </ul>
+</nav>
+                
+                <h2 id="-面向对象">Ⅰ. 面向对象</h2>
+<ol>
+<li>
+<p>面向对象的特性</p>
+<ul>
+<li>继承（inherit）、封装（encapsulate）、多态（polymorphism）、抽象（abstract）</li>
+</ul>
+</li>
+<li>
+<p>访问权限修饰符</p>
+<ul>
+<li>
+<p>public、protected、default、private</p>
+</li>
+<li>
+<p>当前类、同包、子类、其他包</p>
+</li>
+</ul>
+</li>
+<li>
+<p>clone 对象</p>
+<ul>
+<li>
+<p>Object.clone()方法是一个native方法，一个native方法就是一个java调用非java代码的接口。而一般native方法的速度都要比你自己所写的程序运行速度快很多，这也是为什么当我们想要对一个对象进行克隆操作时，推荐使用Object.clone()方法而非自己通过java代码去实现这样一个功能（虽然也可以达到想要的结果）</p>
+</li>
+<li>
+<p>clone()方法是protected的，而且Person和Object并不在一个包里，因此Person里的方法只能访问自身从基类（这个例子中也就是Object）继承而来的受保护成员（也就是clone()方法），而不能访问基类实例本身的受保护成员（也就是试图用a.clone()这样的方式去调用clone()方法）</p>
+</li>
+<li>
+<p>在实际操作中，如果要使用clone()方法，一般要实现Cloneable接口，并重写Person的clone方法。实际上Cloneable是一个标记接口，所谓标记接口，是一个用来对类进行标记的接口，也就是说这个接口实际上没有任何内容</p>
+</li>
+<li>
+<p>如果想要深拷贝一个对象，这个对象必须要实现 Cloneable 接口，实现clone方法，并且在 clone 方法内部，把该对象引用的其他对象也要 clone 一份，再赋值给对象。就要求这个被引用的对象必须也要实现Cloneable 接口并且实现 clone 方法。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="-语法">Ⅱ. 语法</h2>
+<ol>
+<li>
+<p>Java 有 goto 语句吗</p>
+<ul>
+<li>goto 和 const 是无法使用的关键字，称为保留字</li>
+</ul>
+</li>
+<li>
+<p>&amp; 和 &amp;&amp; 的区别</p>
+<ul>
+<li>
+<p>&amp;：按位与；逻辑与</p>
+</li>
+<li>
+<p>&amp;&amp;：短路与（左边为false时右边不进行运算）</p>
+</li>
+</ul>
+</li>
+<li>
+<p>如何跳出当前的多重嵌套循环</p>
+<ul>
+<li>在最外层循环前加一个标记如 A，然后用 break A，可以跳出多重循环（不推荐）</li>
+</ul>
+</li>
+<li>
+<p>「两个对象值相同，即 x.equals(y)==true 时，hashCode 可以不同」这句话对吗</p>
+<ul>
+<li>
+<p>不对，如果两个对象 x 和 y 满足 x.equals(y) == true，它们的hashCode应当相同</p>
+</li>
+<li>
+<p>Java中的规定：（如果违背了原则就会发现在使用容器时，相同的对象可以出现在Set 集合中；同时增加新元素的效率会大大下降，因为对于使用哈希存储的系统，如果哈希码频繁的冲突将会造成存取性能急剧下降）</p>
+<ul>
+<li>如果两个对象 equals 方法返回 true，那么它们的 hashCode 一定要相同</li>
+<li>如果两个对象的 hashCode 相同，它们并不一定 equals 方法返回 true</li>
+</ul>
+</li>
+<li>
+<p>equals 方法必须满足：</p>
+<ul>
+<li>自反性：x.equals(x) 必须返回 true；</li>
+<li>对称性：x.equals(y) 返回 true 时，y.equals(x) 也必须返回 true；</li>
+<li>传递性：x.equals(y) 和 y.equals(z) 都返回 true 时，x.equals(z) 也必须返回 true；</li>
+<li>一致性：当x 和 y 引用的对象信息没有被修改时，多次调用 x.equals(y)应该得到同样的返回值；</li>
+<li>非空性：对于任何非 null 值的引用 x， x.equals(null)必须返回 false</li>
+</ul>
+</li>
+<li>
+<p>实现高质量 equals 方法的 tips：</p>
+<ul>
+<li>使用 == 操作符检查“参数是否为这个对象的引用”</li>
+<li>使用 instanceof 操作符检查“参数是否为正确的类型”</li>
+<li>对于类中的关键属性，检查参数传入对象的属性是否与之相匹配</li>
+<li>编写完 equals 方法后，检查是否满足对称性，传递性，一致性</li>
+<li>重写 equals 时总是要重写 hashCode 方法</li>
+<li>不要将 equals 方法参数中的 Object 对象替换为其他类型，重写时不要忘记 @Override 注解</li>
+</ul>
+</li>
+<li>
+<p>Objects.equals()</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>Object a<span style="color:#f92672">,</span> Object b<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">(</span>a <span style="color:#f92672">=</span><span style="color:#f92672">=</span> b<span style="color:#f92672">)</span> <span style="color:#f92672">|</span><span style="color:#f92672">|</span> <span style="color:#f92672">(</span>a <span style="color:#f92672">!</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> a<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>b<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>为什么要重写 equals 方法</p>
+<ul>
+<li>如果不重写，执行 user1.equals(user2) 比较的就是两个对象的地址（即 user1 == user2），肯定是不相等的</li>
+</ul>
+</li>
+<li>
+<p>为什么要重写 hashcode 方法</p>
+<ul>
+<li>hashCode 是用于散列数据的快速存取，如利用 HashSet/HashMap/Hashtable 类来存储数据时，都会根据存储对象的 hashCode 值来进行判断是否相同的。</li>
+<li>HashSet 的 add 方法使用了 HashMap 的 put ，而 HashMap 的 put 方法比较了 hashcode</li>
+</ul>
+</li>
+<li>
+<p>如何重写 hashcode（？）</p>
+<ul>
+<li>生成一个 int 类型的变量 result，并且初始化一个值，比如17；对类中每一个重要字段，也就是影响对象的值的字段，也就是 equals 方法里有比较的字段，进行以下操作：a. 计算这个字段的值 filedHashValue = filed.hashCode(); b. 执行 result = 31 * result + filedHashValue;</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">hashCode</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">int</span> result <span style="color:#f92672">=</span> 17<span style="color:#f92672">;</span>
+        result <span style="color:#f92672">=</span> 31 <span style="color:#f92672">*</span> result <span style="color:#f92672">+</span> <span style="color:#f92672">(</span>name <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">?</span> 0 <span style="color:#f92672">:</span> name<span style="color:#f92672">.</span><span style="color:#a6e22e">hashCode</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        result <span style="color:#f92672">=</span> 31 <span style="color:#f92672">*</span> result <span style="color:#f92672">+</span> <span style="color:#f92672">(</span>age <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">?</span> 0 <span style="color:#f92672">:</span> age<span style="color:#f92672">.</span><span style="color:#a6e22e">hashCode</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">return</span> result<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>为什么使用 31：String 类中，空字符串的 hashCode 方法返回是 0。并且注释中也给了个公式（？）</p>
+<ul>
+<li>更少的乘积结果冲突（31是质子数中一个“不大不小”的存在，如果你使用的是一个如2的较小质数，那么得出的乘积会在一个很小的范围，很容易造成哈希值的冲突。而如果选择一个100以上的质数，得出的哈希值会超出int的最大范围，这两种都不合适。而如果对超过 50,000 个英文单词（由两个不同版本的 Unix 字典合并而成）进行 hash code 运算，并使用常数 31, 33, 37, 39 和 41 作为乘子，每个常数算出的哈希值冲突数都小于7个（国外大神做的测试），那么这几个数就被作为生成hashCode值得备选乘数了。所以从 31,33,37,39 等中间选择了 31 的原因看原因二。）</li>
+<li>31 可以被 JVM 优化（JVM里最有效的计算方式就是进行位运算：a.左移 &laquo; : 左边的最高位丢弃，右边补全0（把 &laquo; 左边的数据 <em>2的移动次幂）。b.右移 &raquo; : 把&raquo;左边的数据/2的移动次幂。c.无符号右移 &raquo;&gt; : 无论最高位是0还是1，左边补齐0。所以，31</em>i = (i &laquo; 5) - i（左边  31<em>2=62,右边   2</em>2^5-2=62） - 两边相等，JVM就可以高效的进行计算）。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>String 类是否可以继承</p>
+<ul>
+<li>
+<p>String 类是 final 类，不可被继承</p>
+</li>
+<li>
+<p>对 String 类型最好的重用方式是关联关系（Has-A）和依赖关系（UseA）而不是继承关系（Is-A）</p>
+</li>
+<li>
+<p>String 类为什么要设计成 final</p>
+<ul>
+<li>String 类不可变，给一个已有字符串 abc 第二次赋值成 abcd，不是在原内存地址上修改数据，而是重新指向一个新对象、新地址</li>
+<li>String 类不可变，是因为在 String 方法里没有去动 array 的元素，没有暴露内部成员字段。private final char value[] 这句里，是 private 的私有访问权限。整个 String 类也是被 final 修饰，禁止继承，避免被其他类继承后破坏</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>当一个对象被当做参数传递到一个方法后，此方法可改变这个对象的属性，并可返回变化后的结果，那么这里是值传递还是引用传递</p>
+<ul>
+<li>
+<p>值传递。Java 语言的方法调用只支持参数的值传递。当一个对象实例作为一个参数被传递到方法中时，参数的值就是对该对象的引用。对象的属性可以在被调用过程中被改变，但对对象引用的改变是不会影响到调用者的。</p>
+</li>
+<li>
+<p>C++和 C#中可以通过传引用或传输出参数来改变传入的参数的值。说明：Java 中没有传引用实在是非常的不方便，这一点在 Java 8 中仍然没有得到改进，正是如此在 Java 编写的代码中才会出现大量的 Wrapper 类（将需要通过方法调用修改的引用置于一个 Wrapper 类中，再将 Wrapper 对象传入方法），这样的做法只会让代码变得臃肿，尤其是让从 C 和 C++转型为 Java 程序员的开发者无法容忍。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>重载（overload）和重写（override）的区别；重载的方法能否根据返回类型进行区分</p>
+<ul>
+<li>
+<p>方法的重载和重写都是实现多态的方式，区别在于前者实现的是编译时的多态性，而后者实现的是运行时的多态性。</p>
+</li>
+<li>
+<p>重载发生在一个类中，同名的方法如果有不同的参数列表（参数类型不同、参数个数不同或者二者都不同）则视为重载；重载对返回类型没有特殊的要求。</p>
+</li>
+<li>
+<p>重写发生在子类与父类之间，重写要求子类被重写方法与父类被重写方法有相同的返回类型，比父类被重写方法更好访问，不能比父类被重写方法声明更多的异常（里氏代换原则）。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>为什么函数不能根据返回类型来区分重载</p>
+<ul>
+<li>因为调用时不能指定类型信息，编译器不知道你要调用哪个函数。</li>
+</ul>
+</li>
+<li>
+<p>char 型变量中能不能存储一个中文汉字</p>
+<ul>
+<li>char 类型可以存储一个中文汉字，因为 Java 中使用的编码是 Unicode（不选择任何特定的编码，直接使用字符在字符集中的编号，这是统一的唯一方法），一个 char 类型占 2 个字节（16 比特），所以放一个中文是没问题的。</li>
+</ul>
+</li>
+<li>
+<p>抽象类和接口的异同</p>
+<ul>
+<li>
+<p>相同点：</p>
+<ul>
+<li>不能实例化</li>
+<li>可作为引用类型</li>
+<li>一个类如果继承了某抽象类或实现了某接口，需要对其中的抽象方法全部进行实现，否则该类仍然需要被声明为抽象类</li>
+</ul>
+</li>
+<li>
+<p>不同点：</p>
+<ul>
+<li>抽象类可以定义构造器，接口不能</li>
+<li>抽象类可以有抽象方法和具体方法，接口的方法都是抽象方法</li>
+<li>抽象类的成员可以是private、default、protected、public，接口的成员只能是public的</li>
+<li>抽象类中可以定义成员变量，接口的成员变量都是常量</li>
+<li>抽象类可以有静态方法，接口不能有静态方法</li>
+<li>一个类只能继承一个抽象类，一个类可以实现多个接口</li>
+<li>有抽象方法的类必须被声明为抽象类，而抽象类未必要有抽象方法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>抽象方法是否可同时是静态方法（static）；抽象方法是否可同时是本地方法（native）；抽象方法是否可同时被 synchronized 修饰</p>
+<ul>
+<li>不能。抽象方法需要子类重写，而静态方法是无法被重写的</li>
+<li>不能。本地方法是由本地代码实现的方法，而抽象方法是没有实现的</li>
+<li>不能。synchronized 和方法的实现细节有关，而抽象方法不涉及实现细节</li>
+</ul>
+</li>
+<li>
+<p>静态变量和实例变量的区别</p>
+<ul>
+<li>静态变量属于类，不属于类的任何一个对象，一个类不管创建多少对象，静态变量在内存中有且仅有一个拷贝</li>
+<li>实例变量必须依存某一个实例，需要先创建对象，然后通过对象才能访问它。静态变量可以实现让多个对象共享内存</li>
+</ul>
+</li>
+<li>
+<p>== 和 equals 的区别</p>
+<ul>
+<li>
+<p>equals 方法用来比较两个对象的内容是否相等（如果没有重写，则比较的是引用类型的变量所指向对象的地址）</p>
+</li>
+<li>
+<p>== 运算符用来比较基本数据类型的数值是否相等，用来比较对象的地址值是否相等</p>
+</li>
+</ul>
+</li>
+<li>
+<p>break 和 continue 的区别</p>
+<ul>
+<li>
+<p>break 跳出循环体，执行循环后面的语句</p>
+</li>
+<li>
+<p>continue 跳过本次循环，执行下次循环</p>
+</li>
+</ul>
+</li>
+<li>
+<p>下面语句执行后，原始的 String 对象中的内容是否发生了改变</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">String s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello&#34;</span><span style="color:#f92672">;</span>
+s <span style="color:#f92672">=</span> s <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; world!&#34;</span><span style="color:#f92672">;</span>
+</code></pre></div><ul>
+<li>
+<p>未改变。因为 String 被设计成不可变(immutable)类，所以它的所有对象都是不可变对象。s 不指向原来那个对象了，而指向了另一个 String 对象，内容为&quot;Hello world!&quot;，原来那个对象还存在于内存之中，只是 s 这个引用变量不再指向它了。</p>
+</li>
+<li>
+<p>如果经常对字符串进行各种各样的修改，或者说，不可预见的修改，那么使用 String 来代表字符串的话会引起很大的内存开销。因为 String 对象建立之后不能再改变，所以对于每一个不同的字符串，都需要一个 String 对象来表示。这时，应该考虑使用 StringBuffer 类，它允许修改，而不是每个不同的字符串都要生成一个新的对象。并且，这两种类的对象转换十分容易</p>
+</li>
+<li>
+<p>如果要使用内容相同的字符串，不必每次都 new 一个 String。后者每次都会调用构造器，生成新对象，性能低下且内存开销大，并且没有意义，因为 String 对象不可改变，所以对于内容相同的字符串，只要一个 String 对象来表示就可以了。</p>
+</li>
+<li>
+<p>对于字符串常量，如果内容相同， Java 认为它们代表同一个 String 对象。而用关键字 new 调用构造器，总是会创建一个新的对象，无论内容是否相同。</p>
+</li>
+<li>
+<p>至于为什么要把 String 类设计成不可变类，是它的用途决定的。其实不只 String，很多 Java 标准类库中的类都是不可变的。在开发一个系统的时候，我们有时候也需要设计不可变类，来传递一组相关的值，这也是面向对象思想的体现。不可变类有一些优点，比如因为它的对象是只读的，所以多线程并发访问也不会有任何问题。当然也有一些缺点，比如每个不同的状态都要一个对象来代表，可能会造成性能上的问题。所以 Java 标准类库还提供了一个可变版本，即 StringBuffer。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="-多态">Ⅲ. 多态</h2>
+<ol>
+<li>
+<p>Java 中实现多态的机制是什么</p>
+<ul>
+<li>靠的是父类或接口定义的引用变量可以指向子类或具体实现类的实例对象，而程序调用的方法在运行期才动态绑定，就是引用变量所指向的具体实例对象的方法，也就是内存里正在运行的那个对象的方法，而不是引用变量的类型中定义的方法。</li>
+</ul>
+</li>
+</ol>
+<h2 id="-异常处理">Ⅳ. 异常处理</h2>
+<ol>
+<li>
+<p>Java 中异常分为哪些种类</p>
+<ul>
+<li>
+<p>编译时异常，也叫强制性异常（CheckedException）</p>
+<ul>
+<li>都是可以被处理的异常，所以 Java 程序必须显式处理 CheckedException；如果没有处理，程序在编译时就会报错。这体现了 Java 的设计哲学：没有完善错误处理的代码根本没有机会被执行</li>
+<li>当前方法知道如何处理该异常，则用 try&hellip;catch 块来处理该异常；当前方法不知道如何处理，则在定义该方法是声明抛出该异常。</li>
+</ul>
+</li>
+<li>
+<p>运行时异常，也叫非强制性异常（RuntimeException）</p>
+<ul>
+<li>只有当代码在运行时才发行的异常。如除数是 0 和数组下标越界等</li>
+<li>其产生频繁，处理麻烦，若显示申明或者捕获将会对程序的可读性和运行效率影响很大。所以由系统自动检测并将它们交给缺省的异常处理程序。</li>
+<li>当然如果有处理要求也可以显示捕获它们。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>下面方法的返回值是什么</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getNum</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> 1<span style="color:#f92672">/</span>0<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">return</span> 1<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> 2<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span> <span style="color:#66d9ef">finally</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> 3<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>遇到 ArithmeticException，代码直接跳转到 catch语句中，（异常机制有这么一个原则如果在 catch 中遇到了 return 或者异常等能使该函数终止的话那么有 finally 就必须先执行完 finally 代码块里面的代码然后再返回值）。因此代码又跳到 finally 中，但其中是一个return 语句，那么这个时候方法就结束了，因此return 2 就无法被真正返回。如果 finally 仅仅是处理了一个释放资源的操作，那么该道题最终返回的结果就是 2。因此上面返回值是3。</li>
+</ul>
+</li>
+<li>
+<p>error 和 exception 的区别</p>
+<ul>
+<li>
+<p>Error 类和 Exception 类的父类都是 Throwable 类</p>
+</li>
+<li>
+<p>Error 类一般是指与虚拟机相关的问题，如系统崩溃，虚拟机错误，内存空间不足，方法调用栈溢出等。对于这类错误的导致的应用程序中断，仅靠程序本身无法恢复和和预防，遇到这样的错误，建议让程序终止。</p>
+</li>
+<li>
+<p>Exception 类表示程序可以处理的异常，可以捕获且可能恢复。遇到这类异常，应该尽可能处理异常，使程序恢复运行，而不应该随意终止异常。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Java 的异常处理机制</p>
+<ul>
+<li>见 1，3</li>
+</ul>
+</li>
+<li>
+<p>最常见的 5 个 RuntimeException</p>
+<ul>
+<li>java.lang.NullPointerException</li>
+<li>java.lang.ClassNotFoundException</li>
+<li>java.lang.NumberFormatException</li>
+<li>java.lang.IndexOutOfBoundsException</li>
+<li>java.lang.IllegalArgumentException</li>
+<li>java.lang.ClassCastException</li>
+<li>java.lang.NoClassDefFoundException</li>
+<li>java.sql.SQLException</li>
+<li>java.lang.InstantiationException</li>
+<li>java.lang.NoSuchMethodException</li>
+</ul>
+</li>
+<li>
+<p>throw 和 throws 的区别</p>
+<ul>
+<li>
+<p>throw</p>
+<ul>
+<li>用在方法体内，表示抛出异常，由方法体内的语句处理</li>
+<li>具体向外抛出异常的动作，所以抛出的是一个异常实例，执行 throw 一定是抛出了某种实例</li>
+</ul>
+</li>
+<li>
+<p>throws</p>
+<ul>
+<li>用在方法声明后面，表示如果抛出异常，由该方法的调用者来进行异常处理</li>
+<li>主要是声明这个方法会抛出某种类型的异常，让它的使用者要知道需要捕获的异常的类型</li>
+<li>表示出现异常的一种可能性，并不一定会发生这种异常</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>final、finally、finalize 的区别</p>
+<ul>
+<li>
+<p>fianl</p>
+<ul>
+<li>声明属性表示属性不可变，声明方法表示方法不可覆盖，声明类表示类不可继承</li>
+</ul>
+</li>
+<li>
+<p>finally</p>
+<ul>
+<li>异常处理语句的一部分，表示总执行</li>
+</ul>
+</li>
+<li>
+<p>finalize</p>
+<ul>
+<li>Object 类的一个方法，在 GC 执行时会调用被回收对象的此方法，可以覆盖此方法提供 GC 时的其他资源回收，如关闭文件</li>
+<li>该方法更像是一个对象生命周期的临终方法，当该方法被系统调用则代表该对象即将死亡，但需注意的是，主动行为上调用该方法并不会导致该对象死亡，这是一个被动的方法（其实就是回调方法），不需要主动调用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="-常用api">Ⅴ. 常用API</h2>
+<ol>
+<li>
+<p>a 和 b 的值是多少</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">a <span style="color:#f92672">=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">round</span><span style="color:#f92672">(</span>11<span style="color:#f92672">.</span><span style="color:#a6e22e">5</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+b <span style="color:#f92672">=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">round</span><span style="color:#f92672">(</span><span style="color:#f92672">-</span>11<span style="color:#f92672">.</span><span style="color:#a6e22e">5</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</code></pre></div><ul>
+<li>12，-11（四舍五入的原理是在参数上加 0.5 然后取整）</li>
+<li>Math.ceil，Math.floor</li>
+</ul>
+</li>
+<li>
+<p>switch(expr) 中，expr 可以是 byte、long、String 吗</p>
+<ul>
+<li>
+<p>可以是 byte、short、char、int、enum、String</p>
+</li>
+<li>
+<p>不可以是 long</p>
+</li>
+<li>
+<p>可以是 Byte，Short，Character，Integer 对象，因为自动拆箱</p>
+</li>
+</ul>
+</li>
+<li>
+<p>数组是否有 length() 方法；String 是否有 length() 方法</p>
+<ul>
+<li>
+<p>数组只有 length 属性</p>
+</li>
+<li>
+<p>String 有 length() 方法</p>
+</li>
+<li>
+<p>JS 中，获取字符串长度是通过 length 属性获取（注意区分）</p>
+</li>
+</ul>
+</li>
+<li>
+<p>String、StringBuilder、StringBuffer 的区别</p>
+<ul>
+<li>
+<p>String 是只读字符串，其引用的字符串内容不能被改变</p>
+</li>
+<li>
+<p>StringBuilder、StringBuffer 表示的字符串可以直接进行修改，前者单线程环境下使用，后者的方法都被 synchronized 修饰，多线程安全</p>
+</li>
+</ul>
+</li>
+<li>
+<p>什么情况下用 &ldquo;+&rdquo; 运算符进行字符串拼接比调用 StringBuilder、StringBuffer 对象的 append 方法性能更好</p>
+<ul>
+<li>
+<p>在 Java 中无论使用何种方式进行字符串连接，实际上都使用的是 StringBuilder（使用 javap 查看字节码后得出）</p>
+</li>
+<li>
+<p>从运行结果来解释，那么 &ldquo;+&rdquo; 和 StringBuilder 是完全等效的</p>
+</li>
+<li>
+<p>从运行效率和资源消耗方面看，它们存在很大的区别</p>
+<ul>
+<li>虽然编译器将&quot;+&quot;转换成了 StringBuilder，但创建 StringBuilder 对象的位置却在 for 语句内部。这就意味着每执行一次循环，就会创建一个 StringBuilder 对象（对于本例来说，是创建了 10 个 StringBuilder对象），虽然 Java 有垃圾回收器，但这个回收器的工作时间是不定的。如果不断产生这样的垃圾，那么仍然会占用大量的资源。解决这个问题的方法就是在程序中直接使用 StringBuilder 来连接字符串</li>
+<li>创建 StringBuilder 的代码被放在 for 语句外。虽然这样处理在源程序中看起来复杂，但却换来了更高的效率，同时消耗的资源也更少了</li>
+<li>在使用 StringBuilder 时要注意，尽量不要&quot;+&quot;和 StringBuilder 混着用，否则会创建更多的 StringBuilder 对象</li>
+</ul>
+</li>
+<li>
+<p>StringBuffer 是线程安全的，而 StringBuilder 不是线程安全的。因此， StringBuilder 的效率会更高。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>下面程序的输出是什么</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StringEqualTest</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        String s1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Programming&#34;</span><span style="color:#f92672">;</span>
+        String s2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Programming&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        String s3 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Program&#34;</span><span style="color:#f92672">;</span>
+        String s4 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ming&#34;</span><span style="color:#f92672">;</span>
+        String s5 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Program&#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;ming&#34;</span><span style="color:#f92672">;</span>
+        String s6 <span style="color:#f92672">=</span> s3 <span style="color:#f92672">+</span> s4<span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s1 <span style="color:#f92672">=</span><span style="color:#f92672">=</span> s2<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s1 <span style="color:#f92672">=</span><span style="color:#f92672">=</span> s5<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s1 <span style="color:#f92672">=</span><span style="color:#f92672">=</span> s6<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s1 <span style="color:#f92672">=</span><span style="color:#f92672">=</span> s6<span style="color:#f92672">.</span><span style="color:#a6e22e">intern</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s2 <span style="color:#f92672">=</span><span style="color:#f92672">=</span> s2<span style="color:#f92672">.</span><span style="color:#a6e22e">intern</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>
+<p>false，true（？），false（？），true，false</p>
+</li>
+<li>
+<p>字符串的 + 操作其本质是创建了 StringBuilder 对象进行 append 操作，然后将拼接后的 StringBuilder 对象用 toString 方法处理成 String 对象，而 StringBuilder 的 toString() 方法源码 return new String(value, 0, count)</p>
+</li>
+<li>
+<p>String 对象的 intern（） 方法会得到字符串对象在常量池中对应的版本的引用（如果常量池中有一个字符串与String 对象的 equals 结果是 true），如果常量池中没有对应的字符串，则该字符串将被添加到常量池中，然后返回常量池中字符串的引用</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Java 中的日期和时间</p>
+<ul>
+<li>
+<p>Java 的时间日期 API 一直以来都是被诟病的东西，为了解决这一问题， Java 8 中引入了新的时间日期 API，其中包括 LocalDate、 LocalTime、 LocalDateTime、 Clock、 Instant 等类，这些类的设计都使用了不变模式，因此是线程安全的设计</p>
+</li>
+<li>
+<p>java.time / org.joda.time</p>
+<ul>
+<li>流畅的 API，实例不可变，线程安全</li>
+</ul>
+</li>
+<li>
+<p>java.util.Calendar 及 Date</p>
+<ul>
+<li>不流畅的 API，实例可变，非线程安全</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="-数据类型">Ⅵ. 数据类型</h2>
+<ol>
+<li>
+<p>Java 中基本数据类型有哪些，各占几个字节</p>
+<table>
+<thead>
+<tr>
+<th>四大类</th>
+<th>八小类</th>
+<th>字节数</th>
+<th>表示范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>byte</td>
+<td>1</td>
+<td>-2^7 ~ 2^7-1</td>
+</tr>
+<tr>
+<td></td>
+<td>short</td>
+<td>2</td>
+<td>-2^15 ~ 2^15-1</td>
+</tr>
+<tr>
+<td></td>
+<td>int</td>
+<td>4</td>
+<td>-2^31 ~ 2^31-1</td>
+</tr>
+<tr>
+<td></td>
+<td>long</td>
+<td>8</td>
+<td>-2^63 ~ 2^63-1</td>
+</tr>
+<tr>
+<td></td>
+<td>float</td>
+<td>4</td>
+<td>-2^128 ~ 2^128</td>
+</tr>
+<tr>
+<td></td>
+<td>double</td>
+<td>8</td>
+<td>-2^1024 ~ 2^1024</td>
+</tr>
+<tr>
+<td></td>
+<td>char</td>
+<td>2</td>
+<td>表示一个字符，如(&lsquo;a&rsquo;， &lsquo;A&rsquo;， &lsquo;0&rsquo;， &lsquo;家&rsquo;)</td>
+</tr>
+<tr>
+<td></td>
+<td>boolean</td>
+<td>1</td>
+<td>true, false</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>String 是基本数据类型吗</p>
+<ul>
+<li>String 是引用类型，底层用 char 数组实现的</li>
+</ul>
+</li>
+<li>
+<p>下面两段代码是否有错</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">short</span> s1 <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>
+s1 <span style="color:#f92672">=</span> s1 <span style="color:#f92672">+</span> 1<span style="color:#f92672">;</span>
+</code></pre></div><ul>
+<li>不正确。由于 1 是 int 类型，因此 s1+1 运算结果也是 int 型，需要强制转换类型才能赋值给 short 型</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">short</span> s1 <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>
+s1 <span style="color:#f92672">+</span><span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>
+</code></pre></div><ul>
+<li>可以正确编译。因为 s1+= 1;相当于 s1 =(short)(s1 + 1)，其中有隐含的强制类型转换</li>
+</ul>
+</li>
+<li>
+<p>int 和 Integer 的区别</p>
+<ul>
+<li>为了能够将基本数据类型当成对象操作， Java 为每一个基本数据类型都引了对应的包装类型（wrapper class）， int 的包装类就是Integer，从 Java 5 开始引入了自动装箱/拆箱机制，使得二者可以相互转换</li>
+</ul>
+</li>
+<li>
+<p>下面代码的输出结果是什么</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    Integer f1 <span style="color:#f92672">=</span> 100<span style="color:#f92672">,</span> f2 <span style="color:#f92672">=</span> 100<span style="color:#f92672">,</span> f3 <span style="color:#f92672">=</span> 150<span style="color:#f92672">,</span> f4 <span style="color:#f92672">=</span> 150<span style="color:#f92672">;</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>f1 <span style="color:#f92672">=</span><span style="color:#f92672">=</span> f2<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>f3 <span style="color:#f92672">=</span><span style="color:#f92672">=</span> f4<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</code></pre></div><ul>
+<li>
+<p>true，false</p>
+</li>
+<li>
+<p>f1、 f2、 f3、 f4 四个变量都是 Integer 对象引用，所以下面的==运算比较的不是值而是引用。</p>
+</li>
+<li>
+<p>当给一个 Integer 对象赋一个 int 值的时候，会调用 Integer 类的静态方法 valueOf，查看 valueOf 源码可知：如果整型字面量的值在-128 到 127 之间，那么不会 new 新的 Integer 对象，而是直接引用常量池中的 Integer 对象。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>String 类常用方法</p>
+<ul>
+<li>int length() 返回字符串长度</li>
+<li>int indexOf(int ch) 查找 ch 字符在字符串中第一次出现的位置</li>
+<li>int indexOf(String str) 查找 str 字符串在字符串中第一次出现的位置</li>
+<li>int lastIndexOf(int ch) 查找 ch 字符在字符串中最后一次出现的位置</li>
+<li>int lastIndexOf(String str) 查找 str 字符串在字符串中最后一次出现的位置</li>
+<li>String substring(int beginIndex) 获取从 beginIndex 位置开始到技术的子字符串</li>
+<li>String substring(int beginIndex, int endIndex) 获取从 beginIndex 到 endIndex 位置的子字符串</li>
+<li>String trim() 返回去除了前后空格的字符串</li>
+<li>boolean equals(Object obj) 比较字符串</li>
+<li>String toLowerCase() 转为小写</li>
+<li>String toUpperCase() 转为大写</li>
+<li>char charAt(int index) 获取字符串中指定位置的字符</li>
+<li>String[] split(String regex, int limit) 分割为字符串，返回字符串数组</li>
+<li>byte[] getBytes() 将字符串转换为 byte 数组</li>
+</ul>
+</li>
+<li>
+<p>String、StringBuffer、StringBuilder的区别</p>
+</li>
+<li>
+<p>数据类型之间的转换</p>
+<ul>
+<li>
+<p>字符串 转 基本数据类型</p>
+<ul>
+<li>调用基本数据类型对应的包装类中的方法 parseXXX(String)或 valueOf(String)即可返回相应基本类型</li>
+</ul>
+</li>
+<li>
+<p>基本数据类型 转 字符串</p>
+<ul>
+<li>一种方法是将基本数据类型与空字符串连接（+）即可获得其所对应的字符串</li>
+<li>另一种方法是调用 String 类中的 valueOf()方法返回相应字符串</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="-io">Ⅶ. IO</h2>
+<ol>
+<li>
+<p>Java 中有几种类型的流</p>
+<ul>
+<li>
+<p>按照流的方向：</p>
+<ul>
+<li>输入流</li>
+<li>输出流</li>
+</ul>
+</li>
+<li>
+<p>按照实现功能：</p>
+<ul>
+<li>节点流：可以从或向一个特定的地方（节点）读写数据。如 FileReader</li>
+<li>处理流：是对一个已存在的流的连接和封装，通过所封装的流的功能调用实现数据读写。如 BufferedReader。处理流的构造方法总是要带一个其他的流对象做参数。一个流对象经过其他流的多次包装，称为流的链接。</li>
+</ul>
+</li>
+<li>
+<p>按照处理数据的单位：</p>
+<ul>
+<li>字节流：继承于 InputStream 和 OutputStream
+<ul>
+<li>InputStream
+<ul>
+<li>FileInputStream：从文件系统中的某个文件中获的输入字节，用于读取诸如图像数据之类的原始字节流</li>
+<li>BufferedInputStream：缓冲流，是InputStream的间接子类</li>
+</ul>
+</li>
+<li>OutputStream
+<ul>
+<li>FileOutputStream：用于写入诸如图像数据之类的原始字节的流</li>
+<li>BufferedOutStream：缓冲流，是OutputStream的间接子类</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>字符流：流继承于InputStreamReader 和 OutputStreamWriter
+<ul>
+<li>Reader：
+<ul>
+<li>InputStreamReader：转换流，字符流通向字符流的桥梁
+<ul>
+<li>FileReader：读取字符文件的便捷类</li>
+</ul>
+</li>
+<li>BufferedReader：缓冲流，特有方法：readLine()</li>
+</ul>
+</li>
+<li>Writer：
+<ul>
+<li>OutputStreamWriter：转换流，字符流通向字节流的桥梁
+<ul>
+<li>FileWriter：写入字符文件的便捷类</li>
+</ul>
+</li>
+<li>BufferedWriter：缓冲流，特有方法：newLine()、write(String str)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>字节流如何转为字符流</p>
+<ul>
+<li>
+<p>字节输入流转字符输入流：通过 InputStreamReader 实现，该类的构造函数可以传入 InputStream 对象</p>
+</li>
+<li>
+<p>字节输出流转字符输出流：通过 OutputStreamWriter 实现，该类的构造函数可以传入 OutputStream 对象</p>
+</li>
+</ul>
+</li>
+<li>
+<p>如何将一个 Java 对象序列化到文件里</p>
+<ul>
+<li>Java 中能够被序列化的类必须先实现 Serializable 接口，该接口没有任何抽象方法，只是起到一个标记作用</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException<span style="color:#f92672">,</span> ClassNotFoundException <span style="color:#f92672">{</span>
+    ObjectOutputStream objectOutputStream <span style="color:#f92672">=</span>
+            <span style="color:#66d9ef">new</span> ObjectOutputStream<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> FileOutputStream<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> File<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;D://obj&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    objectOutputStream<span style="color:#f92672">.</span><span style="color:#a6e22e">writeObject</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> User<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;alex&#34;</span><span style="color:#f92672">,</span> 100<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    objectOutputStream<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    ObjectInputStream objectInputStream <span style="color:#f92672">=</span>
+            <span style="color:#66d9ef">new</span> ObjectInputStream<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> FileInputStream<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> File<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;D://obj&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    User user <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>User<span style="color:#f92672">)</span> objectInputStream<span style="color:#f92672">.</span><span style="color:#a6e22e">readObject</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>user<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    objectInputStream<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>字节流和字符流的区别</p>
+<ul>
+<li>
+<p>字节流读取的时候，读到一个字节就返回一个字节； 字符流使用了字节流读到一个或多个字节（中文对应的字节数是两个，在 UTF-8 码表中是 3 个字节）时,先去查指定的编码表，将查到的字符返回。 字节流可以处理所有类型数据，如：图片， MP3， AVI 视频文件，而字符流只能处理字符数据。只要是处理纯文本数据，就要优先考虑使用字符流，除此之外都用字节流。 字节流主要是操作 byte 类型数据，以 byte 数组为准，主要操作类就是 OutputStream、InputStream。</p>
+</li>
+<li>
+<p>字符流处理的单元为 2 个字节的 Unicode 字符，分别操作字符、字符数组或字符串，而字节流处理单元为 1 个字节，操作字节和字节数组。所以字符流是由 Java 虚拟机将字节转化为 2 个字节的 Unicode 字符为单位的字符而成的，所以它对多国语言支持性比较好。如果是音频文件、图片、歌曲，就用字节流好点，如果是关系到中文（文本）的，用字符流好点。在程序中一个字符等于两个字节， java 提供了 Reader、 Writer 两个专门操作字符流的类。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>如何实现对象克隆</p>
+<ul>
+<li>
+<p>实现 Cloneable 接口，并重写 Object 类的 clone() 方法</p>
+</li>
+<li>
+<p>实现 Serializable 接口，通过对象的序列化和反序列化克隆，可以实现真正的深度克隆</p>
+<ul>
+<li>基于序列化和反序列化实现的克隆不仅仅是深度克隆，更重要的是通过泛型限定，可以检查出要克隆的对象是否支持序列化，这项检查是编译器完成的，不是在运行时抛出异常，这种是方案明显优于使用 Object 类的 clone方法克隆对象。让问题在编译的时候暴露出来总是好过把问题留到运行时。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>什么是 Java 的序列化，如何实现 Java 序列化</p>
+<ul>
+<li>
+<p>序列化就是一种用来处理对象流的机制，所谓对象流也就是将对象的内容进行流化。可以对流化后的对象进行读写操作，也可将流化后的对象传输于网络之间。序列化是为了解决在对对象流进行读写操作时所引发的问题</p>
+</li>
+<li>
+<p>序 列 化 的 实 现 ： 将 需 要 被 序 列 化 的 类 实 现 Serializable 接 口 ， 该 接 口 没 有 需 要 实 现 的 方 法 ，implements Serializable 只是为了标注该对象是可被序列化的，然后使用一个输出流(如： FileOutputStream)来构造一个 ObjectOutputStream(对象流)对象，接着，使用 ObjectOutputStream 对象的 writeObject(Object obj)方法就可以将参数为 obj 的对象写出(即保存其状态)，要恢复的话则用输入流。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="-集合">Ⅷ. 集合</h2>
+<ol>
+<li>
+<p>HashMap 排序</p>
+<blockquote>
+<p>已知一个 HashMap&lt;Integer， User&gt;集合， User 有 name（String）和 age（int）属性。请写一个方法实现对
+HashMap 的排序功能，该方法接收 HashMap&lt;Integer， User&gt;为形参，返回类型为 HashMap&lt;Integer， User&gt;，
+要求对 HashMap 中的 User 的 age 倒序进行排序。排序时 key=value 键值对不得拆散。</p>
+</blockquote>
+<ul>
+<li>要做出这道题必须对集合的体系结构非常的熟悉。</li>
+<li>HashMap 本身就是不可排序的，那就得想在 API 中有没有这样的 Map 结构是有序的， LinkedHashMap就是Map 结构，也是链表结构，有序的，而且是 HashMap 的子类，返回 LinkedHashMap即可，还符合面向接口（父类编程的思想）</li>
+<li>对集合的操作，应该保持一个原则：就是能用 JDK 中的 API 就有 JDK 中的 API，比如排序算法我们不应该去用冒泡或者选择，而是首先想到用Collections 集合工具类</li>
+</ul>
+</li>
+<li>
+<p>集合的安全性问题</p>
+<ul>
+<li>ArrayList、HashSet、HashMap中每个方法都没有加锁，是线程不安全的</li>
+<li>Vector、HashTable是线程安全的，核心方法上都添加了 synchronized 关键字</li>
+<li>java.util.Collections 工具类提供了相关 API，让不安全集合变为安全的集合，传入什么类型返回什么类型（就是将给核心方法添加了 synchronized 关键字）</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">synchronizedCollection</span><span style="color:#f92672">(</span>c<span style="color:#f92672">)</span>
+Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">synchronizedList</span><span style="color:#f92672">(</span>list<span style="color:#f92672">)</span>
+Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">synchronizedMap</span><span style="color:#f92672">(</span>m<span style="color:#f92672">)</span>
+Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">synchronizedSet</span><span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>
+</code></pre></div></li>
+<li>
+<p>ArrayList 内部用什么实现的</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ArrayList</span><span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">extends</span> AbstractList<span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span>
+        <span style="color:#66d9ef">implements</span> List<span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span><span style="color:#f92672">,</span> RandomAccess<span style="color:#f92672">,</span> Cloneable<span style="color:#f92672">,</span> java<span style="color:#f92672">.</span><span style="color:#a6e22e">io</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Serializable</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#75715e">// 内部数据结构为数组
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">transient</span> Object<span style="color:#f92672">[</span><span style="color:#f92672">]</span> elementData<span style="color:#f92672">;</span> <span style="color:#75715e">// non-private to simplify nested class access
+</span><span style="color:#75715e"></span>
+    <span style="color:#75715e">// 新建数组
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ArrayList</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> initialCapacity<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>initialCapacity <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">elementData</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Object<span style="color:#f92672">[</span>initialCapacity<span style="color:#f92672">]</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>initialCapacity <span style="color:#f92672">=</span><span style="color:#f92672">=</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">elementData</span> <span style="color:#f92672">=</span> EMPTY_ELEMENTDATA<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Illegal Capacity: &#34;</span> <span style="color:#f92672">+</span> initialCapacity<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">// 数组扩容
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">grow</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> minCapacity<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">// overflow-conscious code
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span> oldCapacity <span style="color:#f92672">=</span> elementData<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">int</span> newCapacity <span style="color:#f92672">=</span> oldCapacity <span style="color:#f92672">+</span> <span style="color:#f92672">(</span>oldCapacity <span style="color:#f92672">&gt;</span><span style="color:#f92672">&gt;</span> 1<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>newCapacity <span style="color:#f92672">-</span> minCapacity <span style="color:#f92672">&lt;</span> 0<span style="color:#f92672">)</span>
+        newCapacity <span style="color:#f92672">=</span> minCapacity<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>newCapacity <span style="color:#f92672">-</span> MAX_ARRAY_SIZE <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">)</span>
+        newCapacity <span style="color:#f92672">=</span> hugeCapacity<span style="color:#f92672">(</span>minCapacity<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#75715e">// minCapacity is usually close to size, so this is a win:
+</span><span style="color:#75715e"></span>        elementData <span style="color:#f92672">=</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">copyOf</span><span style="color:#f92672">(</span>elementData<span style="color:#f92672">,</span> newCapacity<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">// 没有用锁和相关的CAS算法，所以是线程不安全的
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>E e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        ensureCapacityInternal<span style="color:#f92672">(</span>size <span style="color:#f92672">+</span> 1<span style="color:#f92672">)</span><span style="color:#f92672">;</span>  <span style="color:#75715e">// Increments modCount!!
+</span><span style="color:#75715e"></span>        elementData<span style="color:#f92672">[</span>size<span style="color:#f92672">+</span><span style="color:#f92672">+</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> e<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>并发集合和普通集合如何区别</p>
+<ul>
+<li>
+<p>普通集合</p>
+<ul>
+<li>性能最高，但是不保证多线程的安全性和并发的可靠性</li>
+</ul>
+</li>
+<li>
+<p>同步集合（线程安全）</p>
+<ul>
+<li>仅仅是给集合添加了 synchronized 同步锁，牺牲了性能，对并发的效率更低</li>
+</ul>
+</li>
+<li>
+<p>并发集合</p>
+<ul>
+<li>通过复杂策略，不仅保证了多线程的安全，又提高了并发时的效率</li>
+<li>java.util.concurrent.ConcurrentHashMap、ConcurrentLinkedQueue、ConcurrentLinkedDeque</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>数组结构</th>
+<th>线程安全</th>
+<th>实现线程安全的方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HashMap</td>
+<td>数组+链表+红黑树</td>
+<td>不安全</td>
+<td></td>
+</tr>
+<tr>
+<td>HashTable</td>
+<td>数组+链表</td>
+<td>安全</td>
+<td>锁住整个对象，效率低</td>
+</tr>
+<tr>
+<td>ConcurrentHashMap</td>
+<td>数组+链表+红黑树</td>
+<td>安全</td>
+<td>CAS+同步锁，锁细粒度化到table每个元素</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>List 的三个子类的特点</p>
+<ul>
+<li>
+<p>ArrayList：底层是数组，底层查询快、增删慢</p>
+</li>
+<li>
+<p>Vector：底层是数组，增删慢，查询慢，线程安全</p>
+</li>
+<li>
+<p>LinkedList：底层是链表，增删快，查询慢</p>
+</li>
+</ul>
+</li>
+<li>
+<p>List、Set、Map 的区别</p>
+<ul>
+<li>
+<p>结构特点</p>
+<ul>
+<li>List、Set存储单列数据，Map存储键值对</li>
+<li>List存储数据有序，允许重复；Set无序，不允许重复（元素位置由元素hashCode决定，位置固定）；Map无序，键不可重复</li>
+</ul>
+</li>
+<li>
+<p>实现类</p>
+<ul>
+<li>
+<p>List</p>
+<ul>
+<li>LinkedList：基于链表实现，链表内存是散乱的，每一个元素存储本身内存地址的同时还存储下一个元素的地址。链表增删快，查找慢</li>
+<li>ArrayList：基于数组实现，非线程安全的，效率高，便于索引，但不便于插入删除</li>
+<li>Vector：基于数组实现，线程安全的，效率低</li>
+</ul>
+</li>
+<li>
+<p>Set</p>
+<ul>
+<li>HashSet：底层是由 HashMap 实现，不允许集合中有重复的值，使用该方式时需要重写 equals()和 hashCode()方法</li>
+<li>LinkedHashSet：继承于 HashSet，同时又基于 LinkedHashMap 来进行实现，底层使用的是 LinkedHashMp）</li>
+</ul>
+</li>
+<li>
+<p>Map</p>
+<ul>
+<li>HashMap：基于 hash 表的 Map 接口实现，非线程安全，高效，支持 null 值和 null键</li>
+<li>HashTable：线程安全，低效，不支持 null 值和 null 键</li>
+<li>LinkedHashMap：是 HashMap 的一个子类，保存了记录的插入顺序</li>
+<li>SortMap 接口： TreeMap，能够把它保存的记录根据键排序，默认是键值的升序排序</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>区别</p>
+<ul>
+<li>
+<p>List：集合中的对象按照索引位置排序，可以有重复对象，允许按照对象在集合中的索引位置检索对象，例如通过list.get(i)方法来获取集合中的元素</p>
+</li>
+<li>
+<p>Set：集合中的对象不按照特定的方式排序，并且没有重复对象，但它的实现类能对集合中的对象按照特定的方式排序，例如 TreeSet 类，可以按照默认顺序，也可以通过实现 Java.util.Comparator 接口来自定义排序方式</p>
+</li>
+<li>
+<p>Map：中的每一个元素包含一个键和一个值，成对出现，键对象不可以重复，值对象可以重复</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>HashMap 和 HashTable 有什么区别</p>
+<ul>
+<li>
+<p>HashMap：是 Map 的实现类；不允许键重复，允许空键和空值；非线程安全，效率比 HashTable 高；被多个线程访问的时候需要自己为它的方法实现同步</p>
+</li>
+<li>
+<p>HashTable：是 Map 的实现类；不允许键重复，不允许空键和空值；线程安全；由 sychronized 修饰，多个线程访问时不需要自己为它的方法实现同步</p>
+</li>
+</ul>
+</li>
+<li>
+<p>数组和链表分别适用于什么场景</p>
+<ul>
+<li>
+<p>来源：</p>
+<ul>
+<li>数据的物理存储结构由连续存储和离散存储，对应了数组和链表</li>
+</ul>
+</li>
+<li>
+<p>区别：</p>
+<ul>
+<li>数组：是将元素在内存中连续存储的；它的优点：因为数据是连续存储的，内存地址连续，所以在查找数据的时候效率比较高；它的缺点：在存储之前，我们需要申请一块连续的内存空间，并且在编译的时候就必须确定好它的空间的大小。在运行的时候空间的大小是无法随着你的需要进行增加和减少而改变的，当数据两比较大的时候，有可能会出现越界的情况，数据比较小的时候，又有可能会浪费掉内存空间。在改变数据个数时，增加、插入、删除数据效率比较低</li>
+<li>链表：是动态申请内存空间，不需要像数组需要提前申请好内存的大小，链表只需在用的时候申请就可以，根据需要来动态申请或者删除内存空间，对于数据增加和删除以及插入比数组灵活。还有就是链表中数据在内存中可以在任意的位置，通过应用来关联数据（就是通过存在元素的指针来联系）</li>
+</ul>
+</li>
+<li>
+<p>适用场景</p>
+<ul>
+<li>数组：数据比较少；经常做的运算是按序号访问数据元素；数组更容易实现，任何高级语言都支持；构建的线性表较稳定</li>
+<li>链表：对线性表的长度或者规模难以估计；频繁做插入删除操作；构建动态性比较强的线性表</li>
+</ul>
+</li>
+<li>
+<p>一个题目：</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">int</span><span style="color:#f92672">[</span><span style="color:#f92672">]</span> arr <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 4<span style="color:#f92672">,</span> 1<span style="color:#f92672">,</span> 4<span style="color:#f92672">,</span> 2<span style="color:#f92672">,</span> 5<span style="color:#f92672">,</span> 4<span style="color:#f92672">,</span> 5<span style="color:#f92672">,</span> 8<span style="color:#f92672">,</span> 7<span style="color:#f92672">,</span> 8<span style="color:#f92672">,</span> 77<span style="color:#f92672">,</span> 88<span style="color:#f92672">,</span> 5<span style="color:#f92672">,</span> 4<span style="color:#f92672">,</span> 9<span style="color:#f92672">,</span> 6<span style="color:#f92672">,</span> 2<span style="color:#f92672">,</span> 4<span style="color:#f92672">,</span> 1<span style="color:#f92672">,</span> 5<span style="color:#f92672">}</span><span style="color:#f92672">;</span>
+Map<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;</span> map <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Integer i <span style="color:#f92672">:</span> arr<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>i<span style="color:#f92672">)</span> <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">?</span> 1 <span style="color:#f92672">:</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>i<span style="color:#f92672">)</span> <span style="color:#f92672">+</span> 1<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Map<span style="color:#f92672">.</span><span style="color:#a6e22e">Entry</span><span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;</span> entry <span style="color:#f92672">:</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">entrySet</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>entry<span style="color:#f92672">.</span><span style="color:#a6e22e">getKey</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;出现： &#34;</span> <span style="color:#f92672">+</span> entry<span style="color:#f92672">.</span><span style="color:#a6e22e">getValue</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;次&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>ArrayList 和 LinkedList 的区别</p>
+<ul>
+<li>
+<p>ArrayList 和 Vector 使用了数组的实现，可以认为 ArrayList 或者 Vector 封装了对内部数组的操作，比如向数组中添加，删除，插入新的元素或者数据的扩展和重定向</p>
+</li>
+<li>
+<p>LinkedList 使用了循环双向链表数据结构。LinkedList 链表由一系列表项连接而成。一个表项总是包含 3 个部分：元素内容，前驱表和后驱表。在 JDK 的实现中，无论 LikedList 是否为空，链表内部都有一个 header 表项，它既表示链表的开始，也表示链表的结尾。表项 header 的后驱表项便是链表中第一个元素，表项 header 的前驱表项便是链表中最后一个元素</p>
+</li>
+</ul>
+</li>
+<li>
+<p>下面两句的区别是什么</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">List list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+ArrayList arrayList <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</code></pre></div><ul>
+<li>
+<p>前句创建了一个 ArrayList 的对象后把上溯到了 List。此时它是一个 List 对象了，有些ArrayList 有但是 List 没有的属性和方法，它就不能再用了</p>
+</li>
+<li>
+<p>后句创建的对象则保留了ArrayList 的所有属性。所以需要用到 ArrayList 独有的方法的时候不能用前句，如 前句不可使用 list.trimToSize，后者可以使用 arrayList.trimToSize</p>
+</li>
+</ul>
+</li>
+<li>
+<p>要对集合进行更新操作时，ArrayList 和 LinkedList 哪个更合适</p>
+<ul>
+<li>
+<p>基础</p>
+<ul>
+<li>1.ArrayList 是实现了基于动态数组的数据结构， LinkedList 基于链表的数据结构。</li>
+<li>2.如果集合数据是对于集合随机访问 get 和 set， ArrayList 绝对优于 LinkedList，因为 LinkedList 要移动指针。</li>
+<li>3.如果集合数据是对于集合新增和删除操作 add 和 remove， LinedList 比较占优势，因为 ArrayList 要移动数据</li>
+</ul>
+</li>
+<li>
+<p>时间复杂度</p>
+<ul>
+<li>二分查找法使用的随机访问(random access)策略，而 LinkedList 是不支持快速的随机访问的。对一个 LinkedList 做随机访问所消耗的时间与这个 list 的大小是成比例的。而相应的，在 ArrayList 中进行随机访问所消耗的时间是固定的。</li>
+<li>有一个列表，要对其进行大量的插入和删除操作，在这种情况下 LinkedList 就是一个较好的选择。如多次执行 list.add(0, o)</li>
+</ul>
+</li>
+<li>
+<p>空间复杂度</p>
+<ul>
+<li>LinkedList 中有一个私有的内部类 Node，列表中的一个元素，同时还有在 LinkedList 中它的上一个元素和下一个元素</li>
+<li>ArrayList 使用一个内置的数组来存 储元素，这个数组的起始容量是 10.当数组需要增长时，每一次容量大概会增长 50%。如果没有足够的空间来存放新的元素，数组将不得不被重新进行分配以便能够增加新的元素。对数组进行重新分配，将会导致性能急剧下降。如果我们知道一个 ArrayList 将会有多少个元素，我们可以通过构造方法来指定容量。我们还可以通过 trimToSize 方法在 ArrayList 分配完毕之后去掉浪 费掉的空间</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<ul>
+<li>对 ArrayList 和 LinkedList 而言，在列表末尾增加一个元素所花的开销都是固定的。对 ArrayList 而言，主要是在内部数组中增加一项，指向所添加的元素，偶尔可能会导致对数组重新进行分配；而对 LinkedList 而言，这个开销是统一的，分配一个内部 Node 对象。</li>
+<li>在 ArrayList 的中间插入或删除一个元素意味着这个列表中剩余的元素都会被移动；而在 LinkedList 的中间插入或删除一个元素的开销是固定的。</li>
+<li>LinkedList 不支持高效的随机元素访问。</li>
+<li>ArrayList 的空间浪费主要体现在在 list 列表的结尾预留一定的容量空间，而 LinkedList 的空间花费则体现在它的每一个元素都需要消耗相当的空间。</li>
+<li>当操作是在一列数据的后面添加数据而不是在前面或中间，并且需要随机地访问其中的元素时，使用ArrayList 会提供比较好的性能；当你的操作是在一列数据的前面或中间添加或删除数据,并且按照顺序访问其中的元素时，就应该使用 LinkedList 了</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>用两个队列模拟堆栈结构</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    Queue<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> queue1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedList<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    Queue<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> queue2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedList<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    ArrayList<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> tmpList <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    <span style="color:#75715e">// 向队列一添加元素
+</span><span style="color:#75715e"></span>    queue1<span style="color:#f92672">.</span><span style="color:#a6e22e">offer</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;a&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    queue1<span style="color:#f92672">.</span><span style="color:#a6e22e">offer</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;b&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    queue1<span style="color:#f92672">.</span><span style="color:#a6e22e">offer</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;c&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    queue1<span style="color:#f92672">.</span><span style="color:#a6e22e">offer</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;d&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    queue1<span style="color:#f92672">.</span><span style="color:#a6e22e">offer</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;e&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;进栈： &#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    <span style="color:#75715e">// 队列一的元素一次加入 list 集合中
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>String s <span style="color:#f92672">:</span> queue1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        tmpList<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>s<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span>s<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">// 以倒序的方法取出 list 集合中的值，加入队列二
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//Collections.reverse(tmpList);
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//for (String s : tmpList) {
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//    queue2.offer(s);
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//}
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> tmpList<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">;</span> i <span style="color:#f92672">&gt;</span><span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i<span style="color:#f92672">-</span><span style="color:#f92672">-</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        queue2<span style="color:#f92672">.</span><span style="color:#a6e22e">offer</span><span style="color:#f92672">(</span>tmpList<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>i<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">// 打印出栈队列
+</span><span style="color:#75715e"></span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;出栈： &#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>String q <span style="color:#f92672">:</span> queue2<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span>q<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>Collection 和 Map 的集成体系</p>
+<ul>
+<li>
+<p>Collection 接口</p>
+<ul>
+<li>Queue 接口（队列）
+<ul>
+<li>PriorityQueue</li>
+<li>Deque 接口
+<ul>
+<li>ArrayDeque</li>
+<li>LinkedList</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>List 接口（有序，可重复）
+<ul>
+<li>ArrayList</li>
+<li>Vector
+<ul>
+<li>Stack</li>
+</ul>
+</li>
+<li>LinkedList</li>
+</ul>
+</li>
+<li>Set 接口（无序，不重复）
+<ul>
+<li>EnumSet</li>
+<li>SortedSet 接口
+<ul>
+<li>TreeSet</li>
+</ul>
+</li>
+<li>HashSet
+<ul>
+<li>LinkedHashSet</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Map 接口</p>
+<ul>
+<li>HashMap 类</li>
+<li>LinkedHashMap 类</li>
+<li>SortedMap 接口
+<ul>
+<li>TreeMap 类</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Map 中的 Key 和 Value 可以为 null 吗</p>
+<ul>
+<li>
+<p>HashMap 对象的 key、value 可以是 null</p>
+</li>
+<li>
+<p>HashTable 对象的 key、value 不可是 null</p>
+</li>
+<li>
+<p>两者的 key 不能重复，若添加 key 相同的键值对，后面的 value 会自动覆盖前面的 value，但不会报错</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="-多线程">Ⅸ. 多线程</h2>
+<ul>
+<li>
+<p>传统线程机制</p>
+<ol>
+<li>
+<p>Thread 类和 Runnable 接口</p>
+<ul>
+<li>在 Thread 子类覆盖的 run 方法中编写运行代码</li>
+<li>在传递给 Thread 对象的 Runnable 对象的 run 方法中编写代码</li>
+</ul>
+</li>
+<li>
+<p>定时器 Timer 和 TimerTask</p>
+<ul>
+<li>Timer 在实际开发中应用场景不多，一般来说都会用其他第三方库来实现</li>
+<li>模拟写出双重定时器：使用定时器，间隔 4 秒执行一次，再间隔 2 秒执行一次，以此类推执行。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyTimerTask</span> <span style="color:#66d9ef">extends</span> TimerTask <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">volatile</span> <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">err</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Boob boom &#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">new</span> Timer<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">schedule</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> MyTimerTask<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">,</span> 2000 <span style="color:#f92672">+</span> 2000 <span style="color:#f92672">*</span> count<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        count <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>count <span style="color:#f92672">+</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">%</span> 2<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">new</span> Timer<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">schedule</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> MyTimerTask<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">,</span> 2000<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Calendar<span style="color:#f92672">.</span><span style="color:#a6e22e">getInstance</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>Calendar<span style="color:#f92672">.</span><span style="color:#a6e22e">SECOND</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+                Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">sleep</span><span style="color:#f92672">(</span>1000<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>InterruptedException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>线程互斥与同步</p>
+<ul>
+<li>
+<p>互斥：间接相互制约。一个系统中的多个线程必然要共享某种系统资源，如共享 CPU，共享 I/O 设备，所谓间接相互制约即源于这种资源共享，打印机就是最好的例子，线程 A 在使用打印机时，其它线程都要等待。</p>
+</li>
+<li>
+<p>同步：直接相互制约。这种制约主要是因为线程之间的合作，如有线程 A 将计算结果提供给线程 B 作进一步处理，那么线程 B 在线程 A 将数据送达之前都将处于阻塞状态。</p>
+</li>
+<li>
+<p>例：子线程运行执行4次后，主线程再运行2次，这样交替执行三遍</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">final</span> Business business <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Business<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">new</span> Thread<span style="color:#f92672">(</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> 3<span style="color:#f92672">;</span> i<span style="color:#f92672">+</span><span style="color:#f92672">+</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            business<span style="color:#f92672">.</span><span style="color:#a6e22e">subMethod</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> 3<span style="color:#f92672">;</span> i<span style="color:#f92672">+</span><span style="color:#f92672">+</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        business<span style="color:#f92672">.</span><span style="color:#a6e22e">mainMethod</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Business</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> flag <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">synchronized</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">mainMethod</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>flag<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+                wait<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>InterruptedException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> 2<span style="color:#f92672">;</span> i<span style="color:#f92672">+</span><span style="color:#f92672">+</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; : main thread running loop count --&#34;</span> <span style="color:#f92672">+</span> i<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+                Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">sleep</span><span style="color:#f92672">(</span>500<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>InterruptedException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        flag <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+        notify<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">synchronized</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">subMethod</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#f92672">!</span>flag<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+                wait<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>InterruptedException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> 4<span style="color:#f92672">;</span> i<span style="color:#f92672">+</span><span style="color:#f92672">+</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">err</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; : sub thread running loop count --&#34;</span> <span style="color:#f92672">+</span> i<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+                Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">sleep</span><span style="color:#f92672">(</span>500<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>InterruptedException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        flag <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+        notify<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>线程局部变量 TreadLocal</p>
+<ul>
+<li>
+<p>作用：用于实现线程内的数据共享，即对于相同的程序代码，多个模块在同一个线程中运行时要共享一份数据，而在另外线程中运行时又共享另外一份数据</p>
+</li>
+<li>
+<p>原理：每个线程调用全局 ThreadLocal 对象的 set 方法，在 set 方法中，首先根据当前线程获取当前线程的ThreadLocalMap 对象，然后往这个 map 中插入一条记录， key 其实是 ThreadLocal 对象， value 是各自的 set方法传进去的值。也就是每个线程其实都有一份自己独享的 ThreadLocalMap 对象，该对象的 Key 是 ThreadLocal对象，值是用户设置的具体值。在线程结束时可以调用 ThreadLocal.remove()方法，这样会更快释放内存，不调用也可以，因为线程结束后也可以自动释放相关的 ThreadLocal 变量</p>
+</li>
+<li>
+<p>应用场景：</p>
+<ul>
+<li>订单处理包含一系列操作：减少库存量、增加一条流水台账、修改总账，这几个操作要在同一个事务中完成，通常也即同一个线程中进行处理，如果累加公司应收款的操作失败了，则应该把前面的操作回滚，否则，提交所有操作，这要求这些操作使用相同的数据库连接对象，而这些操作的代码分别位于不同的模块类中。</li>
+<li>银行转账包含一系列操作：把转出帐户的余额减少，把转入帐户的余额增加，这两个操作要在同一个事务中完成，它们必须使用相同的数据库连接对象，转入和转出操作的代码分别是两个不同的帐户对象的方法。</li>
+<li>例如 Strut2 的 ActionContext，同一段代码被不同的线程调用运行时，该代码操作的数据是每个线程各自的状态和数据，对于不同的线程来说， getContext 方法拿到的对象都不相同，对同一个线程来说，不管调用 getContext 方法多少次和在哪个模块中 getContext 方法，拿到的都是同一个</li>
+</ul>
+</li>
+<li>
+<p>使用方法：</p>
+<ul>
+<li>在关联数据类中创建 private static ThreadLocal</li>
+<li>在 Util 类中创建 ThreadLocal</li>
+<li>在 Runnable 中创建 ThreadLocal</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>多线程共享数据</p>
+<ul>
+<li>
+<p>多个线程行为一致，共同操作一个数据：也就是每个线程执行的代码相同，可以使用同一个 Runnable 对象，这个 Runnable 对象中有那个共享数据，例如，卖票系统就可以这么做。</p>
+</li>
+<li>
+<p>多个线程行为不一致，共同操作一个数据：也就是每个线程执行的代码不同，这时候需要用不同的Runnable 对象。例如，银行存取款</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>线程并发库</p>
+<ol>
+<li>
+<p>juc 包 - 多线程并发库：实现 Collection 框架对数据结构所执行的并发操作</p>
+<ul>
+<li>
+<p>执行程序</p>
+<ul>
+<li>Executors 线程池工厂类</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//创建固定大小的线程池
+</span><span style="color:#75715e"></span>ExecutorService fPool <span style="color:#f92672">=</span> Executors<span style="color:#f92672">.</span><span style="color:#a6e22e">newFixedThreadPool</span><span style="color:#f92672">(</span>3<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#75715e">//创建缓存大小的线程池
+</span><span style="color:#75715e"></span>ExecutorService cPool <span style="color:#f92672">=</span> Executors<span style="color:#f92672">.</span><span style="color:#a6e22e">newCachedThreadPool</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#75715e">//创建单一的线程池
+</span><span style="color:#75715e"></span>ExecutorService sPool <span style="color:#f92672">=</span> Executors<span style="color:#f92672">.</span><span style="color:#a6e22e">newSingleThreadExecutor</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#75715e">//创建延迟线程池
+</span><span style="color:#75715e"></span>ExecutorService scPool <span style="color:#f92672">=</span> Executors<span style="color:#f92672">.</span><span style="color:#a6e22e">newScheduledThreadPool</span><span style="color:#f92672">(</span>2<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</code></pre></div><ul>
+<li>
+<p>ExecutorService接口 执行器服务</p>
+<ul>
+<li>实现类
+<ul>
+<li>ThreadPoolExecutor</li>
+<li>ScheduledThreadPoolExecutor</li>
+</ul>
+</li>
+<li>创建
+<ul>
+<li>使用 Executors 工厂类来创建 ExecuotrService 实例</li>
+</ul>
+</li>
+<li>使用（有几种不同方式将任务委托给 ExecutorServcie 去执行）
+<ul>
+<li>execute(Runnable) 没有办法得知被执行的 Runnable 的执行结果</li>
+<li>submit(Runnable) 返回一个 Future 对象。这个 Future 对象可以用来检查 Runnable 是否已经执行完毕</li>
+<li>submit(Callable) Runnable.run() 不能够返回一个结果。Callable 的结果可以通过 submit(Callable) 方法返回的 Future 对象进行获取</li>
+<li>invokeAny(&hellip;)</li>
+<li>invokeAll(&hellip;)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>ThreadPoolExecutor 线程池执行者</p>
+<ul>
+<li>当一个任务委托给线程池时，如果池中线程数量低于 corePoolSize，一个新的线程将被创建，即使池中可能尚有空 闲线程。如果内部任务队列已满，而且有至少 corePoolSize 正在运行，但是运行线程的数量低于 maximumPoolSize，一个新的线程将被创建去执行该任务</li>
+</ul>
+</li>
+<li>
+<p>SchedulePoolExecutor 定时线程池执行者</p>
+<ul>
+<li>能够将任务延后执行，或者间隔固定时间多次执行。 任务由一个工作者线程异步执行，而不是由提交任务给ScheduledExecutorService 的那个线程执行</li>
+</ul>
+</li>
+<li>
+<p>ForkJoinPool 合并和分叉（线程池）</p>
+<ul>
+<li>可以很方便地把任务分裂成几个更小的任务，这些分裂出来的任务也将会提交给 ForkJoinPool。任务可以继续分割成更小的子任务，只要它还能分割</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>并发队列 - 阻塞队列（使用锁实现）：BlockingQueue 提供了线程安全的队列访问方式：当阻塞队列进行插入数据时，如果队列已满，线程将会阻塞等待直到队列非满；从阻塞队列取数据时，如果队列已空，线程将会阻塞等待直到队列非空</p>
+<ul>
+<li>BlockingQueue 阻塞队列</li>
+<li>ArrayBlockingQueue 阻塞队列</li>
+<li>LinkedBlockingQueue 阻塞队列</li>
+<li>PriorityBlockingQueue 无界阻塞优先级队列</li>
+<li>SychronousQueue 同步队列</li>
+<li>DeplayQueue 延时无界阻塞队列</li>
+</ul>
+</li>
+<li>
+<p>并发队列（Collection） - 非阻塞队列（使用CAS非阻塞算法实现）</p>
+<ul>
+<li>非阻塞队列</li>
+<li>非阻塞算法 CAS</li>
+<li>ConcurrentLinkedQueue 非阻塞无界链表队列</li>
+<li>ConcurrentHashMap 非阻塞 Hash 集合</li>
+<li>ConcurrentSkipListMap 非阻塞 Hash 跳表集合</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>juc.atomic 包 - 多线程的原子性操作提供的工具类：对多线程的基本数据、数组中的基本数据和对象中的基本数据进行多线程的操作</p>
+<ul>
+<li>AtomicBoolean 原子性布尔</li>
+<li>AtomicInteger 原子性整型</li>
+<li>AtomicIntergerArray 原子性整型数组</li>
+<li>AtomicLong、AtomicLongArray 原子性整型数组</li>
+</ul>
+</li>
+<li>
+<p>juc.lock 包 - 多线程的锁机制：为锁和等待条件提供一个框架的接口和类</p>
+<ul>
+<li>Lock 接口</li>
+<li>ReadWrite 接口</li>
+<li>Condition 接口</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>面试题</p>
+<ol>
+<li>
+<p>多线程的创建方式</p>
+<ul>
+<li>1.继承 Thread 类，复写 run() 方法</li>
+<li>2.实现 Runnable 接口，复写 run() 方法</li>
+<li>3.使用 ExecutorService、Callable、Future 实现：可返回值的任务必须实现 Callable 接口，无返回值的任务必须实现 Runnable 接口。执行 Callable 任务后，可以获取一个 Future 对象，在该对象上调用 get 就可以获取到 Callable 任务返回的 Object。</li>
+</ul>
+</li>
+<li>
+<p>wait 和 sleep 方法的区别</p>
+</li>
+<li>
+<p>synchronized 和 volatile 的作用</p>
+</li>
+<li>
+<p>下面代码的输出结果是 1000 吗</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Counter</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">volatile</span> <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">inc</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+            Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">sleep</span><span style="color:#f92672">(</span>3<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>InterruptedException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        count<span style="color:#f92672">+</span><span style="color:#f92672">+</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;[count=&#34;</span> <span style="color:#f92672">+</span> count <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;]&#39;</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">VolatileTest</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">final</span> Counter counter <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Counter<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> 1000<span style="color:#f92672">;</span> i<span style="color:#f92672">+</span><span style="color:#f92672">+</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">new</span> Thread<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Runnable<span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                <span style="color:#a6e22e">@Override</span>
+                <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    counter<span style="color:#f92672">.</span><span style="color:#a6e22e">inc</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">}</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>counter<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>线程池是什么，怎么使用</p>
+</li>
+<li>
+<p>常用线程池有哪些</p>
+</li>
+<li>
+<p>对线程池的理解</p>
+</li>
+<li>
+<p>线程池的启动策略</p>
+</li>
+<li>
+<p>如何控制某个方法允许并发访问线程的个数</p>
+</li>
+<li>
+<p>三个线程 a、b、c 并发运行，b、c 需要 a 的数据怎么实现</p>
+</li>
+<li>
+<p>同一个类中的 2 个方法都加了同步锁，多个线程能同时访问同一个类中的这两个方法吗</p>
+</li>
+<li>
+<p>什么情况会导致线程死锁，遇到死锁该怎么解决</p>
+</li>
+<li>
+<p>多线程间通信怎么实现</p>
+</li>
+<li>
+<p>线程和进程的区别</p>
+</li>
+<li>
+<p>同步线程及线程调度相关的方法</p>
+</li>
+<li>
+<p>启动一个线程是调用 run 还是 start 方法</p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="-内部类">Ⅹ. 内部类</h2>
+<ol>
+<li>
+<p>静态嵌套类（Static Nested Class）和内部类（Inner Class）的不同</p>
+<ul>
+<li>
+<p>静态嵌套类：被声明为 static 的内部类，可以不依赖于外部类实例被实例化</p>
+</li>
+<li>
+<p>内部类：需要在外部类实例化后才能实例化</p>
+</li>
+</ul>
+</li>
+<li>
+<p>下面代码哪里会产生编译错误</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Outer</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Inner</span> <span style="color:#f92672">{</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">foo</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">new</span> Inner<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">bar</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">new</span> Inner<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">new</span> Inner<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>Java 中非静态内部类对象的创建要依赖其外部类对象，上面的面试题中 foo 和 main 方法都是静态方法，静态方法中没有 this，也就是说没有所谓的外部类对象，因此无法创建内部类对象，如果要在静态方法中创建内部类对象，可以这样做 new Outer().new Inner();</li>
+</ul>
+</li>
+</ol>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="http://wayne06.github.io/"><img src="/img/favicon.png" />WZhong</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/n3%E5%90%AC%E5%8A%9B%E5%8E%9F%E6%96%871812/" data-toggle="tooltip" data-placement="top" title="N3听力原文1812">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/%E9%9D%A22.-javase%E8%BF%9B%E9%98%B6/" data-toggle="tooltip" data-placement="top" title="JavaSE进阶">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/ci/cd" title="ci/cd">
+                            ci/cd
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/design-pattern" title="design-pattern">
+                            design-pattern
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/devops" title="devops">
+                            devops
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/interview" title="interview">
+                            interview
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/japanese-language" title="japanese-language">
+                            japanese-language
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/jlpt" title="jlpt">
+                            jlpt
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n3" title="n3">
+                            n3
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/saas" title="saas">
+                            saas
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E5%8A%A8%E8%AF%8D%E5%8F%98%E5%BD%A2" title="动词变形">
+                            动词变形
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E6%96%87%E6%AD%8C" title="日文歌">
+                            日文歌
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E5%90%AC%E5%8A%9B" title="日语听力">
+                            日语听力
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E5%BA%94%E7%94%A8%E8%AF%BE%E6%96%87" title="日语应用课文">
+                            日语应用课文
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95" title="日语语法">
+                            日语语法
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%A0%87%E5%87%86%E6%97%A5%E6%9C%AC%E8%AF%AD" title="标准日本语">
+                            标准日本语
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="http://jskillcloud.com/">杨波的博客</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="WZhong" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:zs577215@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    <li>
+                        <a target="_blank" href="/img/wechat_qrcode.jpg">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/wayne06">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yourlinkedinid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/yourstackoverflowid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+            
+                    
+                    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; WZhong 2020
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>

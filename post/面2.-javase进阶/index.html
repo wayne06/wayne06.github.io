@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="WZhong">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="JavaSE进阶" />
+    <meta property="og:title" content="JavaSE进阶" />
+    <meta property="twitter:title" content="JavaSE进阶" />
+    
+
+    
+    <meta name="description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan.">
+    <meta property="og:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    <meta property="twitter:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>JavaSE进阶-Wayne Zhong Blog</title>
+
+    <link rel="canonical" href="/post/%E9%9D%A22.-javase%E8%BF%9B%E9%98%B6/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/docco.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">WZhong</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/design-pattern">design-pattern</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/japanese">japanese</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/java">java</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/microservice">microservice</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/others">others</a>
+                    </li>
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://img.zhaohuabing.com/post-bg-2015.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/interview" title="Interview">
+                            Interview
+                        </a>
+                        
+                    </div>
+                    <h1>JavaSE进阶</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                WZhong
+                         
+                        on 
+                        Sunday, October 18, 2020
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#-反射">Ⅰ. 反射</a></li>
+    <li><a href="#-动态代理">Ⅱ. 动态代理</a></li>
+    <li><a href="#-设计模式">Ⅲ. 设计模式</a></li>
+    <li><a href="#-回收机制">Ⅳ. 回收机制</a></li>
+    <li><a href="#-类加载器">Ⅴ. 类加载器</a></li>
+    <li><a href="#-jvm">Ⅵ. JVM</a></li>
+    <li><a href="#-gc">Ⅶ. GC</a></li>
+    <li><a href="#-java8-新特性">Ⅷ. Java8 新特性</a></li>
+    <li><a href="#-内存溢出">Ⅸ. 内存溢出</a></li>
+  </ul>
+</nav>
+                
+                <h2 id="-反射">Ⅰ. 反射</h2>
+<ol>
+<li>
+<p>对反射的理解</p>
+<ul>
+<li>Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性</li>
+<li>这种动态获取信息以及动态调用对象方法的功能称为 Java 语言的反射机制</li>
+</ul>
+</li>
+<li>
+<p>反射的示例</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Robot</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">static</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;this is in static block&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sayHi</span><span style="color:#f92672">(</span>String s<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; - &#34;</span> <span style="color:#f92672">+</span> name<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">private</span> String <span style="color:#a6e22e">throwHello</span><span style="color:#f92672">(</span>String tag<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;hello &#34;</span> <span style="color:#f92672">+</span> tag<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span>
+        ClassNotFoundException<span style="color:#f92672">,</span>
+        NoSuchMethodException<span style="color:#f92672">,</span>
+        IllegalAccessException<span style="color:#f92672">,</span>
+        InstantiationException<span style="color:#f92672">,</span> InvocationTargetException<span style="color:#f92672">,</span> NoSuchFieldException <span style="color:#f92672">{</span>
+    Class robotClass <span style="color:#f92672">=</span> Class<span style="color:#f92672">.</span><span style="color:#a6e22e">forName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;com.wnzhong.bjavaseadvance.areflect.Robot&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;robotClass.getName() - &#34;</span> <span style="color:#f92672">+</span> robotClass<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    Method throwHello <span style="color:#f92672">=</span> robotClass<span style="color:#f92672">.</span><span style="color:#a6e22e">getDeclaredMethod</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;throwHello&#34;</span><span style="color:#f92672">,</span> String<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    throwHello<span style="color:#f92672">.</span><span style="color:#a6e22e">setAccessible</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    Robot robot <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Robot<span style="color:#f92672">)</span> robotClass<span style="color:#f92672">.</span><span style="color:#a6e22e">newInstance</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    Object obj <span style="color:#f92672">=</span> throwHello<span style="color:#f92672">.</span><span style="color:#a6e22e">invoke</span><span style="color:#f92672">(</span>robot<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;bob&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>obj<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    Method sayHi <span style="color:#f92672">=</span> robotClass<span style="color:#f92672">.</span><span style="color:#a6e22e">getMethod</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;sayHi&#34;</span><span style="color:#f92672">,</span> String<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    sayHi<span style="color:#f92672">.</span><span style="color:#a6e22e">invoke</span><span style="color:#f92672">(</span>robot<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;welcome&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    Field name <span style="color:#f92672">=</span> robotClass<span style="color:#f92672">.</span><span style="color:#a6e22e">getDeclaredField</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    name<span style="color:#f92672">.</span><span style="color:#a6e22e">setAccessible</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    name<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>robot<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;alice&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    sayHi<span style="color:#f92672">.</span><span style="color:#a6e22e">invoke</span><span style="color:#f92672">(</span>robot<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;welcome&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>反射的应用</p>
+<ul>
+<li>
+<p>JDBC 的数据库连接</p>
+<ul>
+<li>通过 Class.forName() 加载数据库的驱动程序</li>
+<li>通过 DriverManager 类进行数据库的连接，连接时要输入数据库的连接地址、用户名、密码</li>
+<li>通过 Connection 接口接收连接</li>
+</ul>
+</li>
+<li>
+<p>Spring 框架的通过 xml 配置模式装载 bean</p>
+<ul>
+<li>将程序内所有 xml 或 properties 配置文件载入内存</li>
+<li>解析配置文件内容，得到对应实体类的字节码字符串及相关属性信息</li>
+<li>使用反射机制，根据字符串获取某个类的 Class 实例</li>
+<li>动态配置实例的属性</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="-动态代理">Ⅱ. 动态代理</h2>
+<ol>
+<li>
+<p>写一个 ArrayList 的动态代理类</p>
+</li>
+<li>
+<p>动态代理 和 静态代理的区别及使用场景</p>
+<ul>
+<li>
+<p>静态代理通常只代理一个类，动态代理是代理一个接口下的多个实现类</p>
+</li>
+<li>
+<p>静态代理事先知道要代理的是什么，而动态代理不知道要代理什么，只有运行时才知道</p>
+</li>
+<li>
+<p>动态代理是实现 JDK 里的 InvocationHandler 接口的 invoke 方法，但注意的是代理的是接口，也就是业务类必须要实现接口，通过 Proxy 里的 newProxyInstance 得到代理对象</p>
+</li>
+<li>
+<p>还有一种动态代理 CGLIB，代理的是类，不需要业务类继承接口，通过派生的子类来实现代理。通过在运行时，动态修改字节码达到修改类的目的</p>
+</li>
+<li>
+<p>AOP 编程就是基于动态代理实现的，比如著名的 Spring 框架、 Hibernate 框架等等都是动态代理的使用例子。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="-设计模式">Ⅲ. 设计模式</h2>
+<ol>
+<li>
+<p>你知道哪些设计模式（23种）</p>
+<ul>
+<li>
+<p>创建型</p>
+<ul>
+<li>工厂方法</li>
+<li>抽象工厂</li>
+<li>单例</li>
+<li>建造者</li>
+<li>原型</li>
+</ul>
+</li>
+<li>
+<p>结构型</p>
+<ul>
+<li>适配器</li>
+<li>装饰器</li>
+<li>代理</li>
+<li>外观</li>
+<li>桥接</li>
+<li>组合</li>
+<li>享元</li>
+</ul>
+</li>
+<li>
+<p>行为型</p>
+<ul>
+<li>策略</li>
+<li>模版方法</li>
+<li>观察者</li>
+<li>迭代</li>
+<li>责任链</li>
+<li>命令</li>
+<li>备忘录</li>
+<li>状态</li>
+<li>访问者</li>
+<li>中介</li>
+<li>解释器</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>单例模式</p>
+</li>
+<li>
+<p>工厂模式</p>
+</li>
+<li>
+<p>建造者模式</p>
+</li>
+<li>
+<p>适配器模式</p>
+</li>
+<li>
+<p>装饰模式</p>
+</li>
+<li>
+<p>策略模式</p>
+</li>
+<li>
+<p>观察者模式</p>
+</li>
+</ol>
+<h2 id="-回收机制">Ⅳ. 回收机制</h2>
+<ol>
+<li>
+<p>JVM 垃圾回收机制和常见算法</p>
+</li>
+<li>
+<p>JVM 的内存结构和内存分配</p>
+</li>
+<li>
+<p>Java 中的引用类型有哪些</p>
+</li>
+<li>
+<p>heap 和 stack 的区别</p>
+</li>
+<li>
+<p>解释内存中的 栈、堆、方法区 的用法</p>
+</li>
+</ol>
+<h2 id="-类加载器">Ⅴ. 类加载器</h2>
+<ol>
+<li>
+<p>Java 的类加载器的种类有哪些</p>
+</li>
+<li>
+<p>类什么时候被初始化</p>
+</li>
+<li>
+<p>ClassLoader 的双亲委托机制</p>
+</li>
+<li>
+<p>描述一下 JVM 加载 class</p>
+</li>
+<li>
+<p>获得一个类对象有哪些方式</p>
+</li>
+</ol>
+<h2 id="-jvm">Ⅵ. JVM</h2>
+<ol>
+<li>既然有了 GC 机制，为什么还会有内存泄漏情况</li>
+</ol>
+<h2 id="-gc">Ⅶ. GC</h2>
+<ol>
+<li>
+<p>Java 为什么会有 GC 机制</p>
+</li>
+<li>
+<p>哪些内存需要回收</p>
+</li>
+<li>
+<p>什么时候回收垃圾</p>
+</li>
+</ol>
+<h2 id="-java8-新特性">Ⅷ. Java8 新特性</h2>
+<ol>
+<li>
+<p>lambda 表达式</p>
+<ul>
+<li>实现 Runnable</li>
+<li>进行事件处理</li>
+<li>对列表进行迭代</li>
+<li>函数式接口 Predicate</li>
+<li>map</li>
+<li>reduce</li>
+<li>filter</li>
+<li>对列表每个元素应用函数</li>
+<li>distinct</li>
+<li>最大值、最小值、总和、平均值</li>
+</ul>
+</li>
+<li>
+<p>lambda 表达式要点</p>
+<ul>
+<li>
+<p>lambda 表达式的使用位置</p>
+<ul>
+<li>预定义使用了 @FunctionalInterface 注释的函数式接口，自带一个抽象函数的方法。这些称为 lambda 表达式的目标类型，可以用作返回类型，或 lambda 目标代码的参数。</li>
+<li>例如，若一个方法接收 Runnable、 Comparable 或者 Callable 接口，都有单个抽象方法，可以传入 lambda 表达式。</li>
+<li>类似的，如果一个方法接受声明于 java.util.function 包内的接口，例如 Predicate、 Function、 Consumer 或 Supplier，那么可以向其传 lambda 表达式。</li>
+</ul>
+</li>
+<li>
+<p>lambda 和方法引用</p>
+<ul>
+<li>lambda 表达式内可以使用方法引用，仅当该方法不修改 lambda 表达式提供的参数。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">list<span style="color:#f92672">.</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>n <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>n<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+list<span style="color:#f92672">.</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">:</span><span style="color:#f92672">:</span>println<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</code></pre></div></li>
+<li>
+<p>lambda 内部引用资源</p>
+<ul>
+<li>lambda 内部可以使用静态、非静态和局部变量，这称为 lambda 内的变量捕获。</li>
+</ul>
+</li>
+<li>
+<p>lambda 表达式也称闭包</p>
+<ul>
+<li>Lambda 表达式在 Java 中又称为闭包或匿名函数</li>
+</ul>
+</li>
+<li>
+<p>lambda 表达式的编译方式</p>
+<ul>
+<li>Lambda 方法在编译器内部被翻译成私有方法，并派发 invokedynamic 字节码指令来进行调用。</li>
+<li>可使用 JDK中的 javap 工具来反编译 class 文件。使用 javap -p 或 javap -c -v 命令来看一看 lambda 表达式生成的字节码</li>
+</ul>
+</li>
+<li>
+<p>lambda 表达式的限制</p>
+<ul>
+<li>只能引用 final 或 final 局部变量，这就是说不能在 lambda 内部修改定义在域外的变量</li>
+<li>只是访问它而不作修改是可以的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Optional 类</p>
+<ul>
+<li>
+<p>描述：</p>
+<ul>
+<li>这是一个可以为 null 的容器对象。如果值存在则 isPresent()方法会返回 true，调用 get()方法会返回该对象</li>
+</ul>
+</li>
+<li>
+<p>方法：</p>
+<ul>
+<li>Optional.of()</li>
+<li>Optional.ofNullable()</li>
+<li>Optional.isPresent()</li>
+<li>Optional.get()</li>
+<li>Optional.ifPresent()</li>
+<li>Optional.orElse()</li>
+<li>Optional.orElseGet()</li>
+<li>Optional.orElseThrow()</li>
+<li>Optional.map()</li>
+<li>Optional.flatMap()</li>
+<li>Optional.filter()</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="-内存溢出">Ⅸ. 内存溢出</h2>
+<ol>
+<li>
+<p>常见原因</p>
+<ul>
+<li>内存中加载的数据量过于庞大，如一次从数据库取出过多数据</li>
+<li>集合类中有对对象的引用，使用完后未清空，使得 JVM 不能回收</li>
+<li>代码中存在死循环，或循环产生过多重复的对象实体</li>
+<li>启动参数内存值设定过小</li>
+</ul>
+</li>
+<li>
+<p>如何解决</p>
+<ul>
+<li>修改 JVM 启动参数，直接增加内存（-Xms，-Xmx 参数要添加）</li>
+<li>检查错误日志，查看 OutOfMemory 错误前是否有其他异常或错误</li>
+<li>对代码进行走查和分析，找出可能发生内存溢出的位置。重点排查如下：
+<ul>
+<li>检查数据库查询中是否有一次获取全部数据的查询：十万条记录就可能引起内存溢出；尽量采用分页查询方式</li>
+<li>检查代码中是否有死循环或递归调用</li>
+<li>检查是否有大循环重复产生新对象实体</li>
+<li>检查 List、Map 等集合对象是否有使用完后未清除的问题。List、Map 等集合对象会始终存有对对象的引用，使得这些对象不能被 GC 回收</li>
+</ul>
+</li>
+<li>使用内存查看工具动态查看内存使用情况</li>
+</ul>
+</li>
+</ol>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="http://wayne06.github.io/"><img src="/img/favicon.png" />WZhong</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/%E9%9D%A21.-javase%E5%9F%BA%E7%A1%80/" data-toggle="tooltip" data-placement="top" title="JavaSE基础">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/%E9%9D%A23.-mysql/" data-toggle="tooltip" data-placement="top" title="MySQL">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/ci/cd" title="ci/cd">
+                            ci/cd
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/design-pattern" title="design-pattern">
+                            design-pattern
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/devops" title="devops">
+                            devops
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/interview" title="interview">
+                            interview
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/japanese-language" title="japanese-language">
+                            japanese-language
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/jlpt" title="jlpt">
+                            jlpt
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n3" title="n3">
+                            n3
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/saas" title="saas">
+                            saas
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E5%8A%A8%E8%AF%8D%E5%8F%98%E5%BD%A2" title="动词变形">
+                            动词变形
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E6%96%87%E6%AD%8C" title="日文歌">
+                            日文歌
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E5%90%AC%E5%8A%9B" title="日语听力">
+                            日语听力
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E5%BA%94%E7%94%A8%E8%AF%BE%E6%96%87" title="日语应用课文">
+                            日语应用课文
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95" title="日语语法">
+                            日语语法
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%A0%87%E5%87%86%E6%97%A5%E6%9C%AC%E8%AF%AD" title="标准日本语">
+                            标准日本语
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="http://jskillcloud.com/">杨波的博客</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="WZhong" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:zs577215@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    <li>
+                        <a target="_blank" href="/img/wechat_qrcode.jpg">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/wayne06">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yourlinkedinid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/yourstackoverflowid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+            
+                    
+                    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; WZhong 2020
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>

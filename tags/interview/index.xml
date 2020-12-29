@@ -6,26 +6,35 @@
     <description>Recent content in Interview on WZhong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Oct 2020 00:25:13 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 28 Oct 2020 00:25:13 +0800</lastBuildDate>
     
 	<atom:link href="http://wayne06.github.io/tags/interview/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>MySQL</title>
+      <link>http://wayne06.github.io/post/%E9%9D%A23.-mysql/</link>
+      <pubDate>Wed, 28 Oct 2020 00:25:13 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/post/%E9%9D%A23.-mysql/</guid>
+      <description>Ⅰ. SELECT 语句完整的执行顺序 Ⅱ. 聚合函数 Ⅲ. 连接查询 Ⅳ. SQL 注入 Ⅴ. 性能优化 当只有一行数据时使用 limit 1 选择正确的数据库引擎 用 not exists 代替 not in 对操作符的优</description>
+    </item>
+    
+    <item>
       <title>JavaSE进阶</title>
-      <link>http://wayne06.github.io/post/javase%E8%BF%9B%E9%98%B6/</link>
+      <link>http://wayne06.github.io/post/%E9%9D%A22.-javase%E8%BF%9B%E9%98%B6/</link>
       <pubDate>Sun, 18 Oct 2020 00:25:13 +0800</pubDate>
       
-      <guid>http://wayne06.github.io/post/javase%E8%BF%9B%E9%98%B6/</guid>
+      <guid>http://wayne06.github.io/post/%E9%9D%A22.-javase%E8%BF%9B%E9%98%B6/</guid>
       <description>Ⅰ. 反射 对反射的理解 Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方</description>
     </item>
     
     <item>
       <title>JavaSE基础</title>
-      <link>http://wayne06.github.io/post/javase%E5%9F%BA%E7%A1%80/</link>
+      <link>http://wayne06.github.io/post/%E9%9D%A21.-javase%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Sat, 10 Oct 2020 00:25:13 +0800</pubDate>
       
-      <guid>http://wayne06.github.io/post/javase%E5%9F%BA%E7%A1%80/</guid>
+      <guid>http://wayne06.github.io/post/%E9%9D%A21.-javase%E5%9F%BA%E7%A1%80/</guid>
       <description>Ⅰ. 面向对象 面向对象的特性 继承（inherit）、封装（encapsulate）、多态（polymorphism）、抽象（abstract）</description>
     </item>
     
