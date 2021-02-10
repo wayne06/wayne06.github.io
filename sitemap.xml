@@ -153,7 +153,12 @@
   </url>
   
   <url>
-    <loc>http://wayne06.github.io/post/n3%E8%AF%AD%E6%B3%9510-%E3%82%88%E3%81%86%E3%81%B0%E3%81%8B%E3%82%8A/</loc>
+    <loc>http://wayne06.github.io/post/n3%E8%AF%AD%E6%B3%9510-%E3%82%88%E3%81%86/</loc>
+    <lastmod>2020-09-26T00:25:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wayne06.github.io/post/n3%E8%AF%AD%E6%B3%9511-%E3%81%B0%E3%81%8B%E3%82%8A/</loc>
     <lastmod>2020-09-26T00:25:13+08:00</lastmod>
   </url>
   
@@ -208,12 +213,12 @@
   </url>
   
   <url>
-    <loc>http://wayne06.github.io/tags/design-pattern/</loc>
+    <loc>http://wayne06.github.io/categories/design-pattern/</loc>
     <lastmod>2020-03-18T00:04:12+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://wayne06.github.io/categories/design-pattern/</loc>
+    <loc>http://wayne06.github.io/tags/design-pattern/</loc>
     <lastmod>2020-03-18T00:04:12+08:00</lastmod>
   </url>
   

@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="WZhong">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="N3语法09 - よう、ばかり" />
+    <meta property="og:title" content="N3语法09 - よう、ばかり" />
+    <meta property="twitter:title" content="N3语法09 - よう、ばかり" />
+    
+
+    
+    <meta name="description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan.">
+    <meta property="og:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    <meta property="twitter:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>N3语法09 - よう、ばかり-Wayne Zhong Blog</title>
+
+    <link rel="canonical" href="/post/n3%E8%AF%AD%E6%B3%9511-%E3%81%B0%E3%81%8B%E3%82%8A/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/docco.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">WZhong</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/design-pattern">design-pattern</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/japanese">japanese</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/java">java</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/microservice">microservice</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/others">others</a>
+                    </li>
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://img.zhaohuabing.com/post-bg-2015.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/japanese-language" title="Japanese Language">
+                            Japanese Language
+                        </a>
+                        
+                        <a class="tag" href="/tags/jlpt" title="JLPT">
+                            JLPT
+                        </a>
+                        
+                        <a class="tag" href="/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95" title="日语语法">
+                            日语语法
+                        </a>
+                        
+                        <a class="tag" href="/tags/n3" title="N3">
+                            N3
+                        </a>
+                        
+                    </div>
+                    <h1>N3语法09 - よう、ばかり</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                WZhong
+                         
+                        on 
+                        Saturday, September 26, 2020
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ようだようにようなｎ">～ようだ　・　～ように、～　・　～ようなＮ</a></li>
+    <li><a href="#ばかり">～ばかり・</a></li>
+    <li><a href="#题目">题目</a></li>
+  </ul>
+</nav>
+                
+                <h2 id="ようだようにようなｎ">～ようだ　・　～ように、～　・　～ようなＮ</h2>
+<ol>
+<li>まるで～【比喻，就像&hellip;】
+<ul>
+<li>この雪は綿のようです。（わた）</li>
+<li>朝から晩までロボットのように働く。（ばん）</li>
+<li>今日は暖かくて、まるで春が来たようだ。（はる）</li>
+<li>始めてディズニーランドに行ってきた。まるで魔法の国にいるかのようだった。（まほう）</li>
+</ul>
+</li>
+<li>【就像&hellip;一样（列举具有相同性质的其他事物）】
+<ul>
+<li>人間のように、植物にも栄養が必要だ。（にんげん）（しょくぶつ）（えいよう）</li>
+<li>母親が美人だったように、娘たちも皆きれいだ。（ははおや）（びじん）（むすめ）</li>
+<li>林さんのような優しい人と付き合いたい。（やさしい）（つきあい）</li>
+<li>風邪をひいたときは、みかんのようなビタミンＣを多く含む果物を食べたほうがいい。（ふくむ）（くだもの）</li>
+</ul>
+</li>
+<li>【就好像&hellip;（列举说明与事实矛盾或家乡的事物）】
+<ul>
+<li>本当は見たこともないのに、自分の目で見たかのように話す。</li>
+<li>彼は何も知らなかったかのように振舞っていた。（ふるまって）</li>
+<li>犯人は事件のことを初めて聞いたかのような態度をとった。（じけん）</li>
+</ul>
+</li>
+<li>【就好像&hellip;，如同&hellip;（引用一个已知信息）】
+<ul>
+<li>ご存知のように、日本は台風が多い国です。（ぞんじ）</li>
+<li>前にも話したように、来週は私は日本にいません。</li>
+<li>今朝の新聞に書いてあったように、今年は米の出来がいいらしい。（でき）（こめ）</li>
+</ul>
+</li>
+<li>ない+ように【为了&hellip;（目的，自动词，可能态）】
+<ul>
+<li>忘れないようにメモしておく。</li>
+<li>後ろの席の人にも聞こえるように大きな声で話した。（うしろ）</li>
+<li>よく寝れるように少しワインを飲んだ。</li>
+</ul>
+</li>
+<li>～ようにしてください・～ようにしなさい【劝告】
+<ul>
+<li>忘れ物をしないようにしてください。</li>
+<li>風邪をひかないようにご注意ください。（ちゅうい）</li>
+<li>集合時間は守るように。（しゅうごう）（まもる）</li>
+<li>授業中はおしゃべりしないように。（じゅぎょうちゅう）</li>
+</ul>
+</li>
+<li>祈る、希望する、願う、望む【祈盼，期望】（いのる、きぼうする、ねがう、のぞむ）
+<ul>
+<li>どうか合格できますように。（ごうかく）</li>
+<li>息子が大学に合格できるように神様に祈った。（かみさま）</li>
+<li>明日は雨が降りませんように。</li>
+</ul>
+</li>
+<li>言う、伝える、頼む【转达请求命令的内容】（いう、つたえる、たのむ）
+<ul>
+<li>すぐ家に帰るように言われた。</li>
+<li>戻りましたら、私に電話するようにお伝えください。（もどり）</li>
+<li>雑誌を買ってくるように頼まれた。（ざっし）（たのまれ）</li>
+<li>電車の中では携帯電話で話さないようにと注意されました。（ちゅうい）</li>
+</ul>
+</li>
+<li>【推测，好像&hellip;（结合五感的信息作出推测性的判断）】
+<ul>
+<li>あの人はこの大学の学生ではないようだ。</li>
+<li>どうやら君の負けのようだ。（まけ）</li>
+<li>先生はお酒がお好きなようだな。</li>
+</ul>
+</li>
+<li>ようにする・ようにしている【设法做到某事】
+<ul>
+<li>ドアに穴を開けて、猫が通れるようにした。（あな）（とおれる）</li>
+<li>字を大きくして、老人にも読みやすいようにする。（ろうじん）</li>
+<li>油ものは食べないようにしている。（あぶら）</li>
+<li>できるだけ毎日日本のドラマを見るようにしています。</li>
+<li>雪の日は運転しないようにしている。</li>
+</ul>
+</li>
+<li>ようになる・（否定）なくなる【状况，习惯，能力的变化】
+<ul>
+<li>隣の子供は最近きちんとあいさつするようになった。</li>
+<li>仕事のため、毎日外食するようになった。（がいしょく）</li>
+<li>日本語が話せるようになりました。</li>
+<li>刺身が食べられるようになった。</li>
+<li>おばあちゃんはパソコンが使えるようになった。</li>
+<li>おばあちゃんはパソコンが使えなくなった。</li>
+</ul>
+</li>
+</ol>
+<h2 id="ばかり">～ばかり・</h2>
+<ol>
+<li>
+<p>～ばかり【只有&hellip;，没别的。只有&hellip;，全部&hellip;，多次重复同一行为】</p>
+<ul>
+<li>家の子は漫画ばかり読んでいる。（うち）（まんが）</li>
+<li>彼はいつも文句ばっかり言っている。（もんく）</li>
+<li>六月に入ってから、毎日雨ばっかりだ。</li>
+<li>寮では同じ国の人とばかり話さないで、いろんな国の人と会話したほうがいいよ。（かいわ）</li>
+</ul>
+</li>
+<li>
+<p>～だけ【只&hellip;，只有&hellip;（不能表示全部和多次重复）】</p>
+<ul>
+<li>家の子はいい子ばかりだ。</li>
+<li>母は朝から晩まで小言ばかり言っている。（こごと）</li>
+</ul>
+</li>
+<li>
+<p>～ばかりで、～【光是&hellip;（除了前面强调的事，再没有别的了）。多为负面评价】</p>
+<ul>
+<li>彼は言うばかりで自分では何もしない。</li>
+<li>今の仕事は忙しいばかりで、ちっとも儲からない。（いそがしい）（もうからない）</li>
+<li>この頃の野菜は、きれいなばかりで、味はイマイチだ。（ころ）（あじ）</li>
+<li>やれることは全部やりました。あとはいい結果を願うばかりです。（けっか）（ねがう）</li>
+<li>今は王さんの無事をただ祈るばかりだ。（ぶじ）（いのる）</li>
+</ul>
+</li>
+<li>
+<p>～でばかりいる【总是，老是】</p>
+<ul>
+<li>彼は寝てばかりいる。</li>
+<li>母は朝から怒ってばかりいる。（おこって）</li>
+<li>遊んでばかりいないで、勉強しなさい。</li>
+<li>食べてばかりいると太りますよ。（ふとり）</li>
+<li>ただ見てばかりいないで、少しは手伝いなさいよ。（みて）（てつだい）</li>
+</ul>
+</li>
+<li>
+<p>～ばかりでなく～（～だけでなく）【不光是，不仅是&hellip;还&hellip;】</p>
+<ul>
+<li>この番組は面白いばかりでなく、様々なことが学べる。（ばんぐみ）（さまざま）（まなべる）</li>
+<li>このアパートは、暑いばかりでなく、音もうるさい。（おと）</li>
+<li>山田さんは英語ばかりでなく、中国語も話せる。</li>
+<li>彼は町を案内してくれたばかりでなく、この地方の料理もご馳走してくれた。（まち）（あんない）（ちほう）（ごちそう）</li>
+</ul>
+</li>
+<li>
+<p>～る＋ばかりだ【事物一直朝坏的方向发展（～する一方だ）】</p>
+<ul>
+<li>一度喧嘩してから、彼女との関係が悪くなるばかりだ。（いちど）（けんか）（かんけい）</li>
+<li>英語も数学も学校を出てから、忘れていくばかりだ。（すうがく）（がっこう）（でてから）</li>
+<li>コンピューターが導入されてからも、仕事は増えるばかりでちっとも楽にならなかった。（どうにゅう）（ふえる）（らくに）</li>
+</ul>
+</li>
+<li>
+<p>～る＋ばかりだ【准备完毕，只等&hellip;】</p>
+<ul>
+<li>旅行の準備はできました。もう出発するばかりだ。（しゅっぱつ）</li>
+<li>食事の準備が終わって、もう食べるばかりになっている。（しょくじ）</li>
+<li>料理もできた。ビールも冷えている。あとはお客の到着を待つばかりだ。（ひえて）（とうちゃく）（まつ）</li>
+<li>ばかりという時になって、～</li>
+<li>パーティーの招待状ができあがって、あとは客に送るばかりという時になって、ミスが見つかった。（しょうたいじょう）（おくる）（みつかった）</li>
+<li>部品も全部揃って、あとは組み立てるばかりという時になって、説明書がないことに気がついた。（そろって）（くみたてる）</li>
+</ul>
+</li>
+<li>
+<p>～たばかりだ。【才刚刚&hellip;】</p>
+<ul>
+<li>さっき着いたばかりです。（ついた）</li>
+<li>さっきご飯を食べたばかりなのに、もうお腹がすいてしまった。（おなか）</li>
+<li>買ったばかりの玩具がもう壊れた。（おもちゃ）（こわれた）</li>
+<li>日本に来たばかりの頃は、日本語がわからなくて本当に困った。（ころ）（こまった）</li>
+<li>山田さんは去年結婚したばかりなのに、もう離婚を考えているらしい。（きょねん）（けっこん）（りこん）（かんがえて）</li>
+</ul>
+</li>
+<li>
+<p>～たところ・～たばかり</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>～たところ</th>
+<th>～たばかり</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>～してからすぐ（さっき・ちょうどなどと使用可）「しようか」</td>
+<td>さっき買ったところ</td>
+<td>さっき買ったばかり</td>
+</tr>
+<tr>
+<td>～してから少し時間が経過（～日前・先週・去年などと使用可）「けいか」</td>
+<td>Ｘ一週間前に買ったところ</td>
+<td>一週間前に買ったばかり</td>
+</tr>
+<tr>
+<td>名詞接続「めいしせつぞく」</td>
+<td>Ｘ買ったところの服</td>
+<td>買ったばかりの服</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h2 id="题目">题目</h2>
+<blockquote>
+<p>以下から最も適当なものを選びなさい。（いか）（もっとも）（てきとう）<br>
+　　a　ような<br>
+　　b　ように<br>
+　　c　ようだ</p>
+</blockquote>
+<ul>
+<li>1　祖母が我慢強かった（）母もよく我慢する。（そぼ）（がまん）（づよかった）</li>
+<li>2　皆が心配している（）問題点は、もう解決したのではないだろうか。（かいけつ）</li>
+<li>3　兄の話し方は実際に自分で見てきたかの（）から、とても面白い。（じっさい）</li>
+<li>4　いつも言っている（）しっかり食べることは生活習慣の基本なのです。（しゅうかん）（きほん）</li>
+<li>5　話し合ったことを忘れない（）今すぐノートに書いておいたほうがいい。（はなしあった）</li>
+<li>6　私の今の立場がまるで王様の（）とは、誰も思わないだろう。（たちば）（おうさま）</li>
+<li>7　もっと字をていねいに書く（）注意されてしまった。（ちゅうい）</li>
+<li>8　私の日本語の発音はフランス語の（）と言われた。（はつおん）</li>
+<li>9　この本は、誰でも簡単に人形が作れる（）ていねいに説明してあります。</li>
+<li>10　小さい子供でも食べられる（）メニューは何かありますか。</li>
+<li>11　表からわかる（）男女の大学進学率はほとんど同じになっています。（だんじょ）（しんがくりつ）</li>
+<li>12　早く怪我が治ります（）祈っております。（いのって）</li>
+<li>13　かぜをひかない（）外出から帰ったら手を洗いましょう。（がいしゅつ）（あらい）</li>
+</ul>
+<blockquote>
+<p>どちらか適当な方を選びなさい。（ほう）</p>
+</blockquote>
+<ul>
+<li>
+<p>1　出発の時間に（）ように6時に家を出た。（しゅっぱつ）（いえをでた）</p>
+<ul>
+<li>a　遅れる（おくれる）</li>
+<li>b　遅れない</li>
+</ul>
+</li>
+<li>
+<p>2　この窓からよく（）ように窓のそばに桜の木を植えた。（さくらのき）（うえた）</p>
+<ul>
+<li>a　見る</li>
+<li>b　見える</li>
+</ul>
+</li>
+<li>
+<p>3　よく（）ように、マイクを使いましょう。</p>
+<ul>
+<li>a　聞く</li>
+<li>b　聞こえる</li>
+</ul>
+</li>
+<li>
+<p>4　希望の大学に（）ようにと神様にお願いした。（きぼう）（かみさま）</p>
+<ul>
+<li>a　入れる</li>
+<li>b　入る</li>
+</ul>
+</li>
+<li>
+<p>5　部長から連絡が（）ように、今日の会議は2時からです。</p>
+<ul>
+<li>a　ある</li>
+<li>b　あった</li>
+</ul>
+</li>
+<li>
+<p>6　父が喜んで（）お酒を買ってきた。（よろこんで）</p>
+<ul>
+<li>a　飲みそうな</li>
+<li>b　飲むかのような</li>
+</ul>
+</li>
+<li>
+<p>7　母は地震の後も何もなかったか（）落ち着いていた。（おちついて）</p>
+<ul>
+<li>a　のように</li>
+<li>b　ように</li>
+</ul>
+</li>
+<li>
+<p>8　妹はケーキやあんパン（）甘い物ばかり食べている。（あまい）</p>
+<ul>
+<li>a　のような</li>
+<li>b　らしい</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>（）の中に「ように」か「ために」を書きなさい。</p>
+</blockquote>
+<ul>
+<li>
+<p>1　汚れをきれいに落とす（）、特別な洗剤を使ってみた。（よごれ）（おとす）（とくべつ）（せんざい）</p>
+</li>
+<li>
+<p>2　汚れがきれいに落ちる（）、特別な洗剤を使ってまた。</p>
+</li>
+<li>
+<p>3　この本は、簡単に漢字が覚え</p>
+</li>
+<li>
+<p>4　漢字をしっかり覚える（）、一つの漢字を何度も紙に書いた。</p>
+</li>
+<li>
+<p>5　覚えた漢字を忘れない（）、ときどき復習している。</p>
+</li>
+<li>
+<p>6　風邪が早く治る（）、ビタミンＣをたくさんとっています。</p>
+</li>
+<li>
+<p>7　自分の店を持つという夢を実現する（）、会社を辞めた。（やめた）（じつげん）</p>
+</li>
+<li>
+<p>8　太陽の光が部屋いっぱいに入る（）、カーテンを大きく開けてください。（たいよう）（ひかり）（あけて）</p>
+</li>
+<li>
+<p>9　大学に入る（）、私はたくさんの準備をしなければならなかった。</p>
+</li>
+<li>
+<p>10　子供がいたずらをしない（）、書類をきちんと片付けておこう。（しょるい）（かたづけ）</p>
+<blockquote>
+<p>やせるために、やせるように。<br>
+慣れるために、慣れるように。</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>「」の中の言葉を適当な形に変えて、（）の中に書きなさい。（かたち）（かえて）</p>
+</blockquote>
+<ul>
+<li>1　「見る」どうしたの。さっきから時計を（）ばかりいるね。</li>
+<li>2　「始まる」試合は（）ばかりですから、これからどうなるかわかりません。</li>
+<li>3　「便利だ」この辺りは交通が（）ばかりでなく、環境もいい。（あたり）（こうつう）（かんきょう）</li>
+<li>4　「ひどくなる」最近頭痛が（）ばかりなので、医者に相談することにした。（ずつう）（そうだん）</li>
+<li>5　「降り始める」雨が（）ばかりでなく、風も強くなった。</li>
+<li>6　「押す」書類はもう書き終わった。後ははんこを（）ばかりだ。（おす）</li>
+<li>7　「見ている」ボランティアには始めて参加したので、ただ（）ばかりだった。</li>
+<li>8　「会う」（）ばかりのころは怖い人だと思ったが、意外に面白い人だった。</li>
+<li>9　「聞く」先生の話を（）ばかりでなく、どんどん質問してください。</li>
+<li>10　「悩む」先のことを（）ばかりいないで、行動してみたらどうですか。（なやむ）</li>
+</ul>
+<blockquote>
+<p>最も適当なものを選びなさい。（もっとも）（てきとう）（えらび）</p>
+</blockquote>
+<ul>
+<li>
+<p>1　私はあの有名な歌手に（）、握手もした。（あくしゅ）</p>
+<ul>
+<li>a　会うばかりで</li>
+<li>b　会ったばかりでなく</li>
+<li>c　会ってばかりいないで</li>
+</ul>
+</li>
+<li>
+<p>2　この店は昨日（）、まだお客さんが少ない。（すくない）</p>
+<ul>
+<li>a　開店ばかりして（かいてん）</li>
+<li>b　開店するばかりで</li>
+<li>c　開店したばかりで</li>
+</ul>
+</li>
+<li>
+<p>3　あのお母さんは携帯電話を（）、子供と話もしない。</p>
+<ul>
+<li>a　見たばかりで</li>
+<li>b　見たばかりでなく</li>
+<li>c　見てばかりいて</li>
+</ul>
+</li>
+<li>
+<p>4　出席者もそろったので、あとはパーティーが始まるのを（）。（しゅっせきしゃ）</p>
+<ul>
+<li>a　待つばかりだ</li>
+<li>b　待ってばかりいる</li>
+<li>c　待ったばかりだ</li>
+</ul>
+</li>
+<li>
+<p>5　子供がうまれる日が近づいたが、夫の僕は何もできない。ただ（）。（ちかづいた）（おっと）</p>
+<ul>
+<li>a　見守るばかりだ（みまもる）</li>
+<li>b　見守ったばかりだ</li>
+<li>c　見守ってばかりいる</li>
+</ul>
+</li>
+<li>
+<p>6　（）が、もう忘れてしまった。</p>
+<ul>
+<li>a　名前ばかり聞いた</li>
+<li>b　名前を聞くばかりだ</li>
+<li>c　名前を聞いたばかりだ</li>
+</ul>
+</li>
+<li>
+<p>7　最近彼は疲れているらしく、休日は（）、何もしない。</p>
+<ul>
+<li>a　寝るばかりで</li>
+<li>b　寝たばかりで</li>
+<li>c　寝るばかりでなく</li>
+</ul>
+</li>
+<li>
+<p>8　タバコをやめてから、（）。</p>
+<ul>
+<li>a　体重ばかり増える（たいじゅう）（ふえる）</li>
+<li>b　体重が増えるばかりだ</li>
+<li>c　体重が増えたばかりだ</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>（）の中に「ばかり」か「ところ」を書きなさい。</p>
+</blockquote>
+<ul>
+<li>1　家には生まれた（）の子犬が3匹います。（うまれる）（こいぬ）（びき）</li>
+<li>2　会議が始まった（）に高橋さんが入ってきた。（たかはし）</li>
+<li>3　もしもし、今新幹線に乗った（）です。そちらに8時に着くと思います。（つく）</li>
+<li>4　このパソコンはまだ買った（）なのに、調子が悪い。（ちょうし）（わるい）</li>
+<li>5　彼は1か月前に日本に来た（）だそうです。でも、日本語が上手ですね。</li>
+<li>6　好きな曲を聞き終わった（）で、ちょうど昼休みが終わった。（きょく）</li>
+<li>7　この4月に入社した（）なので、まだ会社の人間関係がよくわからない。（にゅうしゃ）（にんげんかんけい）</li>
+</ul>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="http://wayne06.github.io/"><img src="/img/favicon.png" />WZhong</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/n3%E8%AF%AD%E6%B3%9509-%E5%AF%BE%E3%81%97%E3%81%A6/" data-toggle="tooltip" data-placement="top" title="N3语法08 - 対して">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/n3%E8%AF%AD%E6%B3%9510-%E3%82%88%E3%81%86/" data-toggle="tooltip" data-placement="top" title="N3语法09 - よう">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/ci/cd" title="ci/cd">
+                            ci/cd
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/design-pattern" title="design-pattern">
+                            design-pattern
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/devops" title="devops">
+                            devops
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/interview" title="interview">
+                            interview
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/japanese-language" title="japanese-language">
+                            japanese-language
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/jlpt" title="jlpt">
+                            jlpt
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n3" title="n3">
+                            n3
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/saas" title="saas">
+                            saas
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E5%8A%A8%E8%AF%8D%E5%8F%98%E5%BD%A2" title="动词变形">
+                            动词变形
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E6%96%87%E6%AD%8C" title="日文歌">
+                            日文歌
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E5%90%AC%E5%8A%9B" title="日语听力">
+                            日语听力
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E5%BA%94%E7%94%A8%E8%AF%BE%E6%96%87" title="日语应用课文">
+                            日语应用课文
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95" title="日语语法">
+                            日语语法
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%A0%87%E5%87%86%E6%97%A5%E6%9C%AC%E8%AF%AD" title="标准日本语">
+                            标准日本语
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="http://jskillcloud.com/">杨波的博客</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="WZhong" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:zs577215@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    <li>
+                        <a target="_blank" href="/img/wechat_qrcode.jpg">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/wayne06">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yourlinkedinid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/yourstackoverflowid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+            
+                    
+                    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; WZhong 2021
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>
