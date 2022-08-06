@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－1．販促対象検索処理" />
-    <meta property="og:title" content="仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－1．販促対象検索処理" />
-    <meta property="twitter:title" content="仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－1．販促対象検索処理" />
+    <meta name="title" content="仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－2．受注処理" />
+    <meta property="og:title" content="仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－2．受注処理" />
+    <meta property="twitter:title" content="仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－2．受注処理" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－1．販促対象検索処理-Wayne Zhong Blog</title>
+    <title>仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－2．受注処理-Wayne Zhong Blog</title>
 
-    <link rel="canonical" href="/post/%E4%BB%95%E4%BA%8B%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E3.1/">
+    <link rel="canonical" href="/post/%E4%BB%95%E4%BA%8B%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E3.2/">
 
     <link rel="stylesheet" href="/css/iDisqus.min.css"/>
 	
@@ -192,7 +192,7 @@
                         </a>
                         
                     </div>
-                    <h1>仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－1．販促対象検索処理</h1>
+                    <h1>仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－2．受注処理</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by 
@@ -230,7 +230,7 @@
                 </header>
                 <nav id="TableOfContents">
   <ul>
-    <li><a href="#0-ダイアグラム">0. ダイアグラム</a></li>
+    <li><a href="#0-モデル会話">0. モデル会話</a></li>
     <li><a href="#1-目標">1. 目標</a></li>
     <li><a href="#2-表現の理解">2. 表現の理解</a></li>
     <li><a href="#3-聞き取り練習">3. 聞き取り練習</a></li>
@@ -240,45 +240,14 @@
   </ul>
 </nav>
                 
-                <h2 id="0-ダイアグラム">0. ダイアグラム</h2>
-<ul>
-<li>
-<p>0.　スタート</p>
-</li>
-<li>
-<p>1.　販促トップ　（顧客管理のトップページから販促のアイコンをクリックして、販促活動の設定を始める。）</p>
-</li>
-<li>
-<p>2.　媒体を選択　（はがき、タックシールなどから販促媒体を選ぶ。）</p>
-</li>
-<li>
-<p>3.　顧客情報検索　（最終購買日、累計購買回数、累計購買金額などで優良顧客を選択する。）</p>
-</li>
-<li>
-<p>4.　検索結果</p>
-<ul>
-<li>&lt;=30　4.1　画面に出力する　（該当するデータが検索結果画面に表示される。）
-<ul>
-<li>5.　出力</li>
-<li>6.　エンド</li>
-</ul>
-</li>
-<li>&gt;30　4.2　絞り込むか確認　（検索結果が30より多い時は、確認画面が現れ、さらに絞り込むか選択できる。）
-<ul>
-<li>絞り込む　（「はい」ボタンを押すと、親画面に戻って検索条件を追加できる。）　=&gt; 3</li>
-<li>絞り込まない　=&gt; 4.1</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+                <h2 id="0-モデル会話">0. モデル会話</h2>
 <h2 id="1-目標">1. 目標</h2>
 <ul>
 <li>
-<p>仕様書の顧客管理に関する語彙が理解できる</p>
+<p>仕様書の販売管理に関する語彙が理解できる</p>
 </li>
 <li>
-<p>販促活動の対象を選ぶ処理が理解できる</p>
+<p>受注データ登録処理の流れが理解できる</p>
 </li>
 </ul>
 <h2 id="2-表現の理解">2. 表現の理解</h2>
@@ -296,147 +265,81 @@
 </thead>
 <tbody>
 <tr>
-<td>アイコン</td>
-<td>icon</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>売上数量</td>
-<td>sales quantity</td>
-<td></td>
+<td>完了</td>
+<td>かんりょう</td>
+<td>completion</td>
 <td></td>
 </tr>
 <tr>
-<td>売上日時</td>
-<td>time and date of sale</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>該当する</td>
-<td>~referred to</td>
-<td></td>
+<td>警告</td>
+<td>けいこく</td>
+<td>alert</td>
 <td></td>
 </tr>
 <tr>
-<td>加える</td>
-<td>to add</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>検索結果</td>
-<td>search results</td>
-<td></td>
+<td>限度額</td>
+<td>げんどがく</td>
+<td>maximum monetary amount</td>
 <td></td>
 </tr>
 <tr>
-<td>国産</td>
-<td>domestic production</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>最終購買日</td>
-<td>last purchasing date</td>
-<td>さいしゅうこうばいび</td>
+<td>超える</td>
+<td>こえる</td>
+<td>exceed</td>
 <td></td>
 </tr>
 <tr>
-<td>絞り込む</td>
-<td>to narrow, filter</td>
-<td>しぼりこむ</td>
+<td>誤入力</td>
+<td>ごにゅうりょく</td>
+<td>entry error</td>
 <td></td>
 </tr>
 <tr>
-<td>示す</td>
-<td>to indicate</td>
-<td>しめす</td>
+<td>在庫不足</td>
+<td>ざいこぶそく</td>
+<td>insufficient stock</td>
 <td></td>
 </tr>
 <tr>
-<td>ダイレクトメール</td>
-<td>DM</td>
-<td>direct mail</td>
+<td>自然な</td>
+<td>しぜんな</td>
+<td>natural</td>
 <td></td>
 </tr>
 <tr>
-<td>長期間</td>
-<td>long period</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>提示する</td>
-<td>to appear, to present</td>
-<td></td>
+<td>望ましい</td>
+<td>のぞましい</td>
+<td>desirable, advisable</td>
 <td></td>
 </tr>
 <tr>
-<td>テーブル</td>
-<td>table</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>問わない</td>
-<td>doesn't consider</td>
-<td>とわない</td>
+<td>判断する</td>
+<td>はんだんする</td>
+<td>to judge</td>
 <td></td>
 </tr>
 <tr>
-<td>販売員コード</td>
-<td>salesperson code</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>販売促進（はんそく）</td>
-<td>sales promotion</td>
-<td></td>
+<td>判定</td>
+<td>はんてい</td>
+<td>decision, judgment</td>
 <td></td>
 </tr>
 <tr>
-<td>含める</td>
-<td>include</td>
+<td>マイナスする</td>
 <td></td>
-<td></td>
-</tr>
-<tr>
-<td>フローチャート</td>
-<td>flowchart</td>
-<td></td>
+<td>to subtract</td>
 <td></td>
 </tr>
 <tr>
-<td>優良顧客</td>
-<td>preferred customer</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>緩める</td>
-<td>loosen, relax</td>
-<td>ゆるめる</td>
+<td>戻り値</td>
+<td>もどりち</td>
+<td>return value</td>
 <td></td>
 </tr>
 <tr>
-<td>来店する</td>
-<td>visit a store</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>累計購買回数</td>
-<td>total number of purchases</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>累計購買金額</td>
-<td>total amount in purchases</td>
-<td></td>
+<td>留保</td>
+<td>りゅうほ</td>
+<td>on hold</td>
 <td></td>
 </tr>
 </tbody>
@@ -453,358 +356,406 @@
 </thead>
 <tbody>
 <tr>
-<td>一括請求</td>
-<td>bulk invoice</td>
-<td>いっかつせいきゅう</td>
-<td>批量请求</td>
-</tr>
-<tr>
-<td>受取方法</td>
+<td>受取</td>
 <td></td>
-<td>うけとりほうほう</td>
+<td>收据</td>
 <td></td>
 </tr>
 <tr>
-<td>カード番号</td>
+<td>売上</td>
 <td></td>
-<td>ばんごう</td>
+<td></td>
+<td>销售</td>
+</tr>
+<tr>
+<td>受注</td>
+<td></td>
+<td></td>
+<td>订单</td>
+</tr>
+<tr>
+<td>売掛金</td>
+<td></td>
+<td></td>
+<td>应收账款</td>
+</tr>
+<tr>
+<td>粗利表</td>
+<td>あらりひょう</td>
+<td>gross profit report</td>
 <td></td>
 </tr>
 <tr>
-<td>カード有効期限</td>
+<td>委託売上</td>
+<td>いたくうりあげ</td>
+<td>consignment sale</td>
+<td>委托销售，寄售</td>
+</tr>
+<tr>
+<td>受取手形</td>
+<td>うけとりてがた</td>
+<td>bill receivable</td>
+<td>应收票据</td>
+</tr>
+<tr>
+<td>売上一覧</td>
+<td>うりあげいちらん</td>
+<td>sales list</td>
+<td>销售一览</td>
+</tr>
+<tr>
+<td>売上集計表</td>
+<td>しゅうけいひょう</td>
+<td>sales tabulation</td>
+<td>销售汇总表</td>
+</tr>
+<tr>
+<td>売上順位表</td>
+<td>じゅんいひょう</td>
+<td>ranking of sales</td>
+<td>销售排行榜</td>
+</tr>
+<tr>
+<td>売上伝票</td>
+<td>でんぴょう</td>
+<td>sales slip, notice</td>
+<td>销售传票</td>
+</tr>
+<tr>
+<td>売上入力</td>
 <td></td>
-<td>ゆうこうきげん</td>
+<td>sales entry</td>
 <td></td>
 </tr>
 <tr>
-<td>肩書</td>
-<td>title</td>
-<td>かたがき</td>
-<td>头衔，地位</td>
-</tr>
-<tr>
-<td>空メール登録</td>
-<td>register by blank email</td>
-<td>から</td>
+<td>売上返品</td>
+<td>へんぴん</td>
+<td>returned sales item</td>
 <td></td>
 </tr>
 <tr>
-<td>既存顧客</td>
-<td>existing customer</td>
-<td>きぞんこきゃく</td>
+<td>売上明細表</td>
+<td>めいさいひょう</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
-<td>休眠顧客</td>
-<td>dormant/idle customer</td>
-<td>きゅうみんこきゃく</td>
+<td>売掛金回収</td>
+<td>うりかけきんかいしゅう</td>
+<td>collection of accounts receivable</td>
+<td>回收应收账款</td>
+</tr>
+<tr>
+<td>売掛金残高</td>
+<td>うりかけきんざんだか</td>
+<td>accounts receivable balance</td>
+<td>应收账款余额</td>
+</tr>
+<tr>
+<td>送り状</td>
+<td>おくりじょう</td>
+<td></td>
+<td>发货单</td>
+</tr>
+<tr>
+<td>確保</td>
+<td>かくほ</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
-<td>銀行口座</td>
-<td>bank account</td>
-<td>ぎんこうこうざ</td>
+<td>繰越売掛金残高</td>
+<td>くりこし</td>
+<td></td>
+<td>结转应收账款余额</td>
+</tr>
+<tr>
+<td>月次売上推移表</td>
+<td>げつじうりあげすいいひょう</td>
+<td></td>
+<td>月销售图</td>
+</tr>
+<tr>
+<td>月末締め</td>
+<td>げつまつじめ</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
-<td>銀行振込</td>
+<td>支払通知書</td>
+<td>しはらいつうちしょ</td>
 <td></td>
+<td></td>
+</tr>
+<tr>
+<td>支払予定</td>
+<td>しはらいよてい</td>
+<td>expected date of payment</td>
+<td></td>
+</tr>
+<tr>
+<td>締め日</td>
+<td>しめび</td>
+<td>closing date</td>
+<td></td>
+</tr>
+<tr>
+<td>社員立替</td>
+<td>しゃいんたてかえ</td>
+<td></td>
+<td>社员垫付</td>
+</tr>
+<tr>
+<td>受注一覧</td>
+<td>じゅちゅういちらん</td>
+<td>order list</td>
+<td>订单一览</td>
+</tr>
+<tr>
+<td>受注伝票</td>
+<td>じゅちゅうでんぴょう</td>
+<td></td>
+<td>订单传票</td>
+</tr>
+<tr>
+<td>受注入力</td>
+<td>じゅちゅうにゅうりょく</td>
+<td>order entry</td>
+<td></td>
+</tr>
+<tr>
+<td>受注明細表</td>
+<td>じゅちゅうめいさいひょう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>出荷一覧</td>
+<td>しゅっかいちらん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>出荷依頼</td>
+<td>しゅっかいらい</td>
+<td>shipment request</td>
+<td></td>
+</tr>
+<tr>
+<td>出荷依頼一覧</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>出荷依頼書</td>
+<td>しゅっかいらいしょ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>出荷依頼入力</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>出荷処理</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>出荷入力</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>消化売上</td>
+<td>しょうかうりあげ</td>
+<td>consignment sale</td>
+<td></td>
+</tr>
+<tr>
+<td>商品価格表</td>
+<td>しょうひんかかくひょう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>商品コード</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>商品別売上</td>
+<td>しょうひんべつうりあげ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>前年同月比</td>
+<td>ぜんねんどうげつひ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>送付先</td>
+<td>そうふさき</td>
+<td>destination</td>
+<td></td>
+</tr>
+<tr>
+<td>宅急便</td>
+<td>たっきゅうびん</td>
+<td></td>
+<td>快递服务</td>
+</tr>
+<tr>
+<td>担当者別売上</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>注文書</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>注文書受領</td>
+<td>じゅりょう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>直送</td>
+<td>ちょくそう</td>
+<td>direct delivery</td>
+<td></td>
+</tr>
+<tr>
+<td>通常売上</td>
+<td>つうじょう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>定価販売</td>
+<td>ていかはんばい</td>
+<td></td>
+<td>固定价格销售</td>
+</tr>
+<tr>
+<td>得意先区分</td>
+<td>とくいさきくぶん</td>
+<td>customer classification</td>
+<td></td>
+</tr>
+<tr>
+<td>得意先住所録</td>
+<td>じゅうしょろく</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>入金</td>
+<td>にゅうきん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>入金確定</td>
+<td>にゅうきんかくてい</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>入金集計表</td>
+<td>しゅうけいひょう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>入金振込</td>
 <td>ふりこみ</td>
-<td>银行转账</td>
-</tr>
-<tr>
-<td>勤務先電話番号</td>
-<td>office telephone number</td>
-<td>きんむさき</td>
-<td></td>
-</tr>
-<tr>
-<td>クレジットカード</td>
-<td></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>クレジット限度額</td>
-<td>credit limit</td>
-<td>げんどがく</td>
+<td>入金明細表</td>
+<td>めいさいひょう</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
-<td>敬称</td>
+<td>納品</td>
+<td>のうひん</td>
 <td></td>
-<td>けいしょう</td>
-<td></td>
+<td>交货</td>
 </tr>
 <tr>
-<td>現金</td>
-<td></td>
-<td>げんきん</td>
-<td></td>
-</tr>
-<tr>
-<td>広告配信</td>
-<td></td>
-<td>こうこくはいしん</td>
-<td>广告投放</td>
-</tr>
-<tr>
-<td>購買履歴</td>
-<td></td>
-<td>こうばいりれき</td>
-<td></td>
-</tr>
-<tr>
-<td>小切手</td>
-<td>check</td>
-<td>こぎって</td>
-<td>支票</td>
-</tr>
-<tr>
-<td>個別請求</td>
-<td>invoice by individual</td>
-<td>こべつせいきゅう</td>
-<td></td>
-</tr>
-<tr>
-<td>コンビニ受取</td>
-<td></td>
-<td>うけとり</td>
-<td></td>
-</tr>
-<tr>
-<td>コンビニ支払い</td>
-<td></td>
-<td>しはらい</td>
-<td></td>
-</tr>
-<tr>
-<td>最新受注日</td>
-<td>date of latest order receipt</td>
-<td>さいしんじゅちゅうび</td>
-<td></td>
-</tr>
-<tr>
-<td>初回受注日</td>
-<td>date of first order receipt</td>
-<td>しょかいじゅちゅうび</td>
-<td></td>
-</tr>
-<tr>
-<td>自宅</td>
-<td></td>
-<td>じたく</td>
-<td></td>
-</tr>
-<tr>
-<td>自宅電話番号</td>
+<td>納品書</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>自動返信</td>
+<td>販売予算</td>
+<td></td>
+<td>sales budget</td>
+<td></td>
+</tr>
+<tr>
+<td>引当</td>
+<td>ひきあて</td>
+<td></td>
+<td>担保，预备金</td>
+</tr>
+<tr>
+<td>振込</td>
+<td>ふりこみ</td>
+<td></td>
+<td>存入户头，转账</td>
+</tr>
+<tr>
+<td>振込予定</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>支払方法</td>
+<td>見積書</td>
+<td>みつもりしょ</td>
+<td>price quotation</td>
+<td>报价单</td>
+</tr>
+<tr>
+<td>見積入力</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>氏名</td>
-<td></td>
-<td>しめい</td>
-<td></td>
-</tr>
-<tr>
-<td>氏名読み</td>
-<td></td>
-<td>しめいよみ</td>
-<td></td>
-</tr>
-<tr>
-<td>住所</td>
-<td></td>
-<td>じゅうしょ</td>
-<td></td>
-</tr>
-<tr>
-<td>照会</td>
-<td>reference</td>
-<td>しょうかい</td>
-<td></td>
-</tr>
-<tr>
-<td>職業</td>
-<td></td>
-<td>しょくぎょう</td>
-<td></td>
-</tr>
-<tr>
-<td>女性</td>
-<td></td>
-<td>じょせい</td>
-<td></td>
-</tr>
-<tr>
-<td>男性</td>
-<td></td>
-<td>だんせい</td>
-<td></td>
-</tr>
-<tr>
-<td>所属会社</td>
-<td></td>
-<td>しょぞくがいしゃ</td>
-<td></td>
-</tr>
-<tr>
-<td>新規顧客</td>
-<td></td>
-<td>しんきこきゃく</td>
-<td></td>
-</tr>
-<tr>
-<td>性別</td>
-<td></td>
-<td>せいべつ</td>
-<td></td>
-</tr>
-<tr>
-<td>潜在顧客</td>
-<td></td>
-<td>せんざいこきゃく</td>
-<td></td>
-</tr>
-<tr>
-<td>代金引換（代引）</td>
-<td>cash on delivery</td>
-<td>だいきんひきかえ（だいびき）</td>
-<td></td>
-</tr>
-<tr>
-<td>宅配便受取</td>
-<td>delivery receipt</td>
-<td>たくはいびんうけとり</td>
-<td></td>
-</tr>
-<tr>
-<td>タックシール</td>
-<td>mailing label</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>手形</td>
-<td></td>
-<td>てがた</td>
-<td>手印，票据</td>
-</tr>
-<tr>
-<td>デビットカード</td>
-<td>debit card</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>店舗受取</td>
-<td></td>
-<td>てんぽうけとり</td>
-<td></td>
-</tr>
-<tr>
-<td>当座預金</td>
-<td></td>
-<td>とうざよきん</td>
-<td>支票活期存款</td>
-</tr>
-<tr>
-<td>督促</td>
-<td>dunning</td>
-<td>とくそく</td>
-<td>督促，催促</td>
-</tr>
-<tr>
-<td>督促履歴</td>
+<td>見積明細表</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>都道府県</td>
-<td></td>
-<td>とどうふけん</td>
-<td>都道府县</td>
-</tr>
-<tr>
-<td>取引履歴</td>
-<td>transaction record</td>
-<td>とりひきりれき</td>
-<td></td>
-</tr>
-<tr>
-<td>配達日時</td>
-<td></td>
-<td>はいたつにちじ</td>
-<td></td>
-</tr>
-<tr>
-<td>ファクス番号</td>
-<td></td>
+<td>要素</td>
+<td>ようそ</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>普通預金</td>
+<td>予算実績対比表</td>
+<td>よさんじっせきたいひひょう</td>
 <td></td>
-<td>ふつうよきん</td>
-<td>普通存款</td>
-</tr>
-<tr>
-<td>見込み顧客</td>
-<td>prospective customer</td>
-<td>みこみ</td>
-<td>可能客户</td>
-</tr>
-<tr>
-<td>名義人</td>
-<td>title holder</td>
-<td>めいぎにん</td>
-<td></td>
-</tr>
-<tr>
-<td>郵便番号</td>
-<td></td>
-<td>ゆうびんばんごう</td>
-<td></td>
-</tr>
-<tr>
-<td>郵便振替</td>
-<td>postal transfer（of funds）</td>
-<td>ゆうびんふりかえ</td>
-<td></td>
-</tr>
-<tr>
-<td>与信</td>
-<td>credit</td>
-<td>よしん</td>
-<td></td>
-</tr>
-<tr>
-<td>与信限度</td>
-<td>credit limit</td>
-<td>よしんげんど</td>
-<td></td>
-</tr>
-<tr>
-<td>与信保留</td>
-<td>credit hold</td>
-<td>よしんほりゅう</td>
-<td></td>
+<td>预算、实际 对照表</td>
 </tr>
 </tbody>
 </table>
@@ -856,15 +807,10 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/%E4%BB%95%E4%BA%8B%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E2.15/" data-toggle="tooltip" data-placement="top" title="仕事の日本語－2．場面で覚える－プロジェクトチームの一員になろう－15．オペレーションデモ">&larr;
+                        <a href="/post/%E4%BB%95%E4%BA%8B%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E3.1/" data-toggle="tooltip" data-placement="top" title="仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－1．販促対象検索処理">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/post/%E4%BB%95%E4%BA%8B%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E3.2/" data-toggle="tooltip" data-placement="top" title="仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－2．受注処理">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
 
