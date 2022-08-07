@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－2．受注処理" />
-    <meta property="og:title" content="仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－2．受注処理" />
-    <meta property="twitter:title" content="仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－2．受注処理" />
+    <meta name="title" content="仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－3．発注処理" />
+    <meta property="og:title" content="仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－3．発注処理" />
+    <meta property="twitter:title" content="仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－3．発注処理" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－2．受注処理-Wayne Zhong Blog</title>
+    <title>仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－3．発注処理-Wayne Zhong Blog</title>
 
-    <link rel="canonical" href="/post/%E4%BB%95%E4%BA%8B%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E3.2/">
+    <link rel="canonical" href="/post/%E4%BB%95%E4%BA%8B%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E3.3/">
 
     <link rel="stylesheet" href="/css/iDisqus.min.css"/>
 	
@@ -192,7 +192,7 @@
                         </a>
                         
                     </div>
-                    <h1>仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－2．受注処理</h1>
+                    <h1>仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－3．発注処理</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by 
@@ -200,7 +200,7 @@
                                 WZhong
                          
                         on 
-                        Thursday, August 4, 2022
+                        Sunday, August 7, 2022
                         
                         
                         
@@ -230,7 +230,7 @@
                 </header>
                 <nav id="TableOfContents">
   <ul>
-    <li><a href="#0-モデル会話">0. モデル会話</a></li>
+    <li><a href="#0-フローチャート">0. フローチャート</a></li>
     <li><a href="#1-目標">1. 目標</a></li>
     <li><a href="#2-表現の理解">2. 表現の理解</a></li>
     <li><a href="#3-聞き取り練習">3. 聞き取り練習</a></li>
@@ -240,17 +240,34 @@
   </ul>
 </nav>
                 
-                <h2 id="0-モデル会話">0. モデル会話</h2>
+                <h2 id="0-フローチャート">0. フローチャート</h2>
 <h2 id="1-目標">1. 目標</h2>
 <ul>
 <li>
-<p>仕様書の販売管理に関する語彙が理解できる</p>
+<p>仕様書の在庫管理に関する語彙が理解できる</p>
 </li>
 <li>
-<p>受注データ登録処理の流れが理解できる</p>
+<p>在庫移動処理の流れが理解できる</p>
 </li>
 </ul>
 <h2 id="2-表現の理解">2. 表現の理解</h2>
+<ul>
+<li>
+<p>店舗の在庫数が発注点を下回った時は、在庫移動画面が表示される。</p>
+</li>
+<li>
+<p>ユーザーが入力した商品コードと数量によって、移動元の倉庫の在庫引当を行う。</p>
+</li>
+<li>
+<p>倉庫の在庫数が発注点よりも多い時は、在庫移動を確定する。</p>
+</li>
+<li>
+<p>移動によって、移動元の倉庫の在庫数が発注点以下になる時は、在庫補充画面が開かれる。</p>
+</li>
+<li>
+<p>補充する商品の仕入先が複数する時は、仕入先選択画面を表示する。</p>
+</li>
+</ul>
 <h2 id="3-聞き取り練習">3. 聞き取り練習</h2>
 <h2 id="4-やってみよう">4. やってみよう</h2>
 <h2 id="5-語彙">5. 語彙</h2>
@@ -265,81 +282,81 @@
 </thead>
 <tbody>
 <tr>
-<td>完了</td>
-<td>かんりょう</td>
-<td>completion</td>
+<td>移動元</td>
+<td>いどうもと</td>
+<td>source of movement</td>
 <td></td>
 </tr>
 <tr>
-<td>警告</td>
-<td>けいこく</td>
-<td>alert</td>
+<td>売れ残る</td>
+<td>うれのこる</td>
+<td>unsold</td>
+<td>未售出</td>
+</tr>
+<tr>
+<td>～を返す</td>
+<td>～をかえす</td>
+<td>to return</td>
 <td></td>
 </tr>
 <tr>
-<td>限度額</td>
-<td>げんどがく</td>
-<td>maximum monetary amount</td>
+<td>価格</td>
+<td>かかく</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
-<td>超える</td>
-<td>こえる</td>
-<td>exceed</td>
+<td>区分</td>
+<td>くぶん</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
-<td>誤入力</td>
-<td>ごにゅうりょく</td>
-<td>entry error</td>
+<td>現状では</td>
+<td>げんじょうでは</td>
+<td>currently</td>
 <td></td>
 </tr>
 <tr>
-<td>在庫不足</td>
-<td>ざいこぶそく</td>
-<td>insufficient stock</td>
+<td>在庫移動</td>
+<td>ざいこいどう</td>
+<td>inventory movement</td>
 <td></td>
 </tr>
 <tr>
-<td>自然な</td>
-<td>しぜんな</td>
-<td>natural</td>
+<td>在庫引当</td>
+<td>ざいこひきあて</td>
+<td>inventory security</td>
+<td>库存担保</td>
+</tr>
+<tr>
+<td>在庫補充</td>
+<td>ざいこほじゅう</td>
+<td></td>
+<td>库存补充</td>
+</tr>
+<tr>
+<td>生鮮食料品</td>
+<td>せいせんしょくりょうひん</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
-<td>望ましい</td>
-<td>のぞましい</td>
-<td>desirable, advisable</td>
+<td>日時</td>
+<td>にちじ</td>
+<td>date and time</td>
 <td></td>
 </tr>
 <tr>
-<td>判断する</td>
-<td>はんだんする</td>
-<td>to judge</td>
+<td>廃棄する</td>
+<td>はいきする</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
-<td>判定</td>
-<td>はんてい</td>
-<td>decision, judgment</td>
+<td>発注点</td>
+<td>はっちゅうてん</td>
 <td></td>
-</tr>
-<tr>
-<td>マイナスする</td>
-<td></td>
-<td>to subtract</td>
-<td></td>
-</tr>
-<tr>
-<td>戻り値</td>
-<td>もどりち</td>
-<td>return value</td>
-<td></td>
-</tr>
-<tr>
-<td>留保</td>
-<td>りゅうほ</td>
-<td>on hold</td>
 <td></td>
 </tr>
 </tbody>
@@ -356,406 +373,322 @@
 </thead>
 <tbody>
 <tr>
-<td>受取</td>
+<td>タグ</td>
+<td>tag</td>
 <td></td>
-<td>收据</td>
 <td></td>
 </tr>
 <tr>
-<td>売上</td>
+<td>安全在庫量</td>
+<td>safety stock</td>
 <td></td>
 <td></td>
-<td>销售</td>
 </tr>
 <tr>
-<td>受注</td>
+<td>運送会社</td>
+<td>うんそうかいしゃ</td>
+<td>transport company</td>
 <td></td>
-<td></td>
-<td>订单</td>
 </tr>
 <tr>
-<td>売掛金</td>
+<td>期首在庫数</td>
+<td>きしゅざいこすう</td>
+<td>starting inventory number</td>
 <td></td>
-<td></td>
-<td>应收账款</td>
 </tr>
 <tr>
-<td>粗利表</td>
-<td>あらりひょう</td>
-<td>gross profit report</td>
+<td>期末在庫数</td>
+<td>きまつ</td>
+<td>final inventory number</td>
 <td></td>
-</tr>
-<tr>
-<td>委託売上</td>
-<td>いたくうりあげ</td>
-<td>consignment sale</td>
-<td>委托销售，寄售</td>
-</tr>
-<tr>
-<td>受取手形</td>
-<td>うけとりてがた</td>
-<td>bill receivable</td>
-<td>应收票据</td>
-</tr>
-<tr>
-<td>売上一覧</td>
-<td>うりあげいちらん</td>
-<td>sales list</td>
-<td>销售一览</td>
-</tr>
-<tr>
-<td>売上集計表</td>
-<td>しゅうけいひょう</td>
-<td>sales tabulation</td>
-<td>销售汇总表</td>
 </tr>
 <tr>
-<td>売上順位表</td>
-<td>じゅんいひょう</td>
-<td>ranking of sales</td>
-<td>销售排行榜</td>
+<td>欠品</td>
+<td>けっぴん</td>
+<td>out of stock item</td>
+<td>短缺品</td>
 </tr>
 <tr>
-<td>売上伝票</td>
-<td>でんぴょう</td>
-<td>sales slip, notice</td>
-<td>销售传票</td>
+<td>検品</td>
+<td>けんぴん</td>
+<td>inspection of goods</td>
+<td></td>
 </tr>
 <tr>
-<td>売上入力</td>
+<td>在庫移動指示書</td>
+<td>しじしょ</td>
 <td></td>
-<td>sales entry</td>
 <td></td>
 </tr>
 <tr>
-<td>売上返品</td>
-<td>へんぴん</td>
-<td>returned sales item</td>
+<td>在庫回転日数</td>
+<td>かいてんにっすう</td>
 <td></td>
+<td>库存周转天数</td>
 </tr>
 <tr>
-<td>売上明細表</td>
-<td>めいさいひょう</td>
+<td>在庫回転率</td>
 <td></td>
 <td></td>
+<td>库存周转率</td>
 </tr>
 <tr>
-<td>売掛金回収</td>
-<td>うりかけきんかいしゅう</td>
-<td>collection of accounts receivable</td>
-<td>回收应收账款</td>
+<td>在庫切れ</td>
+<td>ざいこぎれ</td>
+<td>out of stock</td>
+<td>缺货</td>
 </tr>
 <tr>
-<td>売掛金残高</td>
-<td>うりかけきんざんだか</td>
-<td>accounts receivable balance</td>
-<td>应收账款余额</td>
+<td>在庫調整</td>
+<td>ちょうせい</td>
+<td>inventory adjustment</td>
+<td>库存调整</td>
 </tr>
 <tr>
-<td>送り状</td>
-<td>おくりじょう</td>
+<td>最小在庫量</td>
+<td>さいしょう</td>
+<td>minimum stock</td>
 <td></td>
-<td>发货单</td>
 </tr>
 <tr>
-<td>確保</td>
-<td>かくほ</td>
+<td>最大在庫量</td>
+<td>さいだい</td>
+<td>maximum stock</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
-<td>繰越売掛金残高</td>
-<td>くりこし</td>
-<td></td>
-<td>结转应收账款余额</td>
+<td>下回る</td>
+<td>したまわる</td>
+<td>fall below</td>
+<td>低于</td>
 </tr>
 <tr>
-<td>月次売上推移表</td>
-<td>げつじうりあげすいいひょう</td>
+<td>出庫</td>
+<td>しゅっこ</td>
+<td>shipment from warehouse</td>
 <td></td>
-<td>月销售图</td>
 </tr>
 <tr>
-<td>月末締め</td>
-<td>げつまつじめ</td>
+<td>出庫数量</td>
+<td>しゅっこすうりょう</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>支払通知書</td>
-<td>しはらいつうちしょ</td>
+<td>出庫日</td>
+<td>しゅっこび</td>
 <td></td>
-<td></td>
-</tr>
-<tr>
-<td>支払予定</td>
-<td>しはらいよてい</td>
-<td>expected date of payment</td>
 <td></td>
 </tr>
 <tr>
-<td>締め日</td>
-<td>しめび</td>
-<td>closing date</td>
+<td>出庫明細</td>
+<td>めいさい</td>
 <td></td>
-</tr>
-<tr>
-<td>社員立替</td>
-<td>しゃいんたてかえ</td>
 <td></td>
-<td>社员垫付</td>
 </tr>
 <tr>
-<td>受注一覧</td>
-<td>じゅちゅういちらん</td>
-<td>order list</td>
-<td>订单一览</td>
+<td>需要予測</td>
+<td>じゅようよそく</td>
+<td>demand forecast</td>
+<td>需求预测</td>
 </tr>
 <tr>
-<td>受注伝票</td>
-<td>じゅちゅうでんぴょう</td>
+<td>前月在庫数</td>
+<td>ぜんげつ</td>
 <td></td>
-<td>订单传票</td>
-</tr>
-<tr>
-<td>受注入力</td>
-<td>じゅちゅうにゅうりょく</td>
-<td>order entry</td>
 <td></td>
 </tr>
 <tr>
-<td>受注明細表</td>
-<td>じゅちゅうめいさいひょう</td>
+<td>倉庫</td>
+<td>そうこ</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>出荷一覧</td>
-<td>しゅっかいちらん</td>
+<td>倉庫コード</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td>出荷依頼</td>
-<td>しゅっかいらい</td>
-<td>shipment request</td>
 <td></td>
 </tr>
 <tr>
-<td>出荷依頼一覧</td>
-<td></td>
-<td></td>
-<td></td>
+<td>棚卸</td>
+<td>たなおろし</td>
+<td>take inventory</td>
+<td>盘点，盘货</td>
 </tr>
 <tr>
-<td>出荷依頼書</td>
-<td>しゅっかいらいしょ</td>
-<td></td>
-<td></td>
+<td>調達</td>
+<td>ちょうたつ</td>
+<td>procurement</td>
+<td>采购，筹集，购买</td>
 </tr>
 <tr>
-<td>出荷依頼入力</td>
+<td>調達期間</td>
 <td></td>
+<td>adjustment period</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
-<td>出荷処理</td>
-<td></td>
+<td>定期発注方式</td>
+<td>ていきはっちゅうほうしき</td>
+<td>periodic ordering system</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
-<td>出荷入力</td>
-<td></td>
+<td>定量発注方式</td>
+<td>ていりょう</td>
+<td>fixed quantity ordering system</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
-<td>消化売上</td>
-<td>しょうかうりあげ</td>
-<td>consignment sale</td>
+<td>適正在庫</td>
+<td>てきせいざいこ</td>
+<td>appropriate inventory</td>
 <td></td>
 </tr>
 <tr>
-<td>商品価格表</td>
-<td>しょうひんかかくひょう</td>
+<td>デッドストック</td>
 <td></td>
 <td></td>
+<td>死存货</td>
 </tr>
 <tr>
-<td>商品コード</td>
-<td></td>
-<td></td>
+<td>電子荷札</td>
+<td>でんしにふだ</td>
+<td>electronic tag</td>
 <td></td>
 </tr>
 <tr>
-<td>商品別売上</td>
-<td>しょうひんべつうりあげ</td>
+<td>店頭在庫</td>
+<td>てんとうざいこ</td>
+<td>store inventory</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
-<td>前年同月比</td>
-<td>ぜんねんどうげつひ</td>
-<td></td>
+<td>当月在庫数</td>
+<td>とうげつ</td>
 <td></td>
-</tr>
-<tr>
-<td>送付先</td>
-<td>そうふさき</td>
-<td>destination</td>
 <td></td>
 </tr>
 <tr>
-<td>宅急便</td>
-<td>たっきゅうびん</td>
+<td>入荷検品書</td>
+<td>にゅうかけんぴんしょ</td>
 <td></td>
-<td>快递服务</td>
+<td>收货检验报告</td>
 </tr>
 <tr>
-<td>担当者別売上</td>
+<td>入庫</td>
+<td>にゅうこ</td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr>
-<td>注文書</td>
+<td>入庫数量</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>注文書受領</td>
-<td>じゅりょう</td>
+<td>入庫日</td>
 <td></td>
 <td></td>
-</tr>
-<tr>
-<td>直送</td>
-<td>ちょくそう</td>
-<td>direct delivery</td>
 <td></td>
 </tr>
 <tr>
-<td>通常売上</td>
-<td>つうじょう</td>
-<td></td>
+<td>入庫明細</td>
 <td></td>
-</tr>
-<tr>
-<td>定価販売</td>
-<td>ていかはんばい</td>
 <td></td>
-<td>固定价格销售</td>
-</tr>
-<tr>
-<td>得意先区分</td>
-<td>とくいさきくぶん</td>
-<td>customer classification</td>
 <td></td>
 </tr>
 <tr>
-<td>得意先住所録</td>
-<td>じゅうしょろく</td>
+<td>入出庫履歴</td>
+<td>にゅうしゅっこりれき</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>入金</td>
-<td>にゅうきん</td>
+<td>納入日</td>
+<td>のうにゅうび</td>
+<td>date of delivery</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
-<td>入金確定</td>
-<td>にゅうきんかくてい</td>
-<td></td>
+<td>廃棄処分</td>
+<td>はいきしょぶん</td>
+<td>disposal of used items</td>
 <td></td>
 </tr>
 <tr>
-<td>入金集計表</td>
-<td>しゅうけいひょう</td>
+<td>配送</td>
+<td>はいそう</td>
+<td>delivery</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
-<td>入金振込</td>
-<td>ふりこみ</td>
-<td></td>
+<td>発注点在庫</td>
+<td>はっちゅうてんざいこ</td>
+<td>reorder point inventory</td>
 <td></td>
 </tr>
 <tr>
-<td>入金明細表</td>
-<td>めいさいひょう</td>
+<td>パレット</td>
 <td></td>
+<td>pallet</td>
 <td></td>
 </tr>
 <tr>
-<td>納品</td>
-<td>のうひん</td>
+<td>販売予測</td>
+<td>はんばいよそく</td>
+<td>sales forecast</td>
 <td></td>
-<td>交货</td>
 </tr>
 <tr>
-<td>納品書</td>
+<td>ピッキングリスト</td>
+<td>picking list</td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr>
-<td>販売予算</td>
-<td></td>
-<td>sales budget</td>
+<td>物流</td>
+<td>ぶつりゅう</td>
+<td>physical distribution</td>
 <td></td>
 </tr>
 <tr>
-<td>引当</td>
-<td>ひきあて</td>
+<td>保管料</td>
+<td>ほかんりょう</td>
+<td>storage fee</td>
 <td></td>
-<td>担保，预备金</td>
 </tr>
 <tr>
-<td>振込</td>
-<td>ふりこみ</td>
+<td>輸送手段</td>
+<td>ゆそうしゅだん</td>
+<td>means of transport</td>
 <td></td>
-<td>存入户头，转账</td>
 </tr>
 <tr>
-<td>振込予定</td>
-<td></td>
-<td></td>
+<td>リードタイム</td>
 <td></td>
+<td>lead time</td>
+<td>交货时间</td>
 </tr>
 <tr>
-<td>見積書</td>
-<td>みつもりしょ</td>
-<td>price quotation</td>
-<td>报价单</td>
-</tr>
-<tr>
-<td>見積入力</td>
-<td></td>
-<td></td>
+<td>流通会社</td>
+<td>りゅうつうがいしゃ</td>
+<td>distribution company</td>
 <td></td>
 </tr>
 <tr>
-<td>見積明細表</td>
+<td>ロジスティクス</td>
 <td></td>
+<td>logistics</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
-<td>要素</td>
-<td>ようそ</td>
-<td></td>
+<td>ロット</td>
 <td></td>
-</tr>
-<tr>
-<td>予算実績対比表</td>
-<td>よさんじっせきたいひひょう</td>
+<td>lot</td>
 <td></td>
-<td>预算、实际 对照表</td>
 </tr>
 </tbody>
 </table>
@@ -807,15 +740,10 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/%E4%BB%95%E4%BA%8B%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E3.1/" data-toggle="tooltip" data-placement="top" title="仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－1．販促対象検索処理">&larr;
+                        <a href="/post/%E4%BB%95%E4%BA%8B%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E3.2/" data-toggle="tooltip" data-placement="top" title="仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－2．受注処理">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/post/%E4%BB%95%E4%BA%8B%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E3.3/" data-toggle="tooltip" data-placement="top" title="仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－3．発注処理">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
 
