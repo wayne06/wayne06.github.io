@@ -53,7 +53,7 @@
       <pubDate>Thu, 04 Aug 2022 01:25:13 +0800</pubDate>
       
       <guid>http://wayne06.github.io/post/%E4%BB%95%E4%BA%8B%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E3.1/</guid>
-      <description>0. フローチャート graph TD A --&amp;gt; B 0. スタート 1. 販促トップ （顧客管理のトップページから販促のアイコンをクリックして、販促活動の設定を始める。） 2. 媒体を</description>
+      <description>0. フローチャート graph TD A --&amp;gt; B ​mermaid graph TD A &amp;ndash;&amp;gt; B ​ ​mermaid graph LR A &amp;ndash;&amp;gt; B ​ 0. スタート 1. 販促トップ （顧客管理のトップページから販促のア</description>
     </item>
     
     <item>
