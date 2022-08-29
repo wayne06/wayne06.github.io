@@ -241,17 +241,23 @@
 </nav>
                 
                 <h2 id="0-フローチャート">0. フローチャート</h2>
-<pre><code class="language-mermaid" data-lang="mermaid">graph TD
-A --&gt; B
-</code></pre><p>​<del><del>mermaid
-graph TD
-A &ndash;&gt; B
-​</del></del></p>
-<p>​<del><del>mermaid
-graph LR
-A &ndash;&gt; B
-​</del></del></p>
-<ul>
+<pre><code class="language-mermaid" data-lang="mermaid">graph LR
+A[发起申请报销]--&gt;B(组长审核)
+B--&gt;C(根据金额走不同的流程)
+C--&gt; |money&lt;100| D(允许)
+C--&gt; |money&gt;=100| E(失败)
+G[横向流程图]
+</code></pre><pre><code class="language-mermaid" data-lang="mermaid">flowchat
+st=&gt;start: 开始框
+op=&gt;operation: 处理框
+cond=&gt;condition: 判断框(Yes/No)
+sub1=&gt;subroutine: 子流程
+io=&gt;inputoutput: 输入输出
+e=&gt;end: 结果
+st-&gt;op(right)-&gt;cond
+cond(yes)-&gt;io(right)-&gt;e
+cond(no)-&gt;sub1(right)-&gt;op
+</code></pre><ul>
 <li>
 <p>0.　スタート</p>
 </li>
