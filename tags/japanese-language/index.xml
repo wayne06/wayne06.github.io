@@ -35,7 +35,7 @@
       <pubDate>Sun, 07 Aug 2022 02:25:13 +0800</pubDate>
       
       <guid>http://wayne06.github.io/post/%E4%BB%95%E4%BA%8B%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E3.3/</guid>
-      <description>0. フローチャート 1. 目標 仕様書の在庫管理に関する語彙が理解できる 在庫移動処理の流れが理解できる 2. 表現の理解 店舗の在庫数が発注点を下回った時は、</description>
+      <description>0. フローチャート 0. スタート 1. 在庫移動トップ（店舗の在庫数が発注点を下回った時は、在庫移動画面が表示される） 2. 商品コード、数量、移動先を入力（</description>
     </item>
     
     <item>
