@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="WZhong">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="服务开发框架设计和实现" />
+    <meta property="og:title" content="服务开发框架设计和实现" />
+    <meta property="twitter:title" content="服务开发框架设计和实现" />
+    
+
+    
+    <meta name="description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan.">
+    <meta property="og:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    <meta property="twitter:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>服务开发框架设计和实现-Wayne Zhong Blog</title>
+
+    <link rel="canonical" href="/post/springboot%E4%B8%8Ekubernetes%E4%BA%91%E5%8E%9F%E7%94%9F%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%9E%E8%B7%B5-03-%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/docco.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">WZhong</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/design-pattern">design-pattern</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/it">it</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/japanese">japanese</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/java">java</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/microservice">microservice</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/others">others</a>
+                    </li>
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://img.zhaohuabing.com/post-bg-2015.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/devops" title="DevOps">
+                            DevOps
+                        </a>
+                        
+                        <a class="tag" href="/tags/ci/cd" title="CI/CD">
+                            CI/CD
+                        </a>
+                        
+                        <a class="tag" href="/tags/saas" title="SaaS">
+                            SaaS
+                        </a>
+                        
+                    </div>
+                    <h1>服务开发框架设计和实现</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                WZhong
+                         
+                        on 
+                        Tuesday, January 21, 2020
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#staffjoy项目代码组织">Staffjoy项目代码组织</a></li>
+    <li><a href="#微服务为什么采用单体仓库mono-repo">微服务为什么采用单体仓库Mono-Repo</a></li>
+    <li><a href="#微服务接口参数校验为何重要">微服务接口参数校验为何重要</a></li>
+    <li><a href="#如何实现统一异常处理">如何实现统一异常处理</a></li>
+    <li><a href="#dto和dmo为什么要互转">DTO和DMO为什么要互转</a></li>
+    <li><a href="#如何实现强类型接口设计">如何实现强类型接口设计</a></li>
+    <li><a href="#为什么框架层要考虑分环境配置">为什么框架层要考虑分环境配置</a></li>
+    <li><a href="#异步调用处理">异步调用处理</a></li>
+    <li><a href="#swagger接口文档">Swagger接口文档</a></li>
+    <li><a href="#主流服务框架概览">主流服务框架概览</a></li>
+  </ul>
+</nav>
+                
+                <h2 id="staffjoy项目代码组织">Staffjoy项目代码组织</h2>
+<ol>
+<li>
+<p>项目代码组织</p>
+</li>
+<li>
+<p>依赖管理</p>
+</li>
+</ol>
+<h2 id="微服务为什么采用单体仓库mono-repo">微服务为什么采用单体仓库Mono-Repo</h2>
+<ol>
+<li>
+<p>Multi-Repo vs Mono-Repo</p>
+</li>
+<li>
+<p>单体仓库优势</p>
+<ul>
+<li>易于规范代码，标准化依赖管理，易于Code Review，统一代码风格</li>
+<li>易于集成和部署</li>
+<li>易于开发人员理解项目整体</li>
+<li>易于重用代码，易于重构</li>
+</ul>
+</li>
+</ol>
+<h2 id="微服务接口参数校验为何重要">微服务接口参数校验为何重要</h2>
+<ol>
+<li>
+<p>控制器接口参数校验</p>
+<ul>
+<li>javax.validation.constraints内的标注，如@NotBlank、@Min(0)</li>
+</ul>
+</li>
+<li>
+<p>DTO参数校验</p>
+<ul>
+<li>javax.validation的标注，@Valid</li>
+<li>DTO类中，各field添加标注，如@NotBlank、@Email</li>
+</ul>
+</li>
+<li>
+<p>自定义标注</p>
+<ul>
+<li>自定义@PhoneNumber + 自定义PhoneNumberValidator类(实现ConstraintValidator接口)</li>
+</ul>
+</li>
+</ol>
+<h2 id="如何实现统一异常处理">如何实现统一异常处理</h2>
+<ol>
+<li>
+<p>统一异常处理</p>
+<ul>
+<li>Controller、Service、Repository层发生的异常，都会被RestControolerAdvice机制处理</li>
+</ul>
+</li>
+<li>
+<p>RestControllerAdvice</p>
+<ul>
+<li>统一异常处理类GlobalExceptionTranslator使用@RestControllerAdvice标注</li>
+</ul>
+</li>
+<li>
+<p>统一异常捕获</p>
+<ul>
+<li>捕获Spring框架本身产生的异常，如MethodArgumentTypeMismatchException</li>
+<li>捕获应用自定义异常，如自定义的ServiceException、PermissionDeniedException</li>
+<li>捕获不到的异常归入Throwable中，返回INTERNAL_SERVER_ERRO</li>
+</ul>
+</li>
+<li>
+<p>BaseResponse</p>
+<ul>
+<li>统一返回的对象类型：message、code、isSuccess</li>
+<li>使用错误封装消息，而不是直接使用HTTP返回code形式</li>
+</ul>
+</li>
+<li>
+<p>Web MVC ErrorController</p>
+<ul>
+<li>Web MVC与Rest的统一异常处理有区别</li>
+<li>Spring Rest输出的是Json消息，Spring MVC输出的是HTML页面</li>
+<li>统一异常处理类GlobalErrorController实现ErrorController接口</li>
+<li>handleError(request, model)从request中提取错误状态码和异常，判断是否需要定制的错误页面进行展示，使用Pagenotfound还是internalservererror页面</li>
+</ul>
+</li>
+</ol>
+<h2 id="dto和dmo为什么要互转">DTO和DMO为什么要互转</h2>
+<ol>
+<li>
+<p>DTO和DMO</p>
+<ul>
+<li>DTO：Data Transfer Object，用于网络间传送，api接口输入输出的地方</li>
+<li>DMO：Data Model Object，用于表达应用业务模型，需持久化，应用在数据访问层经常使用DMO，有的叫Entity Object，也有Domain Object</li>
+<li>DTO相对DMO，可能会裁剪一些字段，也可能添加一些聚合字段</li>
+<li>对于不同的api接口场景，即使使用同样的DTO，字段校验方式也可能不同，如：新建没有id字段，更新一定会有id字段</li>
+</ul>
+</li>
+<li>
+<p>互转：数据字段的拷贝</p>
+<ul>
+<li>使用modelmapper这样的字段处理工具，或BeanUtils</li>
+<li>一般在service层处理，也可以在controller层做</li>
+</ul>
+</li>
+</ol>
+<h2 id="如何实现强类型接口设计">如何实现强类型接口设计</h2>
+<ol>
+<li>
+<p>强类型 vs 弱类型</p>
+<ul>
+<li>语言
+<ul>
+<li>强类型+静态语言：类型安全的语言，编译器做强制类型检查，提前避免类型错误；服务器端开发。如Java、C#</li>
+<li>弱类型+动态语言：解释型语言，类型问题在运行器才会暴露；前端界面开发。如PHP、JS</li>
+</ul>
+</li>
+<li>服务API接口
+<ul>
+<li>强类型，定制的二进制协议对消息进行编码和解码，采用TCP传输消息；开发服务前需先用IDL(Interface Definition Language)定义契约，再通过契约生成强类型的客户端和服务器端的接口。如gRPC、Apache Thrift。优点是接口规范、自动代码生成、自动编码解码、编译期自动类型检查；缺点是客户端和服务器端强耦合、任何一方升级改动可能造成另一方break，自动代码生成需工具支持，开发成本高；测试不友好，浏览器、postman无法直接访问强类型接口</li>
+<li>弱类型，REST使用JSON传输消息，使用HTTP作为传输协议。REST没有契约概念，使用HttpClient就可以调用；但是调用方需要对Json消息进行手动编码和解码。如Spring Boot。优点：客户端服务器端松耦合、无需开发代码生成工具、一般的httpClient就可调用、开发测试友好；不足是调用方需手动编码解码消息，没有编译器接口类型检查，代码不易规范，容易出现运行器错误</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Spring Feign</p>
+<ul>
+<li>项目中在Spring REST弱类型接口的基础上，借助Spring Feign支持的强类型接口特性，实现了强类型REST接口调用机制，同时兼备强弱类型接口的好处</li>
+<li>项目中每个微服务都有两个子模块：一是api接口模块：强类型的Java api接口，包括请求响应、DTO，可以被Spring Feign引用并动态拼装出强类型的客户端；一是服务实现模块</li>
+</ul>
+</li>
+<li>
+<p>强类型接口设计</p>
+<ul>
+<li>响应对象都继承自BaseResponse对象</li>
+<li>没有业务数据的则直接使用BaseResponse对象</li>
+</ul>
+</li>
+<li>
+<p>Account Client</p>
+<ul>
+<li>@FeignClinet注解表示，运行期Spring会自动扫描和装配成强类型的客户端</li>
+</ul>
+</li>
+<li>
+<p>客户端调用服务的范例</p>
+<ul>
+<li>直接用强类型客户端(如accountClient)调用目标服务
+<ul>
+<li>若底层出现http异常，通过try-catch直接捕获</li>
+<li>若获得正常http响应，通过BaseResponse中的状态码检查：如果成功，获取响应数据，进行后续处理；如果不成功，获取BaseResponse中的异常信息，直接抛出异常</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>封装消息 + 捎带</p>
+<ul>
+<li>将http响应码打包在一个Json消息中，即BaseResponse中，称为封装消息+捎带</li>
+<li>目标是支持强类型的客户端，同时简化和规范错误处理</li>
+</ul>
+</li>
+</ol>
+<h2 id="为什么框架层要考虑分环境配置">为什么框架层要考虑分环境配置</h2>
+<ol>
+<li>
+<p>环境定义</p>
+<ul>
+<li>DEV：开发调试用，本地开发机或共享开发环境</li>
+<li>TEST：独立隔离的，一套或多套，多套可按测试种类进行划分，如功能测试环境、集成测试环境、性能测试环境等，也可按不同业务线进行划分</li>
+<li>UAT(User Acceptance Test)：独立隔离的，供上线前最后一次集成测试的环境，也称准生产环境，staging环境，一套或两套</li>
+<li>PROD：应用最终上线部署，接受用户实际流量的地方</li>
+</ul>
+</li>
+<li>
+<p>分环境</p>
+<ul>
+<li>有了规范的环境，就可以规范研发流程：如每个环境可设置质量阶段门(Quality Gate)，比如必须经过测试环境的测试才能上到UAT环境</li>
+<li>基于规范化的环境和流程，再配合自动化的继承、测试和发布工具，就可以构建持续继承和交付，即CI/CD流水线，CI/CD是现代互联网软件交付最佳实践，它的基础就是标准化的环境、交付流程和自动化工具</li>
+</ul>
+</li>
+<li>
+<p>环境配置</p>
+<ul>
+<li>EnvConfig类，定义环境是否支持debug、环境的根域名信息、是否启用https等</li>
+<li>在框架层集成环境配置后，开发人员就可以根据不同环境灵活调整程序逻辑，让一套应用代码能适用多环境：
+<ul>
+<li>如针对集中日志输出，如果使用了第三方服务，考虑到成本和价值，在开发环境中可关闭这项服务，UAT生产环境开启这项服务</li>
+<li>如针对短信发送，开发测试环境，只允许发送到公司开发测试人员的手机，不允许发送到普通用户，可通过定制环境逻辑来过滤</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>示例：在开发测试环境禁用Sentry异常日志</p>
+<ul>
+<li>如果envConfig.isDebug()，则直接返回</li>
+</ul>
+</li>
+</ol>
+<h2 id="异步调用处理">异步调用处理</h2>
+<blockquote>
+<p>大部分场景下，微服务主要采用request、response同步调用风格；邮件、短信发送等场景下使用异步调用处理</p>
+</blockquote>
+<ol>
+<li>
+<p>ThreadPoolTaskExecutor</p>
+<ul>
+<li>Spring支持的线程池org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor</li>
+<li>Task Submitter -&gt; Task Queue -&gt; Thread Pool</li>
+</ul>
+</li>
+<li>
+<p>Spring中配置异步线程池的bean：AsyncExecutor配置</p>
+<ul>
+<li>new ThreadPoolTaskExecutor()</li>
+<li>设置内部参数：corePoolSize、queueCapacity</li>
+</ul>
+</li>
+<li>
+<p>Async标注</p>
+<ul>
+<li>某个操作需要异步操作，就在方法上添加@Async注解，name与配置的bean name要一致</li>
+<li>注意两点：
+<ul>
+<li>调用方和被调用方的异步操作不能在同一个bean内，如：在AccountService这个bean内，会异步调用trackEventAsync()这个操作，那么这个trackEventAsync()方法就不能再AccountService这个bean内，所以把trackEventAsync()放在单独建立的ServiceHelper这个bean内；这样才能正常的异步工作</li>
+<li>引入异步调用之后，调用和被调用将由不同的线程执行，线程上下文会发生变化，有些线程相关的信息会被断开，需要做线程上下文的复制动作，如：用户认证信息、调用链监控tracing都是放在请求线程上下文中。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>线程上下文拷贝</p>
+<ul>
+<li>配置线程池bean时，将ContextCopyingDecorator配置到了线程池中</li>
+<li>ContextCopyingDecorator中，使用RequestContextHolder.setRequestAttributes将请求上下文复制到新的线程</li>
+<li>线程结束运行后，返回的时候，使用RequestContextHolder.resetRequestAttributes恢复上下文</li>
+</ul>
+</li>
+</ol>
+<h2 id="swagger接口文档">Swagger接口文档</h2>
+<ol>
+<li>
+<p>Swagger配置</p>
+<ul>
+<li>引入两个依赖：springfox-swagger2和springfox-swagger-ui</li>
+<li>新增配置类SwaggerConfig，添加@EnableSwagger2的注解</li>
+<li>配置UI基本信息、作用的包路径等</li>
+</ul>
+</li>
+<li>
+<p>Swagger UI</p>
+<ul>
+<li>简洁</li>
+<li>提供了更细粒度的各种标注</li>
+</ul>
+</li>
+<li>
+<p>Swagger JSON Doc</p>
+</li>
+</ol>
+<h2 id="主流服务框架概览">主流服务框架概览</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>支持公司</th>
+<th>编程风格</th>
+<th>编程模型</th>
+<th>支持语言</th>
+<th>亮点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Spring(Boot)</td>
+<td>Pivotal</td>
+<td>REST</td>
+<td>代码优先</td>
+<td>Java</td>
+<td>社区生态好</td>
+</tr>
+<tr>
+<td>Dubbo</td>
+<td>阿里</td>
+<td>RPC/REST(Dubbo X)</td>
+<td>代码优先</td>
+<td>Java</td>
+<td>阿里背书+服务治理</td>
+</tr>
+<tr>
+<td>Motan</td>
+<td>新浪</td>
+<td>RPC</td>
+<td>代码优先</td>
+<td>Java为主</td>
+<td>轻量版Dubbo</td>
+</tr>
+<tr>
+<td>gRPC</td>
+<td>谷歌</td>
+<td>RPC</td>
+<td>契约优先</td>
+<td>跨语言</td>
+<td>谷歌背书+多语言支持+HTTP2支持</td>
+</tr>
+</tbody>
+</table>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="http://wayne06.github.io/"><img src="/img/favicon.png" />WZhong</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/springboot%E4%B8%8Ekubernetes%E4%BA%91%E5%8E%9F%E7%94%9F%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%9E%E8%B7%B5-02-%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E6%8A%80%E6%9C%AF%E6%A0%88%E9%80%89%E5%9E%8B/" data-toggle="tooltip" data-placement="top" title="系统架构设计和技术栈选型">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/springboot%E4%B8%8Ekubernetes%E4%BA%91%E5%8E%9F%E7%94%9F%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%9E%E8%B7%B5-04-%E5%8F%AF%E7%BC%96%E7%A8%8B%E7%BD%91%E5%85%B3%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/" data-toggle="tooltip" data-placement="top" title="可编程网关设计和实践">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/ci/cd" title="ci/cd">
+                            ci/cd
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/design-pattern" title="design-pattern">
+                            design-pattern
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/devops" title="devops">
+                            devops
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/interview" title="interview">
+                            interview
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/japanese-language" title="japanese-language">
+                            japanese-language
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/jlpt" title="jlpt">
+                            jlpt
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/kafka" title="kafka">
+                            kafka
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n3" title="n3">
+                            n3
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n4" title="n4">
+                            n4
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n5" title="n5">
+                            n5
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/saas" title="saas">
+                            saas
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E5%8A%A8%E8%AF%8D%E5%8F%98%E5%BD%A2" title="动词变形">
+                            动词变形
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E6%96%87%E6%AD%8C" title="日文歌">
+                            日文歌
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E5%BA%94%E7%94%A8%E8%AF%BE%E6%96%87" title="日语应用课文">
+                            日语应用课文
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95" title="日语语法">
+                            日语语法
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%A0%87%E5%87%86%E6%97%A5%E6%9C%AC%E8%AF%AD" title="标准日本语">
+                            标准日本语
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="http://jskillcloud.com/">杨波的博客</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="WZhong" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:zs577215@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    <li>
+                        <a target="_blank" href="/img/wechat_qrcode.jpg">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/wayne06">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yourlinkedinid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/yourstackoverflowid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+            
+                    
+                    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; WZhong 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>

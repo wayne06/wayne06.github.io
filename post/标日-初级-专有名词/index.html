@@ -1,0 +1,2406 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="WZhong">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="专有名词表" />
+    <meta property="og:title" content="专有名词表" />
+    <meta property="twitter:title" content="专有名词表" />
+    
+
+    
+    <meta name="description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan.">
+    <meta property="og:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    <meta property="twitter:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>专有名词表-Wayne Zhong Blog</title>
+
+    <link rel="canonical" href="/post/%E6%A0%87%E6%97%A5-%E5%88%9D%E7%BA%A7-%E4%B8%93%E6%9C%89%E5%90%8D%E8%AF%8D/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/docco.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">WZhong</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/design-pattern">design-pattern</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/it">it</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/japanese">japanese</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/java">java</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/microservice">microservice</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/others">others</a>
+                    </li>
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://img.zhaohuabing.com/post-bg-2015.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/japanese-language" title="Japanese Language">
+                            Japanese Language
+                        </a>
+                        
+                        <a class="tag" href="/tags/%E5%8A%A8%E8%AF%8D%E5%8F%98%E5%BD%A2" title="动词变形">
+                            动词变形
+                        </a>
+                        
+                    </div>
+                    <h1>专有名词表</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                WZhong
+                         
+                        on 
+                        Thursday, January 23, 2020
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#语法">语法</a></li>
+  </ul>
+</nav>
+                
+                <h2 id="语法">语法</h2>
+<ul>
+<li>
+<p>数字</p>
+<ul>
+<li>
+<p>100以内</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>れい/ゼロ</td>
+<td>10</td>
+<td>じゅう</td>
+<td>0.1</td>
+<td>れいてんいち</td>
+</tr>
+<tr>
+<td>1</td>
+<td>いち</td>
+<td>11</td>
+<td>じゅういち</td>
+<td>2/3</td>
+<td>さんぶんのに</td>
+</tr>
+<tr>
+<td>2</td>
+<td>に</td>
+<td>12</td>
+<td>じゅうに</td>
+<td>20</td>
+<td>にじゅう</td>
+</tr>
+<tr>
+<td>3</td>
+<td>さん</td>
+<td>13</td>
+<td>じゅうさん</td>
+<td>30</td>
+<td>さんじゅう</td>
+</tr>
+<tr>
+<td>4</td>
+<td>し/よん</td>
+<td>14</td>
+<td>じゅうし/じゅうよん</td>
+<td>40</td>
+<td>よんじゅう</td>
+</tr>
+<tr>
+<td>5</td>
+<td>ご</td>
+<td>15</td>
+<td>じゅうご</td>
+<td>50</td>
+<td>ごじゅう</td>
+</tr>
+<tr>
+<td>6</td>
+<td>ろく</td>
+<td>16</td>
+<td>じゅうろく</td>
+<td>60</td>
+<td>ろくじゅう</td>
+</tr>
+<tr>
+<td>7</td>
+<td>しち/なな</td>
+<td>17</td>
+<td>じゅうしち/じゅうなな</td>
+<td>70</td>
+<td>ななじゅう</td>
+</tr>
+<tr>
+<td>8</td>
+<td>はち</td>
+<td>18</td>
+<td>じゅうはち</td>
+<td>80</td>
+<td>はちじゅう</td>
+</tr>
+<tr>
+<td>9</td>
+<td>く/きゅう</td>
+<td>19</td>
+<td>じゅうく/じゅうきゅう</td>
+<td>90</td>
+<td>きゅうじゅう</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>100以上</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100</td>
+<td>ひゃく</td>
+<td>1000</td>
+<td>せん</td>
+<td>10000</td>
+<td>いちまん</td>
+</tr>
+<tr>
+<td>200</td>
+<td>にひゃく</td>
+<td>2000</td>
+<td>にせん</td>
+<td>100000</td>
+<td>じゅうまん</td>
+</tr>
+<tr>
+<td>300</td>
+<td>さんびゃく</td>
+<td>3000</td>
+<td>さんぜん</td>
+<td>1000000</td>
+<td>ひゃくまん</td>
+</tr>
+<tr>
+<td>400</td>
+<td>よんひゃく</td>
+<td>4000</td>
+<td>よんせん</td>
+<td>10000000</td>
+<td>いっせんまん</td>
+</tr>
+<tr>
+<td>500</td>
+<td>ごひゃく</td>
+<td>5000</td>
+<td>ごせん</td>
+<td>100000000</td>
+<td>いちおく</td>
+</tr>
+<tr>
+<td>600</td>
+<td>ろっぴゃく</td>
+<td>6000</td>
+<td>ろくせん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>700</td>
+<td>ななひゃく</td>
+<td>7000</td>
+<td>ななせん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>800</td>
+<td>はっぴゃく</td>
+<td>8000</td>
+<td>はっせん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>900</td>
+<td>きゅうひゃく</td>
+<td>9000</td>
+<td>きゅうせん</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+<li>
+<p>时刻</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1時</td>
+<td>いちじ</td>
+<td>1分</td>
+<td>いっぷん</td>
+</tr>
+<tr>
+<td>2時</td>
+<td>にじ</td>
+<td>2分</td>
+<td>にふん</td>
+</tr>
+<tr>
+<td>3時</td>
+<td>さんじ</td>
+<td>3分</td>
+<td>さんぷん</td>
+</tr>
+<tr>
+<td>4時</td>
+<td>よじ</td>
+<td>4分</td>
+<td>よんふん</td>
+</tr>
+<tr>
+<td>5時</td>
+<td>ごじ</td>
+<td>5分</td>
+<td>ごふん</td>
+</tr>
+<tr>
+<td>6時</td>
+<td>ろくじ</td>
+<td>6分</td>
+<td>ろっぷん</td>
+</tr>
+<tr>
+<td>7時</td>
+<td>しちじ</td>
+<td>7分</td>
+<td>ななふん</td>
+</tr>
+<tr>
+<td>8時</td>
+<td>はちじ</td>
+<td>8分</td>
+<td>はっぷん</td>
+</tr>
+<tr>
+<td>9時</td>
+<td>くじ</td>
+<td>9分</td>
+<td>きゅうふん</td>
+</tr>
+<tr>
+<td>10時</td>
+<td>じゅうじ</td>
+<td>10分</td>
+<td>じゅっぷん</td>
+</tr>
+<tr>
+<td>11時</td>
+<td>じゅういちじ</td>
+<td>11分</td>
+<td>じゅういっぷん</td>
+</tr>
+<tr>
+<td>12時</td>
+<td>じゅうにじ</td>
+<td>15分</td>
+<td>じゅうごふん</td>
+</tr>
+<tr>
+<td>0時</td>
+<td>れいじ</td>
+<td>30分</td>
+<td>さんじゅっぷん，はん</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>45分</td>
+<td>よんじゅうごふん</td>
+</tr>
+<tr>
+<td>何時</td>
+<td>なんじ</td>
+<td>何分</td>
+<td>なんぷん</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>星期</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>日曜日</td>
+<td>にちようび</td>
+</tr>
+<tr>
+<td>月曜日</td>
+<td>げつようび</td>
+</tr>
+<tr>
+<td>火曜日</td>
+<td>かようび</td>
+</tr>
+<tr>
+<td>水曜日</td>
+<td>すいようび</td>
+</tr>
+<tr>
+<td>木曜日</td>
+<td>もくようび</td>
+</tr>
+<tr>
+<td>金曜日</td>
+<td>きんようび</td>
+</tr>
+<tr>
+<td>土曜日</td>
+<td>どようび</td>
+</tr>
+<tr>
+<td>何曜日</td>
+<td>なんようび</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>其他表示时间的词语</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>おととい</td>
+<td>昨日-きのう</td>
+<td>今日-きょう</td>
+<td>明日-あした</td>
+<td>あさって-</td>
+<td>毎日-まいにち</td>
+</tr>
+<tr>
+<td>おとといの朝-あさ</td>
+<td>昨日の朝</td>
+<td>今朝-けさ</td>
+<td>明日の朝</td>
+<td>あさっての朝</td>
+<td>毎朝‐まいあさ</td>
+</tr>
+<tr>
+<td>おとといの晩-ばん</td>
+<td>ゆうべ</td>
+<td>今晩‐こんばん</td>
+<td>明日の晩</td>
+<td>あさっての晩</td>
+<td>毎晩‐まいばん</td>
+</tr>
+<tr>
+<td>先々週‐せんせんしゅう</td>
+<td>先週</td>
+<td>今週</td>
+<td>来週</td>
+<td>さ来週</td>
+<td>毎週</td>
+</tr>
+<tr>
+<td>先々月‐せんせんげつ</td>
+<td>先月</td>
+<td>今月</td>
+<td>来月</td>
+<td>さ来月</td>
+<td>毎月‐まいつき</td>
+</tr>
+<tr>
+<td>おととし</td>
+<td>去年‐きょねん</td>
+<td>今年‐ことし</td>
+<td>来年</td>
+<td>さ来年</td>
+<td>毎年‐まいとし</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>亲属</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>祖父‐そふ</td>
+<td>おじいさん</td>
+</tr>
+<tr>
+<td>祖母-そぼ</td>
+<td>おばあさん</td>
+</tr>
+<tr>
+<td>両親-りょうしん</td>
+<td>ご両親</td>
+</tr>
+<tr>
+<td>父-ちち</td>
+<td>お父さん-おとうさん</td>
+</tr>
+<tr>
+<td>母-はは</td>
+<td>お母さん-おかあさん</td>
+</tr>
+<tr>
+<td>息子-むすこ</td>
+<td>息子さん</td>
+</tr>
+<tr>
+<td>娘-むすめ</td>
+<td>娘さん/ お嬢さん‐おじょうさん</td>
+</tr>
+<tr>
+<td>兄弟‐きょうだい</td>
+<td>ご兄弟</td>
+</tr>
+<tr>
+<td>兄‐あに</td>
+<td>お兄さん‐おにいさん</td>
+</tr>
+<tr>
+<td>姉‐あね</td>
+<td>お姉さん‐おねえさん</td>
+</tr>
+<tr>
+<td>弟‐おとうと</td>
+<td>弟さん‐おとうとさん</td>
+</tr>
+<tr>
+<td>妹‐いもうと</td>
+<td>妹さん‐いもうとさん</td>
+</tr>
+<tr>
+<td>叔父‐おじ</td>
+<td>おじさん</td>
+</tr>
+<tr>
+<td>叔母‐おば</td>
+<td>おばさん</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>建筑设施</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ビル／建物‐たてもの</td>
+<td>大楼，建筑物</td>
+</tr>
+<tr>
+<td>映画館‐えいがかん</td>
+<td>电影院</td>
+</tr>
+<tr>
+<td>美術館‐びじゅつかん</td>
+<td>美术馆</td>
+</tr>
+<tr>
+<td>体育館‐たいいくかん</td>
+<td>体育馆</td>
+</tr>
+<tr>
+<td>博物館‐はくぶつかん</td>
+<td>博物馆</td>
+</tr>
+<tr>
+<td>図書館‐としょかん</td>
+<td>图书馆</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>公園‐こうえん</td>
+<td>公园</td>
+</tr>
+<tr>
+<td>動物園‐どうぶつえん</td>
+<td>动物园</td>
+</tr>
+<tr>
+<td>遊園地‐ゆうえんち</td>
+<td>游乐园</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>駅-えき</td>
+<td>车站</td>
+</tr>
+<tr>
+<td>空港‐くうこう</td>
+<td>机场</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>市役所‐しやくしょ</td>
+<td>市政所</td>
+</tr>
+<tr>
+<td>消防署‐しょうぼうしょ</td>
+<td>消防局</td>
+</tr>
+<tr>
+<td>警察署‐けいさつしょ</td>
+<td>警察局</td>
+</tr>
+<tr>
+<td>交番‐こうばん</td>
+<td>派出所</td>
+</tr>
+<tr>
+<td>病院‐びょういん</td>
+<td>医院</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>銀行‐ぎんこう</td>
+<td>银行</td>
+</tr>
+<tr>
+<td>郵便局‐ゆうびんきょく</td>
+<td>邮局</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>工場‐こうじょう</td>
+<td>工厂</td>
+</tr>
+<tr>
+<td>劇場‐げきじょう</td>
+<td>剧场</td>
+</tr>
+<tr>
+<td>駐車場‐ちゅうしゃじょう</td>
+<td>停车场</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>学校‐がっこう</td>
+<td>学校</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>お店‐おみせ</td>
+<td>商店，小店</td>
+</tr>
+<tr>
+<td>本屋‐ほんや</td>
+<td>书店</td>
+</tr>
+<tr>
+<td>八百屋‐やおや</td>
+<td>蔬菜店</td>
+</tr>
+<tr>
+<td>肉屋‐にくや</td>
+<td>肉店</td>
+</tr>
+<tr>
+<td>魚屋‐さかなや</td>
+<td>鱼店</td>
+</tr>
+<tr>
+<td>蕎麦屋‐そばや</td>
+<td>荞麦面店</td>
+</tr>
+<tr>
+<td>床屋‐とこや</td>
+<td>理发店</td>
+</tr>
+<tr>
+<td>薬局‐やっきょく</td>
+<td>药店</td>
+</tr>
+<tr>
+<td>喫茶店‐きっさてん</td>
+<td>咖啡馆</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>ホテル</td>
+<td>宾馆</td>
+</tr>
+<tr>
+<td>デパート</td>
+<td>百货商店</td>
+</tr>
+<tr>
+<td>スーパー</td>
+<td>超市</td>
+</tr>
+<tr>
+<td>コンビニ</td>
+<td>便利店</td>
+</tr>
+<tr>
+<td>レストラン</td>
+<td>参观</td>
+</tr>
+<tr>
+<td>ガソリンスタンド</td>
+<td>加油站</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>日</p>
+<table>
+<thead>
+<tr>
+<th>日曜日</th>
+<th>月曜日</th>
+<th>火曜日</th>
+<th>水曜日</th>
+<th>木曜日</th>
+<th>金曜日</th>
+<th>土曜日</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>1日 ついたち</td>
+</tr>
+<tr>
+<td>2日 ふつか</td>
+<td>3日 みっか</td>
+<td>4日 よっか</td>
+<td>5日 いつか</td>
+<td>6日 むいか</td>
+<td>7日 なのか</td>
+<td>8日 ようか</td>
+</tr>
+<tr>
+<td>9日 ここのか</td>
+<td>10日 とおか</td>
+<td>11日 じゅういちにち</td>
+<td>12日 じゅうににち</td>
+<td>13日 じゅうさんにち</td>
+<td>14日 じゅうよっか</td>
+<td>15日 じゅうごにち</td>
+</tr>
+<tr>
+<td>16日 じゅうろくにち</td>
+<td>17日 じゅうしちにち</td>
+<td>18日 じゅうはちにち</td>
+<td>19日 じゅうくにち</td>
+<td>20日 はつか</td>
+<td>21日 にじゅういちにち</td>
+<td>22日 にじゅうににち</td>
+</tr>
+<tr>
+<td>23日 にじゅうさんにち</td>
+<td>24日 にじゅうよっか</td>
+<td>25日 にじゅうごにち</td>
+<td>26日 にじゅうろくにち</td>
+<td>27日 にじゅうしちにち</td>
+<td>28日 にじゅうはちにち</td>
+<td>29日 にじゅうくにち</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>月</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1月</td>
+<td>いちがつ</td>
+</tr>
+<tr>
+<td>2月</td>
+<td>にがつ</td>
+</tr>
+<tr>
+<td>3月</td>
+<td>さんがつ</td>
+</tr>
+<tr>
+<td>4月</td>
+<td>しがつ</td>
+</tr>
+<tr>
+<td>5月</td>
+<td>ごがつ</td>
+</tr>
+<tr>
+<td>6月</td>
+<td>ろくがつ</td>
+</tr>
+<tr>
+<td>7月</td>
+<td>しちがつ</td>
+</tr>
+<tr>
+<td>8月</td>
+<td>はちがつ</td>
+</tr>
+<tr>
+<td>9月</td>
+<td>くがつ</td>
+</tr>
+<tr>
+<td>10月</td>
+<td>じゅうがつ</td>
+</tr>
+<tr>
+<td>11月</td>
+<td>じゅういちがつ</td>
+</tr>
+<tr>
+<td>12月</td>
+<td>じゅうにがつ</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>天气</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>天気　てんき</td>
+<td>天气</td>
+</tr>
+<tr>
+<td>天候　てんこう</td>
+<td>气候</td>
+</tr>
+<tr>
+<td>天気予報　てんきよほう</td>
+<td>天气预报</td>
+</tr>
+<tr>
+<td>降水確率　こうすいかくりつ</td>
+<td>降水概率</td>
+</tr>
+<tr>
+<td>気温　きおん</td>
+<td>气温</td>
+</tr>
+<tr>
+<td>湿度　しつど</td>
+<td>湿度</td>
+</tr>
+<tr>
+<td>梅雨　つゆ</td>
+<td>梅雨</td>
+</tr>
+<tr>
+<td>台風　たいふう</td>
+<td>台风</td>
+</tr>
+<tr>
+<td>晴れ　はれ</td>
+<td>晴</td>
+</tr>
+<tr>
+<td>曇り　くもり</td>
+<td>阴</td>
+</tr>
+<tr>
+<td>雨　あめ</td>
+<td>雨</td>
+</tr>
+<tr>
+<td>雪　ゆき</td>
+<td>雪</td>
+</tr>
+<tr>
+<td>霧　きり</td>
+<td>雾</td>
+</tr>
+<tr>
+<td>雷　かみなり</td>
+<td>雷</td>
+</tr>
+<tr>
+<td>風　かぜ</td>
+<td>风</td>
+</tr>
+<tr>
+<td>虹　にじ</td>
+<td>彩虹</td>
+</tr>
+<tr>
+<td>蒸し暑い　むしあつい</td>
+<td>闷热</td>
+</tr>
+<tr>
+<td>暑い　あつい</td>
+<td>热</td>
+</tr>
+<tr>
+<td>温かい　あたたかい</td>
+<td>暖和</td>
+</tr>
+<tr>
+<td>涼しい　すずしい</td>
+<td>凉爽</td>
+</tr>
+<tr>
+<td>寒い　さむい</td>
+<td>寒冷</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>日本主要城市</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>札幌</td>
+<td>さっぽろ</td>
+</tr>
+<tr>
+<td>仙台</td>
+<td>せんだい</td>
+</tr>
+<tr>
+<td>新潟</td>
+<td>にいがた</td>
+</tr>
+<tr>
+<td>東京</td>
+<td>とうきょう</td>
+</tr>
+<tr>
+<td>横浜</td>
+<td>よこはま</td>
+</tr>
+<tr>
+<td>名古屋</td>
+<td>なごや</td>
+</tr>
+<tr>
+<td>金沢</td>
+<td>かなざわ</td>
+</tr>
+<tr>
+<td>京都</td>
+<td>きょうと</td>
+</tr>
+<tr>
+<td>大阪</td>
+<td>おおさか</td>
+</tr>
+<tr>
+<td>神戸</td>
+<td>こうべ</td>
+</tr>
+<tr>
+<td>広島</td>
+<td>ひろしま</td>
+</tr>
+<tr>
+<td>高知</td>
+<td>こうち</td>
+</tr>
+<tr>
+<td>長崎</td>
+<td>ながさき</td>
+</tr>
+<tr>
+<td>福岡</td>
+<td>ふくおか</td>
+</tr>
+<tr>
+<td>那覇</td>
+<td>なは</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>一生</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>生まれます</td>
+<td>うまれます</td>
+<td>出生</td>
+</tr>
+<tr>
+<td>赤ちゃん</td>
+<td>あかちゃん</td>
+<td>婴儿</td>
+</tr>
+<tr>
+<td>幼稚園</td>
+<td>ようちえん</td>
+<td>幼儿园</td>
+</tr>
+<tr>
+<td>幼児</td>
+<td>ようじ</td>
+<td>幼儿</td>
+</tr>
+<tr>
+<td>入学式</td>
+<td>にゅうがくしき</td>
+<td>开学典礼</td>
+</tr>
+<tr>
+<td>小学校</td>
+<td>しょうがっこう</td>
+<td>小学</td>
+</tr>
+<tr>
+<td>中学校</td>
+<td>ちゅうがっこう</td>
+<td>初中</td>
+</tr>
+<tr>
+<td>高等学校</td>
+<td>こうとうがっこう</td>
+<td>高中</td>
+</tr>
+<tr>
+<td>部活動</td>
+<td>ぶかつどう</td>
+<td>俱乐部活动</td>
+</tr>
+<tr>
+<td>卒業式</td>
+<td>そつぎょうしき</td>
+<td>毕业典礼</td>
+</tr>
+<tr>
+<td>塾</td>
+<td>じゅく</td>
+<td>私塾</td>
+</tr>
+<tr>
+<td>予備校</td>
+<td>よびこう</td>
+<td>补习学校</td>
+</tr>
+<tr>
+<td>受験</td>
+<td>じゅけん</td>
+<td>报考，应试</td>
+</tr>
+<tr>
+<td>専門学校</td>
+<td>せんもんがっこう</td>
+<td>专科学校</td>
+</tr>
+<tr>
+<td>大学</td>
+<td>だいがく</td>
+<td>大学</td>
+</tr>
+<tr>
+<td>大学院</td>
+<td>だいがくいん</td>
+<td>研究生院</td>
+</tr>
+<tr>
+<td>就職活動</td>
+<td>しゅうしょくかつどう</td>
+<td>找工作</td>
+</tr>
+<tr>
+<td>就職</td>
+<td>しゅうしょく</td>
+<td>就职，就业</td>
+</tr>
+<tr>
+<td>転職</td>
+<td>てんしょく</td>
+<td>改行</td>
+</tr>
+<tr>
+<td>リストラ</td>
+<td></td>
+<td>解雇，下岗</td>
+</tr>
+<tr>
+<td>お見合い</td>
+<td>おみあい</td>
+<td>相亲</td>
+</tr>
+<tr>
+<td>恋愛</td>
+<td>れんあい</td>
+<td>恋爱</td>
+</tr>
+<tr>
+<td>結婚</td>
+<td>けっこん</td>
+<td>结婚</td>
+</tr>
+<tr>
+<td>結婚式</td>
+<td>けっこんしき</td>
+<td>结婚典礼</td>
+</tr>
+<tr>
+<td>共働き</td>
+<td>ともばたらき</td>
+<td>双职工</td>
+</tr>
+<tr>
+<td>離婚</td>
+<td>りこん</td>
+<td>离婚</td>
+</tr>
+<tr>
+<td>再婚</td>
+<td>さいこん</td>
+<td>再婚</td>
+</tr>
+<tr>
+<td>妊娠</td>
+<td>にんしん</td>
+<td>怀孕</td>
+</tr>
+<tr>
+<td>出産</td>
+<td>しゅっさん</td>
+<td>生孩子</td>
+</tr>
+<tr>
+<td>子育て</td>
+<td>こそだて</td>
+<td>抚养孩子</td>
+</tr>
+<tr>
+<td>定年退職</td>
+<td>ていねんたいしょく</td>
+<td>退休</td>
+</tr>
+<tr>
+<td>老後</td>
+<td>ろうご</td>
+<td>晚年</td>
+</tr>
+<tr>
+<td>死にます</td>
+<td>しにます</td>
+<td>死</td>
+</tr>
+<tr>
+<td>葬式</td>
+<td>そうしき</td>
+<td>葬礼</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>体育运动</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>卓球</td>
+<td>たっきゅう</td>
+<td>乒乓球</td>
+</tr>
+<tr>
+<td>野球</td>
+<td>やきゅう</td>
+<td>棒球</td>
+</tr>
+<tr>
+<td>サッカー</td>
+<td></td>
+<td>足球</td>
+</tr>
+<tr>
+<td>バスケットボール</td>
+<td></td>
+<td>篮球</td>
+</tr>
+<tr>
+<td>バレーボール</td>
+<td></td>
+<td>排球</td>
+</tr>
+<tr>
+<td>ソフトボール</td>
+<td></td>
+<td>垒球</td>
+</tr>
+<tr>
+<td>ラグビー</td>
+<td></td>
+<td>橄榄球</td>
+</tr>
+<tr>
+<td>ハンドボール</td>
+<td></td>
+<td>手球</td>
+</tr>
+<tr>
+<td>アメリカソフトボール</td>
+<td></td>
+<td>美式足球</td>
+</tr>
+<tr>
+<td>バドミントン</td>
+<td></td>
+<td>羽毛球</td>
+</tr>
+<tr>
+<td>ラクロス</td>
+<td></td>
+<td>兜网球</td>
+</tr>
+<tr>
+<td>ホッケー</td>
+<td></td>
+<td>曲棍球</td>
+</tr>
+<tr>
+<td>柔道</td>
+<td>じゅうどう</td>
+<td>柔道</td>
+</tr>
+<tr>
+<td>剣道</td>
+<td>けんどう</td>
+<td>剑道</td>
+</tr>
+<tr>
+<td>相撲</td>
+<td>すもう</td>
+<td>相扑</td>
+</tr>
+<tr>
+<td>スキー</td>
+<td></td>
+<td>滑雪</td>
+</tr>
+<tr>
+<td>スケート</td>
+<td></td>
+<td>滑冰</td>
+</tr>
+<tr>
+<td>スノーボード</td>
+<td></td>
+<td>单板滑雪</td>
+</tr>
+<tr>
+<td>スケートボード</td>
+<td></td>
+<td>滑板车</td>
+</tr>
+<tr>
+<td>水泳</td>
+<td>すいえい</td>
+<td>游泳</td>
+</tr>
+<tr>
+<td>ヨット</td>
+<td></td>
+<td>帆船</td>
+</tr>
+<tr>
+<td>マラソン</td>
+<td></td>
+<td>马拉松</td>
+</tr>
+<tr>
+<td>スカイダイビング</td>
+<td></td>
+<td>跳伞</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>日本的一年</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>正月</td>
+<td>しょうがつ</td>
+<td>新年</td>
+</tr>
+<tr>
+<td>節分</td>
+<td>せつぶん</td>
+<td>立春的前一天</td>
+</tr>
+<tr>
+<td>ひな祭り</td>
+<td>ひなまつり</td>
+<td>桃花节，女儿节</td>
+</tr>
+<tr>
+<td>お花見</td>
+<td>おはなみ</td>
+<td>观樱，赏花</td>
+</tr>
+<tr>
+<td>ゴールデンウイーク</td>
+<td></td>
+<td>黄金周</td>
+</tr>
+<tr>
+<td>梅雨入り</td>
+<td>つゆいり</td>
+<td>进入梅雨期</td>
+</tr>
+<tr>
+<td>梅雨明け</td>
+<td>つゆあけ</td>
+<td>梅雨期结束</td>
+</tr>
+<tr>
+<td>お盆休み</td>
+<td>おぼんやすみ</td>
+<td>盂兰盆会假</td>
+</tr>
+<tr>
+<td>月見</td>
+<td>つきみ</td>
+<td>赏月</td>
+</tr>
+<tr>
+<td>紅葉</td>
+<td>もみじ</td>
+<td>红叶</td>
+</tr>
+<tr>
+<td>七五三</td>
+<td>しちごさん</td>
+<td>七五三</td>
+</tr>
+<tr>
+<td>クリスマス</td>
+<td></td>
+<td>圣诞节</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>位置</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>上</td>
+<td>うえ</td>
+<td>上面</td>
+</tr>
+<tr>
+<td>下</td>
+<td>した</td>
+<td>下面</td>
+</tr>
+<tr>
+<td>中</td>
+<td>なか</td>
+<td>里边，内部</td>
+</tr>
+<tr>
+<td>外</td>
+<td>そと</td>
+<td>外面</td>
+</tr>
+<tr>
+<td>前</td>
+<td>まえ</td>
+<td>前面</td>
+</tr>
+<tr>
+<td>後ろ</td>
+<td>うしろ</td>
+<td>后面</td>
+</tr>
+<tr>
+<td>左</td>
+<td>ひだり</td>
+<td>左面</td>
+</tr>
+<tr>
+<td>右</td>
+<td>みぎ</td>
+<td>右面</td>
+</tr>
+<tr>
+<td>横</td>
+<td>よこ</td>
+<td>侧面</td>
+</tr>
+<tr>
+<td>そば</td>
+<td></td>
+<td>旁边</td>
+</tr>
+<tr>
+<td>周り</td>
+<td>まわり</td>
+<td>周围</td>
+</tr>
+<tr>
+<td>向かい</td>
+<td>むかい</td>
+<td>对面</td>
+</tr>
+<tr>
+<td>間</td>
+<td>あいだ</td>
+<td>中间</td>
+</tr>
+<tr>
+<td>隅</td>
+<td>すみ</td>
+<td>角落</td>
+</tr>
+<tr>
+<td>真下</td>
+<td>ました</td>
+<td>正下方</td>
+</tr>
+<tr>
+<td>北</td>
+<td>きた</td>
+<td>北面</td>
+</tr>
+<tr>
+<td>南</td>
+<td>みなみ</td>
+<td>南面</td>
+</tr>
+<tr>
+<td>東</td>
+<td>ひがし</td>
+<td>东面</td>
+</tr>
+<tr>
+<td>西</td>
+<td>にし</td>
+<td>西面</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>与公司有关的说法</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>広報</td>
+<td>こうほう</td>
+<td>宣传</td>
+</tr>
+<tr>
+<td>企画</td>
+<td>きかく</td>
+<td>策划，规划</td>
+</tr>
+<tr>
+<td>営業</td>
+<td>えいぎょう</td>
+<td>营业</td>
+</tr>
+<tr>
+<td>事務</td>
+<td>じむ</td>
+<td>事务，办公</td>
+</tr>
+<tr>
+<td>経理</td>
+<td>けいり</td>
+<td>会计事务</td>
+</tr>
+<tr>
+<td>人事</td>
+<td>じんじ</td>
+<td>人事</td>
+</tr>
+<tr>
+<td>労働組合</td>
+<td>ろうどうくみあい</td>
+<td>工会</td>
+</tr>
+<tr>
+<td>朝礼</td>
+<td>ちょうれい</td>
+<td>早会</td>
+</tr>
+<tr>
+<td>ミーテイング</td>
+<td></td>
+<td>会</td>
+</tr>
+<tr>
+<td>打ち合わせ</td>
+<td>うちあわせ</td>
+<td>碰头，商量</td>
+</tr>
+<tr>
+<td>プレゼン</td>
+<td></td>
+<td>策划方案说明会</td>
+</tr>
+<tr>
+<td>会議</td>
+<td>かいぎ</td>
+<td>会议</td>
+</tr>
+<tr>
+<td>調査</td>
+<td>ちょうさ</td>
+<td>调查</td>
+</tr>
+<tr>
+<td>報告</td>
+<td>ほうこく</td>
+<td>报告，汇报</td>
+</tr>
+<tr>
+<td>売り上げ</td>
+<td>うりあげ</td>
+<td>销售额，营业额</td>
+</tr>
+<tr>
+<td>収支</td>
+<td>しゅうし</td>
+<td>收支</td>
+</tr>
+<tr>
+<td>原価</td>
+<td>げんか</td>
+<td>生产成本</td>
+</tr>
+<tr>
+<td>赤字</td>
+<td>あかじ</td>
+<td>赤字</td>
+</tr>
+<tr>
+<td>黒字</td>
+<td>くろじ</td>
+<td>盈余</td>
+</tr>
+<tr>
+<td>契約書</td>
+<td>けいやくしょ</td>
+<td>合同</td>
+</tr>
+<tr>
+<td>税金</td>
+<td>ぜいきん</td>
+<td>税款</td>
+</tr>
+<tr>
+<td>取り引き</td>
+<td>とりひき</td>
+<td>交易，贸易</td>
+</tr>
+<tr>
+<td>取り引き先</td>
+<td>とりひきさき</td>
+<td>客户</td>
+</tr>
+<tr>
+<td>接待</td>
+<td>せったい</td>
+<td>接待，招待</td>
+</tr>
+<tr>
+<td>出勤</td>
+<td>しゅっきん</td>
+<td>上班</td>
+</tr>
+<tr>
+<td>残業</td>
+<td>ざんぎょう</td>
+<td>加班</td>
+</tr>
+<tr>
+<td>有給休暇</td>
+<td>ゆうきゅうきゅうか</td>
+<td>带薪休假</td>
+</tr>
+<tr>
+<td>休日出勤</td>
+<td>きゅうじつしゅっきん</td>
+<td>假日上班</td>
+</tr>
+<tr>
+<td>月給</td>
+<td>げっきゅう</td>
+<td>月工资</td>
+</tr>
+<tr>
+<td>ボーナス</td>
+<td></td>
+<td>奖金</td>
+</tr>
+<tr>
+<td>賞与</td>
+<td>しょうよ</td>
+<td>奖金</td>
+</tr>
+<tr>
+<td>新卒採用</td>
+<td>しんそつさいよう</td>
+<td>录用新人</td>
+</tr>
+<tr>
+<td>中途採用</td>
+<td>ちゅうとさいよう</td>
+<td>中途录用</td>
+</tr>
+<tr>
+<td>過労</td>
+<td>かろう</td>
+<td>过劳</td>
+</tr>
+<tr>
+<td>就職活動</td>
+<td>しゅうしょくかつどう</td>
+<td>找工作</td>
+</tr>
+<tr>
+<td>辞表</td>
+<td>じひょう</td>
+<td>辞呈</td>
+</tr>
+<tr>
+<td>転職</td>
+<td>てんしょく</td>
+<td>专业，改行</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>关于房地产的用语</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>アパート</td>
+<td></td>
+<td>公寓</td>
+</tr>
+<tr>
+<td>マンション</td>
+<td></td>
+<td>高级公寓</td>
+</tr>
+<tr>
+<td>建売り</td>
+<td>たてうり</td>
+<td>建房出售</td>
+</tr>
+<tr>
+<td>一戸建て</td>
+<td>いっこだて</td>
+<td>独幢楼房</td>
+</tr>
+<tr>
+<td>賃貸</td>
+<td>ちんたい</td>
+<td>出租</td>
+</tr>
+<tr>
+<td>分譲</td>
+<td>ぶんじょう</td>
+<td>按户出售</td>
+</tr>
+<tr>
+<td>新築</td>
+<td>しんちく</td>
+<td>新建房屋</td>
+</tr>
+<tr>
+<td>築～年</td>
+<td>ちく～ねん</td>
+<td>建后~年</td>
+</tr>
+<tr>
+<td>ＬＤＫ</td>
+<td></td>
+<td>带起居室、餐厅、厨房的居室</td>
+</tr>
+<tr>
+<td>１Ｋ</td>
+<td></td>
+<td>带厨房的1居室</td>
+</tr>
+<tr>
+<td>～畳</td>
+<td>～じょう</td>
+<td>榻榻米的量词，用来说明日式房间面积</td>
+</tr>
+<tr>
+<td>ユニットバス</td>
+<td></td>
+<td>整体浴室</td>
+</tr>
+<tr>
+<td>家賃</td>
+<td>やちん</td>
+<td>房租</td>
+</tr>
+<tr>
+<td>敷金</td>
+<td>しききん</td>
+<td>押金</td>
+</tr>
+<tr>
+<td>礼金</td>
+<td>れいきん</td>
+<td>酬谢金</td>
+</tr>
+<tr>
+<td>管理費</td>
+<td>かんりひ</td>
+<td>管理费</td>
+</tr>
+</tbody>
+</table>
+<p>||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||</p>
+</li>
+</ul>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="http://wayne06.github.io/"><img src="/img/favicon.png" />WZhong</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/%E6%A0%87%E6%97%A5-%E5%88%9D%E7%BA%A7-%E5%8A%A8%E8%AF%8D%E5%8F%98%E5%BD%A2/" data-toggle="tooltip" data-placement="top" title="动词变形一览表">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E-1-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E4%B8%8E%E6%80%9D%E6%83%B3-1-%E5%AE%9E%E6%88%98%E4%B8%80id%E7%94%9F%E6%88%90%E5%99%A8/" data-toggle="tooltip" data-placement="top" title="ID生成器代码重构">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/ci/cd" title="ci/cd">
+                            ci/cd
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/design-pattern" title="design-pattern">
+                            design-pattern
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/devops" title="devops">
+                            devops
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/interview" title="interview">
+                            interview
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/japanese-language" title="japanese-language">
+                            japanese-language
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/jlpt" title="jlpt">
+                            jlpt
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/kafka" title="kafka">
+                            kafka
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n3" title="n3">
+                            n3
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n4" title="n4">
+                            n4
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n5" title="n5">
+                            n5
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/saas" title="saas">
+                            saas
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E5%8A%A8%E8%AF%8D%E5%8F%98%E5%BD%A2" title="动词变形">
+                            动词变形
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E6%96%87%E6%AD%8C" title="日文歌">
+                            日文歌
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E5%BA%94%E7%94%A8%E8%AF%BE%E6%96%87" title="日语应用课文">
+                            日语应用课文
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95" title="日语语法">
+                            日语语法
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%A0%87%E5%87%86%E6%97%A5%E6%9C%AC%E8%AF%AD" title="标准日本语">
+                            标准日本语
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="http://jskillcloud.com/">杨波的博客</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="WZhong" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:zs577215@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    <li>
+                        <a target="_blank" href="/img/wechat_qrcode.jpg">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/wayne06">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yourlinkedinid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/yourstackoverflowid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+            
+                    
+                    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; WZhong 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>

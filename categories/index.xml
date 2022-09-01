@@ -6,10 +6,19 @@
     <description>Recent content in Categories on WZhong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Aug 2022 00:24:12 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 28 Aug 2022 03:24:12 +0800</lastBuildDate>
     
 	<atom:link href="http://wayne06.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>IT</title>
+      <link>http://wayne06.github.io/categories/it/</link>
+      <pubDate>Sun, 28 Aug 2022 03:24:12 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/categories/it/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>JAPANESE</title>

@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="WZhong">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="云原生架构和Kubernetes容器云部署" />
+    <meta property="og:title" content="云原生架构和Kubernetes容器云部署" />
+    <meta property="twitter:title" content="云原生架构和Kubernetes容器云部署" />
+    
+
+    
+    <meta name="description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan.">
+    <meta property="og:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    <meta property="twitter:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>云原生架构和Kubernetes容器云部署-Wayne Zhong Blog</title>
+
+    <link rel="canonical" href="/post/springboot%E4%B8%8Ekubernetes%E4%BA%91%E5%8E%9F%E7%94%9F%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%9E%E8%B7%B5-09-%E4%BA%91%E5%8E%9F%E7%94%9F%E6%9E%B6%E6%9E%84%E5%92%8Ckubernetes%E5%AE%B9%E5%99%A8%E4%BA%91%E9%83%A8%E7%BD%B2/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/docco.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">WZhong</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/design-pattern">design-pattern</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/it">it</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/japanese">japanese</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/java">java</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/microservice">microservice</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/others">others</a>
+                    </li>
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://img.zhaohuabing.com/post-bg-2015.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/devops" title="DevOps">
+                            DevOps
+                        </a>
+                        
+                        <a class="tag" href="/tags/ci/cd" title="CI/CD">
+                            CI/CD
+                        </a>
+                        
+                        <a class="tag" href="/tags/saas" title="SaaS">
+                            SaaS
+                        </a>
+                        
+                    </div>
+                    <h1>云原生架构和Kubernetes容器云部署</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                WZhong
+                         
+                        on 
+                        Tuesday, January 21, 2020
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#到底什么是云原生架构">到底什么是云原生架构</a></li>
+    <li><a href="#kubernetes背景和架构">Kubernetes背景和架构</a></li>
+    <li><a href="#kubernetes有哪些基本概念">Kubernetes有哪些基本概念</a></li>
+    <li><a href="#理解kubernetes节点网络和pod网络">理解Kubernetes节点网络和Pod网络</a></li>
+    <li><a href="#深入理解service和service-discovery">深入理解Service和Service Discovery</a></li>
+    <li><a href="#nodeport-vs-loadbalancer-vs-ingress">NodePort vs. LoadBalancer vs. Ingress</a></li>
+    <li><a href="#本地测试kubernetes部署文件剖析">本地测试Kubernetes部署文件剖析</a></li>
+    <li><a href="#本地测试kubernetes环境搭建">本地测试Kubernetes环境搭建</a></li>
+    <li><a href="#将staffjoy部署到本地kubernetes环境">将staffjoy部署到本地Kubernetes环境</a></li>
+    <li><a href="#生产环境kubernetes部署文件剖析">生产环境Kubernetes部署文件剖析</a></li>
+    <li><a href="#阿里云kubernetes环境创建">阿里云Kubernetes环境创建</a></li>
+    <li><a href="#将staffjoy部署到阿里云kubernetes环境">将staffjoy部署到阿里云Kubernetes环境</a></li>
+    <li><a href="#kubernetes应用动态配置实验">Kubernetes应用动态配置实验</a></li>
+    <li><a href="#kubernetes应用金丝雀发布实验">Kubernetes应用金丝雀发布实验</a></li>
+    <li><a href="#阿里云资源释放">阿里云资源释放</a></li>
+  </ul>
+</nav>
+                
+                <h2 id="到底什么是云原生架构">到底什么是云原生架构</h2>
+<ol>
+<li>
+<p>云原生应用定义</p>
+<ul>
+<li>软件开发行业，早前从XP(ExtremeProgramming)极限编程、敏捷Agile、DevOps等，没有明确定义，是业界最佳实践的一些统称</li>
+<li>Applications adoptiong the principles of Microservices packaged as Containers orchestracted by Platforms running on top of Cloud infrastructure, developed using practices such as Continous Delivery and DevOps.</li>
+<li>基于微服务原理开发的应用，以容器方式打包；在运行时，容器由运行于云基础设施之上的平台进行调度；应用开发采用持续交付和DevOps实践</li>
+</ul>
+</li>
+<li>
+<p>云演进史</p>
+<ul>
+<li>Non-Virtualized：企业计算一般直接采用硬件服务器，如sun提供的中高端企业计算服务器</li>
+<li>Virtualization：可以用软件方式按需创建虚拟机</li>
+<li>IaaS(Infrastructure as a Service)：基础设施即服务，把计算、网络、存储封装成可以按需使用的资源，amazon将其商业化，退出了AWS公有云</li>
+<li>PaaS(Platform as a Service)：平台即服务，比IaaS的抽象层次更高，IaaS主要面向计算、网络、存储这些计算资源，PaaS是一个应用的运行时平台，用户在PaaS平台上可直接部署应用，不需要关心底层的计算资源；HEROKU可认为是现代云原生平台的鼻祖或原型</li>
+<li>Open Souce IaaS：开源IaaS产品，标志性的就是Openstack，它满足中大型企业自建私有云的需求</li>
+<li>Open Souce PaaS：开源PaaS产品，标志性的就是Cloud Foundry，后被Pivotal收购</li>
+<li>Containers：颠覆式的Docker容器技术出现，从开始就走开源路线，使得容器技术在行业内快速普及</li>
+<li>Cloud Native：随着Docker和K8s的快速普及，大厂开始了立标准的过程，成立了CNCF组织，专门推动云原生项目的治理、推广和应用，标志着计算进入了云原生时代</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>2000</th>
+<th>2001</th>
+<th>2006</th>
+<th>2009</th>
+<th>2010</th>
+<th>2011</th>
+<th>2013</th>
+<th>2015</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sun</td>
+<td>vmware</td>
+<td>amazon</td>
+<td>HEROKU</td>
+<td>openstack</td>
+<td>CLOUD FOUNDRY</td>
+<td>docker</td>
+<td>CLOUD NATIVE</td>
+</tr>
+<tr>
+<td>Non-Virtualized Hardware</td>
+<td>Virtualization</td>
+<td>IaaS</td>
+<td>PaaS</td>
+<td>Open Source IaaS</td>
+<td>Open Source PaaS</td>
+<td>Containers</td>
+<td>Cloud Native</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>CNCF - Cloud Native Computing Foundation</p>
+<ul>
+<li><a href="https://www.cncf.io">cncf.io</a></li>
+<li><a href="https://www.landscape.cncf.io">landscape.cncf.io</a></li>
+</ul>
+</li>
+</ol>
+<h2 id="kubernetes背景和架构">Kubernetes背景和架构</h2>
+<ol>
+<li>
+<p>Kubernetes历史</p>
+<ul>
+<li>支持云原生应用的一个平台，起源于google，每周要启动20亿个容器</li>
+<li>google的容器平台发展：
+<ul>
+<li>第一代：Borg，内部产品，2003~2004，经典的master-slave架构；master提供api，cli、ui、外部系统通过api跟集群交互；每个slave节点安装一个Borglet的组件，用于管理容器、网络、路由；调度程序scheduler根据slave上的资源使用情况进行调度决策，并且指挥Borglet进行操作</li>
+<li>第二代：Omega，是Borg的升级版</li>
+<li>第三代：开源的Kubernetes，古希腊的词语，意为船长、舵手；专门用来指挥调度容器；</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Kubernetes趋势</p>
+<ul>
+<li>稳步上升，项目提交数量活跃</li>
+</ul>
+</li>
+<li>
+<p>Kubernetes解决什么问题：</p>
+<ul>
+<li>本质上简化微服务的开发和部署，解决微服务的公共关注点</li>
+<li>DevOps开发者体验 / 微服务 / IaaS(操作系统，虚拟化，硬件/网络/存储)</li>
+<li>K8s解决微服务中的：
+<ul>
+<li>服务发现和LB</li>
+<li>弹性和容错</li>
+<li>API管理</li>
+<li>服务安全</li>
+<li>日志监控</li>
+<li>Metrics监控</li>
+<li>调用链监控</li>
+<li>调度和发布</li>
+<li>自愈和自动伸缩</li>
+</ul>
+</li>
+<li>和Dubbo、Spring Cloud相比，K8s是解决微服务公共关注点最全面的一个平台性的解决方案；K8s对公共关注点大部分以组件形式封装打包到K8s大平台中，让开发人员在开发微服务时专注业务逻辑的实现，不需要特别关注微服务底层的公共关注点</li>
+</ul>
+</li>
+<li>
+<p>Kubernetes架构：经典的Master-Slave架构</p>
+<ul>
+<li>Master Nodes 和 Worker Nodes，可以是物理机或虚拟机</li>
+<li>Master节点：
+<ul>
+<li>etcd：基于K-V的分布式存储机制，底层采用raft协议；K8s集群的状态数据，包括配置、节点、Pod等等，最终都存储在etcd中</li>
+<li>API server：对外提供操作和获取k8s集群资源的api，是唯一操作etcd的组件，可以简单理解为是etcd的代理</li>
+<li>Scheduler：相当于k8s的大脑，负责调度决策，如对新的应用发布请求，schduler负责决策响应的pods应该分布在哪些worker节点上</li>
+<li>Controller Manager：相当于集群状态的协调者，观察目前集群的实际状态，和etcd中的预期状态进行比对，不一致的话就要对资源进行协调操作，让实际状态和预期状态达到最终一致；所有k8s采用一种最终一致调度机制，支持自愈，只要etcd中的预期数据还在，k8s就能最终恢复到预期状态</li>
+<li>为保证高可用，master节点一般采用多节点部署，但是真正做调度决策的只有一个master节点，所以有一个选主leader election的动作；如果主master节点挂了，其他节点会再选主节点；</li>
+<li>etcd集群一半是单独部署</li>
+</ul>
+</li>
+<li>Worker节点
+<ul>
+<li>Container Runttime：下载镜像和运行容器的组件；如果采用docker，那么每个节点上都会运行一个docker daemon，运行容器时，如果本地没有镜像，那么daemon就会从docker registry抓取响应镜像</li>
+<li>Pod：简单理解为对容器的包装，是K8s的基本调度单位；实际的容器是运行在pod中的；一个节点上可以启动一个或多个pod，一个应用的pods也可分布在一个或多个节点上；pod之间进行通讯是通过内部的overlay network</li>
+<li>kubelet：负责管理worker节点上的组件，相当于一个agent角色；和master节点的API server进行交互，接收指令执行操作，如启动pod、关闭pod，也返回一些状态数据或事件到master；是每个worker节点上的小脑</li>
+<li>kube-proxy：负责对pod进行寻址和负载均衡；是实现service和服务发现抽象的关键；底层操作iptable规则</li>
+</ul>
+</li>
+<li>用户操作k8s集群，一般是通过kubectl命令行工具或k8s的dashboard访问k8s集群，这些工具都通过API server与集群进行交互；外部流量进入k8s去访问pod一般是通过Load Balancer设备</li>
+<li>K8s外围还有一些存储、监控、日志、分析这些配套的服务</li>
+<li>架构复杂、重量，中小企业不建议自建集群，而采用公有云k8s集群</li>
+</ul>
+</li>
+</ol>
+<h2 id="kubernetes有哪些基本概念">Kubernetes有哪些基本概念</h2>
+<ol>
+<li>
+<p>集群 Cluster</p>
+<ul>
+<li>很多节点组成，可以按需添加更多节点，节点可以是物理机，也可以是虚拟机</li>
+<li>每个节点都有CPU和内存</li>
+<li>整个集群可看作一个超大的计算机</li>
+</ul>
+</li>
+<li>
+<p>容器 Container</p>
+<ul>
+<li>从宿主机操作系统的视角看，容器是一个一个的进程</li>
+<li>从容器内部的视角看，容器是一个一个完整的操作系统，文件系统、网络、CPU、Memory等完整的资源</li>
+</ul>
+</li>
+<li>
+<p>POD</p>
+<ul>
+<li>K8s并没有直接调度容器，而是在容器外层封装了一个叫Pod的概念：原因一是考虑一些需要辅助容器的场景，如有些需要sidecar的场景；原因二是考虑可以替换使用不同的容器技术</li>
+<li>POD是k8s的基本调度单位</li>
+<li>一个Pod内可以跑一个或多个容器，共享该pod的文件系统和网络，每个pod有独立的ip，pod中的容器共享这个ip和端口空间；并且同一个pod中的容器可通过localhost相互访问</li>
+<li>大部分场景下一个pod只跑一个应用容器</li>
+</ul>
+</li>
+<li>
+<p>副本集 ReplicaSet</p>
+<ul>
+<li>一个应用发布的时候一般不会只发一个pod实例，而是会发多个pod实例，这样才能实现高可用；ReplicaSet就是和一个应用的一组pod相对应的概念，可通过模板yaml或json来规范某个应用的容器镜像、端口、副本数量、点火和健康检查机制、环境变量、volume挂载等相关信息</li>
+<li>运行时，ReplicaSet会监控和维护pod的数量，过多则下线pod，过少会启动pod</li>
+</ul>
+</li>
+<li>
+<p>服务 Service</p>
+<ul>
+<li>pod在k8s中是一个ephemeral(短暂的、无常的事物)的，可能会随时挂或重启，响应ip会发生变化，如果一个服务的实例ip不固定，服务的消费者无法寻址</li>
+<li>k8s通过引入service这样的抽象概念来解决：简单来讲，service屏蔽了应用的ip寻址和负载均衡这些小细节，消费方可以直接通过服务名访问目标服务；k8s中的service底层机制会做寻址和负载均衡，即使应用的pod的ip发生变更，service也会屏蔽这种变更，让消费方无感知</li>
+</ul>
+</li>
+<li>
+<p>发布 Deployment</p>
+<ul>
+<li>副本集可认为是一种基本的发布机制，但是操作起来繁琐，为了简化高级的发布，在ReplicaSet的基础上，引入了Deployment概念</li>
+<li>简单讲，Deployment是用来管理ReplicaSet，实现蓝绿和滚动这些高级发布机制</li>
+<li>通过Deployment调度实现滚动发布(Rolling Update)的样例
+<ul>
+<li>假设应用的1.0绿色版本已发布，对应的ReplicaSet是v1.0，通过Deployment进行升级发布应用的1.1蓝色版本，Deployment就会创建ReplicaSet v1.1，之后Deployment会依次调度：不断拉入蓝色版本，拉出绿色版本，直到所有的蓝色pod全部上线，绿色pod全部下线；过程中service抽象会屏蔽应用地址的变更，让消费方无感知；如果在滚动发布的过程中，蓝色pod有问题，如点火健康检查通不过，delployment会自动终止并回退发布；即使发布成功完成，后续如果根据需要，仍可通过deployment回退到之前发布的某个版本</li>
+</ul>
+</li>
+<li>发布和服务总结
+<ul>
+<li>Deployment和Service是和微服务发布相关最重要的两个概念，也是发布过程中经常要使用的两个概念</li>
+<li>发布微服务时所书写定义的描述文件里面主要就是Deployment和Service的规范</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>ConfigMap/Secret</p>
+<ul>
+<li>微服务在上线的时候需要设置一些可变配置，针对不同环境对应的设定值不同；这些配置有些是在启动期一次配置完成的，如数据库连接字符串，还有一些配置是在运行期可动态调整的，如缓存过期时间、TTL值、业务促销的商品限购数量等；所以微服务需要配置中心的支持，实现针对不同环境的灵活的动态配置</li>
+<li>K8s内置支持微服务的配置，对应概念叫ConfigMap，是K8s平台支持的一种资源，开发人员将配置填写在ConfigMap中，K8s将ConfigMap中的配置以环境变量的形式注入到pod中，这样pod中的应用可以以环境变量的形式去访问这些配置</li>
+<li>ConfigMap也支持以持久卷Volume的形式mount到Pod中，这样pod的应用以本地配置文件的形式来访问配置</li>
+<li>k8s通过Secret来支持敏感数据的配置，可认为是一种特殊的Config，提供更安全的存储和访问配置的机制</li>
+</ul>
+</li>
+<li>
+<p>DaemonSet</p>
+<ul>
+<li>一种常见场景：需要在每个节点上常驻一个守护进程，如监控场景需要在每个机器上部署一个fluentD日志采集进程或Prometheus的exporter进程</li>
+<li>K8s针对这样的场景，k8s支持一个叫DaemonSet这样一个概念，可以在每个worker节点上面部署一个守护进程pod，并且保证每个节点上有且仅有这样的一个pod</li>
+</ul>
+</li>
+<li>
+<p>其他概念</p>
+<ul>
+<li>
+<p>Volume：存储卷抽象，简单可理解为磁盘文件存储，可以是节点本地文件存储，也可是远程存储；挂载mount之后，volume成为pod的一部分，pod销毁volumen也会销毁，但是支持volume的存储可以还在</p>
+</li>
+<li>
+<p>PersistentVolume：持久卷，如果volume只用节点文件的本地存储，那么下次应用容器重启可能会换一个节点，响应的文件存储就不存在了；持久卷是一种高级的存储资源抽象，可对接各种云存储，由集群管理员统一配置</p>
+</li>
+<li>
+<p>PersistentVolumeClaims：应用申请PV时需要填写的规范，包括磁盘大小、类型等等；应用通过PVC申请PV资源，然后以Volume的形式挂载到pod当中；PV和PVC的引入使得Volume和具体的物理存储可进一步的解耦</p>
+</li>
+<li>
+<p>POD -&gt; Volume -&gt; PVC -&gt; PV -&gt; 物理存储</p>
+</li>
+<li>
+<p>StatefulSet：支持有状态应用的一种发布机制，如发布mysql数据库或redis缓存需要StatefulSet，和ReplicaSet相对应</p>
+</li>
+<li>
+<p>Job：支持跑一次的任务</p>
+</li>
+<li>
+<p>CronJob：支持周期性任务</p>
+</li>
+</ul>
+</li>
+<li>
+<p>概念补充</p>
+<ul>
+<li>
+<p>Label/Selector</p>
+<ul>
+<li>Label是给k8s中的资源打标签的一种机制，如在pod上打标签标识该pod是属于后端还是前端、是生产的还是staging的、版本信息等；Selector是通过标签查询定位资源的一种机制</li>
+</ul>
+</li>
+<li>
+<p>Namespace</p>
+<ul>
+<li>k8s中的一种逻辑性隔离机制，基于namespace可以实现诸如多租户、环境、项目、团队这些逻辑隔离；还可以限制配额quota，创建资源时如果没有指定namespace，那么创建的资源都会住在缺省的namespace中</li>
+</ul>
+</li>
+<li>
+<p>Readiness Probe(就绪探针)</p>
+<ul>
+<li>用于判断pod是否可以接入流量，如通过应用的health健康检查端点可以检查这个pod是否就绪，就绪的话就可以接入流量，否则不可以接入流量</li>
+</ul>
+</li>
+<li>
+<p>Liveness Probe(活跃探针)</p>
+<ul>
+<li>用于判断pod是否存活，如通过应用的health健康检查端点可以定期检查这个pod是否存活，不存活就kill掉这个pod，并根据配置的策略决定是否要重启这个pod</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>概念总结</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cluster</td>
+<td>超大计算机抽象，由节点组成</td>
+</tr>
+<tr>
+<td>Container</td>
+<td>应用居住和运行在容器中</td>
+</tr>
+<tr>
+<td>Pod</td>
+<td>Kubernetes基本调度单位</td>
+</tr>
+<tr>
+<td>ReplicaSet</td>
+<td>创建和管理Pod，支持无状态应用</td>
+</tr>
+<tr>
+<td>Service</td>
+<td>应用Pods的访问点，屏蔽IP寻址和负载均衡</td>
+</tr>
+<tr>
+<td>Deployment</td>
+<td>管理ReplicaSet，支持滚动等高级发布机制</td>
+</tr>
+<tr>
+<td>ConfigMap/Secrets</td>
+<td>应用配置，secret敏感数据配置</td>
+</tr>
+<tr>
+<td>DaemonSet</td>
+<td>保证每个节点有且仅有一个Pod，常见于监控</td>
+</tr>
+<tr>
+<td>StatefulSet</td>
+<td>类似ReplicaSet，但支持有状态应用</td>
+</tr>
+<tr>
+<td>Job</td>
+<td>运行一次就结束的任务</td>
+</tr>
+<tr>
+<td>CronJob</td>
+<td>周期性运行的任务</td>
+</tr>
+<tr>
+<td>Volume</td>
+<td>可装载磁盘文件存储</td>
+</tr>
+<tr>
+<td>PersisentVolumne/PersistentVolumeClaims</td>
+<td>超大磁盘存储抽象和分配机制</td>
+</tr>
+<tr>
+<td>Label/Selector</td>
+<td>资源打标签和定位机制</td>
+</tr>
+<tr>
+<td>Namespace</td>
+<td>资源逻辑隔离机制</td>
+</tr>
+<tr>
+<td>Readiness Probe</td>
+<td>就绪探针，流量接入Pod判断依据</td>
+</tr>
+<tr>
+<td>Liveness Probe</td>
+<td>存活探针，是否kill pod的判断依据</td>
+</tr>
+</tbody>
+</table>
+<h2 id="理解kubernetes节点网络和pod网络">理解Kubernetes节点网络和Pod网络</h2>
+<ol>
+<li>
+<p>节点网络</p>
+<ul>
+<li>K8s最底层的网络，用来保证k8s集群的节点(包括master和worker节点之间、worker节点之间)能够正常做ip寻址和通讯</li>
+</ul>
+</li>
+<li>
+<p>Pod网络</p>
+</li>
+</ol>
+<h2 id="深入理解service和service-discovery">深入理解Service和Service Discovery</h2>
+<ol>
+<li>
+<p>Service如何寻址</p>
+</li>
+<li>
+<p>用户空间代理模式</p>
+</li>
+<li>
+<p>iptables/ipvs模式</p>
+</li>
+</ol>
+<h2 id="nodeport-vs-loadbalancer-vs-ingress">NodePort vs. LoadBalancer vs. Ingress</h2>
+<ol>
+<li>
+<p>外部流量如何对Service寻址</p>
+</li>
+<li>
+<p>NodePort</p>
+</li>
+<li>
+<p>Load Balancer</p>
+</li>
+<li>
+<p>Ingress</p>
+</li>
+<li>
+<p>总结</p>
+</li>
+</ol>
+<h2 id="本地测试kubernetes部署文件剖析">本地测试Kubernetes部署文件剖析</h2>
+<ol>
+<li>本地Kubernetes部署架构
+<ul>
+<li>与docker-compose相比，增加mysql-svc
+<ul>
+<li>DB与k8s在两个不同的网络，通过mysql-svc间接去访问db</li>
+</ul>
+</li>
+<li>faraday网关需要向外暴露端口
+<ul>
+<li>在本机，如果要把k8s内部的服务暴露，采用NodePort方式30001:80</li>
+<li>通过端口转发将faraday网关再暴露80:80</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>部署文件剖析 staffjoy-master/k8s/
+<ul>
+<li>test/config/config.yaml
+<ul>
+<li>私密数据单独放置</li>
+<li>使用kide: ConfigMap形式，使k8s管理配置</li>
+</ul>
+</li>
+<li>test/mysql-svc.yaml
+<ul>
+<li>使用kind: Service创建mysql服务</li>
+<li>ip地址和端口</li>
+</ul>
+</li>
+<li>test/account-svc.yaml
+<ul>
+<li>定义kind: Deployment用于发布，底层管理replicaset，管理pod</li>
+<li>定义kind: Service用于屏蔽pod ip，用于做负载均衡</li>
+</ul>
+</li>
+<li>&hellip;</li>
+</ul>
+</li>
+</ol>
+<h2 id="本地测试kubernetes环境搭建">本地测试Kubernetes环境搭建</h2>
+<ol>
+<li>
+<p>Docker Desktop for Mac/Win</p>
+<ul>
+<li><a href="https://github.com/AliyunContainerService/k8s-for-docker-desktop">https://github.com/AliyunContainerService/k8s-for-docker-desktop</a></li>
+<li><a href="https://github.com/AliyunContainerService/minikube">https://github.com/AliyunContainerService/minikube</a></li>
+</ul>
+</li>
+<li>
+<p>校验Kubernetes</p>
+<ul>
+<li>
+<p>查看版本</p>
+<p><code>kubectl version</code></p>
+</li>
+<li>
+<p>查看当前context</p>
+<p><code>kubectl config current-context</code></p>
+</li>
+<li>
+<p>查看集群信息</p>
+<p><code>kubectl cluster-info</code></p>
+</li>
+<li>
+<p>查看nodes</p>
+<p><code>kubectl get nodes</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p>安装和访问Kubernetes Dashboard</p>
+<ul>
+<li>
+<p>安装kubernetes dashboard <a href="https://github.com/kubernetes/dashboard">https://github.com/kubernetes/dashboard</a></p>
+<p><code>kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-rc1/aio/deploy/recommended.yaml</code></p>
+<p>或</p>
+<p><code>kubectl create -f kubernetes-dashboard.yaml</code></p>
+<p>通过查看pod检查dashboard是否安装好，需指定namespace为kube-system</p>
+<p><code>kubectl get pods --namespace=kube-system</code></p>
+</li>
+<li>
+<p>启动kube proxy</p>
+<p><code>kubectl proxy</code></p>
+</li>
+<li>
+<p>生成访问令牌</p>
+<p><code>kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')</code></p>
+<p>或</p>
+<p><code>$TOKEN=((kubectl -n kube-system describe secret default | Select-String &quot;token:&quot;) -split &quot; +&quot;)[1]</code></p>
+</li>
+<li>
+<p><a href="http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/">访问dashboard</a></p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="将staffjoy部署到本地kubernetes环境">将staffjoy部署到本地Kubernetes环境</h2>
+<ol>
+<li>
+<p>构建镜像</p>
+<p><code>mvn clean package -DskipTests</code></p>
+<p><code>docker-compose build</code></p>
+<p><code>docker images</code></p>
+</li>
+<li>
+<p>部署数据库，授予ip访问权限</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">use mysql;
+<span style="color:#66d9ef">select</span> <span style="color:#66d9ef">user</span>, <span style="color:#66d9ef">host</span> <span style="color:#66d9ef">from</span> <span style="color:#66d9ef">user</span>;
+<span style="color:#66d9ef">grant</span> <span style="color:#66d9ef">all</span> <span style="color:#66d9ef">privileges</span> <span style="color:#66d9ef">on</span> <span style="color:#f92672">*</span>.<span style="color:#f92672">*</span> <span style="color:#66d9ef">to</span> root<span style="color:#f92672">@</span><span style="color:#ae81ff">192</span>.<span style="color:#ae81ff">168</span>.<span style="color:#ae81ff">1</span>.<span style="color:#ae81ff">38</span> identified <span style="color:#66d9ef">by</span> <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">root</span><span style="color:#e6db74">&#39;</span> <span style="color:#66d9ef">with</span> <span style="color:#66d9ef">grant</span> <span style="color:#66d9ef">option</span>;
+</code></pre></div></li>
+<li>
+<p>部署staffjoy(k8s/test)，k8s dashboard查看nodes、pods、config maps、services</p>
+<p><code>kubectl apply -f config.yml</code></p>
+<p><code>kubectl get configmaps</code></p>
+<p><code>kubectl apply -f test</code></p>
+</li>
+<li>
+<p>端口转发：因为在本地通过NodePort把faraday网关暴露出来，但NodePort是30001端口，如果要用域名方式访问本地微服务要求端口是80，所以需要将faraday的80端口转发到主机上的80</p>
+<ul>
+<li>查询faraday的pod名</li>
+</ul>
+<p><code>kubectl get pods</code></p>
+<ul>
+<li>端口转发</li>
+</ul>
+<p><code>kubectl port-forward faraday-svc-deployment-6f8f7ff9b7-rgqm4 80:80</code></p>
+</li>
+<li>
+<p>启用switchhosts</p>
+</li>
+<li>
+<p>命令行校验</p>
+<p><code>kubectl get pods -o wide</code></p>
+<p><code>kubectl get services</code></p>
+<p><code>kubectl get deployments</code></p>
+</li>
+<li>
+<p>k8s dashboard校验</p>
+<ul>
+<li>查看nodes、pods、config maps、services</li>
+</ul>
+</li>
+<li>
+<p>staffjoy校验</p>
+</li>
+<li>
+<p>清理</p>
+<p><code>kubectl delete deployments --all</code></p>
+<p><code>kubectl delete services --all</code></p>
+<p><code>kubectl delete configmaps --all</code></p>
+</li>
+</ol>
+<h2 id="生产环境kubernetes部署文件剖析">生产环境Kubernetes部署文件剖析</h2>
+<ol>
+<li>
+<p>Staffjoy阿里云Kubernetes部署架构</p>
+<ul>
+<li>阿里云k8s住在aliyun VPC(虚拟私有云)中
+<ul>
+<li>VPC隔离性较好，生产环境一般都住在VPC中</li>
+</ul>
+</li>
+<li>数据库使用aliyun RDS(关系型数据库服务)
+<ul>
+<li>生产环境一般用云提供的数据库</li>
+</ul>
+</li>
+<li>使用aliyun ELB(弹性负载均衡)来暴露微服务应用
+<ul>
+<li>可通过ELB提供的ip访问微服务应用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>阿里云Kubernetes拓扑结构</p>
+<ul>
+<li><a href="https://yq.aliyun.com/articles/88526">https://yq.aliyun.com/articles/88526</a></li>
+<li>SLB</li>
+<li>NAT</li>
+</ul>
+</li>
+<li>
+<p>部署文件 staffjoy-master/k8s/uat</p>
+<ul>
+<li>&hellip;</li>
+</ul>
+</li>
+</ol>
+<h2 id="阿里云kubernetes环境创建">阿里云Kubernetes环境创建</h2>
+<ol>
+<li>
+<p>创建VPC</p>
+<ul>
+<li><a href="https://homenew.console.aliyun.com">https://homenew.console.aliyun.com</a></li>
+<li>专有网络VPC -&gt; 选区域 -&gt; 创建专有网络
+<ul>
+<li>专有网络：名称staffjoy-k8s-vpc，IPv4网段默认，资源组默认</li>
+<li>交换机：名称staffjoy-k8s-switch001，可用区B，IPv4网段192.168.1.0/24</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>创建RDS</p>
+<ul>
+<li>RDS管理控制台 -&gt; 创建实例 -&gt; 按量付费
+<ul>
+<li>地域与VPC相同，资源组默认，数据库MySQL，版本5.7，系列基础版，存储类型SSD云盘，可用区与VPC可用区相同，网络类型专有网络，规格2核4G，存储空间150G，立即购买，支付(0.65元/时)</li>
+<li>管理控制台 -&gt; 点击实例名称进行设置</li>
+</ul>
+</li>
+<li>设置白名单，添加白名单分组
+<ul>
+<li>选专有网络，分组名称staffjoy_rds，组内白名单192.168.1.0/24，确定</li>
+<li>复制内网地址</li>
+</ul>
+</li>
+<li>更新JDBC连接字符串
+<ul>
+<li>更新config.yaml文件中的连接字符串中的连接、账户、密码</li>
+</ul>
+</li>
+<li>创建root账户
+<ul>
+<li>账号管理，创建帐号</li>
+<li>数据库帐号root，密码Root1234</li>
+</ul>
+</li>
+<li>创建数据库和表
+<ul>
+<li>登录数据库，root，Root1234；设置所有实例</li>
+<li>数据库管理；创建数据库：数据库名staffjoy_account，确定；创建数据库：数据库名staffjoy_company，确定</li>
+<li>SQL操作，SQL窗口，执行建表语句</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>创建共享版Kubernetes集群</p>
+<ul>
+<li>容器服务Kubernetes版，创建Kubernetes集群，标准托管集群
+<ul>
+<li>集群名称staffjoy-k8s-cluster，地域一致，专有网络如前VPC，虚拟交换机选中，Worker实例新增实例，节点类型按量付费，实例规格4核8G，数量3台，系统盘SSD云盘120GB，Kubernetes版本1.12.6-aliyun.1，操作系统Linux，网络插件Flannel，Pod网络CIDR 172.20.0.0/16，Service CIDR 172.21.0.0/20，配置SNAT 为专有网络配置SNAT，公网访问 使用EIP暴露API Server，Ingress不需要选中，RDS白名单添加</li>
+</ul>
+</li>
+<li>更新 .kube/config(配置context，使用本地kubectl指向阿里云kubernetes)
+<ul>
+<li>点击集群名称，KubeConfig(公网访问)，复制到$HOME/.kube/config</li>
+<li>复制 -cluster，添加到目标文件</li>
+<li>复制 -context到current-context，替换目标文件响应内容</li>
+<li>复制 -name，添加到目标文件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>校验</p>
+<ul>
+<li>kubectl config current-context</li>
+<li>kubectl cluster-info</li>
+<li>kubectl get nodes</li>
+</ul>
+</li>
+</ol>
+<h2 id="将staffjoy部署到阿里云kubernetes环境">将staffjoy部署到阿里云Kubernetes环境</h2>
+<ol>
+<li>
+<p>部署staffjoy(k8s/UAT)</p>
+<ul>
+<li>部署config.yaml和logback-config.yaml</li>
+</ul>
+<p><code>kubectl apply -f config</code></p>
+<ul>
+<li>部署service和deployment</li>
+</ul>
+<p><code>kubectl apply -f uat</code></p>
+</li>
+<li>
+<p>阿里云dashboard校验</p>
+<ul>
+<li>容器服务Kubernetes版，集群的控制台</li>
+<li>注意：微服务的镜像要docker-compose push到docker hub</li>
+<li>查看pod、logs</li>
+<li>查看config maps：common-config，logback-config</li>
+</ul>
+</li>
+<li>
+<p>命令行校验</p>
+<p><code>kubectl get pods -o wide</code></p>
+<p><code>kubectl get services</code></p>
+<p><code>kubectl get deployments</code></p>
+</li>
+<li>
+<p>更新并启用SwitchHosts</p>
+<ul>
+<li>获取faraday公网ip</li>
+<li>更新ELB IP地址</li>
+</ul>
+</li>
+<li>
+<p>staffjoy校验</p>
+<ul>
+<li><a href="http://www.staffjoy-uat.local">http://www.staffjoy-uat.local</a></li>
+</ul>
+</li>
+<li>
+<p>删除阿里云kubernetes和RDS</p>
+</li>
+</ol>
+<h2 id="kubernetes应用动态配置实验">Kubernetes应用动态配置实验</h2>
+<ol>
+<li>
+<p>k8s dashboard校验</p>
+<ul>
+<li>进入account-svc的pod命令控制台</li>
+<li>/etc/staffjoy下有logback-spring.xml(这是发布uat环境时，把logback以configMap的形式mount到了pod里面)</li>
+<li>校验logback-spring.xml文件内容
+<ul>
+<li>scanPeriod为配置刷新时间间隔</li>
+<li>level为日志级别</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>更新logback配置(k8s/UAT/config)</p>
+<ul>
+<li>更新logback-config.yaml中的level为debug</li>
+<li>kubectl apply -f logback-config.yaml</li>
+</ul>
+</li>
+<li>
+<p>k8s dashboard校验</p>
+<ul>
+<li>account-svc的pod命令控制台，校验logback-spring.xml文件更新</li>
+<li>等待30秒</li>
+<li>account-svc的pod日志控制台输出debug日志</li>
+</ul>
+</li>
+</ol>
+<h2 id="kubernetes应用金丝雀发布实验">Kubernetes应用金丝雀发布实验</h2>
+<ol>
+<li>
+<p>金丝雀发布</p>
+<ul>
+<li>假设线上有一个v1版本，现在有一个v2版本需要更新；金丝雀发布就是先发布一个v2版本，让其接受一小部分的流量，大部分流量仍然是在老版本上；如果v2版本运行ok，就把其他的v2版本依次发布；如果v2版本有问题，则退回老版本</li>
+<li>也称灰度发布，是指在黑白之间能够平滑过渡的一种发布方式；可以保证整体系统的稳定，在初始灰度的时候就可以发现、调整问题，以保证其影响度</li>
+</ul>
+</li>
+<li>
+<p>金丝雀发布步骤</p>
+<ul>
+<li>将www服务www-web-deployment扩容到3个实例
+<ul>
+<li>k8s/uat/www-web.yaml中replica改为3</li>
+<li>kubectl get pods查看pod情况</li>
+<li>kubectl apply -f www-web.yaml</li>
+<li>kubectl get deployments查看实例个数</li>
+</ul>
+</li>
+<li>发布金丝雀 www-web-deployment-canary
+<ul>
+<li>k8s/uat/canary/www-web-canary.yaml中image改为boboweike/www-svc:blue</li>
+<li>kubectl apply -f canary</li>
+</ul>
+</li>
+<li>校验</li>
+<li>扩容金丝雀到3个实例
+<ul>
+<li>k8s/uat/canary/www-web-canary.yaml中replicas改为3</li>
+<li>kubectl apply -f canary</li>
+<li>kubectl get deployments查看实例个数</li>
+</ul>
+</li>
+<li>删除www-web-deployment
+<ul>
+<li>kubectl get deployments查看实例个数</li>
+<li>k8s/uat/canary/www-web.yaml中replicas改为0</li>
+<li>kubectl apply -f www-web.yaml</li>
+<li>kubectl get deployments查看实例个数</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="阿里云资源释放">阿里云资源释放</h2>
+<ol>
+<li>
+<p>释放aliyun RDS</p>
+<ul>
+<li>云数据库RDS版本，更多，释放实例，短信验证码，确定</li>
+</ul>
+</li>
+<li>
+<p>释放k8s</p>
+<ul>
+<li>容器服务Kubernetes版，更多，删除，已知晓，确定</li>
+<li>日志服务，project列表，删除</li>
+</ul>
+</li>
+<li>
+<p>专有网络VPC</p>
+<ul>
+<li>不产生费用，可不删</li>
+<li>如果要删除，先删交换机，再删VPC</li>
+</ul>
+</li>
+</ol>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="http://wayne06.github.io/"><img src="/img/favicon.png" />WZhong</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/springboot%E4%B8%8Ekubernetes%E4%BA%91%E5%8E%9F%E7%94%9F%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%9E%E8%B7%B5-08-%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%E5%8C%96%E5%92%8Cdocker-compose%E9%83%A8%E7%BD%B2/" data-toggle="tooltip" data-placement="top" title="服务容器化和Docker Compose部署">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/springboot%E4%B8%8Ekubernetes%E4%BA%91%E5%8E%9F%E7%94%9F%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%9E%E8%B7%B5-10-%E9%A1%B9%E7%9B%AE%E5%A4%8D%E7%9B%98/" data-toggle="tooltip" data-placement="top" title="项目复盘、扩展和应用">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/ci/cd" title="ci/cd">
+                            ci/cd
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/design-pattern" title="design-pattern">
+                            design-pattern
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/devops" title="devops">
+                            devops
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/interview" title="interview">
+                            interview
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/japanese-language" title="japanese-language">
+                            japanese-language
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/jlpt" title="jlpt">
+                            jlpt
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/kafka" title="kafka">
+                            kafka
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n3" title="n3">
+                            n3
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n4" title="n4">
+                            n4
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n5" title="n5">
+                            n5
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/saas" title="saas">
+                            saas
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E5%8A%A8%E8%AF%8D%E5%8F%98%E5%BD%A2" title="动词变形">
+                            动词变形
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E6%96%87%E6%AD%8C" title="日文歌">
+                            日文歌
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E5%BA%94%E7%94%A8%E8%AF%BE%E6%96%87" title="日语应用课文">
+                            日语应用课文
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95" title="日语语法">
+                            日语语法
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%A0%87%E5%87%86%E6%97%A5%E6%9C%AC%E8%AF%AD" title="标准日本语">
+                            标准日本语
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="http://jskillcloud.com/">杨波的博客</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="WZhong" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:zs577215@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    <li>
+                        <a target="_blank" href="/img/wechat_qrcode.jpg">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/wayne06">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yourlinkedinid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/yourstackoverflowid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+            
+                    
+                    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; WZhong 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="WZhong">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="系统架构设计和技术栈选型" />
+    <meta property="og:title" content="系统架构设计和技术栈选型" />
+    <meta property="twitter:title" content="系统架构设计和技术栈选型" />
+    
+
+    
+    <meta name="description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan.">
+    <meta property="og:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    <meta property="twitter:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>系统架构设计和技术栈选型-Wayne Zhong Blog</title>
+
+    <link rel="canonical" href="/post/springboot%E4%B8%8Ekubernetes%E4%BA%91%E5%8E%9F%E7%94%9F%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%9E%E8%B7%B5-02-%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E6%8A%80%E6%9C%AF%E6%A0%88%E9%80%89%E5%9E%8B/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/docco.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">WZhong</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/design-pattern">design-pattern</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/it">it</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/japanese">japanese</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/java">java</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/microservice">microservice</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/others">others</a>
+                    </li>
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://img.zhaohuabing.com/post-bg-2015.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/devops" title="DevOps">
+                            DevOps
+                        </a>
+                        
+                        <a class="tag" href="/tags/ci/cd" title="CI/CD">
+                            CI/CD
+                        </a>
+                        
+                        <a class="tag" href="/tags/saas" title="SaaS">
+                            SaaS
+                        </a>
+                        
+                    </div>
+                    <h1>系统架构设计和技术栈选型</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                WZhong
+                         
+                        on 
+                        Tuesday, January 21, 2020
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#为何采用微服务架构">为何采用微服务架构</a></li>
+    <li><a href="#架构设计和技术栈选型">架构设计和技术栈选型</a></li>
+    <li><a href="#数据和接口模型设计">数据和接口模型设计</a></li>
+    <li><a href="#dubbospring-cloud和k8s如何选型">Dubbo、Spring Cloud和K8s如何选型</a></li>
+    <li><a href="#技术中台到底讲什么">技术中台到底讲什么</a></li>
+  </ul>
+</nav>
+                
+                <h2 id="为何采用微服务架构">为何采用微服务架构</h2>
+<ol>
+<li>
+<p>观点1：单块优先，再逐块解耦拆分</p>
+</li>
+<li>
+<p>观点2：微服务优先，因微服务技术已逐渐成熟：灵活性、易扩展</p>
+</li>
+</ol>
+<h2 id="架构设计和技术栈选型">架构设计和技术栈选型</h2>
+<ol>
+<li>
+<p>总体架构设计</p>
+</li>
+<li>
+<p>Skywalking依赖监控图</p>
+</li>
+<li>
+<p>架构设计思想</p>
+<ul>
+<li>分而治之</li>
+<li>单一职责</li>
+<li>关注分离</li>
+</ul>
+</li>
+<li>
+<p>技术栈选型</p>
+<ul>
+<li>微服务：Spring/Rest</li>
+<li>数据访问：Spring Data JPA</li>
+<li>数据库：MySQL</li>
+<li>WWW服务：Spring MVC + Thymeleaf模版引擎</li>
+<li>Faraday网关：Spring + Servlet Filter</li>
+<li>SPA单页应用：React.js + Redux</li>
+<li>支持一键部署到本地Docker Compose环境</li>
+<li>支持一键部署到Kubernetes容器云环境</li>
+</ul>
+</li>
+<li>
+<p>SaaS多租户设计</p>
+</li>
+</ol>
+<h2 id="数据和接口模型设计">数据和接口模型设计</h2>
+<ol>
+<li>
+<p>账户服务</p>
+<ul>
+<li>账户数据模型</li>
+<li>账户接口模型</li>
+</ul>
+</li>
+<li>
+<p>公司服务</p>
+<ul>
+<li>公司数据模型</li>
+<li>实体关系ER图</li>
+<li>公司Company服务接口模型</li>
+<li>公司管理员Admin服务接口模型</li>
+<li>员工目录Directory服务接口模型</li>
+<li>团队Team服务接口模型</li>
+<li>雇员Worker服务接口模型</li>
+<li>任务Job服务接口模型</li>
+<li>班次Shift服务接口模型</li>
+</ul>
+</li>
+</ol>
+<h2 id="dubbospring-cloud和k8s如何选型">Dubbo、Spring Cloud和K8s如何选型</h2>
+<ol>
+<li>
+<p>微服务公共关注点Common Concerns</p>
+<ul>
+<li>DevOps开发者体验</li>
+<li>微服务
+<ul>
+<li>配置管理</li>
+</ul>
+<blockquote>
+<p>可变参数配置，如启动期配置数据库连接字符串、运行期动态配置缓存过期时间等</p>
+</blockquote>
+<ul>
+<li>服务发现和LB</li>
+<li>弹性和容错</li>
+<li>API管理</li>
+</ul>
+<blockquote>
+<p>通过API网关对外暴露API，需支持反向路由、安全鉴权、日志监控、限流容错等基本功能，高级网关还需支持AB测试、蓝绿、灰度测试等高级功能</p>
+</blockquote>
+<ul>
+<li>服务安全</li>
+</ul>
+<blockquote>
+<p>访问微服务需要认证，对敏感服务还需鉴权，服务间调用也需要权限管控</p>
+</blockquote>
+<ul>
+<li>日志监控</li>
+</ul>
+<blockquote>
+<p>集中采集、存储和分析，进一步分析微服务性能和用户行为</p>
+</blockquote>
+<ul>
+<li>Metrics监控</li>
+</ul>
+<blockquote>
+<p>对服务的调用链、延迟、错误数等等进行监控</p>
+</blockquote>
+<ul>
+<li>调用链监控</li>
+</ul>
+<blockquote>
+<p>掌握服务间依赖关系、性能</p>
+</blockquote>
+<ul>
+<li>调度和发布</li>
+</ul>
+<blockquote>
+<p>容器云环境，支持容器的资源调度和发布，高级需支持滚动发布、蓝绿发布</p>
+</blockquote>
+<ul>
+<li>自愈和自动伸缩</li>
+</ul>
+</li>
+<li>IaaS (操作系统、虚拟化、硬件/网络/存储)</li>
+</ul>
+</li>
+<li>
+<p>Dubbo、Spring Cloud和K8s横向对比</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Dubbo</th>
+<th>Spring Cloud</th>
+<th>K8s</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>服务发现和LB</td>
+<td>ZK/Nacos + Client</td>
+<td>Eureka + Ribbon</td>
+<td>Service</td>
+</tr>
+<tr>
+<td>API网关</td>
+<td>未开源</td>
+<td>Zuul</td>
+<td>Ingress</td>
+</tr>
+<tr>
+<td>配置管理</td>
+<td>Diamond/Nacos</td>
+<td>SpringCloud Config</td>
+<td>ConfigMaps/Secrets</td>
+</tr>
+<tr>
+<td>容错限流</td>
+<td>Sentinel</td>
+<td>Hystrix</td>
+<td>HealthCheck/Probe/ServiceMesh</td>
+</tr>
+<tr>
+<td>日志监控</td>
+<td>ELK</td>
+<td>ELK</td>
+<td>EFK</td>
+</tr>
+<tr>
+<td>Metrics监控</td>
+<td>Dubbo Admin/Monitor</td>
+<td>Actuator/MicroMeter+Promethues</td>
+<td>Heapster+Prometheus</td>
+</tr>
+<tr>
+<td>调用链监控</td>
+<td>NA</td>
+<td>SpringCloud Sleuth/Zipkin</td>
+<td>Jaeger/Zipkin</td>
+</tr>
+<tr>
+<td>应用打包</td>
+<td>Jar/War</td>
+<td>Uber Jar/War</td>
+<td>Docker Image/Helm</td>
+</tr>
+<tr>
+<td>服务框架</td>
+<td>Dubbo RPC</td>
+<td>Spring REST</td>
+<td>框架无关</td>
+</tr>
+<tr>
+<td>发布和调度</td>
+<td>NA</td>
+<td>NA</td>
+<td>Scheduler</td>
+</tr>
+<tr>
+<td>自动伸缩和自愈</td>
+<td>NA</td>
+<td>NA</td>
+<td>Scheduler/AutoScaler</td>
+</tr>
+<tr>
+<td>进程隔离</td>
+<td>NA</td>
+<td>NA</td>
+<td>Docker/Pod</td>
+</tr>
+<tr>
+<td>环境管理</td>
+<td>NA</td>
+<td>NA</td>
+<td>Namespace/Authorization</td>
+</tr>
+<tr>
+<td>资源配额</td>
+<td>NA</td>
+<td>NA</td>
+<td>CPU/Mem Limit,Namespace Quotas</td>
+</tr>
+<tr>
+<td>流量治理</td>
+<td>ZK+Client</td>
+<td>NA</td>
+<td>ServiceMesh</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>优劣对比</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Dubbo</th>
+<th>Spring Cloud</th>
+<th>K8s</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>亮点</td>
+<td>阿里背书<!-- raw HTML omitted -->成熟稳定<!-- raw HTML omitted -->RPC高性能<!-- raw HTML omitted -->流量治理</td>
+<td>Netflix/Pivotal背书<!-- raw HTML omitted -->社区活跃<!-- raw HTML omitted -->开发体验好<!-- raw HTML omitted -->抽象组件化好</td>
+<td>谷歌背书<!-- raw HTML omitted -->平台抽象<!-- raw HTML omitted -->全面覆盖微服务关注点<!-- raw HTML omitted -->语言栈无关<!-- raw HTML omitted -->社区活跃</td>
+</tr>
+<tr>
+<td>不足</td>
+<td>技术较老<!-- raw HTML omitted -->耦合性高<!-- raw HTML omitted -->JVM only<!-- raw HTML omitted -->国外社区小</td>
+<td>JVM only<!-- raw HTML omitted -->运行耗资源</td>
+<td>偏DevOps和运维<!-- raw HTML omitted -->重量复杂<!-- raw HTML omitted -->技术门槛高</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>实践建议</p>
+<ul>
+<li>理解微服务关注点，根据企业上下文综合考量</li>
+<li>尽量不要混搭，保持体系一致性</li>
+<li>推荐K8s + Spring Boot</li>
+<li>K8s技术门槛和运维成本高，对于中小公司，不建议自建K8s集群，而是采用公有云的K8s，如阿里云的K8s，将K8s的运维外包给公有云</li>
+</ul>
+</li>
+</ol>
+<h2 id="技术中台到底讲什么">技术中台到底讲什么</h2>
+<ol>
+<li>
+<p>阿里巴巴中台体系</p>
+<ul>
+<li>业务前台
+<ul>
+<li>淘宝</li>
+<li>天猫</li>
+<li>PC</li>
+<li>&hellip;</li>
+</ul>
+</li>
+<li>业务中台：共享业务服务层
+<ul>
+<li>用户中心</li>
+<li>商品中心</li>
+<li>交易中心</li>
+<li>&hellip;</li>
+</ul>
+</li>
+<li>技术中台
+<ul>
+<li>PaaS：技术平台服务，中间件技术、大数据和研发平台</li>
+<li>IaaS：基础设施服务，服务器、机房和互联网数据中心</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>eBay中台架构</p>
+<ul>
+<li>customer experience</li>
+<li>application platform services</li>
+<li>technology platform</li>
+<li>operations infrastructure layer</li>
+</ul>
+</li>
+<li>
+<p>拍拍贷中台架构</p>
+<ul>
+<li>业务前台
+<ul>
+<li>应用：主站、借款、曹操贷、城市贷</li>
+<li>渠道：第三方接入</li>
+</ul>
+</li>
+<li>业务中台
+<ul>
+<li>核心业务层：用户、资金、借入、借出、风控、催收&hellip;</li>
+</ul>
+</li>
+<li>技术中台
+<ul>
+<li>大数据、商业智能：BigDATA、AI</li>
+<li>基础框架：应用监控、持续交付、中间件、后台服务、容器云</li>
+<li>Infras：计算、存储、网络、监控、安全、IDC</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="http://wayne06.github.io/"><img src="/img/favicon.png" />WZhong</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/springboot%E4%B8%8Ekubernetes%E4%BA%91%E5%8E%9F%E7%94%9F%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%9E%E8%B7%B5-01-%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%A1%88%E4%BE%8B%E9%9C%80%E6%B1%82/" data-toggle="tooltip" data-placement="top" title="介绍与案例需求">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/springboot%E4%B8%8Ekubernetes%E4%BA%91%E5%8E%9F%E7%94%9F%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%9E%E8%B7%B5-03-%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/" data-toggle="tooltip" data-placement="top" title="服务开发框架设计和实现">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/ci/cd" title="ci/cd">
+                            ci/cd
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/design-pattern" title="design-pattern">
+                            design-pattern
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/devops" title="devops">
+                            devops
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/interview" title="interview">
+                            interview
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/japanese-language" title="japanese-language">
+                            japanese-language
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/jlpt" title="jlpt">
+                            jlpt
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/kafka" title="kafka">
+                            kafka
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n3" title="n3">
+                            n3
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n4" title="n4">
+                            n4
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n5" title="n5">
+                            n5
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/saas" title="saas">
+                            saas
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E5%8A%A8%E8%AF%8D%E5%8F%98%E5%BD%A2" title="动词变形">
+                            动词变形
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E6%96%87%E6%AD%8C" title="日文歌">
+                            日文歌
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E5%BA%94%E7%94%A8%E8%AF%BE%E6%96%87" title="日语应用课文">
+                            日语应用课文
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95" title="日语语法">
+                            日语语法
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%A0%87%E5%87%86%E6%97%A5%E6%9C%AC%E8%AF%AD" title="标准日本语">
+                            标准日本语
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="http://jskillcloud.com/">杨波的博客</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="WZhong" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:zs577215@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    <li>
+                        <a target="_blank" href="/img/wechat_qrcode.jpg">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/wayne06">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yourlinkedinid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/yourstackoverflowid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+            
+                    
+                    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; WZhong 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>

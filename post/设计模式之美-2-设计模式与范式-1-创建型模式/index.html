@@ -1,0 +1,1931 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="WZhong">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="01 创建型模式" />
+    <meta property="og:title" content="01 创建型模式" />
+    <meta property="twitter:title" content="01 创建型模式" />
+    
+
+    
+    <meta name="description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan.">
+    <meta property="og:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    <meta property="twitter:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>01 创建型模式-Wayne Zhong Blog</title>
+
+    <link rel="canonical" href="/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E-2-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%8E%E8%8C%83%E5%BC%8F-1-%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/docco.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">WZhong</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/design-pattern">design-pattern</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/it">it</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/japanese">japanese</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/java">java</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/microservice">microservice</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/others">others</a>
+                    </li>
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://img.zhaohuabing.com/post-bg-2015.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/design-pattern" title="DESIGN PATTERN">
+                            DESIGN PATTERN
+                        </a>
+                        
+                    </div>
+                    <h1>01 创建型模式</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                WZhong
+                         
+                        on 
+                        Thursday, March 12, 2020
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#单例模式">单例模式</a>
+      <ul>
+        <li><a href="#单例的定义">单例的定义</a></li>
+        <li><a href="#单例的用处">单例的用处</a></li>
+        <li><a href="#单例的实现">单例的实现</a></li>
+        <li><a href="#单例存在的问题">单例存在的问题</a></li>
+        <li><a href="#单例的替代解决方案">单例的替代解决方案</a></li>
+        <li><a href="#扩展与思考">扩展与思考</a></li>
+      </ul>
+    </li>
+    <li><a href="#工厂模式">工厂模式</a>
+      <ul>
+        <li><a href="#简单工厂">简单工厂</a></li>
+        <li><a href="#工厂方法">工厂方法</a></li>
+        <li><a href="#抽象工厂">抽象工厂</a></li>
+        <li><a href="#工厂模式总结">工厂模式总结</a></li>
+        <li><a href="#如何设计实现一个-dependency-injection-框架">如何设计实现一个 Dependency Injection 框架</a></li>
+      </ul>
+    </li>
+    <li><a href="#建造者模式">建造者模式</a>
+      <ul>
+        <li><a href="#为什么需要建造者模式">为什么需要建造者模式</a></li>
+        <li><a href="#建造者模式-与-工厂模式">建造者模式 与 工厂模式</a></li>
+      </ul>
+    </li>
+    <li><a href="#原型模式">原型模式</a>
+      <ul>
+        <li><a href="#原型模式的原理与应用">原型模式的原理与应用</a></li>
+        <li><a href="#原型模式的实现方式">原型模式的实现方式</a></li>
+        <li><a href="#总结">总结</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                
+                <h2 id="单例模式">单例模式</h2>
+<h3 id="单例的定义">单例的定义</h3>
+<ul>
+<li>一个类只允许创建一个对象，那这个类就是一个单例类，这种设计模式就叫做单例设计模式</li>
+</ul>
+<h3 id="单例的用处">单例的用处</h3>
+<ul>
+<li>
+<p><strong>有些数据在系统中只应该保存一份</strong>：如系统的配置信息</p>
+<ul>
+<li>唯一递增id生成器：AtomicLong是一个Java并发库中提供的一个原子变量类型，它将一些线程不安全需要加锁的复合操作封装为了线程安全的原子操作，比如下面会用到的incrementAndGet().</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">IdGenerator</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">private</span> AtomicLong id <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AtomicLong<span style="color:#f92672">(</span>0<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> IdGenerator instance <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> IdGenerator<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">IdGenerator</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> IdGenerator <span style="color:#a6e22e">getInstance</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">return</span> instance<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">getId</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">return</span> id<span style="color:#f92672">.</span><span style="color:#a6e22e">getAndIncrement</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p><strong>解决资源访问冲突问题</strong>：如日志记录</p>
+<ul>
+<li>v1：在web容器的servlet多线程环境下，如果两个servlet线程同时执行两个函数并写入日志，因为共享变量是竞争资源，可能存在日志信息互相覆盖的情况</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Logger</span> <span style="color:#f92672">{</span>
+
+  <span style="color:#66d9ef">private</span> FileWriter writer<span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Logger</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      File file <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> File<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/Users/xx/log.txt&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        writer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileWriter<span style="color:#f92672">(</span>file<span style="color:#f92672">,</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">log</span><span style="color:#f92672">(</span>String message<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      writer<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span>message<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>v2：给log()函数加互斥锁synchronized，同一时刻只允许一个线程调用执行log()函数：<strong>这种锁是一个对象级别的锁（一个对象在不同线程下同时调用log()函数，会被强制要求顺序执行），不同对象之间并不共享一把锁，通过不同对象调用log()函数，锁并不起作用</strong>；同时FileWriter本身就是线程安全的，它的内部实现中本身就加了对象级别的锁</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Logger</span> <span style="color:#f92672">{</span>
+
+  <span style="color:#66d9ef">private</span> FileWriter writer<span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Logger</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      File file <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> File<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/Users/xx/log.txt&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        writer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileWriter<span style="color:#f92672">(</span>file<span style="color:#f92672">,</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">log</span><span style="color:#f92672">(</span>String message<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">synchronized</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+          writer<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span>message<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>v3：<strong>把对象级别的锁，换成类级别的锁</strong>，让所有对象都共享一把锁，避免不同对象之间同时调用log()函数；但是在使用时仍然需要创建多个对象，浪费内存空间和系统文件句柄</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Logger</span> <span style="color:#f92672">{</span>
+
+  <span style="color:#66d9ef">private</span> FileWriter writer<span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Logger</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      File file <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> File<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/Users/xx/log.txt&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      writer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileWriter<span style="color:#f92672">(</span>file<span style="color:#f92672">,</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">log</span><span style="color:#f92672">(</span>String message<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">synchronized</span> <span style="color:#f92672">(</span>Logger<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+          writer<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span>message<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>v4：将Logger设计成一个单例类：<strong>不用创建那么多Logger对象，节省内存空间，节省系统文件句柄</strong></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Logger</span> <span style="color:#f92672">{</span>
+
+  <span style="color:#66d9ef">private</span> FileWriter writer<span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> Logger instance <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Logger<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">Logger</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      File file <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> File<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/Users/xx/log.txt&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      writer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileWriter<span style="color:#f92672">(</span>file<span style="color:#f92672">,</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> Logger <span style="color:#a6e22e">getInstance</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">return</span> instance<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">log</span><span style="color:#f92672">(</span>String message<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
+      writer<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span>message<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+</ul>
+<h3 id="单例的实现">单例的实现</h3>
+<blockquote>
+<ol>
+<li>构造函数需要是private访问权限的，这样才能避免外部通过new创建实例</li>
+<li>考虑对象创建时的线程安全问题</li>
+<li>考虑是否支持延迟加载</li>
+<li>考虑getInstance()性能是否高，是否加锁**</li>
+</ol>
+</blockquote>
+<ul>
+<li>
+<p>饿汉式：</p>
+<ul>
+<li>
+<p>在类加载的时候，instance静态实例就已经创建并初始化好，所以instance的实例创建过程是线程安全的</p>
+</li>
+<li>
+<p>采用饿汉式实现方式，将耗时的初始化操作，提前到程序启动的时候完成，这样就能避免在程序运行的时候，再去初始化导致的性能问题。如果实例占用资源多，按照 fail-fast 的设计原则（有问题及早暴露），那我们也希望在程序启动时就将这个实例初始化好</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">IdGenerator</span> <span style="color:#f92672">{</span>
+
+  <span style="color:#66d9ef">private</span> AtomicLong id <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AtomicLong<span style="color:#f92672">(</span>0<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> IdGenerator instance <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> IdGenerator<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">IdGenerator</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span><span style="color:#f92672">}</span><span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> IdGenerator <span style="color:#a6e22e">getInstance</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">return</span> instance<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">getId</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">return</span> id<span style="color:#f92672">.</span><span style="color:#a6e22e">getAndIncrement</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>懒汉式</p>
+<ul>
+<li>
+<p>懒汉式相对于饿汉式的优势是支持延迟加载</p>
+</li>
+<li>
+<p><strong>给 getInstance() 这个方法加了一把大锁（synchronzed）</strong>，导致这个函数的并发度很低。如果频繁地用到，那频繁加锁、释放锁及并发度低等问题，会导致性能瓶颈，这种实现方式就不可取了</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">IdGenerator</span> <span style="color:#f92672">{</span>
+
+  <span style="color:#66d9ef">private</span> AtomicLong id <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AtomicLong<span style="color:#f92672">(</span>0<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> IdGenerator instance<span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">IdGenerator</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">synchronized</span> IdGenerator <span style="color:#a6e22e">getInstance</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>instance <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+          instance <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> IdGenerator<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+      <span style="color:#66d9ef">return</span> instance<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">getId</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">return</span> id<span style="color:#f92672">.</span><span style="color:#a6e22e">getAndIncrement</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>双重检测</p>
+<ul>
+<li>
+<p>既支持延迟加载、又支持高并发</p>
+</li>
+<li>
+<p>只要 instance 被创建之后，即便再调用 getInstance() 函数也不会再进入到加锁逻辑中了</p>
+</li>
+<li>
+<p><strong>因为指令重排序，可能会导致 IdGenerator 对象被 new 出来，并且赋值给 instance 之后，还没来得及初始化（执行构造函数中的代码逻辑），就被另一个线程使用了：需要给 instance 成员变量加上 volatile 关键字，禁止指令重排序</strong></p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">IdGenerator</span> <span style="color:#f92672">{</span>
+
+  <span style="color:#66d9ef">private</span> AtomicLong id <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AtomicLong<span style="color:#f92672">(</span>0<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">volatile</span> IdGenerator instance<span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">IdGenerator</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> IdGenerator <span style="color:#a6e22e">getInstance</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>instance <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+          <span style="color:#66d9ef">synchronized</span> <span style="color:#f92672">(</span>IdGenerator<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+              <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>instance <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                  instance <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> IdGenerator<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+              <span style="color:#f92672">}</span>
+          <span style="color:#f92672">}</span>
+      <span style="color:#f92672">}</span>
+      <span style="color:#66d9ef">return</span> instance<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">getId</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">return</span> id<span style="color:#f92672">.</span><span style="color:#a6e22e">getAndIncrement</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>静态内部类</p>
+<ul>
+<li><strong>SingletonHolder 是一个静态内部类，当外部类 IdGenerator 被加载的时候，并不会创建 SingletonHolder 实例对象。只有当调用 getInstance() 方法时，SingletonHolder 才会被加载，这个时候才会创建 instance</strong>。instance 的唯一性、创建过程的线程安全性，都由 JVM 来保证。所以，这种实现方法既保证了线程安全，又能做到延迟加载</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">IdGenerator</span> <span style="color:#f92672">{</span>
+
+  <span style="color:#66d9ef">private</span> AtomicLong id <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AtomicLong<span style="color:#f92672">(</span>0<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">IdGenerator</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SingletonHolder</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> IdGenerator instance <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> IdGenerator<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> IdGenerator <span style="color:#a6e22e">getInstance</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">return</span> SingletonHolder<span style="color:#f92672">.</span><span style="color:#a6e22e">instance</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">getId</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">return</span> id<span style="color:#f92672">.</span><span style="color:#a6e22e">getAndIncrement</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>枚举</p>
+<ul>
+<li>基于枚举类型的单例实现。这种实现方式<strong>通过 Java 枚举类型本身的特性，保证了实例创建的线程安全性和实例的唯一性</strong></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">enum</span> IdGenerator <span style="color:#f92672">{</span>
+  INSTANCE<span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> AtomicLong id <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AtomicLong<span style="color:#f92672">(</span>0<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">getId</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">return</span> id<span style="color:#f92672">.</span><span style="color:#a6e22e">getAndIncrement</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+</ul>
+<h3 id="单例存在的问题">单例存在的问题</h3>
+<blockquote>
+<p>在项目中使用单例，都是用它来表示一些全局唯一类，比如配置信息类、连接池类、ID 生成器类。<br>
+单例模式书写简洁、使用方便，在代码中，我们不需要创建对象，直接通过类似 IdGenerator.getInstance().getId() 这样的方法来调用就可以了。<br>
+但是，这种使用方法有点类似硬编码（hard code），会带来诸多问题</p>
+</blockquote>
+<ul>
+<li>
+<p>单例对OOP特性的支持不友好</p>
+<ul>
+<li>
+<p>IdGenerator 的使用方式违背了基于接口而非实现的设计原则，也就违背了广义上理解的 OOP 的抽象特性。未来如果希望针对不同的业务采用不同的 ID 生成算法。比如，订单 ID 和用户 ID 采用不同的 ID 生成器来生成。为了应对这个需求变化，需要修改所有用到 IdGenerator 类的地方，这样代码的改动就会比较大</p>
+</li>
+<li>
+<p>从理论上来讲，单例类也可以被继承、也可以实现多态，只是实现起来会非常奇怪，会导致代码的可读性变差。一旦选择将某个类设计成到单例类，也就意味着放弃了继承和多态这两个强有力的面向对象特性，也就相当于损失了可以应对未来需求变化的扩展性</p>
+</li>
+</ul>
+</li>
+<li>
+<p>单例会隐藏类之间的依赖关系</p>
+<ul>
+<li>单例类不需要显示创建、不需要依赖参数传递，在函数中直接调用就可以了。如果代码比较复杂，这种调用关系就会非常隐蔽。在阅读代码的时候，我们就需要仔细查看每个函数的代码实现，才能知道这个类到底依赖了哪些单例类</li>
+</ul>
+</li>
+<li>
+<p>单例对代码的扩展性不友好</p>
+<ul>
+<li>
+<p>如果未来某一天，我们需要在代码中创建两个实例或多个实例，那就要对代码有比较大的改动</p>
+</li>
+<li>
+<p>如：数据库连接池</p>
+<ul>
+<li>发现系统中有些 SQL 语句运行得非常慢，长时间占用数据库连接资源，导致其他 SQL 请求无法响应。</li>
+<li>为了解决这个问题，可以在系统中创建两个数据库连接池，慢 SQL 独享一个数据库连接池，其他 SQL 独享另外一个数据库连接池，这样就能避免慢 SQL 影响到其他 SQL 的执行。</li>
+<li>如果将数据库连接池设计成单例类，显然就无法适应这样的需求变更，也就是说，单例类在某些情况下会影响代码的扩展性、灵活性</li>
+<li><strong>数据库连接池、线程池这类的资源池，最好还是不要设计成单例类</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>单例对代码的可测试性不友好</p>
+<ul>
+<li>
+<p>如果单例类依赖比较重的外部资源，比如 DB，我们在写单元测试的时候，希望能通过 mock 的方式将它替换掉。而单例类这种硬编码式的使用方式，导致无法实现 mock 替换</p>
+</li>
+<li>
+<p>如果单例类持有成员变量（比如 IdGenerator 中的 id 成员变量），那它实际上相当于一种全局变量，被所有的代码共享。</p>
+<ul>
+<li>如果这个全局变量是一个可变全局变量，也就是说，它的成员变量是可以被修改的，那我们在编写单元测试的时候，还需要注意不同测试用例之间，修改了单例类中的同一个成员变量的值，从而导致测试结果互相影响的问题</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>单例不支持有参数的构造函数</p>
+<ul>
+<li>
+<p>单例不支持有参数的构造函数，比如我们创建一个连接池的单例对象，我们没法通过参数来指定连接池的大小</p>
+</li>
+<li>
+<p>第一种解决思路是：创建完实例之后，调用 init() 函数传递参数，再获取instance</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SingletonV1</span> <span style="color:#f92672">{</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> SingletonV1 instance <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> paramA<span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> paramB<span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">SingletonV1</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> paramA<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> paramB<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">paramA</span> <span style="color:#f92672">=</span> paramA<span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">paramB</span> <span style="color:#f92672">=</span> paramB<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> SingletonV1 <span style="color:#a6e22e">getInstance</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>instance <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+          <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> RuntimeException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Run init() first.&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+      <span style="color:#66d9ef">return</span> instance<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">synchronized</span> <span style="color:#66d9ef">static</span> SingletonV1 <span style="color:#a6e22e">init</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> paramA<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> paramB<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>instance <span style="color:#f92672">!</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+          <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> RuntimeException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Singleton has been created.&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+      instance <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SingletonV1<span style="color:#f92672">(</span>paramA<span style="color:#f92672">,</span> paramB<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">return</span> instance<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>第二种解决思路是：将参数放到 getIntance() 方法中</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SingletonV2</span> <span style="color:#f92672">{</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> SingletonV2 instance <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> paramA<span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> paramB<span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">SingletonV2</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> paramA<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> paramB<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">paramA</span> <span style="color:#f92672">=</span> paramA<span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">paramB</span> <span style="color:#f92672">=</span> paramB<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">synchronized</span> <span style="color:#66d9ef">static</span> SingletonV2 <span style="color:#a6e22e">getInstance</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> paramA<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> paramB<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>instance <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+          instance <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SingletonV2<span style="color:#f92672">(</span>paramA<span style="color:#f92672">,</span> paramB<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+      <span style="color:#66d9ef">return</span> instance<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>第三种解决思路是：将参数放到另外一个全局变量中（Config 是一个存储了 paramA 和 paramB 值的全局变量。里面的值既可以像下面的代码那样通过静态常量来定义，也可以从配置文件中加载得到。实际上，这种方式是最值得推荐的）</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SingletonV3</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> SingletonV3 instance <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> paramA<span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> paramB<span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">SingletonV3</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">paramA</span> <span style="color:#f92672">=</span> Config<span style="color:#f92672">.</span><span style="color:#a6e22e">PARAM_A</span><span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">paramB</span> <span style="color:#f92672">=</span> Config<span style="color:#f92672">.</span><span style="color:#a6e22e">PARAM_B</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">synchronized</span> <span style="color:#66d9ef">static</span> SingletonV3 <span style="color:#a6e22e">getInstance</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>instance <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+          instance <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SingletonV3<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+      <span style="color:#66d9ef">return</span> instance<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+</ul>
+<h3 id="单例的替代解决方案">单例的替代解决方案</h3>
+<ul>
+<li>
+<p>为了保证全局唯一，除了使用单例，我们还可以用静态方法来实现。这也是项目开发中经常用到的一种实现思路。但是，静态方法这种实现思路，并不能解决我们之前提到的问题。实际上，它比单例更加不灵活，比如，它无法支持延迟加载</p>
+</li>
+<li>
+<p>基于新的使用方式，我们将单例生成的对象，作为参数传递给函数（也可以通过构造函数传递给类的成员变量），可以解决单例隐藏类之间依赖关系的问题。不过，对于单例存在的其他问题，比如对 OOP 特性、扩展性、可测性不友好等问题，还是无法解决</p>
+</li>
+<li>
+<p>类对象的全局唯一性可以通过单例模式来强制保证，也可以通过工厂模式、IOC 容器（比如 Spring IOC 容器）来保证，还可以通过程序员自己来保证（自己在编写代码的时候自己保证不要创建两个类对象）</p>
+</li>
+<li>
+<p>如果单例类并没有后续扩展的需求，并且不依赖外部系统，那设计成单例类就没有太大问题。对于一些全局的类，我们在其他地方 new 的话，还要在类之间传来传去，不如直接做成单例类，使用起来简洁方便</p>
+</li>
+</ul>
+<h3 id="扩展与思考">扩展与思考</h3>
+<ul>
+<li>
+<p>如何理解单例模式的唯一性</p>
+<ul>
+<li>
+<p>单例模式创建的对象是进程唯一的</p>
+</li>
+<li>
+<p>进程之间是不共享地址空间的，如果在一个进程中创建另外一个进程（比如，代码中有一个 fork() 语句，进程执行到这条语句的时候会创建一个新的进程），操作系统会给新进程分配新的地址空间，并且将老进程地址空间的所有内容，重新拷贝一份到新进程的地址空间中，这些内容包括代码、数据（比如 user 临时变量、User 对象）</p>
+</li>
+</ul>
+</li>
+<li>
+<p>如何实现线程唯一的单例</p>
+<ul>
+<li>
+<p>“线程唯一”指的是线程内唯一，线程间可以不唯一</p>
+</li>
+<li>
+<p>通过一个 HashMap 来存储对象，其中 key 是线程 ID，value 是对象。这样我们就可以做到，不同的线程对应不同的对象，同一个线程只能对应一个对象。实际上，Java 语言本身提供了 ThreadLocal 工具类，可以更加轻松地实现线程唯一单例。不过，ThreadLocal 底层实现原理也是基于下面代码中所示的 HashMap</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">IdGenerator</span> <span style="color:#f92672">{</span>
+
+  <span style="color:#66d9ef">private</span> AtomicLong id <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AtomicLong<span style="color:#f92672">(</span>0<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> ConcurrentHashMap<span style="color:#f92672">&lt;</span>Long<span style="color:#f92672">,</span> IdGenerator<span style="color:#f92672">&gt;</span> instances <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ConcurrentHashMap<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">IdGenerator</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> IdGenerator <span style="color:#a6e22e">getInstance</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      Long currentThreadId <span style="color:#f92672">=</span> Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      instances<span style="color:#f92672">.</span><span style="color:#a6e22e">putIfAbsent</span><span style="color:#f92672">(</span>currentThreadId<span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> IdGenerator<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">return</span> instances<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>currentThreadId<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">getId</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">return</span> id<span style="color:#f92672">.</span><span style="color:#a6e22e">getAndIncrement</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>如何实现集群环境下的单例</p>
+<ul>
+<li>
+<p>不同的进程间共享同一个对象，不能创建同一个类的多个对象</p>
+</li>
+<li>
+<p>需要把这个单例对象序列化并存储到外部共享存储区（比如文件）。</p>
+<ul>
+<li>进程在使用这个单例对象的时候，需要先从外部共享存储区中将它读取到内存，并反序列化成对象，然后再使用，使用完成之后还需要再存储回外部共享存储区。</li>
+<li>为了保证任何时刻，在进程间都只有一份对象存在，一个进程在获取到对象之后，需要对对象加锁，避免其他进程再将其获取。在进程使用完这个对象之后，还需要显式地将对象从内存中删除，并且释放对对象的加锁</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">IdGenerator</span> <span style="color:#f92672">{</span>
+
+  <span style="color:#66d9ef">private</span> AtomicLong id <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AtomicLong<span style="color:#f92672">(</span>0<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> IdGenerator instance<span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> SharedObjectsStorage storage <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileSharedObjectStorage<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/user/xxx/xx&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> DistributedLock lock <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> DistributedLock<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">IdGenerator</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">synchronized</span> <span style="color:#66d9ef">static</span> IdGenerator <span style="color:#a6e22e">getInstance</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>instance <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+          lock<span style="color:#f92672">.</span><span style="color:#a6e22e">lock</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+          instance <span style="color:#f92672">=</span> storage<span style="color:#f92672">.</span><span style="color:#a6e22e">load</span><span style="color:#f92672">(</span>IdGenerator<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+      <span style="color:#66d9ef">return</span> instance<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">synchronized</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">freeInstance</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      storage<span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">,</span> IdGenerator<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      instance <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+      lock<span style="color:#f92672">.</span><span style="color:#a6e22e">unlock</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">getId</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">return</span> id<span style="color:#f92672">.</span><span style="color:#a6e22e">getAndIncrement</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>如何实现一个多例模式</p>
+<ul>
+<li>多例指的是一个类可以创建多个对象，但是个数是有限制的，比如只能创建 3 个对象</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BackendServer</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">long</span> serverNo<span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> String serverAddress<span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> SERVER_COUNT <span style="color:#f92672">=</span> 3<span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> Map<span style="color:#f92672">&lt;</span>Long<span style="color:#f92672">,</span> BackendServer<span style="color:#f92672">&gt;</span> serverInstances <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span>SERVER_COUNT<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">BackendServer</span><span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> serverNo<span style="color:#f92672">,</span> String serverAddress<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">serverNo</span> <span style="color:#f92672">=</span> serverNo<span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">serverAddress</span> <span style="color:#f92672">=</span> serverAddress<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">static</span> <span style="color:#f92672">{</span>
+      serverInstances<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>1L<span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> BackendServer<span style="color:#f92672">(</span>1L<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;192.134.22.138:8080&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      serverInstances<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>2L<span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> BackendServer<span style="color:#f92672">(</span>2L<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;192.134.22.139:8080&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      serverInstances<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>3L<span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> BackendServer<span style="color:#f92672">(</span>3L<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;192.134.22.140:8080&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> BackendServer <span style="color:#a6e22e">getInstance</span><span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> serverNo<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">return</span> serverInstances<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>serverNo<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> BackendServer <span style="color:#a6e22e">getRandomInstance</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      Random random <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Random<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">int</span> no <span style="color:#f92672">=</span> random<span style="color:#f92672">.</span><span style="color:#a6e22e">nextInt</span><span style="color:#f92672">(</span>SERVER_COUNT<span style="color:#f92672">)</span> <span style="color:#f92672">+</span> 1<span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">return</span> serverInstances<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>no<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>多例也可以指同一类型的只能创建一个对象，不同类型的可以创建多个对象</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Logger</span> <span style="color:#f92672">{</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> ConcurrentHashMap<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Logger<span style="color:#f92672">&gt;</span> instances <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ConcurrentHashMap<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">Logger</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> Logger <span style="color:#a6e22e">getInstance</span><span style="color:#f92672">(</span>String loggerName<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      instances<span style="color:#f92672">.</span><span style="color:#a6e22e">putIfAbsent</span><span style="color:#f92672">(</span>loggerName<span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> Logger<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">return</span> instances<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>loggerName<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>
+<p>多例模式创建的对象都是同一个类的对象，而工厂模式创建的是不同子类的对象</p>
+</li>
+<li>
+<p>枚举类型也相当于多例模式，一个类型只能对应一个对象，一个类可以创建多个对象</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="工厂模式">工厂模式</h2>
+<h3 id="简单工厂">简单工厂</h3>
+<ul>
+<li>v1：根据配置文件的后缀选择不同的解析器，将存储在文件中的配置解析成内存对象</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RuleConfigSource</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> RuleConfig <span style="color:#a6e22e">load</span><span style="color:#f92672">(</span>String ruleConfigFilePath<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> InvalidRuleConfigException <span style="color:#f92672">{</span>
+
+        String ruleConfigFileExtension <span style="color:#f92672">=</span> getFileExtension<span style="color:#f92672">(</span>ruleConfigFilePath<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        IRuleConfigParser parser <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;json&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equalsIgnoreCase</span><span style="color:#f92672">(</span>ruleConfigFileExtension<span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            parser <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JsonRuleConfigParser<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;xml&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equalsIgnoreCase</span><span style="color:#f92672">(</span>ruleConfigFileExtension<span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            parser <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> XmlRuleConfigParser<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;yaml&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equalsIgnoreCase</span><span style="color:#f92672">(</span>ruleConfigFileExtension<span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            parser <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> YamlRuleConfigParser<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;properties&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equalsIgnoreCase</span><span style="color:#f92672">(</span>ruleConfigFileExtension<span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            parser <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> PropertiesRuleConfigParse<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> InvalidRuleConfigException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Rule config file format is not supported: &#34;</span> <span style="color:#f92672">+</span> ruleConfigFileExtension<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+
+        String configText <span style="color:#f92672">=</span> getFileContent<span style="color:#f92672">(</span>ruleConfigFilePath<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        RuleConfig ruleConfig <span style="color:#f92672">=</span> parser<span style="color:#f92672">.</span><span style="color:#a6e22e">parse</span><span style="color:#f92672">(</span>configText<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">return</span> ruleConfig<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">private</span> String <span style="color:#a6e22e">getFileContent</span><span style="color:#f92672">(</span>String filePath<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        File file <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> File<span style="color:#f92672">(</span>filePath<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        BufferedReader reader <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        StringBuffer stringBuffer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuffer<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+            reader <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BufferedReader<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> FileReader<span style="color:#f92672">(</span>file<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+            String temp <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#f92672">(</span>temp <span style="color:#f92672">=</span> reader<span style="color:#f92672">.</span><span style="color:#a6e22e">readLine</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">!</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                stringBuffer<span style="color:#f92672">.</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span>temp<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>IOException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> stringBuffer<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">private</span> String <span style="color:#a6e22e">getFileExtension</span><span style="color:#f92672">(</span>String filePath<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> filePath<span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;.&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">[</span><span style="color:#f92672">-</span>1<span style="color:#f92672">]</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>v2：将功能独立的代码块paser创建的部分，封装成函数，增加逻辑性和可读性</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RuleConfigSource</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> RuleConfig <span style="color:#a6e22e">load</span><span style="color:#f92672">(</span>String ruleConfigFilePath<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> InvalidRuleConfigException <span style="color:#f92672">{</span>
+
+        String ruleConfigFileExtension <span style="color:#f92672">=</span> getFileExtension<span style="color:#f92672">(</span>ruleConfigFilePath<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        IRuleConfigParser parser <span style="color:#f92672">=</span> createParser<span style="color:#f92672">(</span>ruleConfigFileExtension<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>parser <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> InvalidRuleConfigException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Rule config file format is not supported: &#34;</span> <span style="color:#f92672">+</span> ruleConfigFileExtension<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+
+        String configText <span style="color:#f92672">=</span> getFileContent<span style="color:#f92672">(</span>ruleConfigFilePath<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        RuleConfig ruleConfig <span style="color:#f92672">=</span> parser<span style="color:#f92672">.</span><span style="color:#a6e22e">parse</span><span style="color:#f92672">(</span>configText<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">return</span> ruleConfig<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">private</span> IRuleConfigParser <span style="color:#a6e22e">createParser</span><span style="color:#f92672">(</span>String configFormat<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        IRuleConfigParser parser <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;json&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equalsIgnoreCase</span><span style="color:#f92672">(</span>configFormat<span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            parser <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JsonRuleConfigParser<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;xml&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equalsIgnoreCase</span><span style="color:#f92672">(</span>configFormat<span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            parser <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> XmlRuleConfigParser<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;yaml&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equalsIgnoreCase</span><span style="color:#f92672">(</span>configFormat<span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            parser <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> YamlRuleConfigParser<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;properties&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equalsIgnoreCase</span><span style="color:#f92672">(</span>configFormat<span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            parser <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> PropertiesRuleConfigParse<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> parser<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>
+<p>v3：进一步将createParser()函数剥离到一个独立的类，让类的职责更加单一、代码更加清晰；</p>
+<ul>
+<li>这个类就是简单工厂模式类</li>
+<li>大部分工厂类都是以“Factory”这个单词结尾的，但也不是必须的，比如 Java 中的 DateFormat、Calender</li>
+<li>工厂类中创建对象的方法一般都是 create 开头，比如代码中的 createParser()，但有的也命名为 getInstance()、createInstance()、newInstance()，有的甚至命名为 valueOf()（比如 Java String 类的 valueOf() 函数）等等，这个我们根据具体的场景和习惯来命名就好</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RuleConfigParserFactory</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> IRuleConfigParser <span style="color:#a6e22e">createParser</span><span style="color:#f92672">(</span>String configFormat<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        IRuleConfigParser parser <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;json&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equalsIgnoreCase</span><span style="color:#f92672">(</span>configFormat<span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            parser <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JsonRuleConfigParser<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;xml&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equalsIgnoreCase</span><span style="color:#f92672">(</span>configFormat<span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            parser <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> XmlRuleConfigParser<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;yaml&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equalsIgnoreCase</span><span style="color:#f92672">(</span>configFormat<span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            parser <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> YamlRuleConfigParser<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;properties&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equalsIgnoreCase</span><span style="color:#f92672">(</span>configFormat<span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            parser <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> PropertiesRuleConfigParse<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> parser<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>v4：将parser实现创建好并缓存起来，以节省内存和对象创建的时间</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RuleConfigParserFactory</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> IRuleConfigParser<span style="color:#f92672">&gt;</span> cachedParsers <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">static</span> <span style="color:#f92672">{</span>
+        cachedParsers<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;json&#34;</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> JsonRuleConfigParser<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        cachedParsers<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;xml&#34;</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> XmlRuleConfigParser<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        cachedParsers<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;yaml&#34;</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> YamlRuleConfigParser<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        cachedParsers<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;properties&#34;</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> PropertiesRuleConfigParse<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> IRuleConfigParser <span style="color:#a6e22e">createParser</span><span style="color:#f92672">(</span>String configFormat<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>configFormat <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">|</span><span style="color:#f92672">|</span> configFormat<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> cachedParsers<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>configFormat<span style="color:#f92672">.</span><span style="color:#a6e22e">toLowerCase</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>
+<p>总结：</p>
+<ul>
+<li>
+<p>应用多态或设计模式来替代 if 分支判断逻辑，也并不是没有任何缺点的，它虽然提高了代码的扩展性，更加符合开闭原则，但也增加了类的个数，牺牲了代码的可读性</p>
+</li>
+<li>
+<p>尽管简单工厂模式的代码实现中，有多处 if 分支判断逻辑，违背开闭原则，但权衡扩展性和可读性，这样的代码实现在大多数情况下（比如，不需要频繁地添加 parser，也没有太多的 parser）是没有问题的</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="工厂方法">工厂方法</h3>
+<ul>
+<li>
+<p>v1：如果要将if分支逻辑去掉，比较经典的处理方法就是利用多态的实现思路</p>
+<ul>
+<li>这就是工厂方法模式的典型代码实现</li>
+<li>当新增一种parser的时候，只需要新增一个实现了IRuleConfigParserFactory接口的Factory类即可</li>
+<li>所以，工厂方法模式比起简单工厂模式更符合开闭原则</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">IRuleConfigParserFactory</span> <span style="color:#f92672">{</span>
+  IRuleConfigParser <span style="color:#a6e22e">createParser</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">JsonRuleConfigParserFactory</span> <span style="color:#66d9ef">implements</span> IRuleConfigParserFactory <span style="color:#f92672">{</span>
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">public</span> IRuleConfigParser <span style="color:#a6e22e">createParser</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> JsonRuleConfigParser<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">XmlRuleConfigParserFactory</span> <span style="color:#66d9ef">implements</span> IRuleConfigParserFactory <span style="color:#f92672">{</span>
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">public</span> IRuleConfigParser <span style="color:#a6e22e">createParser</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> XmlRuleConfigParser<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">YamlRuleConfigParserFactory</span> <span style="color:#66d9ef">implements</span> IRuleConfigParserFactory <span style="color:#f92672">{</span>
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">public</span> IRuleConfigParser <span style="color:#a6e22e">createParser</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> YamlRuleConfigParser<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PropertiesRuleConfigParserFactory</span> <span style="color:#66d9ef">implements</span> IRuleConfigParserFactory <span style="color:#f92672">{</span>
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">public</span> IRuleConfigParser <span style="color:#a6e22e">createParser</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> PropertiesRuleConfigParser<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>在使用工厂类时，工厂类对象的创建逻辑又耦合进了load()函数中，反倒让设计变得更加复杂</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RuleConfigSource</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> RuleConfig <span style="color:#a6e22e">load</span><span style="color:#f92672">(</span>String ruleConfigFilePath<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> InvalidRuleConfigException <span style="color:#f92672">{</span>
+
+        String ruleConfigFileExtension <span style="color:#f92672">=</span> getFileExtension<span style="color:#f92672">(</span>ruleConfigFilePath<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        IRuleConfigParserFactory factory <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;json&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equalsIgnoreCase</span><span style="color:#f92672">(</span>ruleConfigFileExtension<span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            factory <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> JsonRuleConfigParserFactory<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;xml&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equalsIgnoreCase</span><span style="color:#f92672">(</span>ruleConfigFileExtension<span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            factory <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> XmlRuleConfigParserFactory<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;yaml&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equalsIgnoreCase</span><span style="color:#f92672">(</span>ruleConfigFileExtension<span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            factory <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> YamlRuleConfigParserFactory<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;properties&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equalsIgnoreCase</span><span style="color:#f92672">(</span>ruleConfigFileExtension<span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            factory <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> PropertiesRuleConfigParserFactory<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> InvalidRuleConfigException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Rule config file format is not supported: &#34;</span> <span style="color:#f92672">+</span> ruleConfigFileExtension<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        IRuleConfigParser parser <span style="color:#f92672">=</span> factory<span style="color:#f92672">.</span><span style="color:#a6e22e">createParser</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+        String configText <span style="color:#f92672">=</span> getFileContent<span style="color:#f92672">(</span>ruleConfigFilePath<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        RuleConfig ruleConfig <span style="color:#f92672">=</span> parser<span style="color:#f92672">.</span><span style="color:#a6e22e">parse</span><span style="color:#f92672">(</span>configText<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">return</span> ruleConfig<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>v2：为工厂类再创建一个简单工厂，用来创建工厂类对象</p>
+<ul>
+<li>当需要添加新的规则配置解析器的时候，只需要创建新的 parser 类和 parser factory 类，并且在 RuleConfigParserFactoryMap 类中，将新的 parser factory 对象添加到 cachedFactories 中即可。代码的改动非常少，基本上符合开闭原则</li>
+<li>对于规则配置文件解析这个应用场景来说，工厂模式需要额外创建诸多 Factory 类，也会增加代码的复杂性，而且，每个 Factory 类只是做简单的 new 操作，功能非常单薄（只有一行代码），也没必要设计成独立的类，所以，在这个应用场景下，简单工厂模式简单好用，比工方法厂模式更加合适</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RuleConfigParserFactoryMap</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> IRuleConfigParserFactory<span style="color:#f92672">&gt;</span> cachedFactories <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">static</span> <span style="color:#f92672">{</span>
+        cachedFactories<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;json&#34;</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> JsonRuleConfigParserFactory<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        cachedFactories<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;xml&#34;</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> XmlRuleConfigParserFactory<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        cachedFactories<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;yaml&#34;</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> YamlRuleConfigParserFactory<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        cachedFactories<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;properties&#34;</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> PropertiesRuleConfigParserFactory<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> IRuleConfigParserFactory <span style="color:#a6e22e">getParserFactory</span><span style="color:#f92672">(</span>String type<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>type <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">|</span><span style="color:#f92672">|</span> type<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> cachedFactories<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>type<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>什么时候该用工厂方法模式，而非简单工厂模式呢？</p>
+<ul>
+<li>如果代码块本身并不复杂，就几行代码而已，我们完全没必要将它拆分成单独的函数或者类</li>
+<li>基于这个设计思想，当对象的创建逻辑比较复杂，不只是简单的 new 一下就可以，而是要组合其他类对象，做各种初始化操作的时候，我们推荐使用工厂方法模式，将复杂的创建逻辑拆分到多个工厂类中，让每个工厂类都不至于过于复杂</li>
+<li>而使用简单工厂模式，将所有的创建逻辑都放到一个工厂类中，会导致这个工厂类变得很复杂</li>
+<li>除此之外，在某些场景下，如果对象不可复用，那工厂类每次都要返回不同的对象。如果我们使用简单工厂模式来实现，就只能选择第一种包含 if 分支逻辑的实现方式。如果我们还想避免烦人的 if-else 分支逻辑，这个时候，我们就推荐使用工厂方法模式</li>
+</ul>
+</li>
+</ul>
+<h3 id="抽象工厂">抽象工厂</h3>
+<ul>
+<li>
+<p>在简单工厂和工厂方法中，类只有一种分类方式。比如，在规则配置解析那个例子中，解析器类只会根据配置文件格式（Json、Xml、Yaml……）来分类。</p>
+</li>
+<li>
+<p>但是，如果类有两种分类方式，比如，我们既可以按照配置文件格式来分类，也可以按照解析的对象（Rule 规则配置还是 System 系统配置）来分类，那就会对应 8 个 parser 类</p>
+</li>
+<li>
+<p>让一个工厂负责创建多个不同类型的对象（IRuleConfigParser、ISystemConfigParser 等），而不是只创建一种 parser 对象。这样就可以有效地减少工厂类的个数</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">IConfigParserFactory</span> <span style="color:#f92672">{</span>
+  IRuleConfigParser <span style="color:#a6e22e">createRuleParser</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  ISystemConfigParser <span style="color:#a6e22e">createSystemParser</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#75715e">//此处可以扩展新的parser类型，比如IBizConfigParser
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">JsonConfigParserFactory</span> <span style="color:#66d9ef">implements</span> IConfigParserFactory <span style="color:#f92672">{</span>
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">public</span> IRuleConfigParser <span style="color:#a6e22e">createRuleParser</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> JsonRuleConfigParser<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">public</span> ISystemConfigParser <span style="color:#a6e22e">createSystemParser</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> JsonSystemConfigParser<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">XmlConfigParserFactory</span> <span style="color:#66d9ef">implements</span> IConfigParserFactory <span style="color:#f92672">{</span>
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">public</span> IRuleConfigParser <span style="color:#a6e22e">createRuleParser</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> XmlRuleConfigParser<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">public</span> ISystemConfigParser <span style="color:#a6e22e">createSystemParser</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> XmlSystemConfigParser<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#75715e">// 省略YamlConfigParserFactory和PropertiesConfigParserFactory代码
+</span></code></pre></div><h3 id="工厂模式总结">工厂模式总结</h3>
+<ul>
+<li>
+<p>当创建逻辑比较复杂，就考虑使用工厂模式，封装对象的创建过程，将对象的创建和使用相分离</p>
+<ul>
+<li>
+<p>情况一：代码中存在if-else分支判断，动态地根据不同的类型创建不同的对象：将这一系列if-else创建对象的代码抽离出来，放到工厂类中</p>
+<ul>
+<li>当每个对象的创建逻辑都比较简单的时候，推荐简单工厂模式，将多个对象的创建逻辑放到一个工厂类中</li>
+<li>当每个对象的创建逻辑都比较复杂的时候，为了避免设计一个过于庞大的简单工厂类，推荐使用工厂方法模式，将创建逻辑拆分更细，每个对象的创建逻辑独立到各自的工厂类中</li>
+</ul>
+</li>
+<li>
+<p>情况二：单个对象本身的创建过程比较复杂，比如前面提到的要组合其他类对象，做各种初始化操作：将对象的创建过程封装到工厂类中</p>
+<ul>
+<li>因为单个对象本身的创建逻辑就比较复杂，所以建议使用工厂方法模式</li>
+</ul>
+</li>
+<li>
+<p>如果创建对象的逻辑并不复杂，就直接通过new来创建对象，不需要使用工厂模式</p>
+</li>
+</ul>
+</li>
+<li>
+<p>工厂模式的作用，也是判断是否使用工厂模式的最本质的参考标准</p>
+<ul>
+<li>封装变化：创建逻辑有可能发生变化，封装成工厂类后，创建逻辑的变更对调用者透明</li>
+<li>代码复用：创建代码抽离到独立的工厂类之后可以复用</li>
+<li>隔离复杂性：封装复杂的创建逻辑，调用者无需了解如何创建对象</li>
+<li>控制复杂度：将创建代码抽离出来，让原本的函数或类职责更单一，代码更简洁</li>
+</ul>
+</li>
+</ul>
+<h3 id="如何设计实现一个-dependency-injection-框架">如何设计实现一个 Dependency Injection 框架</h3>
+<ul>
+<li>
+<p>工厂模式与 DI 容器有何区别</p>
+<ul>
+<li>
+<p>依赖注入框架，或叫依赖注入容器（Dependency Injection Container），简称 DI 容器</p>
+</li>
+<li>
+<p>DI 容器底层的最基本设计思路就是基于工厂模式的</p>
+<ul>
+<li>DI 容器相当于一个大的工厂类，负责在程序启动的时候，根据配置（要创建哪些类对象，每个类对象的创建需要依赖哪些其他类对象）实现创建好对象</li>
+<li>当应用程序需要使用某个类对象的时候，直接从容器中获取即可</li>
+<li>因为它持有一堆对象，所以这个框架才被称为“容器”</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>DI 容器的核心功能有哪些</p>
+<ul>
+<li>
+<p>配置解析</p>
+<ul>
+<li>需要通过一种形式，让应用告知 DI 容器要创建哪些对象，这种形式就是配置</li>
+<li>将需要由 DI 容器来创建的类对象和创建类对象的必要信息，放到配置文件中</li>
+<li>容器读取配置文件，根据配置文件提供的信息来创建对象</li>
+</ul>
+</li>
+<li>
+<p>对象创建</p>
+<ul>
+<li>在 DI 容器中，如果给每个类都对应创建一个工厂类，那么项目中类的个数会成倍增加</li>
+<li>只需要将所有类对象的创建都放到一个工厂类中完成就可以了，比如 BeansFactory</li>
+<li>因为创建的类对象非常多，为了避免 BeansFactory中的代码不会线性膨胀，使用反射机制，在程序运行中，动态地加载类、创建对象，不需要事先在代码中写死要创建哪些对象，所以，不管是创建一个对象还是十个对象，BeansFactory工厂类代码都是一样的</li>
+</ul>
+</li>
+<li>
+<p>对象的生命周期管理</p>
+<ul>
+<li>通过配置 scope 属性，区分 prototype 和 singleton 分别为新创建对象和返回单例对象</li>
+<li>通过配置 lazy-init 属性，区分是否懒加载</li>
+<li>通过配置 init-method 方法，在容器创建好对象之后，初始化对象</li>
+<li>通过配置 destroy-method 方法，在对象被销毁之前，做一些清理工作，如释放数据库连接池、关闭文件等</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>如何实现一个简单的 DI 容器</p>
+<ul>
+<li>
+<p>最小原型设计</p>
+<ul>
+<li>配置文件 beans.xml</li>
+<li>使用方式 ApplicationContext、ClassPathXmlApplication，getBean()</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    ApplicationContext applicationContext <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ClassPathXmlApplicationContext<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;beans.xml&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    RateLimiter ratelimiter <span style="color:#f92672">=</span> ratelimiter <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>RateLimiter<span style="color:#f92672">)</span> applicationContext<span style="color:#f92672">.</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;rateLimiter&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    ratelimiter<span style="color:#f92672">.</span><span style="color:#a6e22e">test</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>提供执行入口</p>
+<ul>
+<li>面向对象的最后一步：组装类并提供执行入口，执行入口即一组暴露给外部使用的接口和类</li>
+<li>执行入口包含两部分：
+<ul>
+<li>ApplicationContext接口</li>
+<li>ClassPathXmlApplication实现类：负责组装BeansFactory和BeanConfigParser两个类<br>
+串联执行流程：<br>
+1.从classpath中加载XML格式的配置文件<br>
+2.通过BeanConfigParser解析为统一的BeanDefinition格式<br>
+3.BeansFactory根据BeanDefinition来创建对象</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ClassPathXmlApplicationContext</span> <span style="color:#66d9ef">implements</span> ApplicationContext <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">private</span> BeanFactory      beanFactory<span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> BeanConfigParser beanConfigParser<span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ClassPathXmlApplicationContext</span><span style="color:#f92672">(</span>String configLocation<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">beanFactory</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BeanFactory<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">beanConfigParser</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> XmlBeanConfigParser<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      loadBeanDefinition<span style="color:#f92672">(</span>configLocation<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">loadBeanDefinition</span><span style="color:#f92672">(</span>String configLocation<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      List<span style="color:#f92672">&lt;</span>BeanDefinition<span style="color:#f92672">&gt;</span> beanDefinitions <span style="color:#f92672">=</span> beanConfigParser<span style="color:#f92672">.</span><span style="color:#a6e22e">parse</span><span style="color:#f92672">(</span>configLocation<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      beanFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">addBeanDefinitions</span><span style="color:#f92672">(</span>beanDefinitions<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">public</span> Object <span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span>String beanId<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> NoSuchBeanDefinitionException <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">return</span> beanFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span>beanId<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>配置文件解析</p>
+<ul>
+<li>BeanConfigParser接口</li>
+<li>XmlBeanConfigParser实现类：负责将配置文件解析为BeanDefinition结构，以便BeansFactory根据这个结构来创建对象</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">XmlBeanConfigParser</span> <span style="color:#66d9ef">implements</span> BeanConfigParser <span style="color:#f92672">{</span>
+
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>BeanDefinition<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">parse</span><span style="color:#f92672">(</span>String configLocation<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      List<span style="color:#f92672">&lt;</span>BeanDefinition<span style="color:#f92672">&gt;</span> beanDefinitions <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+      File file <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> File<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;E:\\IdeaProjects\\something\\target\\classes\\beans.xml&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+          Document document <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SAXReader<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>file<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+          Element rootElement <span style="color:#f92672">=</span> document<span style="color:#f92672">.</span><span style="color:#a6e22e">getRootElement</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+          List<span style="color:#f92672">&lt;</span>Element<span style="color:#f92672">&gt;</span> beans <span style="color:#f92672">=</span> rootElement<span style="color:#f92672">.</span><span style="color:#a6e22e">elements</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;bean&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+          <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> beans<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span> i<span style="color:#f92672">+</span><span style="color:#f92672">+</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+              Element bean <span style="color:#f92672">=</span> beans<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>i<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+              String beanId <span style="color:#f92672">=</span> bean<span style="color:#f92672">.</span><span style="color:#a6e22e">attributeValue</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;id&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+              String beanClass <span style="color:#f92672">=</span> bean<span style="color:#f92672">.</span><span style="color:#a6e22e">attributeValue</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;class&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+              BeanDefinition beanDefinition <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BeanDefinition<span style="color:#f92672">(</span>beanId<span style="color:#f92672">,</span> beanClass<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+              <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;singleton&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>bean<span style="color:#f92672">.</span><span style="color:#a6e22e">attributeValue</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;scope&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                  beanDefinition<span style="color:#f92672">.</span><span style="color:#a6e22e">setScope</span><span style="color:#f92672">(</span>BeanDefinition<span style="color:#f92672">.</span><span style="color:#a6e22e">Scope</span><span style="color:#f92672">.</span><span style="color:#a6e22e">SINGLETON</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+              <span style="color:#f92672">}</span>
+              <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>bean<span style="color:#f92672">.</span><span style="color:#a6e22e">attributeValue</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;lazy-init&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                  beanDefinition<span style="color:#f92672">.</span><span style="color:#a6e22e">setLazyInit</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+              <span style="color:#f92672">}</span>
+              List<span style="color:#f92672">&lt;</span>Element<span style="color:#f92672">&gt;</span> args <span style="color:#f92672">=</span> bean<span style="color:#f92672">.</span><span style="color:#a6e22e">elements</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;constructor-arg&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+              loadConstructorArgs<span style="color:#f92672">(</span>beanDefinition<span style="color:#f92672">,</span> args<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+              beanDefinitions<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>beanDefinition<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+          <span style="color:#f92672">}</span>
+      <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>DocumentException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+          e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+      <span style="color:#66d9ef">return</span> beanDefinitions<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">loadConstructorArgs</span><span style="color:#f92672">(</span>BeanDefinition beanDefinition<span style="color:#f92672">,</span> List<span style="color:#f92672">&lt;</span>Element<span style="color:#f92672">&gt;</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> args<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span> i<span style="color:#f92672">+</span><span style="color:#f92672">+</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+          Element arg <span style="color:#f92672">=</span> args<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>i<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+          BeanDefinition<span style="color:#f92672">.</span><span style="color:#a6e22e">ConstructorArg</span> constructorArg <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+          <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+              <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#f92672">(</span>arg<span style="color:#f92672">.</span><span style="color:#a6e22e">attributeValue</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">!</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> <span style="color:#f92672">(</span><span style="color:#f92672">!</span>arg<span style="color:#f92672">.</span><span style="color:#a6e22e">attributeValue</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                  constructorArg <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BeanDefinition<span style="color:#f92672">.</span><span style="color:#a6e22e">ConstructorArg</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+                  constructorArg<span style="color:#f92672">.</span><span style="color:#a6e22e">setType</span><span style="color:#f92672">(</span>Class<span style="color:#f92672">.</span><span style="color:#a6e22e">forName</span><span style="color:#f92672">(</span>arg<span style="color:#f92672">.</span><span style="color:#a6e22e">attributeValue</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+                  constructorArg<span style="color:#f92672">.</span><span style="color:#a6e22e">setArg</span><span style="color:#f92672">(</span>arg<span style="color:#f92672">.</span><span style="color:#a6e22e">attributeValue</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;value&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+              <span style="color:#f92672">}</span>
+              <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#f92672">(</span>arg<span style="color:#f92672">.</span><span style="color:#a6e22e">attributeValue</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;ref&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">!</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> <span style="color:#f92672">!</span>arg<span style="color:#f92672">.</span><span style="color:#a6e22e">attributeValue</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;ref&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                  constructorArg <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BeanDefinition<span style="color:#f92672">.</span><span style="color:#a6e22e">ConstructorArg</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+                  constructorArg<span style="color:#f92672">.</span><span style="color:#a6e22e">setRef</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+                  constructorArg<span style="color:#f92672">.</span><span style="color:#a6e22e">setArg</span><span style="color:#f92672">(</span>arg<span style="color:#f92672">.</span><span style="color:#a6e22e">attributeValue</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;ref&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+              <span style="color:#f92672">}</span>
+          <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>ClassNotFoundException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+              e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+          <span style="color:#f92672">}</span>
+          beanDefinition<span style="color:#f92672">.</span><span style="color:#a6e22e">addConstructorArg</span><span style="color:#f92672">(</span>constructorArg<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>核心工厂设计</p>
+<ul>
+<li>DI 容器最核心的类：负责根据从配置文件解析得到的 BeanDefinition 来创建对象
+<ul>
+<li>如果scope属性是singleton，对象创建后缓存在singletonObjects这样一个map中，下次再请求此对象时，直接从map中取出返回，不需要重新创建</li>
+<li>如果scope属性是prototype，那么每次请求对象，BeansFactory都会创建一个新的对象返回</li>
+</ul>
+</li>
+<li>BeansFactory创建对象用到的主要技术点就是Java中的反射语法：一种动态加载类和创建对象的机制
+<ul>
+<li>JVM在启动时会根据代码自动地加载类、创建对象：要加载哪些类、创建哪些对象，都是在代码中写死的</li>
+<li>如果某个对象的创建不是写死在代码中，而是放在配置文件中，就需要我们在程序运行期间，动态地根据配置文件来加载类、创建对象，这部分工作就无法让JVM帮我们自动完成，需要利用Java提供的反射语法自己去编写代码</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BeanFactory</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">private</span> ConcurrentHashMap<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> BeanDefinition<span style="color:#f92672">&gt;</span> beanDefinitionMap <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ConcurrentHashMap<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> ConcurrentHashMap<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Object<span style="color:#f92672">&gt;</span> singletonMap <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ConcurrentHashMap<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addBeanDefinitions</span><span style="color:#f92672">(</span>List<span style="color:#f92672">&lt;</span>BeanDefinition<span style="color:#f92672">&gt;</span> beanDefinitions<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>BeanDefinition beanDefinition <span style="color:#f92672">:</span> beanDefinitions<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+          beanDefinitionMap<span style="color:#f92672">.</span><span style="color:#a6e22e">putIfAbsent</span><span style="color:#f92672">(</span>beanDefinition<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">,</span> beanDefinition<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+      <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>BeanDefinition beanDefinition <span style="color:#f92672">:</span> beanDefinitions<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+          <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#f92672">!</span>beanDefinition<span style="color:#f92672">.</span><span style="color:#a6e22e">isLazyInit</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> beanDefinition<span style="color:#f92672">.</span><span style="color:#a6e22e">isSingleton</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+              createBean<span style="color:#f92672">(</span>beanDefinition<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+          <span style="color:#f92672">}</span>
+      <span style="color:#f92672">}</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">private</span> Object <span style="color:#a6e22e">createBean</span><span style="color:#f92672">(</span>BeanDefinition beanDefinition<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>beanDefinition<span style="color:#f92672">.</span><span style="color:#a6e22e">isSingleton</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> singletonMap<span style="color:#f92672">.</span><span style="color:#a6e22e">containsKey</span><span style="color:#f92672">(</span>beanDefinition<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+          <span style="color:#66d9ef">return</span> singletonMap<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>beanDefinition<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+      Object bean <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+          Class beanClass <span style="color:#f92672">=</span> Class<span style="color:#f92672">.</span><span style="color:#a6e22e">forName</span><span style="color:#f92672">(</span>beanDefinition<span style="color:#f92672">.</span><span style="color:#a6e22e">getClassName</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+          List<span style="color:#f92672">&lt;</span>BeanDefinition<span style="color:#f92672">.</span><span style="color:#a6e22e">ConstructorArg</span><span style="color:#f92672">&gt;</span> constructorArgs <span style="color:#f92672">=</span> beanDefinition<span style="color:#f92672">.</span><span style="color:#a6e22e">getConstructorArgs</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+          <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>constructorArgs<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+              bean <span style="color:#f92672">=</span> beanClass<span style="color:#f92672">.</span><span style="color:#a6e22e">newInstance</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+          <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+              Class<span style="color:#f92672">[</span><span style="color:#f92672">]</span> argClasses <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Class<span style="color:#f92672">[</span>constructorArgs<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">]</span><span style="color:#f92672">;</span>
+              Object<span style="color:#f92672">[</span><span style="color:#f92672">]</span> argObjects <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Object<span style="color:#f92672">[</span>constructorArgs<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">]</span><span style="color:#f92672">;</span>
+
+              <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> constructorArgs<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span> i<span style="color:#f92672">+</span><span style="color:#f92672">+</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                  BeanDefinition<span style="color:#f92672">.</span><span style="color:#a6e22e">ConstructorArg</span> arg <span style="color:#f92672">=</span> constructorArgs<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>i<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+                  <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#f92672">!</span>arg<span style="color:#f92672">.</span><span style="color:#a6e22e">isRef</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                      argClasses<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> arg<span style="color:#f92672">.</span><span style="color:#a6e22e">getType</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+                      argObjects<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> arg<span style="color:#f92672">.</span><span style="color:#a6e22e">getArg</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+                  <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                      BeanDefinition refBeanDefinition <span style="color:#f92672">=</span> beanDefinitionMap<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>arg<span style="color:#f92672">.</span><span style="color:#a6e22e">getArg</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+                      <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>beanDefinition <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                          <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> NoSuchBeanDefinitionException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Bean is not defined: &#34;</span> <span style="color:#f92672">+</span> arg<span style="color:#f92672">.</span><span style="color:#a6e22e">getArg</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+                      <span style="color:#f92672">}</span>
+                      argObjects<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> createBean<span style="color:#f92672">(</span>refBeanDefinition<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+                      argClasses<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> argObjects<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+                  <span style="color:#f92672">}</span>
+              <span style="color:#f92672">}</span>
+              bean <span style="color:#f92672">=</span> beanClass<span style="color:#f92672">.</span><span style="color:#a6e22e">getConstructor</span><span style="color:#f92672">(</span>argClasses<span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">newInstance</span><span style="color:#f92672">(</span>argObjects<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+          <span style="color:#f92672">}</span>
+      <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>InstantiationException <span style="color:#f92672">|</span> InvocationTargetException <span style="color:#f92672">|</span> NoSuchMethodException <span style="color:#f92672">|</span> NoSuchBeanDefinitionException <span style="color:#f92672">|</span> IllegalAccessException <span style="color:#f92672">|</span> ClassNotFoundException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+          e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+      <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>bean <span style="color:#f92672">!</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> beanDefinition<span style="color:#f92672">.</span><span style="color:#a6e22e">isSingleton</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+          singletonMap<span style="color:#f92672">.</span><span style="color:#a6e22e">putIfAbsent</span><span style="color:#f92672">(</span>beanDefinition<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">,</span> bean<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+          <span style="color:#66d9ef">return</span> singletonMap<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>beanDefinition<span style="color:#f92672">.</span><span style="color:#a6e22e">getId</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+      <span style="color:#66d9ef">return</span> bean<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> Object <span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span>String beanId<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> NoSuchBeanDefinitionException <span style="color:#f92672">{</span>
+      BeanDefinition beanDefinition <span style="color:#f92672">=</span> beanDefinitionMap<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>beanId<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>beanDefinition <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+          <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> NoSuchBeanDefinitionException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Bean is not defined: &#34;</span> <span style="color:#f92672">+</span> beanId<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+      <span style="color:#66d9ef">return</span> createBean<span style="color:#f92672">(</span>beanDefinition<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h2 id="建造者模式">建造者模式</h2>
+<h3 id="为什么需要建造者模式">为什么需要建造者模式</h3>
+<ul>
+<li>
+<p>引入</p>
+<ul>
+<li>ResourcePoolConfig 只有 4 个可配置项，对应到构造函数中，也只有 4 个参数</li>
+<li>但是，如果可配置项逐渐增多，那继续沿用现在的设计思路，构造函数的参数列表会变得很长，代码在可读性和易用性上都会变差。在使用构造函数的时候，我们就容易搞错各参数的顺序，传递进错误的参数值，导致非常隐蔽的 bug。</li>
+<li>解决这个问题的办法：通过构造函数设置必填项，通过 set() 方法设置可选配置项，就能实现我们的设计需求</li>
+<li>如果还需解决以下问题，现在的设计思路就不能满足：
+<ul>
+<li>如果必填的配置项有很多，把这些必填配置项都放到构造函数中设置，那构造函数就又会出现参数列表很长的问题。如果我们把必填项也通过 set() 方法设置，那校验这些必填项是否已经填写的逻辑就无处安放了</li>
+<li>假设配置项之间有一定的依赖关系，比如，如果用户设置了 maxTotal、maxIdle、minIdle 其中一个，就必须显式地设置另外两个；或者配置项之间有一定的约束条件，比如，maxIdle 和 minIdle 要小于等于 maxTotal。如果我们继续使用现在的设计思路，那这些配置项之间的依赖关系或者约束条件的校验逻辑就无处安放了</li>
+<li>如果我们希望 ResourcePoolConfig 类对象是不可变对象，也就是说，对象在创建好之后，就不能再修改内部的属性值。要实现这个功能，我们就不能在 ResourcePoolConfig 类中暴露 set() 方法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>建造者模式的实现</p>
+<ul>
+<li>把校验逻辑放置到 Builder 类中，先创建建造者，并且通过 set() 方法设置建造者的变量值，然后在使用 build() 方法真正创建对象之前，做集中的校验，校验通过之后才会创建对象</li>
+<li>除此之外，把 ResourcePoolConfig 的构造函数改为 private 私有权限。这样我们就只能通过建造者来创建 ResourcePoolConfig 类对象</li>
+<li>并且，ResourcePoolConfig 没有提供任何 set() 方法，这样我们创建出来的对象就是不可变对象</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ResourcePoolConfig</span> <span style="color:#f92672">{</span>
+
+  <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> maxTotal<span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> maxIdle<span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> minIdle<span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">ResourcePoolConfig</span><span style="color:#f92672">(</span>Builder builder<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> builder<span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">maxTotal</span> <span style="color:#f92672">=</span> builder<span style="color:#f92672">.</span><span style="color:#a6e22e">maxTotal</span><span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">maxIdle</span> <span style="color:#f92672">=</span> builder<span style="color:#f92672">.</span><span style="color:#a6e22e">maxIdle</span><span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">minIdle</span> <span style="color:#f92672">=</span> builder<span style="color:#f92672">.</span><span style="color:#a6e22e">minIdle</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Builder</span> <span style="color:#f92672">{</span>
+
+      <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> DEFAULT_MAX_TOTAL <span style="color:#f92672">=</span> 8<span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> DEFAULT_MAX_IDLE <span style="color:#f92672">=</span> 8<span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> DEFAULT_MIN_IDLE <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+
+      <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> maxTotal <span style="color:#f92672">=</span> DEFAULT_MAX_TOTAL<span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> maxIdle <span style="color:#f92672">=</span> DEFAULT_MAX_IDLE<span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> minIdle <span style="color:#f92672">=</span> DEFAULT_MIN_IDLE<span style="color:#f92672">;</span>
+
+      <span style="color:#66d9ef">public</span> ResourcePoolConfig <span style="color:#a6e22e">build</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+          <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>StringUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">isBlank</span><span style="color:#f92672">(</span>name<span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+              <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;..&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+          <span style="color:#f92672">}</span>
+          <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>maxIdle <span style="color:#f92672">&gt;</span> maxTotal<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+              <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;..&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+          <span style="color:#f92672">}</span>
+          <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>minIdle <span style="color:#f92672">&gt;</span> maxTotal <span style="color:#f92672">|</span><span style="color:#f92672">|</span> minIdle <span style="color:#f92672">&gt;</span> maxIdle<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+              <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;..&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+          <span style="color:#f92672">}</span>
+          <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> ResourcePoolConfig<span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+
+      <span style="color:#66d9ef">public</span> Builder <span style="color:#a6e22e">setName</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+          <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>StringUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">isBlank</span><span style="color:#f92672">(</span>name<span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+              <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;..&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+          <span style="color:#f92672">}</span>
+          <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> name<span style="color:#f92672">;</span>
+          <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+
+      <span style="color:#66d9ef">public</span> Builder <span style="color:#a6e22e">setMaxTotal</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> maxTotal<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+          <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>maxTotal <span style="color:#f92672">&lt;</span><span style="color:#f92672">=</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+              <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;..&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+          <span style="color:#f92672">}</span>
+          <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">maxTotal</span> <span style="color:#f92672">=</span> maxTotal<span style="color:#f92672">;</span>
+          <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+
+      <span style="color:#66d9ef">public</span> Builder <span style="color:#a6e22e">setMaxIdle</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> maxIdle<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+          <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>maxIdle <span style="color:#f92672">&lt;</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+              <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;..&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+          <span style="color:#f92672">}</span>
+          <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">maxIdle</span> <span style="color:#f92672">=</span> maxIdle<span style="color:#f92672">;</span>
+          <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+
+      <span style="color:#66d9ef">public</span> Builder <span style="color:#a6e22e">setMinIdle</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> minIdle<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+          <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>minIdle <span style="color:#f92672">&lt;</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+              <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;..&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+          <span style="color:#f92672">}</span>
+          <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">minIdle</span> <span style="color:#f92672">=</span> minIdle<span style="color:#f92672">;</span>
+          <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>使用建造者模式创建对象，还能避免对象存在无效状态</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Rectangle r <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Rectange<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span> <span style="color:#75715e">// r is invalid
+</span><span style="color:#75715e"></span>r<span style="color:#f92672">.</span><span style="color:#a6e22e">setWidth</span><span style="color:#f92672">(</span>2<span style="color:#f92672">)</span><span style="color:#f92672">;</span> <span style="color:#75715e">// r is invalid
+</span><span style="color:#75715e"></span>r<span style="color:#f92672">.</span><span style="color:#a6e22e">setHeight</span><span style="color:#f92672">(</span>3<span style="color:#f92672">)</span><span style="color:#f92672">;</span> <span style="color:#75715e">// r is valid
+</span></code></pre></div><ul>
+<li>
+<p>为了避免这种无效状态的存在，就需要使用构造函数一次性初始化好所有的成员变量。如果构造函数参数过多，我们就需要考虑使用建造者模式，先设置建造者的变量，然后再一次性地创建对象，让对象一直处于有效状态</p>
+</li>
+<li>
+<p>如果并不是很关心对象是否有短暂的无效状态，也不是太在意对象是否是可变的。比如，对象只是用来映射数据库读出来的数据，那我们直接暴露 set() 方法来设置类的成员变量值是完全没问题的</p>
+</li>
+<li>
+<p>而且，使用建造者模式来构建对象，代码实际上是有点重复的，ResourcePoolConfig 类中的成员变量，要在 Builder 类中重新再定义一遍</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="建造者模式-与-工厂模式">建造者模式 与 工厂模式</h3>
+<ul>
+<li>
+<p>工厂模式是用来创建不同但是相关类型的对象（继承同一父类或者接口的一组子类），由给定的参数来决定创建哪种类型的对象</p>
+</li>
+<li>
+<p>建造者模式是用来创建一种类型的复杂对象，通过设置不同的可选参数，“定制化”地创建不同的对象</p>
+</li>
+</ul>
+<h2 id="原型模式">原型模式</h2>
+<h3 id="原型模式的原理与应用">原型模式的原理与应用</h3>
+<ul>
+<li>
+<p>什么是原型模式</p>
+<ul>
+<li>如果对象的创建成本比较大，而同一个类的不同对象之间差别不大（大部分字段都相同），在这种情况下，我们可以利用对已有对象（原型）进行复制（或者叫拷贝）的方式来创建新对象，以达到节省创建时间的目的</li>
+<li>这种基于原型来创建对象的方式就叫作原型设计模式（Prototype Design Pattern），简称原型模式</li>
+</ul>
+</li>
+<li>
+<p>什么是“对象的创建成本比较大”？</p>
+<ul>
+<li>
+<p>创建对象包含的申请内存、给成员变量赋值这一过程，本身并不会花费太多时间，或者说对于大部分业务系统来说，这点时间完全是可以忽略的。应用一个复杂的模式，只得到一点点的性能提升，这就是所谓的过度设计，得不偿失</p>
+</li>
+<li>
+<p>如果对象中的数据需要经过复杂的计算才能得到（比如排序、计算哈希值），或者需要从 RPC、网络、数据库、文件系统等非常慢速的 IO 中读取，这种情况下，我们就可以利用原型模式，从其他已有对象中直接拷贝得到，而不用每次在创建新对象的时候，都重复执行这些耗时的操作</p>
+</li>
+</ul>
+</li>
+<li>
+<p>举例：系统A在启动时加载“搜索关键词”数据到内存中，系统B定期批量更新数据库中的数据，并且标记为新的数据版本。为保证系统A中数据的实时性，系统A需要定期根据数据库中的数据，更新内存中的索引和数据</p>
+<ul>
+<li>
+<p>v1：在A中记录当前数据的版本Va相应的更新时间Ta，从数据库中捞出更新时间大于Ta的所有搜索关键词，对每个关键词进行处理：如果已经在散列表中存在，就更新相应的搜索次数、更新时间等信息；如果在散列表中不存在，就将它插入到散列表中</p>
+</li>
+<li>
+<p>v2：增加需求：任何时刻A中的所有数据都必须是同一版本；更新内存数据时，系统A不能处于不可用状态，即不能停机更新数据</p>
+<ul>
+<li>把正在使用的数据的版本定义为“服务版本”，当我们要更新内存中的数据的时候，并不直接在服务版本上更新，而是重新创建另一个版本数据，等新的版本数据建好之后，再一次性地将服务版本从版本 a 切换到版本 b。这样既保证了数据一直可用，又避免了中间状态的存在</li>
+<li>利用了 Java 中的 clone() 语法来复制一个对象。如果你熟悉的语言没有这个语法，那把数据从 currentKeywords 中一个个取出来，然后再重新计算哈希值，放入到 newKeywords 中也是可以接受的。毕竟，最耗时的还是从数据库中取数据的操作。相对于数据库的 IO 操作来说，内存操作和 CPU 计算的耗时都是可以忽略的</li>
+<li>通过调用 HashMap 上的 clone() 浅拷贝方法来实现原型模式</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="原型模式的实现方式">原型模式的实现方式</h3>
+<ul>
+<li>
+<p>深拷贝 与 浅拷贝</p>
+<ul>
+<li>浅拷贝只会复制图中的索引（散列表），不会复制数据（SearchWord 对象）本身</li>
+<li>深拷贝不仅仅会复制索引，还会复制数据本身</li>
+</ul>
+</li>
+<li>
+<p>实现深拷贝的方法</p>
+<ul>
+<li>
+<p>v3：递归拷贝对象、对象的引用对象、引用对象的引用对象&hellip;</p>
+</li>
+<li>
+<p>v4：将对象序列化，在反序列化成新的对象</p>
+</li>
+</ul>
+</li>
+<li>
+<p>深拷贝耗时、耗内存空间：</p>
+<ul>
+<li>v5：先采用浅拷贝方式创建复制map；对于需要更新的SearchWord对象，再使用深度拷贝的方式创建一份新的对象，替换copyMap的老对象。因为需要更新的数据是很少的，这种方式既利用了浅拷贝节省时间、空间的优点，又能保证currentKeyWords中的数据都是老版本数据</li>
+</ul>
+</li>
+</ul>
+<h3 id="总结">总结</h3>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="http://wayne06.github.io/"><img src="/img/favicon.png" />WZhong</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E-1-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E4%B8%8E%E6%80%9D%E6%83%B3-1-%E5%AE%9E%E6%88%98%E4%B8%80id%E7%94%9F%E6%88%90%E5%99%A8/" data-toggle="tooltip" data-placement="top" title="ID生成器代码重构">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%BE%8E-1-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E4%B8%8E%E6%80%9D%E6%83%B3-1-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83%E9%87%8D%E6%9E%84%E6%8A%80%E5%B7%A7/" data-toggle="tooltip" data-placement="top" title="总结面向对象、设计原则、编程规范、重构技巧">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/ci/cd" title="ci/cd">
+                            ci/cd
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/design-pattern" title="design-pattern">
+                            design-pattern
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/devops" title="devops">
+                            devops
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/interview" title="interview">
+                            interview
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/japanese-language" title="japanese-language">
+                            japanese-language
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/jlpt" title="jlpt">
+                            jlpt
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/kafka" title="kafka">
+                            kafka
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n3" title="n3">
+                            n3
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n4" title="n4">
+                            n4
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n5" title="n5">
+                            n5
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/saas" title="saas">
+                            saas
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E5%8A%A8%E8%AF%8D%E5%8F%98%E5%BD%A2" title="动词变形">
+                            动词变形
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E6%96%87%E6%AD%8C" title="日文歌">
+                            日文歌
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E5%BA%94%E7%94%A8%E8%AF%BE%E6%96%87" title="日语应用课文">
+                            日语应用课文
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95" title="日语语法">
+                            日语语法
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%A0%87%E5%87%86%E6%97%A5%E6%9C%AC%E8%AF%AD" title="标准日本语">
+                            标准日本语
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="http://jskillcloud.com/">杨波的博客</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="WZhong" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:zs577215@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    <li>
+                        <a target="_blank" href="/img/wechat_qrcode.jpg">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/wayne06">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yourlinkedinid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/yourstackoverflowid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+            
+                    
+                    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; WZhong 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>

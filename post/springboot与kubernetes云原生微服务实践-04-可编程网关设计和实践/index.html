@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="WZhong">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="可编程网关设计和实践" />
+    <meta property="og:title" content="可编程网关设计和实践" />
+    <meta property="twitter:title" content="可编程网关设计和实践" />
+    
+
+    
+    <meta name="description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan.">
+    <meta property="og:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    <meta property="twitter:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>可编程网关设计和实践-Wayne Zhong Blog</title>
+
+    <link rel="canonical" href="/post/springboot%E4%B8%8Ekubernetes%E4%BA%91%E5%8E%9F%E7%94%9F%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%9E%E8%B7%B5-04-%E5%8F%AF%E7%BC%96%E7%A8%8B%E7%BD%91%E5%85%B3%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/docco.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">WZhong</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/design-pattern">design-pattern</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/it">it</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/japanese">japanese</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/java">java</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/microservice">microservice</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/others">others</a>
+                    </li>
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://img.zhaohuabing.com/post-bg-2015.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/devops" title="DevOps">
+                            DevOps
+                        </a>
+                        
+                        <a class="tag" href="/tags/ci/cd" title="CI/CD">
+                            CI/CD
+                        </a>
+                        
+                        <a class="tag" href="/tags/saas" title="SaaS">
+                            SaaS
+                        </a>
+                        
+                    </div>
+                    <h1>可编程网关设计和实践</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                WZhong
+                         
+                        on 
+                        Tuesday, January 21, 2020
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#网关和bff是如何演化出来的">网关和BFF是如何演化出来的</a></li>
+    <li><a href="#网关gateway和反向代理reverse-proxy是什么关系">网关(Gateway)和反向代理(Reverse Proxy)是什么关系</a></li>
+    <li><a href="#网关需要分集群部署吗">网关需要分集群部署吗</a></li>
+    <li><a href="#faraday网关自研内核设计">Faraday网关(自研)内核设计</a></li>
+    <li><a href="#faraday网关代码解析">Faraday网关代码解析</a></li>
+    <li><a href="#生产级网关需要考虑哪些环节生产扩展点">生产级网关需要考虑哪些环节(生产扩展点)</a></li>
+    <li><a href="#主流开源网关">主流开源网关</a></li>
+  </ul>
+</nav>
+                
+                <h2 id="网关和bff是如何演化出来的">网关和BFF是如何演化出来的</h2>
+<ol>
+<li>
+<p>接入</p>
+<ul>
+<li>网关即Gateway，是整个微服务的集中入口，是实现前后分离的关键</li>
+<li>网关的可编程性对微服务的升级及部署灵活性非常重要</li>
+<li>所以需要设计一款轻量级的可编程网关，以应对不断变化的业务需求</li>
+</ul>
+</li>
+<li>
+<p>网关和BFF(Backend For Frontend)的演化进程</p>
+<ul>
+<li>
+<p>MyShop SOA V1，2011年左右</p>
+<ul>
+<li>外网：浏览器 -&gt; Nginx：反向代理+负载均衡 -&gt; 服务端web应用 -&gt; 微服务：认证、用户、购物车、商品、支付</li>
+</ul>
+</li>
+<li>
+<p>MyShop SOA V2，2012年，移动端发展</p>
+<ul>
+<li>移动端 -&gt; Nginx -&gt; 微服务</li>
+<li>浏览器 -&gt; Nginx -&gt; 服务端web应用 -&gt; 微服务</li>
+</ul>
+</li>
+<li>
+<p>MyShop SOA V2.5，移动端添加无线BFF层</p>
+<ul>
+<li>移动端 -&gt; Nginx -&gt; 无线BFF -&gt; 微服务</li>
+<li>浏览器 -&gt; Nginx -&gt; 服务端web应用 -&gt; 微服务</li>
+</ul>
+</li>
+<li>
+<p>MyShop SOA V3，移动端添加无线网关层</p>
+<ul>
+<li>移动端 -&gt; Nginx -&gt; 无线网关 -&gt; 无线BFF -&gt; 微服务</li>
+<li>浏览器 -&gt; Nginx -&gt; 服务端web应用 -&gt; 微服务</li>
+</ul>
+</li>
+<li>
+<p>MyShop SOA V4，统一网关层</p>
+<ul>
+<li>用户体验层 -&gt; 网关层 -&gt; BFF层 -&gt; 微服务层</li>
+<li>用户体验层：第三方应用、H5前后分离应用、无线应用、浏览器</li>
+<li>网关层：开放平台网关、H5网关、无线网关、Web应用网关</li>
+<li>BFF层：开放平台BFF层、H5 BFF层、无线BFF层、服务器端Web应用</li>
+<li>微服务层</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="网关gateway和反向代理reverse-proxy是什么关系">网关(Gateway)和反向代理(Reverse Proxy)是什么关系</h2>
+<ol>
+<li>
+<p>Web1.0/2.0时代，应用以web网站形式呈现</p>
+<ul>
+<li>前置反向代理，作用是返乡路由和负载均衡，也承担安全认证、日志监控、限流熔断、缓存等功能</li>
+<li>产品有Nginx、HAProxy</li>
+<li>网站升级频率不高，反向代理采用静态配置方式，由运维团队单独配置</li>
+</ul>
+</li>
+<li>
+<p>Web3.0/微服务时代</p>
+<ul>
+<li>应用形态出现了提供大量api的服务，api的升级更新频率很高，对路由、安全的动态配置能力要求很高</li>
+<li>出现的矛盾
+<ul>
+<li>传统反向代理的静态配置不灵活，缺乏动态配置能力</li>
+<li>传统运维配置方式效率低效，研发无法做到自助配置</li>
+</ul>
+</li>
+<li>API Gateway作为补充因运而生</li>
+<li>API Gateway和反向代理功能大同小异，不过是主要面向api和微服务，提供更灵活的、可供研发自助配置的动态配置能力</li>
+<li>产品有Netflix Zuul</li>
+<li>网关和反向代理共存，运维成本高</li>
+</ul>
+</li>
+<li>
+<p>云原生时代</p>
+<ul>
+<li>对服务灵活升级有更高的要求，需要灰度、金丝雀、蓝绿部署等，对网关不仅要求可动态配置，而且要求可动态编程</li>
+<li>网关和动态代理融合的趋势：面向云原生的统一代理，或称统一网关</li>
+<li>产品有envoy、Traefik，是云原生组织CNCF(Cloud Native Computing Foundation)推荐的产品</li>
+</ul>
+</li>
+</ol>
+<h2 id="网关需要分集群部署吗">网关需要分集群部署吗</h2>
+<ol>
+<li>
+<p>反向代理 + 网关部署架构</p>
+<ul>
+<li>架构：共存
+<ul>
+<li>API流量 -&gt; 网关(可按不同api场景分集群部署) -&gt; 微服务</li>
+<li>网页流量 -&gt; 反向代理 -&gt; 单页应用 + Web应用</li>
+</ul>
+</li>
+<li>分析
+<ul>
+<li>部署架构相对复杂，需维护两套体系</li>
+<li>如果网关和反向代理不在同一个域，还要解决跨域问题</li>
+<li>适合业务和团队规模大，应用场景多的场合</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>统一网关部署架构</p>
+<ul>
+<li>架构：统一
+<ul>
+<li>流量 -&gt; 统一网关 -&gt; 微服务 + 单页应用 + Web应用</li>
+</ul>
+</li>
+<li>分析
+<ul>
+<li>所有应用可统一部署，没有跨域问题，只要应用和微服务都在同一个根域下</li>
+<li>API和Web/SPA场景有一些差异化需求，如：对网关统一错误处理，web错误需展示错误页面，api错误提供错误消息；认证方式差异；对于差异，统一网关不易区分，需要在网关层添加区分逻辑</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>统一网关 + 分集群部署架构</p>
+<ul>
+<li>网关层
+<ul>
+<li>开放平台网关 + H5网关 + 无线网关 + Web应用网关</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="faraday网关自研内核设计">Faraday网关(自研)内核设计</h2>
+<ol>
+<li>
+<p>设计</p>
+<ul>
+<li>核心
+<ul>
+<li>ReverseProxyFilter，是一个Servlet Filter</li>
+</ul>
+</li>
+<li>组件
+<ul>
+<li>路由解析器</li>
+</ul>
+<blockquote>
+<p>接收到http请求时，取出其中的host域名信息，通过查询路由映射表找到对应的目标服务，包括服务名、地址和其他配置，然后将请求交由下个环节进行处理</p>
+</blockquote>
+<ul>
+<li>路由映射表</li>
+</ul>
+<blockquote>
+<p>网关关键。常见路由方式有：基于域名的路由、基于请求path的路由、基于Http头请求参数的路由等。此处采用基于域名的路由，路由映射表存储的是Http的Host头和service之间的映射关系。表可静态配置，如使用本地文件配置，也可动态配置，如从服务注册表里动态获取并定期更新。动态配置需要对接Eureka、Zookeeper或Consul这种服务发现的产品</p>
+</blockquote>
+<ul>
+<li>HttpClient映射表</li>
+</ul>
+<blockquote>
+<p>存储service服务和实际访问该服务的HttpClient的映射关系，这个映射关系是基于路由表信息构建，根据路由表更新而更新；采用提前加载(eager loading)的机制。在网关初始化和后续路由表异步更新时，提前初始化每个服务所使用的httpClient，这样实际访问服务时，就可以重用已经创建好的httpClient，不需要再按需创建，从而提升服务访问的性能</p>
+</blockquote>
+<ul>
+<li>请求转发器</li>
+</ul>
+<blockquote>
+<p>负责转发请求的组件，当获得请求和目标服务的信息，通过查询httpClient映射表找到对应的httpClient，就可以通过httpClient将请求转发到目标服务，并接收服务产生的响应，并最终将响应返回给调用方。如果网关启用了LB的能力，请求转发还要根据一定规则计算出实际要访问的服务实例的地址，再进行转发。若使用K8s，则无需开启LB，因K8s已经支持服务发现和负载均衡的能力</p>
+</blockquote>
+<ul>
+<li>请求截获器</li>
+</ul>
+<blockquote>
+<p>可以在请求上添加必要的http header，认证鉴权，日志监控等等，扩展网关能力</p>
+</blockquote>
+<ul>
+<li>响应截获器</li>
+</ul>
+<blockquote>
+<p>可以在响应上添加必要的http header，认证鉴权，日志监控等等，扩展网关能力</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>静态路由配置</p>
+<ul>
+<li>举例：本地开发环境的静态路由配置
+<ul>
+<li>路由名称 + 主机头 + 对应目标服务的地址</li>
+<li>目标服务可以是域名、ip列表</li>
+<li>路由配置还可包括超时配置等信息</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="faraday网关代码解析">Faraday网关代码解析</h2>
+<ol>
+<li>MappingsProvider
+<ul>
+<li>路由映射表实现的超类</li>
+<li>主要方法：resolveMapping()，updateMappings()</li>
+<li>子类：ConfigurationMappingsProvider通过读取配置文件方式、ProgrammaticMappingProvider通过可编程方式</li>
+</ul>
+</li>
+<li>HttpClientProvider
+<ul>
+<li>HttpClient映射表的实现</li>
+<li>主要方法：updateHttpClients()，getHttpClient()</li>
+</ul>
+</li>
+<li>ReverseProxyFilter
+<ul>
+<li>主流程，继承自OncePerRequestFilter</li>
+<li>主方法：doFilterInternal(request, response, filterChain)</li>
+</ul>
+</li>
+<li>RequestForwarder
+<ul>
+<li>请求转发器</li>
+<li>主方法：forwardHTTPRequest()</li>
+</ul>
+</li>
+</ol>
+<h2 id="生产级网关需要考虑哪些环节生产扩展点">生产级网关需要考虑哪些环节(生产扩展点)</h2>
+<ol>
+<li>
+<p>限流熔断：集成resilience4j或hystrix</p>
+</li>
+<li>
+<p>动态路由和负载均衡：集成eureka</p>
+</li>
+<li>
+<p>基于Path的路由，如api.xxx.com/pathx</p>
+</li>
+<li>
+<p>截获器链</p>
+</li>
+<li>
+<p>日志采集和Metrics埋点</p>
+</li>
+<li>
+<p>响应流优化</p>
+</li>
+</ol>
+<h2 id="主流开源网关">主流开源网关</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>支持公司</th>
+<th>实现语言</th>
+<th>亮点</th>
+<th>不足</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nginx (2004)</td>
+<td>Nginx Inc</td>
+<td>C/Lua</td>
+<td>高性能，成熟稳定</td>
+<td>门槛高，扁运维，可编程弱</td>
+</tr>
+<tr>
+<td>Kong (2014)</td>
+<td>Kong Inc</td>
+<td>OpenResty/Lua</td>
+<td>高性能，可编程API</td>
+<td>门槛较高</td>
+</tr>
+<tr>
+<td>Zuul1 (2012)</td>
+<td>Netflix/Pivotal</td>
+<td>Java</td>
+<td>成熟，简单门槛低</td>
+<td>性能一般，可编程一般</td>
+</tr>
+<tr>
+<td>Spring Cloud Gateway (2016)</td>
+<td>Pivotal</td>
+<td>Java</td>
+<td>异步，配置灵活</td>
+<td>早期产品</td>
+</tr>
+<tr>
+<td>Envoy (2016)</td>
+<td>Lyft</td>
+<td>C++</td>
+<td>高性能，可编程API/ServiceMesh集成</td>
+<td>门槛较高</td>
+</tr>
+<tr>
+<td>Traefik (2015)</td>
+<td>Containous</td>
+<td>Golang</td>
+<td>云原生，可编程API/对接各种服务发现</td>
+<td>生产案例不多</td>
+</tr>
+</tbody>
+</table>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="http://wayne06.github.io/"><img src="/img/favicon.png" />WZhong</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/springboot%E4%B8%8Ekubernetes%E4%BA%91%E5%8E%9F%E7%94%9F%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%9E%E8%B7%B5-03-%E6%9C%8D%E5%8A%A1%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/" data-toggle="tooltip" data-placement="top" title="服务开发框架设计和实现">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/springboot%E4%B8%8Ekubernetes%E4%BA%91%E5%8E%9F%E7%94%9F%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%AE%9E%E8%B7%B5-05-%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E8%B7%B5/" data-toggle="tooltip" data-placement="top" title="安全框架设计和实践">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/ci/cd" title="ci/cd">
+                            ci/cd
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/design-pattern" title="design-pattern">
+                            design-pattern
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/devops" title="devops">
+                            devops
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/interview" title="interview">
+                            interview
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/japanese-language" title="japanese-language">
+                            japanese-language
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/jlpt" title="jlpt">
+                            jlpt
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/kafka" title="kafka">
+                            kafka
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n3" title="n3">
+                            n3
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n4" title="n4">
+                            n4
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n5" title="n5">
+                            n5
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/saas" title="saas">
+                            saas
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E5%8A%A8%E8%AF%8D%E5%8F%98%E5%BD%A2" title="动词变形">
+                            动词变形
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E6%96%87%E6%AD%8C" title="日文歌">
+                            日文歌
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E5%BA%94%E7%94%A8%E8%AF%BE%E6%96%87" title="日语应用课文">
+                            日语应用课文
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95" title="日语语法">
+                            日语语法
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%A0%87%E5%87%86%E6%97%A5%E6%9C%AC%E8%AF%AD" title="标准日本语">
+                            标准日本语
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="http://jskillcloud.com/">杨波的博客</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="WZhong" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:zs577215@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    <li>
+                        <a target="_blank" href="/img/wechat_qrcode.jpg">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/wayne06">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yourlinkedinid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://stackoverflow.com/users/yourstackoverflowid">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+            
+                    
+                    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; WZhong 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>
