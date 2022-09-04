@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="Kafka学习笔记-1-入门" />
-    <meta property="og:title" content="Kafka学习笔记-1-入门" />
-    <meta property="twitter:title" content="Kafka学习笔记-1-入门" />
+    <meta name="title" content="Kafka学习笔记 - 2 - 核心API - 2 - Producer API" />
+    <meta property="og:title" content="Kafka学习笔记 - 2 - 核心API - 2 - Producer API" />
+    <meta property="twitter:title" content="Kafka学习笔记 - 2 - 核心API - 2 - Producer API" />
     
 
     
@@ -34,7 +34,7 @@
     <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Kafka学习笔记-1-入门-Wayne Zhong Blog</title>
+    <title>Kafka学习笔记 - 2 - 核心API - 2 - Producer API-Wayne Zhong Blog</title>
 
     <link rel="canonical" href="/post/kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-2-%E6%A0%B8%E5%BF%83api-2-producer-api/">
 
@@ -196,7 +196,7 @@
                         </a>
                         
                     </div>
-                    <h1>Kafka学习笔记-1-入门</h1>
+                    <h1>Kafka学习笔记 - 2 - 核心API - 2 - Producer API</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by 
@@ -204,7 +204,7 @@
                                 WZhong
                          
                         on 
-                        Sunday, August 28, 2022
+                        Tuesday, August 30, 2022
                         
                         
                         
@@ -235,17 +235,120 @@
                 <nav id="TableOfContents">
   <ul>
     <li><a href="#基本介绍">基本介绍</a></li>
-    <li><a href="#开发环境">开发环境</a></li>
-    <li><a href="#基础操作">基础操作</a></li>
+    <li><a href="#producer各项重点配置">Producer各项重点配置</a></li>
+    <li><a href="#producer-api">Producer API</a></li>
+    <li><a href="#producer负载均衡等高级特性">Producer负载均衡等高级特性</a></li>
   </ul>
 </nav>
                 
                 <h2 id="基本介绍">基本介绍</h2>
-<h2 id="开发环境">开发环境</h2>
 <ul>
-<li>N5</li>
+<li>了解：Producer各项重点配置</li>
+<li>熟练掌握：Producer API</li>
+<li>熟练掌握：Producer负载均衡等高级特性</li>
 </ul>
-<h2 id="基础操作">基础操作</h2>
+<h2 id="producer各项重点配置">Producer各项重点配置</h2>
+<h2 id="producer-api">Producer API</h2>
+<ul>
+<li>
+<p>Producer发送模式</p>
+<ul>
+<li>
+<p>异步发送</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">producerSend</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    Properties properties <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Properties<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    properties<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>ProducerConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">BOOTSTRAP_SERVERS_CONFIG</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;192.168.220.128:9092&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    properties<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>ProducerConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">ACKS_CONFIG</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;all&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    properties<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>ProducerConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">RETRIES_CONFIG</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;0&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    properties<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>ProducerConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">BATCH_SIZE_CONFIG</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;16384&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    properties<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>ProducerConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">LINGER_MS_CONFIG</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;1&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    properties<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>ProducerConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">BUFFER_MEMORY_CONFIG</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;33554432&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    properties<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>ProducerConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">KEY_SERIALIZER_CLASS_CONFIG</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;org.apache.kafka.common.serialization.StringSerializer&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    properties<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>ProducerConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">VALUE_SERIALIZER_CLASS_CONFIG</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;org.apache.kafka.common.serialization.StringSerializer&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    <span style="color:#75715e">// Producer的主对象
+</span><span style="color:#75715e"></span>    Producer<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span>String<span style="color:#f92672">&gt;</span> producer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> KafkaProducer<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span>properties<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    <span style="color:#75715e">// 消息对象 - ProducerRecoder
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>0<span style="color:#f92672">;</span>i<span style="color:#f92672">&lt;</span>10<span style="color:#f92672">;</span>i<span style="color:#f92672">+</span><span style="color:#f92672">+</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>
+      ProducerRecord<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span>String<span style="color:#f92672">&gt;</span> record <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ProducerRecord<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span>TOPIC_NAME<span style="color:#f92672">,</span><span style="color:#e6db74">&#34;key-&#34;</span><span style="color:#f92672">+</span>i<span style="color:#f92672">,</span><span style="color:#e6db74">&#34;value-&#34;</span><span style="color:#f92672">+</span>i<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      producer<span style="color:#f92672">.</span><span style="color:#a6e22e">send</span><span style="color:#f92672">(</span>record<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#75715e">// 所有的通道打开都需要关闭
+</span><span style="color:#75715e"></span>    producer<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>同步发送（异步阻塞发送）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">producerSyncSend</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#75715e">//...
+</span><span style="color:#75715e"></span>      Future<span style="color:#f92672">&lt;</span>RecordMetadata<span style="color:#f92672">&gt;</span> send <span style="color:#f92672">=</span> producer<span style="color:#f92672">.</span><span style="color:#a6e22e">send</span><span style="color:#f92672">(</span>record<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      RecordMetadata recordMetadata <span style="color:#f92672">=</span> send<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key-&#34;</span><span style="color:#f92672">+</span>i <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;partition : &#34;</span><span style="color:#f92672">+</span>recordMetadata<span style="color:#f92672">.</span><span style="color:#a6e22e">partition</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34; , offset : &#34;</span><span style="color:#f92672">+</span>recordMetadata<span style="color:#f92672">.</span><span style="color:#a6e22e">offset</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#75715e">//...
+</span><span style="color:#75715e"></span>  <span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>异步发送带回调</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">producerSendWithCallback</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#75715e">//...
+</span><span style="color:#75715e"></span>      producer<span style="color:#f92672">.</span><span style="color:#a6e22e">send</span><span style="color:#f92672">(</span>record<span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> Callback<span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#a6e22e">@Override</span>
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onCompletion</span><span style="color:#f92672">(</span>RecordMetadata recordMetadata<span style="color:#f92672">,</span> Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>
+                    <span style="color:#e6db74">&#34;partition : &#34;</span><span style="color:#f92672">+</span>recordMetadata<span style="color:#f92672">.</span><span style="color:#a6e22e">partition</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34; , offset : &#34;</span><span style="color:#f92672">+</span>recordMetadata<span style="color:#f92672">.</span><span style="color:#a6e22e">offset</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+      <span style="color:#f92672">}</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#75715e">//...
+</span><span style="color:#75715e"></span>  <span style="color:#f92672">}</span>
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<p>源码解析</p>
+<ul>
+<li>
+<p>new KafkaProducer&lt;&gt;(properties);</p>
+<ul>
+<li>MetricConfig</li>
+<li>加载负载均衡器</li>
+<li>初始化 Serializer</li>
+<li>初始化 RecordAccumulator （计数器）</li>
+<li>启动 newSender（守护线程）</li>
+</ul>
+</li>
+<li>
+<p>源码通知</p>
+<ul>
+<li>Producer 线程安全</li>
+<li>Producer 批量发送</li>
+</ul>
+</li>
+<li>
+<p>producer.send(record)</p>
+<ul>
+<li>计算分区（消息进入哪一个partition）</li>
+<li>计算批次（accumulator.append）</li>
+<li>主要内容
+<ul>
+<li>创建批次</li>
+<li>向批次中追加消息</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>消息传递保障</p>
+<ul>
+<li>最多一次：收到0~1次</li>
+<li>至少一次：收到1~多次</li>
+<li>正好一次：有且仅有1次</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="producer负载均衡等高级特性">Producer负载均衡等高级特性</h2>
 
 
                 
@@ -294,15 +397,10 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-2-%E6%A0%B8%E5%BF%83api-3-consumer-api/" data-toggle="tooltip" data-placement="top" title="Kafka学习笔记-1-入门">&larr;
+                        <a href="/post/kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-2-%E6%A0%B8%E5%BF%83api-1-admain-api/" data-toggle="tooltip" data-placement="top" title="Kafka学习笔记 - 2 - 核心API - 1 - Client">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/post/kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-1-%E5%85%A5%E9%97%A8/" data-toggle="tooltip" data-placement="top" title="Kafka学习笔记 - 1 - 入门">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
 

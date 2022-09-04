@@ -6,10 +6,19 @@
     <description>Recent content on WZhong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 29 Aug 2022 03:24:12 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 30 Aug 2022 03:24:12 +0800</lastBuildDate>
     
 	<atom:link href="http://wayne06.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kafka学习笔记 - 2 - 核心API - 2 - Producer API</title>
+      <link>http://wayne06.github.io/post/kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-2-%E6%A0%B8%E5%BF%83api-2-producer-api/</link>
+      <pubDate>Tue, 30 Aug 2022 03:24:12 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/post/kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-2-%E6%A0%B8%E5%BF%83api-2-producer-api/</guid>
+      <description>基本介绍 了解：Producer各项重点配置 熟练掌握：Producer API 熟练掌握：Producer负载均衡等高级特性 Producer各项重点配</description>
+    </item>
     
     <item>
       <title>Kafka学习笔记 - 2 - 核心API - 1 - Client</title>
@@ -27,15 +36,6 @@
       
       <guid>http://wayne06.github.io/post/kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-1-%E5%85%A5%E9%97%A8/</guid>
       <description>开发环境 准备工作 宿主机（CentOS7、云厂 或 本地虚拟机+内网穿透） Xshell 域名 ECS购买与配置 安全组 22 ：Linux 远程登录 ECS（SSH默认22</description>
-    </item>
-    
-    <item>
-      <title>Kafka学习笔记-1-入门</title>
-      <link>http://wayne06.github.io/post/kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-2-%E6%A0%B8%E5%BF%83api-2-producer-api/</link>
-      <pubDate>Sun, 28 Aug 2022 03:24:12 +0800</pubDate>
-      
-      <guid>http://wayne06.github.io/post/kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-2-%E6%A0%B8%E5%BF%83api-2-producer-api/</guid>
-      <description>基本介绍 开发环境 N5 基础操作</description>
     </item>
     
     <item>
