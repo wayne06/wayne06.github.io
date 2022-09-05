@@ -237,7 +237,8 @@
     <li><a href="#基本介绍">基本介绍</a></li>
     <li><a href="#producer各项重点配置">Producer各项重点配置</a></li>
     <li><a href="#producer-api">Producer API</a></li>
-    <li><a href="#producer负载均衡等高级特性">Producer负载均衡等高级特性</a></li>
+    <li><a href="#自定义-partition-负载均衡">自定义 Partition 负载均衡</a></li>
+    <li><a href="#消息传递保障">消息传递保障</a></li>
   </ul>
 </nav>
                 
@@ -321,7 +322,7 @@
 <p>源码通知</p>
 <ul>
 <li>Producer 线程安全</li>
-<li>Producer 批量发送</li>
+<li>Producer 批量发送（减少IO；日志追加）</li>
 </ul>
 </li>
 <li>
@@ -338,17 +339,57 @@
 </ul>
 </li>
 <li>
-<p>消息传递保障</p>
+<p>时序图
+<img src="https://wx2.sinaimg.cn/large/5c527595ly8h5vtannjrrj21520ia75x.jpg" alt="alt"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Producer发送原理解析</p>
 <ul>
-<li>最多一次：收到0~1次</li>
-<li>至少一次：收到1~多次</li>
-<li>正好一次：有且仅有1次</li>
+<li>直接发送</li>
+<li>负载均衡</li>
+<li>异步发送</li>
+<li>流程图
+<img src="https://wx2.sinaimg.cn/large/5c527595ly8h5vvbld7nyj20ns0i0wg1.jpg" alt="alt"></li>
 </ul>
 </li>
 </ul>
+<h2 id="自定义-partition-负载均衡">自定义 Partition 负载均衡</h2>
+<ul>
+<li>
+<p>DemoPartition.java 实现 Partitioner 接口，重写 partition() 方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">partition</span><span style="color:#f92672">(</span>String topic<span style="color:#f92672">,</span> Object key<span style="color:#f92672">,</span> <span style="color:#66d9ef">byte</span><span style="color:#f92672">[</span><span style="color:#f92672">]</span> keyBytes<span style="color:#f92672">,</span> Object value<span style="color:#f92672">,</span> <span style="color:#66d9ef">byte</span><span style="color:#f92672">[</span><span style="color:#f92672">]</span> valueBytes<span style="color:#f92672">,</span> Cluster cluster<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#75715e">/*
+</span><span style="color:#75715e">        key-1
+</span><span style="color:#75715e">        key-2
+</span><span style="color:#75715e">        key-3
+</span><span style="color:#75715e">      */</span>
+    String keyStr <span style="color:#f92672">=</span> key <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">;</span>
+    String keyInt <span style="color:#f92672">=</span> keyStr<span style="color:#f92672">.</span><span style="color:#a6e22e">substring</span><span style="color:#f92672">(</span>4<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;keyStr : &#34;</span><span style="color:#f92672">+</span>keyStr <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;keyInt : &#34;</span><span style="color:#f92672">+</span>keyInt<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">parseInt</span><span style="color:#f92672">(</span>keyInt<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">return</span> i<span style="color:#f92672">%</span>2<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>添加 partition 配置</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  properties<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>ProducerConfig<span style="color:#f92672">.</span><span style="color:#a6e22e">PARTITIONER_CLASS_CONFIG</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;com.xxx.producer.SamplePartition&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</code></pre></div></li>
+</ul>
+<h2 id="消息传递保障">消息传递保障</h2>
+<ul>
+<li>三种传递保障，依赖于Producer和Consumer共同实现，主要依赖于Producer（acks=all）
+<ul>
+<li>最多一次：收到 0~1次（发出即可）</li>
+<li>至少一次：收到 1~多次</li>
+<li>正好一次：有且仅有 1次</li>
+</ul>
 </li>
 </ul>
-<h2 id="producer负载均衡等高级特性">Producer负载均衡等高级特性</h2>
 
 
                 
