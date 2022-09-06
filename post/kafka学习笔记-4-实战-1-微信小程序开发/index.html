@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="Kafka学习笔记-1-入门" />
-    <meta property="og:title" content="Kafka学习笔记-1-入门" />
-    <meta property="twitter:title" content="Kafka学习笔记-1-入门" />
+    <meta name="title" content="Kafka学习笔记 - 4 - 实战 - 1 - 微信小程序开发" />
+    <meta property="og:title" content="Kafka学习笔记 - 4 - 实战 - 1 - 微信小程序开发" />
+    <meta property="twitter:title" content="Kafka学习笔记 - 4 - 实战 - 1 - 微信小程序开发" />
     
 
     
@@ -34,7 +34,7 @@
     <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Kafka学习笔记-1-入门-Wayne Zhong Blog</title>
+    <title>Kafka学习笔记 - 4 - 实战 - 1 - 微信小程序开发-Wayne Zhong Blog</title>
 
     <link rel="canonical" href="/post/kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-4-%E5%AE%9E%E6%88%98-1-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/">
 
@@ -196,7 +196,7 @@
                         </a>
                         
                     </div>
-                    <h1>Kafka学习笔记-1-入门</h1>
+                    <h1>Kafka学习笔记 - 4 - 实战 - 1 - 微信小程序开发</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by 
@@ -204,7 +204,7 @@
                                 WZhong
                          
                         on 
-                        Sunday, August 28, 2022
+                        Wednesday, August 31, 2022
                         
                         
                         
@@ -235,17 +235,103 @@
                 <nav id="TableOfContents">
   <ul>
     <li><a href="#基本介绍">基本介绍</a></li>
-    <li><a href="#开发环境">开发环境</a></li>
-    <li><a href="#基础操作">基础操作</a></li>
+    <li><a href="#微信小程序后台开发">微信小程序后台开发</a></li>
+    <li><a href="#kafka-producer实战开发">Kafka Producer实战开发</a></li>
+    <li><a href="#微信小程序发布与部署流程">微信小程序发布与部署流程</a></li>
   </ul>
 </nav>
                 
                 <h2 id="基本介绍">基本介绍</h2>
-<h2 id="开发环境">开发环境</h2>
 <ul>
-<li>N5</li>
+<li>掌握：微信小程序后台开发</li>
+<li>掌握：微信小程序发布与部署流程</li>
+<li>掌握：Kafka Producer实战开发</li>
 </ul>
-<h2 id="基础操作">基础操作</h2>
+<h2 id="微信小程序后台开发">微信小程序后台开发</h2>
+<ul>
+<li>
+<p>业务介绍</p>
+<ul>
+<li>准备工作
+<ul>
+<li>预定义小程序作用，并开发后端服务</li>
+<li>后端服务增加 HTTPS 支持</li>
+<li>注册个人小程序并发布前端服务</li>
+</ul>
+</li>
+<li>接口文档（接口URL、接口请求方式、请求参数、请求参数实例、响应结果、result、template、响应结果演示）
+<ul>
+<li>查询模板</li>
+<li>结果查询</li>
+<li>结果统计</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>基础环境</p>
+<ul>
+<li>依赖 lombok、guava、fastjson</li>
+<li>controller、service、common（BaseResponseVO、CorsFilter）、utils（FileUtils）</li>
+</ul>
+</li>
+<li>
+<p>微信模板配置</p>
+<ul>
+<li>conf/WechatTemplateProperties.java</li>
+<li>application.yml</li>
+<li>template/template.json、template/templateResult.json</li>
+</ul>
+</li>
+<li>
+<p>业务逻辑</p>
+<ul>
+<li>WechatTemplateService.java
+<ul>
+<li>getTemplate()</li>
+<li>getStatistics()</li>
+<li>report()</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="kafka-producer实战开发">Kafka Producer实战开发</h2>
+<ul>
+<li>
+<p>创建 producer</p>
+<ul>
+<li>application.yml 添加 kafka 配置</li>
+<li>conf/KafkaProperties.java</li>
+<li>conf/KafkaConf.java
+<ul>
+<li>kafkaProducer() - 注入bean</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>report()</p>
+<ul>
+<li>构建 producerRecord</li>
+<li>producer.send()</li>
+</ul>
+</li>
+<li>
+<p>注意点：</p>
+<ul>
+<li>Kafka producer 是线程安全的，建议多线程复用：如果每个线程都创建producer，会出现大量上下文切换或争抢的情况，影响</li>
+<li>Kafka producer 的 key：
+<ul>
+<li>可根据 key 完成 partition 的负载均衡</li>
+<li>合理的 key 设计可以让 Flink、Spark streaming 之类的实时分析工具做快速处理</li>
+<li>ack=all 时，kafka 层面就已经有了只有一次的消息投递保障，如果还不放心，可以自行处理异常</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="微信小程序发布与部署流程">微信小程序发布与部署流程</h2>
 
 
                 
@@ -294,13 +380,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-4-%E5%AE%9E%E6%88%98-2-%E9%9B%86%E6%88%90%E5%BE%AE%E6%9C%8D%E5%8A%A1/" data-toggle="tooltip" data-placement="top" title="Kafka学习笔记-1-入门">&larr;
+                        <a href="/post/kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-2-%E6%A0%B8%E5%BF%83api-2-producer-api/" data-toggle="tooltip" data-placement="top" title="Kafka学习笔记 - 2 - 核心API - 2 - Producer API">&larr;
                             Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-3-%E9%9B%86%E7%BE%A4-2-%E7%9B%91%E6%8E%A7%E5%AE%89%E5%85%A8%E4%B8%8E%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" data-toggle="tooltip" data-placement="top" title="Kafka学习笔记-1-入门">Next
+                        <a href="/post/kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-2-%E6%A0%B8%E5%BF%83api-3-consumer-api/" data-toggle="tooltip" data-placement="top" title="Kafka学习笔记 - 2 - 核心API - 3 - Consumer API">Next
                             Post &rarr;</a>
                     </li>
                     
