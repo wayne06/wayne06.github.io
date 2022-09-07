@@ -332,6 +332,60 @@
 </li>
 </ul>
 <h2 id="微信小程序发布与部署流程">微信小程序发布与部署流程</h2>
+<ul>
+<li>
+<p>后端</p>
+<ul>
+<li>域名绑定ip</li>
+<li>后端服务增加 HTTPS 支持
+<ul>
+<li>云商申请 SSL 证书</li>
+<li>集成到工程
+<ul>
+<li>端口 443</li>
+<li>ssl.key-store  ssl.key-store-password</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>打包并上传服务器
+<ul>
+<li>template、application.yml、logback.xml、jar、pfx</li>
+<li>打包zip 或 tar -zcvf xxx.tgz xxx/</li>
+<li>上传</li>
+<li>修改 yml
+<ul>
+<li>文件路径</li>
+<li>server地址</li>
+</ul>
+</li>
+<li>vi start.sh
+<ul>
+<li>nohup java -jar kafka-template.jar &amp;</li>
+<li>chmod u+x start.sh</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>安全组打开 443</li>
+<li>测试</li>
+</ul>
+</li>
+<li>
+<p>前端</p>
+<ul>
+<li>安装 node.js 并配置环境变量</li>
+<li>安装小程序开发工具
+<ul>
+<li>project.config.json 中替换 appId</li>
+<li>config.ts 中替换服务地址 baseUrl</li>
+</ul>
+</li>
+<li>安装 node 依赖</li>
+<li>导入开发工具</li>
+</ul>
+</li>
+</ul>
 
 
                 
