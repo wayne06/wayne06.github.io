@@ -6,7 +6,7 @@
     <description>Recent content in Kafka on WZhong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 31 Aug 2022 03:24:12 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 01 Sep 2022 01:24:12 +0800</lastBuildDate>
     
 	<atom:link href="http://wayne06.github.io/tags/kafka/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,10 +14,10 @@
     <item>
       <title>Kafka学习笔记 - 2 - 核心API - 3 - Consumer API</title>
       <link>http://wayne06.github.io/post/kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-2-%E6%A0%B8%E5%BF%83api-3-consumer-api/</link>
-      <pubDate>Wed, 31 Aug 2022 03:24:12 +0800</pubDate>
+      <pubDate>Thu, 01 Sep 2022 01:24:12 +0800</pubDate>
       
       <guid>http://wayne06.github.io/post/kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-2-%E6%A0%B8%E5%BF%83api-3-consumer-api/</guid>
-      <description>基本介绍 开发环境 N5 基础操作</description>
+      <description>目录 控制offset起始位置 限流 rebalance解析 目标 了解：Consumer 高级特性 熟练掌握：Consumer API 熟练掌握：Consume</description>
     </item>
     
     <item>

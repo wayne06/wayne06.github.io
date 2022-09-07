@@ -204,7 +204,7 @@
                                 WZhong
                          
                         on 
-                        Wednesday, August 31, 2022
+                        Thursday, September 1, 2022
                         
                         
                         
@@ -234,18 +234,122 @@
                 </header>
                 <nav id="TableOfContents">
   <ul>
-    <li><a href="#基本介绍">基本介绍</a></li>
-    <li><a href="#开发环境">开发环境</a></li>
-    <li><a href="#基础操作">基础操作</a></li>
+    <li><a href="#目录">目录</a></li>
+    <li><a href="#目标">目标</a></li>
+    <li><a href="#demo">Demo</a></li>
+    <li><a href="#consumer-基本概念">Consumer 基本概念</a></li>
   </ul>
 </nav>
                 
-                <h2 id="基本介绍">基本介绍</h2>
-<h2 id="开发环境">开发环境</h2>
+                <h2 id="目录">目录</h2>
 <ul>
-<li>N5</li>
+<li>控制offset起始位置</li>
+<li>限流</li>
+<li>rebalance解析</li>
 </ul>
-<h2 id="基础操作">基础操作</h2>
+<h2 id="目标">目标</h2>
+<ul>
+<li>了解：Consumer 高级特性</li>
+<li>熟练掌握：Consumer API</li>
+<li>熟练掌握：Consumer 各项重点配置</li>
+</ul>
+<h2 id="demo">Demo</h2>
+<ul>
+<li>
+<p>自动提交 offset</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">consumerPoll</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>
+    Properties props <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Properties<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    props<span style="color:#f92672">.</span><span style="color:#a6e22e">setProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;bootstrap.servers&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;192.168.220.128:9092&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    props<span style="color:#f92672">.</span><span style="color:#a6e22e">setProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;group.id&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;test&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    props<span style="color:#f92672">.</span><span style="color:#a6e22e">setProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;enable.auto.commit&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    props<span style="color:#f92672">.</span><span style="color:#a6e22e">setProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;auto.commit.interval.ms&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;1000&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    props<span style="color:#f92672">.</span><span style="color:#a6e22e">setProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;key.deserializer&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;org.apache.kafka.common.serialization.StringDeserializer&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    props<span style="color:#f92672">.</span><span style="color:#a6e22e">setProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;value.deserializer&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;org.apache.kafka.common.serialization.StringDeserializer&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    KafkaConsumer<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span>String<span style="color:#f92672">&gt;</span> consumer <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> KafkaConsumer<span style="color:#f92672">(</span>props<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#75715e">// 消费订阅哪一个Topic或者几个Topic
+</span><span style="color:#75715e"></span>    consumer<span style="color:#f92672">.</span><span style="color:#a6e22e">subscribe</span><span style="color:#f92672">(</span>Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span>TOPIC_NAME<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      ConsumerRecords<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span> records <span style="color:#f92672">=</span> consumer<span style="color:#f92672">.</span><span style="color:#a6e22e">poll</span><span style="color:#f92672">(</span>Duration<span style="color:#f92672">.</span><span style="color:#a6e22e">ofMillis</span><span style="color:#f92672">(</span>10000<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>ConsumerRecord<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span> record <span style="color:#f92672">:</span> records<span style="color:#f92672">)</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">printf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;patition = %d , offset = %d, key = %s, value = %s%n&#34;</span><span style="color:#f92672">,</span> record<span style="color:#f92672">.</span><span style="color:#a6e22e">partition</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">,</span>record<span style="color:#f92672">.</span><span style="color:#a6e22e">offset</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">,</span> record<span style="color:#f92672">.</span><span style="color:#a6e22e">key</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">,</span> record<span style="color:#f92672">.</span><span style="color:#a6e22e">value</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+  <span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>手动提交 offset</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  <span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>
+  props<span style="color:#f92672">.</span><span style="color:#a6e22e">setProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;enable.auto.commit&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;false&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>
+  <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    ConsumerRecords<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span> records <span style="color:#f92672">=</span> consumer<span style="color:#f92672">.</span><span style="color:#a6e22e">poll</span><span style="color:#f92672">(</span>Duration<span style="color:#f92672">.</span><span style="color:#a6e22e">ofMillis</span><span style="color:#f92672">(</span>10000<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>ConsumerRecord<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span> record <span style="color:#f92672">:</span> records<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">// 想把数据保存到数据库，成功就成功，不成功...
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// TODO record 2 db
+</span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">printf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;patition = %d , offset = %d, key = %s, value = %s%n&#34;</span><span style="color:#f92672">,</span> record<span style="color:#f92672">.</span><span style="color:#a6e22e">partition</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">,</span> record<span style="color:#f92672">.</span><span style="color:#a6e22e">offset</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">,</span> record<span style="color:#f92672">.</span><span style="color:#a6e22e">key</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">,</span> record<span style="color:#f92672">.</span><span style="color:#a6e22e">value</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#75715e">// 如果失败，则回滚， 不要提交offset
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+    <span style="color:#75715e">// 如果成功，手动通知offset提交
+</span><span style="color:#75715e"></span>    consumer<span style="color:#f92672">.</span><span style="color:#a6e22e">commitAsync</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>手动提交 offset，并且手动控制 partition（每个partition单独处理）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  <span style="color:#75715e">// 每个partition单独处理
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>TopicPartition partition <span style="color:#f92672">:</span> records<span style="color:#f92672">.</span><span style="color:#a6e22e">partitions</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>
+      List<span style="color:#f92672">&lt;</span>ConsumerRecord<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span><span style="color:#f92672">&gt;</span> pRecord <span style="color:#f92672">=</span> records<span style="color:#f92672">.</span><span style="color:#a6e22e">records</span><span style="color:#f92672">(</span>partition<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>ConsumerRecord<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span> record <span style="color:#f92672">:</span> pRecord<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+          System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">printf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;patition = %d , offset = %d, key = %s, value = %s%n&#34;</span><span style="color:#f92672">,</span> record<span style="color:#f92672">.</span><span style="color:#a6e22e">partition</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">,</span> record<span style="color:#f92672">.</span><span style="color:#a6e22e">offset</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">,</span> record<span style="color:#f92672">.</span><span style="color:#a6e22e">key</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">,</span> record<span style="color:#f92672">.</span><span style="color:#a6e22e">value</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+      <span style="color:#66d9ef">long</span> lastOffset <span style="color:#f92672">=</span> pRecord<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>pRecord<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">offset</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#75715e">// 单个partition中的offset，并且进行提交
+</span><span style="color:#75715e"></span>      Map<span style="color:#f92672">&lt;</span>TopicPartition<span style="color:#f92672">,</span> OffsetAndMetadata<span style="color:#f92672">&gt;</span> offset <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      offset<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>partition<span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> OffsetAndMetadata<span style="color:#f92672">(</span>lastOffset<span style="color:#f92672">+</span>1<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#75715e">// 提交offset
+</span><span style="color:#75715e"></span>      consumer<span style="color:#f92672">.</span><span style="color:#a6e22e">commitSync</span><span style="color:#f92672">(</span>offset<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;=============partition - &#34;</span><span style="color:#f92672">+</span> partition <span style="color:#f92672">+</span><span style="color:#e6db74">&#34; end================&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>手动提交 offset，并且手动控制 partition（消费订阅某个Topic的某个分区）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  <span style="color:#75715e">// jiangzh-topic - 0,1两个partition
+</span><span style="color:#75715e"></span>  TopicPartition p0 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TopicPartition<span style="color:#f92672">(</span>TOPIC_NAME<span style="color:#f92672">,</span> 0<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  TopicPartition p1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TopicPartition<span style="color:#f92672">(</span>TOPIC_NAME<span style="color:#f92672">,</span> 1<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+  <span style="color:#75715e">// 消费订阅某个Topic的某个分区
+</span><span style="color:#75715e"></span>  consumer<span style="color:#f92672">.</span><span style="color:#a6e22e">assign</span><span style="color:#f92672">(</span>Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span>p0<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</code></pre></div></li>
+<li>
+<p>多线程并发处理</p>
+<ul>
+<li>经典模式，每一个线程单独创建一个KafkaConsumer，用于保证线程安全（ConsumerThreadSample.java）</li>
+<li>（ConsumerRecordThreadSample.java）</li>
+</ul>
+</li>
+</ul>
+<h2 id="consumer-基本概念">Consumer 基本概念</h2>
+<ul>
+<li>Consumer Group （props.setProperty(&ldquo;group.id&rdquo;, &ldquo;test&rdquo;);）
+<ul>
+<li>
+<p>多个 consumer 同一个事件处理器
+<img src="https://wx3.sinaimg.cn/large/5c527595ly8h5y4pi7bjaj20z70cc407.jpg" alt="alt"></p>
+<ul>
+<li>单个分区的消息只能由 ConsumerGroup 中某个 Consumer 消费</li>
+<li>Consumer 从 Partition 中消费消息是顺序，默认从头开始消费</li>
+<li>单个 ConsumerGroup 会消费所有 Partition 中的消息</li>
+</ul>
+</li>
+<li>
+<p>一个 consumer 多个事件处理器
+<img src="https://wx2.sinaimg.cn/large/5c527595ly8h5ydnrt3m2j210g0b7762.jpg" alt="alt"></p>
+<ul>
+<li>consumer 过多，对象过重</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 
                 
