@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="Kafka学习笔记-1-入门" />
-    <meta property="og:title" content="Kafka学习笔记-1-入门" />
-    <meta property="twitter:title" content="Kafka学习笔记-1-入门" />
+    <meta name="title" content="Kafka学习笔记 - 2 - 核心API - 4 - Streams API" />
+    <meta property="og:title" content="Kafka学习笔记 - 2 - 核心API - 4 - Streams API" />
+    <meta property="twitter:title" content="Kafka学习笔记 - 2 - 核心API - 4 - Streams API" />
     
 
     
@@ -34,7 +34,7 @@
     <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Kafka学习笔记-1-入门-Wayne Zhong Blog</title>
+    <title>Kafka学习笔记 - 2 - 核心API - 4 - Streams API-Wayne Zhong Blog</title>
 
     <link rel="canonical" href="/post/kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-2-%E6%A0%B8%E5%BF%83api-4-streams-api/">
 
@@ -196,7 +196,7 @@
                         </a>
                         
                     </div>
-                    <h1>Kafka学习笔记-1-入门</h1>
+                    <h1>Kafka学习笔记 - 2 - 核心API - 4 - Streams API</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by 
@@ -204,7 +204,7 @@
                                 WZhong
                          
                         on 
-                        Sunday, August 28, 2022
+                        Thursday, September 1, 2022
                         
                         
                         
@@ -234,18 +234,83 @@
                 </header>
                 <nav id="TableOfContents">
   <ul>
-    <li><a href="#基本介绍">基本介绍</a></li>
-    <li><a href="#开发环境">开发环境</a></li>
-    <li><a href="#基础操作">基础操作</a></li>
+    <li><a href="#目录">目录</a></li>
+    <li><a href="#目标">目标</a></li>
+    <li><a href="#基本概念">基本概念</a></li>
+    <li><a href="#编码">编码</a></li>
   </ul>
 </nav>
                 
-                <h2 id="基本介绍">基本介绍</h2>
-<h2 id="开发环境">开发环境</h2>
+                <h2 id="目录">目录</h2>
 <ul>
-<li>N5</li>
+<li>介绍</li>
+<li>概念 及 初识高层架构图</li>
+<li>核心概念</li>
+<li>演示准备</li>
+<li>使用</li>
+<li>程序解析</li>
+<li>算子演示</li>
 </ul>
-<h2 id="基础操作">基础操作</h2>
+<h2 id="目标">目标</h2>
+<ul>
+<li>了解：Kafka 的流处理流程</li>
+<li>掌握：Kafka Stream 高层架构</li>
+<li>掌握：Kafka Stream 开发</li>
+</ul>
+<h2 id="基本概念">基本概念</h2>
+<ul>
+<li>Kafka Stream 是处理分析存储在 Kafka 数据的客户端程序库</li>
+<li>Kafka Stream 通过 state store 可以实现高效状态操作</li>
+<li>支持原语 Processor 和高层抽象 DSL</li>
+<li>关键词：
+<ul>
+<li>流 及 流处理器</li>
+<li>流处理拓扑</li>
+<li>源处理器 及 Sink 处理器</li>
+</ul>
+</li>
+</ul>
+<h2 id="编码">编码</h2>
+<ul>
+<li>
+<p>准备</p>
+<ul>
+<li>添加 kafka-streams 依赖</li>
+<li>创建 input_topic 和 output_topic</li>
+</ul>
+</li>
+<li>
+<p>demo</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  <span style="color:#75715e">// 如何定义流计算过程
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">wordcountStream</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> StreamsBuilder builder<span style="color:#f92672">)</span><span style="color:#f92672">{</span>
+    <span style="color:#75715e">// 不断从INPUT_TOPIC上获取新数据，并且追加到流上的一个抽象对象
+</span><span style="color:#75715e"></span>    KStream<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span>String<span style="color:#f92672">&gt;</span> source <span style="color:#f92672">=</span> builder<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">(</span>INPUT_TOPIC<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#75715e">// Hello World imooc
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// KTable是数据集合的抽象对象
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// 算子
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">final</span> KTable<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Long<span style="color:#f92672">&gt;</span> count <span style="color:#f92672">=</span>
+          <span style="color:#75715e">// flatMapValues -&gt; 将一行数据拆分为多行数据  key 1 , value Hello World
+</span><span style="color:#75715e"></span>          <span style="color:#75715e">// flatMapValues -&gt; 将一行数据拆分为多行数据  key 1 , value Hello key xx , value World
+</span><span style="color:#75715e"></span>          <span style="color:#75715e">/*
+</span><span style="color:#75715e">            key 1 , value Hello   -&gt; Hello 1  World 2
+</span><span style="color:#75715e">            key 2 , value World
+</span><span style="color:#75715e">            key 3 , value World
+</span><span style="color:#75715e">          */</span>
+      source<span style="color:#f92672">.</span><span style="color:#a6e22e">flatMapValues</span><span style="color:#f92672">(</span>value <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span>value<span style="color:#f92672">.</span><span style="color:#a6e22e">toLowerCase</span><span style="color:#f92672">(</span>Locale<span style="color:#f92672">.</span><span style="color:#a6e22e">getDefault</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; &#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">.</span><span style="color:#a6e22e">groupBy</span><span style="color:#f92672">(</span><span style="color:#f92672">(</span>key<span style="color:#f92672">,</span> value<span style="color:#f92672">)</span> <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> value<span style="color:#f92672">)</span> <span style="color:#75715e">// 合并 -&gt; 按value值合并
+</span><span style="color:#75715e"></span>            <span style="color:#f92672">.</span><span style="color:#a6e22e">count</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span> <span style="color:#75715e">// 统计出现的总数
+</span><span style="color:#75715e"></span>
+    <span style="color:#75715e">// 将结果输入到OUT_TOPIC中
+</span><span style="color:#75715e"></span>    count<span style="color:#f92672">.</span><span style="color:#a6e22e">toStream</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">to</span><span style="color:#f92672">(</span>OUT_TOPIC<span style="color:#f92672">,</span> Produced<span style="color:#f92672">.</span><span style="color:#a6e22e">with</span><span style="color:#f92672">(</span>Serdes<span style="color:#f92672">.</span><span style="color:#a6e22e">String</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">,</span>Serdes<span style="color:#f92672">.</span><span style="color:#a6e22e">Long</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">foreachStream</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> StreamsBuilder builder<span style="color:#f92672">)</span><span style="color:#f92672">{</span>
+    KStream<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span>String<span style="color:#f92672">&gt;</span> source <span style="color:#f92672">=</span> builder<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">(</span>INPUT_TOPIC<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    source<span style="color:#f92672">.</span><span style="color:#a6e22e">flatMapValues</span><span style="color:#f92672">(</span>value <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span>value<span style="color:#f92672">.</span><span style="color:#a6e22e">toLowerCase</span><span style="color:#f92672">(</span>Locale<span style="color:#f92672">.</span><span style="color:#a6e22e">getDefault</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">split</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; &#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+          <span style="color:#f92672">.</span><span style="color:#a6e22e">foreach</span><span style="color:#f92672">(</span><span style="color:#f92672">(</span>key<span style="color:#f92672">,</span>value<span style="color:#f92672">)</span><span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>key <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; : &#34;</span> <span style="color:#f92672">+</span> value<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+</code></pre></div></li>
+</ul>
 
 
                 
@@ -294,13 +359,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-2-%E6%A0%B8%E5%BF%83api-5-connect-api/" data-toggle="tooltip" data-placement="top" title="Kafka学习笔记-1-入门">&larr;
+                        <a href="/post/kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-2-%E6%A0%B8%E5%BF%83api-3-consumer-api/" data-toggle="tooltip" data-placement="top" title="Kafka学习笔记 - 2 - 核心API - 3 - Consumer API">&larr;
                             Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-1-%E5%85%A5%E9%97%A8/" data-toggle="tooltip" data-placement="top" title="Kafka学习笔记 - 1 - 入门">Next
+                        <a href="/post/kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-2-%E6%A0%B8%E5%BF%83api-5-connect-api/" data-toggle="tooltip" data-placement="top" title="Kafka学习笔记 - 2 - 核心API - 5 - Connect API">Next
                             Post &rarr;</a>
                     </li>
                     

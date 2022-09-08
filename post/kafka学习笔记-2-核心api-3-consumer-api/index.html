@@ -234,20 +234,13 @@
                 </header>
                 <nav id="TableOfContents">
   <ul>
-    <li><a href="#目录">目录</a></li>
     <li><a href="#目标">目标</a></li>
     <li><a href="#demo">Demo</a></li>
     <li><a href="#consumer-基本概念">Consumer 基本概念</a></li>
   </ul>
 </nav>
                 
-                <h2 id="目录">目录</h2>
-<ul>
-<li>控制offset起始位置</li>
-<li>限流</li>
-<li>rebalance解析</li>
-</ul>
-<h2 id="目标">目标</h2>
+                <h2 id="目标">目标</h2>
 <ul>
 <li>了解：Consumer 高级特性</li>
 <li>熟练掌握：Consumer API</li>
@@ -322,8 +315,52 @@
 <li>
 <p>多线程并发处理</p>
 <ul>
-<li>经典模式，每一个线程单独创建一个KafkaConsumer，用于保证线程安全（ConsumerThreadSample.java）</li>
-<li>（ConsumerRecordThreadSample.java）</li>
+<li>
+<p>经典模式，每一个线程单独创建一个KafkaConsumer，用于保证线程安全（ConsumerThreadSample.java）</p>
+</li>
+<li>
+<p>一个 consumer 多个事件处理器（ConsumerRecordThreadSample.java）</p>
+</li>
+</ul>
+</li>
+<li>
+<p>手动指定offset的起始位置，及手动提交offset</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  <span style="color:#75715e">// 手动指定offset起始位置
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">/*
+</span><span style="color:#75715e">    1、人为控制offset起始位置
+</span><span style="color:#75715e">    2、如果出现程序错误，重复消费一次
+</span><span style="color:#75715e">  */</span>
+  <span style="color:#75715e">/*
+</span><span style="color:#75715e">    1、第一次从0消费【一般情况】
+</span><span style="color:#75715e">    2、比如一次消费了100条， offset置为101并且存入Redis
+</span><span style="color:#75715e">    3、每次poll之前，从redis中获取最新的offset位置
+</span><span style="color:#75715e">    4、每次从这个位置开始消费
+</span><span style="color:#75715e">    */</span>
+  consumer<span style="color:#f92672">.</span><span style="color:#a6e22e">seek</span><span style="color:#f92672">(</span>p0<span style="color:#f92672">,</span> 700<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</code></pre></div></li>
+<li>
+<p>限流</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  <span style="color:#75715e">/*
+</span><span style="color:#75715e">    1、接收到record信息以后，去令牌桶中拿取令牌
+</span><span style="color:#75715e">    2、如果获取到令牌，则继续业务处理
+</span><span style="color:#75715e">    3、如果获取不到令牌， 则pause等待令牌
+</span><span style="color:#75715e">    4、当令牌桶中的令牌足够， 则将consumer置为resume状态
+</span><span style="color:#75715e">  */</span>
+  consumer<span style="color:#f92672">.</span><span style="color:#a6e22e">pause</span><span style="color:#f92672">(</span>Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span>p0<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  consumer<span style="color:#f92672">.</span><span style="color:#a6e22e">resume</span><span style="color:#f92672">(</span>Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span>p0<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</code></pre></div></li>
+<li>
+<p>rebalance解析</p>
+<ul>
+<li>
+<p>新成员加入组（member join）</p>
+</li>
+<li>
+<p>组成员崩溃（member failure）</p>
+</li>
+<li>
+<p>提交位移（member commit offset）</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -402,6 +439,11 @@
                             Previous Post</a>
                     </li>
                     
+                    
+                    <li class="next">
+                        <a href="/post/kafka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-2-%E6%A0%B8%E5%BF%83api-4-streams-api/" data-toggle="tooltip" data-placement="top" title="Kafka学习笔记 - 2 - 核心API - 4 - Streams API">Next
+                            Post &rarr;</a>
+                    </li>
                     
                 </ul>
 
