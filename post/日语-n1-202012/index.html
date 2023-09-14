@@ -1,0 +1,2942 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="WZhong">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="日语 - N1 - 202012" />
+    <meta property="og:title" content="日语 - N1 - 202012" />
+    <meta property="twitter:title" content="日语 - N1 - 202012" />
+    
+
+    
+    <meta name="description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan.">
+    <meta property="og:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    <meta property="twitter:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>日语 - N1 - 202012-Wayne Zhong Blog</title>
+
+    <link rel="canonical" href="/post/%E6%97%A5%E8%AF%AD-n1-202012/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/docco.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">WZhong</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/design-pattern">design-pattern</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/it">it</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/japanese">japanese</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/java">java</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/microservice">microservice</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/others">others</a>
+                    </li>
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://img.zhaohuabing.com/post-bg-2015.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/japanese-language" title="Japanese Language">
+                            Japanese Language
+                        </a>
+                        
+                    </div>
+                    <h1>日语 - N1 - 202012</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                WZhong
+                         
+                        on 
+                        Sunday, September 3, 2023
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#文字词汇">文字词汇</a></li>
+    <li><a href="#阅读">阅读</a></li>
+    <li><a href="#听力">听力</a></li>
+  </ul>
+</nav>
+                
+                <h2 id="文字词汇">文字词汇</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>干渉</td>
+<td>かんしょう</td>
+<td>干涉，干扰</td>
+<td></td>
+</tr>
+<tr>
+<td>粘る</td>
+<td>ねばる</td>
+<td>黏糊；坚韧</td>
+<td></td>
+</tr>
+<tr>
+<td>争う</td>
+<td>あらそう</td>
+<td>争夺</td>
+<td></td>
+</tr>
+<tr>
+<td>競う</td>
+<td>きそう</td>
+<td>竞争</td>
+<td></td>
+</tr>
+<tr>
+<td>踏ん張る</td>
+<td>ふんばる</td>
+<td>叉开双脚使劲粘住；坚持，固执</td>
+<td></td>
+</tr>
+<tr>
+<td>巧妙</td>
+<td>こうみょう</td>
+<td>巧妙</td>
+<td>功名・光明</td>
+</tr>
+<tr>
+<td>促す</td>
+<td>うながす</td>
+<td>促进，催促</td>
+<td></td>
+</tr>
+<tr>
+<td>済ます</td>
+<td>すます</td>
+<td>弄完，结束，对付</td>
+<td></td>
+</tr>
+<tr>
+<td>施す</td>
+<td>ほどこす</td>
+<td>施舍，施行，施加</td>
+<td></td>
+</tr>
+<tr>
+<td>急かす</td>
+<td>せかす</td>
+<td>催促</td>
+<td></td>
+</tr>
+<tr>
+<td>措置</td>
+<td>そち</td>
+<td>措施</td>
+<td></td>
+</tr>
+<tr>
+<td>装置</td>
+<td>そうち</td>
+<td>装置</td>
+<td></td>
+</tr>
+<tr>
+<td>処置</td>
+<td>しょち</td>
+<td>处理</td>
+<td></td>
+</tr>
+<tr>
+<td>承知</td>
+<td>しょうち</td>
+<td>知道</td>
+<td></td>
+</tr>
+<tr>
+<td>振興</td>
+<td>しんこう</td>
+<td>振兴</td>
+<td>進行・信仰・新興・進攻</td>
+</tr>
+<tr>
+<td>心境</td>
+<td>しんきょう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>人口</td>
+<td>じんこう</td>
+<td></td>
+<td>人工</td>
+</tr>
+<tr>
+<td>クレーム</td>
+<td></td>
+<td>claim</td>
+<td></td>
+</tr>
+<tr>
+<td>ノルマ</td>
+<td></td>
+<td>normal</td>
+<td></td>
+</tr>
+<tr>
+<td>経緯</td>
+<td>けいい</td>
+<td>经纬；事情经过，原委</td>
+<td></td>
+</tr>
+<tr>
+<td>壮大な</td>
+<td>そうだいな</td>
+<td>宏大的</td>
+<td>壮大な構想・シーン・計画</td>
+</tr>
+<tr>
+<td>盛大な</td>
+<td>せいだいな</td>
+<td>盛大的</td>
+<td>盛大な会・歓迎</td>
+</tr>
+<tr>
+<td>甚大な</td>
+<td>じんだいな</td>
+<td>很大的</td>
+<td>甚大な被害・損害</td>
+</tr>
+<tr>
+<td>みっちり</td>
+<td></td>
+<td>充分地，好好地，严格地</td>
+<td></td>
+</tr>
+<tr>
+<td>ぐっすり</td>
+<td></td>
+<td>悍然，熟睡</td>
+<td></td>
+</tr>
+<tr>
+<td>めっきり</td>
+<td></td>
+<td>变化显著，急剧</td>
+<td></td>
+</tr>
+<tr>
+<td>撤去</td>
+<td>てっきょ</td>
+<td>撤去，撤出，拆除（建筑物、障碍物）</td>
+<td></td>
+</tr>
+<tr>
+<td>消去</td>
+<td>しょうきょ</td>
+<td>消去，涂掉（数据等）</td>
+<td></td>
+</tr>
+<tr>
+<td>駆除</td>
+<td>くじょ</td>
+<td>驱除（害虫等）</td>
+<td></td>
+</tr>
+<tr>
+<td>削除</td>
+<td>さくじょ</td>
+<td>删掉，抹掉</td>
+<td></td>
+</tr>
+<tr>
+<td>危ぶむ</td>
+<td>あやぶむ</td>
+<td>担心，没把握</td>
+<td></td>
+</tr>
+<tr>
+<td>恐れる</td>
+<td>おそれる</td>
+<td>被人害怕，使人恐惧</td>
+<td></td>
+</tr>
+<tr>
+<td>うずうず</td>
+<td></td>
+<td>憋不住，心里发痒，发急</td>
+<td></td>
+</tr>
+<tr>
+<td>おどおど</td>
+<td></td>
+<td>战战兢兢，惴惴不安</td>
+<td></td>
+</tr>
+<tr>
+<td>びくびく</td>
+<td></td>
+<td>战战兢兢，提心吊胆，抖动</td>
+<td></td>
+</tr>
+<tr>
+<td>はらはら</td>
+<td></td>
+<td>担心，忧虑；飘落</td>
+<td></td>
+</tr>
+<tr>
+<td>ざっと</td>
+<td></td>
+<td>粗略地，不仔细地，大体，大约，大概</td>
+<td></td>
+</tr>
+<tr>
+<td>じっと</td>
+<td></td>
+<td>保持稳定，一动不动地，凝神</td>
+<td></td>
+</tr>
+<tr>
+<td>ちらっと</td>
+<td></td>
+<td>一闪，一晃</td>
+<td></td>
+</tr>
+<tr>
+<td>ぼうっと</td>
+<td></td>
+<td>发呆，出神，恍惚</td>
+<td>凝視＝じっと見た</td>
+</tr>
+<tr>
+<td>架空</td>
+<td>かくう</td>
+<td></td>
+<td>＝想像の</td>
+</tr>
+<tr>
+<td>かねがね</td>
+<td></td>
+<td>很早以前</td>
+<td></td>
+</tr>
+<tr>
+<td>しばらく</td>
+<td></td>
+<td>暂时，暂且</td>
+<td>＝当面（とうめん）</td>
+</tr>
+<tr>
+<td>ぼやく</td>
+<td></td>
+<td>嘟哝，牢骚</td>
+<td>＝愚痴を言う（ぐち）</td>
+</tr>
+<tr>
+<td>わがまま</td>
+<td></td>
+<td>任性，放肆</td>
+<td></td>
+</tr>
+<tr>
+<td>独り言</td>
+<td>ひとりごと</td>
+<td>自言自语的话</td>
+<td></td>
+</tr>
+<tr>
+<td>もはや</td>
+<td></td>
+<td>（事到如今）已经</td>
+<td></td>
+</tr>
+<tr>
+<td>間もなく</td>
+<td>まもなく</td>
+<td>不久，即将，一会儿</td>
+<td></td>
+</tr>
+<tr>
+<td>円滑</td>
+<td>えんかつ</td>
+<td>（言行品格）圆滑；（事情进展人际关系）顺利</td>
+<td>協会を円滑に運営するためには…</td>
+</tr>
+<tr>
+<td>怠る</td>
+<td>おこたる</td>
+<td>怠慢，懈怠，疏忽大意</td>
+<td>…、常に注意を怠ってはいけない。</td>
+</tr>
+<tr>
+<td>失脚</td>
+<td>しっきゃく</td>
+<td>丧失立足地，下台，失足踩空</td>
+<td>大臣が汚職事件で失脚すると、…</td>
+</tr>
+<tr>
+<td>失格</td>
+<td>しっかく</td>
+<td>失掉资格</td>
+<td></td>
+</tr>
+<tr>
+<td>収容</td>
+<td>しゅうよう</td>
+<td>收容，容纳</td>
+<td></td>
+</tr>
+<tr>
+<td>実に</td>
+<td>じつに</td>
+<td>实在，确实，的确</td>
+<td>このレポートは実によくかけている。</td>
+</tr>
+<tr>
+<td>ならでは</td>
+<td></td>
+<td>只有，除…之外</td>
+<td>老舗（しにせ）旅館ならではの細やかな心遣いが感じられる。</td>
+</tr>
+<tr>
+<td>ばかりに</td>
+<td></td>
+<td>只是因为…（导致不好的结果）</td>
+<td>取引先の名前を間違えたばかりに、…</td>
+</tr>
+<tr>
+<td>なんて</td>
+<td></td>
+<td>…之类的（轻蔑、轻视）</td>
+<td></td>
+</tr>
+<tr>
+<td>かと思うと</td>
+<td></td>
+<td>刚…就</td>
+<td></td>
+</tr>
+<tr>
+<td>それが</td>
+<td></td>
+<td>但是</td>
+<td>これまで森さんのことなど何とも思っていなかった。それが最近、なぜか急に恋愛対象として意識するようになってしまった。</td>
+</tr>
+<tr>
+<td>ノウハウ</td>
+<td></td>
+<td>know-how</td>
+<td></td>
+</tr>
+<tr>
+<td>をもってすれば</td>
+<td></td>
+<td>凭借…的话</td>
+<td>私が持つノウハウをもってすれば、早期の黒字化が図れると確信している。</td>
+</tr>
+<tr>
+<td>黒字</td>
+<td>くろじ</td>
+<td>盈余</td>
+<td></td>
+</tr>
+<tr>
+<td>やってもいないうちから</td>
+<td></td>
+<td>还没做就…</td>
+<td>できない理由ばかりを探して、やってもいないうちから諦めてしまう人に、成長はない。</td>
+</tr>
+<tr>
+<td>くせに</td>
+<td></td>
+<td>明明可是</td>
+<td>そんなこと言って。本当は読んでみたくてしかたがないくせに。</td>
+</tr>
+<tr>
+<td>ている</td>
+<td></td>
+<td>（虽经历下次还要继续）</td>
+<td>次の試合の相手とは前回の大会で、一度対戦している。前回は負けたが、今回は絶対に勝ちたい。</td>
+</tr>
+<tr>
+<td>あがります</td>
+<td>行きます</td>
+<td>自谦</td>
+<td>お迎えにあがります</td>
+</tr>
+<tr>
+<td>くださいます</td>
+<td>くれる</td>
+<td>尊他</td>
+<td></td>
+</tr>
+<tr>
+<td>さしあげます</td>
+<td>あげる</td>
+<td>自谦</td>
+<td></td>
+</tr>
+<tr>
+<td>楽しむどころではなかった</td>
+<td></td>
+<td>不是欣赏的时候</td>
+<td>ものすごい強風と寒さで、夜景を楽しむどころではなかった。</td>
+</tr>
+<tr>
+<td>ってもんだ</td>
+<td>というものだ</td>
+<td>实在是，觉得确实是</td>
+<td>どう考えてもさすがに無理ってもんだ。</td>
+</tr>
+<tr>
+<td>語る</td>
+<td>かたる</td>
+<td>讲述，谈</td>
+<td></td>
+</tr>
+<tr>
+<td>うえで</td>
+<td></td>
+<td>在…方面</td>
+<td>この花火大会は、日本の夏を語るうえで欠かせないイベントとして有名だ。</td>
+</tr>
+<tr>
+<td>やらせる</td>
+<td></td>
+<td>让做，使做</td>
+<td>子どもの遊ぶ時間を奪ってまで無理にやらせる必要はない。</td>
+</tr>
+<tr>
+<td>奪う</td>
+<td>うばう</td>
+<td>抢夺，剥夺</td>
+<td></td>
+</tr>
+<tr>
+<td>ように</td>
+<td></td>
+<td>希望，请求，祈祷</td>
+<td>最終日の今日こそ何もおきませんように。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>介護施設職員の給与を引き上げるなどして介護に携わる人材を確保することが緊急な課題。</td>
+</tr>
+<tr>
+<td>文芸</td>
+<td>ぶんげい</td>
+<td>文艺</td>
+<td></td>
+</tr>
+<tr>
+<td>訪れる</td>
+<td>おとずれる</td>
+<td>访问，来临</td>
+<td>春のおとずれ</td>
+</tr>
+<tr>
+<td>軽い</td>
+<td>かるい</td>
+<td>轻微的</td>
+<td></td>
+</tr>
+<tr>
+<td>衝撃</td>
+<td>しょうげき</td>
+<td>冲击</td>
+<td></td>
+</tr>
+<tr>
+<td>実験</td>
+<td>じっけん</td>
+<td>实验；实际经验</td>
+<td></td>
+</tr>
+<tr>
+<td>描写</td>
+<td>びょうしゃ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>息吹き</td>
+<td>いぶき</td>
+<td>呼吸，气息，气氛</td>
+<td></td>
+</tr>
+<tr>
+<td>且つ</td>
+<td>かつ</td>
+<td>并且</td>
+<td></td>
+</tr>
+<tr>
+<td>本音</td>
+<td>ほんね</td>
+<td>真心话</td>
+<td></td>
+</tr>
+<tr>
+<td>思えてきた</td>
+<td></td>
+<td>开始这么认为了</td>
+<td></td>
+</tr>
+<tr>
+<td>優れる</td>
+<td>すぐれる</td>
+<td>出色，优秀</td>
+<td></td>
+</tr>
+<tr>
+<td>とはいえ</td>
+<td></td>
+<td>尽管那样</td>
+<td></td>
+</tr>
+<tr>
+<td>そういえば</td>
+<td></td>
+<td>这么说来</td>
+<td></td>
+</tr>
+<tr>
+<td>見当たる</td>
+<td>みあたる</td>
+<td>找到，看到，看见</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="阅读">阅读</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>昨今</td>
+<td>さっこん</td>
+<td>近来，最近</td>
+<td></td>
+</tr>
+<tr>
+<td>凝る</td>
+<td>こる</td>
+<td>凝固；热衷</td>
+<td></td>
+</tr>
+<tr>
+<td>仕切る</td>
+<td>しきる</td>
+<td>隔开；结账；主持</td>
+<td></td>
+</tr>
+<tr>
+<td>息苦しい</td>
+<td>いきぐるしい</td>
+<td>呼吸困难，苦闷，郁闷</td>
+<td></td>
+</tr>
+<tr>
+<td>はみ出す</td>
+<td>はみだす</td>
+<td>超出范围，溢出</td>
+<td></td>
+</tr>
+<tr>
+<td>縮める</td>
+<td>ちぢめる</td>
+<td>缩小，削减</td>
+<td></td>
+</tr>
+<tr>
+<td>広がり</td>
+<td>ひろがり</td>
+<td>扩大，拓宽</td>
+<td></td>
+</tr>
+<tr>
+<td>トンネル</td>
+<td></td>
+<td>tunnel</td>
+<td></td>
+</tr>
+<tr>
+<td>不揃い</td>
+<td>ふぞろい</td>
+<td>不整齐，不一致</td>
+<td></td>
+</tr>
+<tr>
+<td>まとまり</td>
+<td></td>
+<td>解决，谈妥；凑齐；统一</td>
+<td></td>
+</tr>
+<tr>
+<td>緩やか</td>
+<td>ゆるやか</td>
+<td>缓慢，宽松</td>
+<td></td>
+</tr>
+<tr>
+<td>数え上げる</td>
+<td>かぞえあげる</td>
+<td>列举，枚举，数完</td>
+<td></td>
+</tr>
+<tr>
+<td>あるいは</td>
+<td></td>
+<td>或者，有时，或许</td>
+<td></td>
+</tr>
+<tr>
+<td>明らかに</td>
+<td>あきらかに</td>
+<td>明显，清楚；明朗</td>
+<td></td>
+</tr>
+<tr>
+<td>買い手</td>
+<td>かいて</td>
+<td>买主，买方</td>
+<td></td>
+</tr>
+<tr>
+<td>流行る</td>
+<td>はやる</td>
+<td>流行，时髦，传染</td>
+<td></td>
+</tr>
+<tr>
+<td>先んじる</td>
+<td>さきんじる</td>
+<td>走在…前头</td>
+<td></td>
+</tr>
+<tr>
+<td>難解</td>
+<td>なんかい</td>
+<td>难解，费解</td>
+<td></td>
+</tr>
+<tr>
+<td>敬遠</td>
+<td>けいえん</td>
+<td>敬而远之，有意回避</td>
+<td></td>
+</tr>
+<tr>
+<td>顕著</td>
+<td>けんちょ</td>
+<td>显著，明显</td>
+<td></td>
+</tr>
+<tr>
+<td>キャスター</td>
+<td>caster</td>
+<td>小轮；讲解员</td>
+<td></td>
+</tr>
+<tr>
+<td>駆使</td>
+<td>くし</td>
+<td>驱使；运用；操纵自如</td>
+<td></td>
+</tr>
+<tr>
+<td>進歩</td>
+<td>しんぽ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>主たる</td>
+<td>しゅたる</td>
+<td>主要的</td>
+<td></td>
+</tr>
+<tr>
+<td>役目</td>
+<td>やくめ</td>
+<td>任务，作用</td>
+<td>役目を担う（になう）</td>
+</tr>
+<tr>
+<td>妨害</td>
+<td>ぼうがい</td>
+<td>妨碍，干扰</td>
+<td></td>
+</tr>
+<tr>
+<td>蓄える</td>
+<td>たくわえる</td>
+<td>储备，贮存</td>
+<td></td>
+</tr>
+<tr>
+<td>踏まえる</td>
+<td>ふまえる</td>
+<td>踩踏；立足于…</td>
+<td></td>
+</tr>
+<tr>
+<td>気楽に</td>
+<td>きらくに</td>
+<td>舒服；轻松</td>
+<td></td>
+</tr>
+<tr>
+<td>大人しい</td>
+<td>おとなしい</td>
+<td>老实，规矩</td>
+<td></td>
+</tr>
+<tr>
+<td>抑制</td>
+<td>よくせい</td>
+<td>抑制，制止</td>
+<td></td>
+</tr>
+<tr>
+<td>繋がり</td>
+<td>つながり</td>
+<td>联系，关系</td>
+<td></td>
+</tr>
+<tr>
+<td>言わば</td>
+<td>いわば</td>
+<td>说起来，从某种意义上来说</td>
+<td></td>
+</tr>
+<tr>
+<td>煮詰める</td>
+<td>につめる</td>
+<td>煮干；归纳，得出结论</td>
+<td></td>
+</tr>
+<tr>
+<td>卓越</td>
+<td>たくえつ</td>
+<td>卓越，超群</td>
+<td></td>
+</tr>
+<tr>
+<td>真摯</td>
+<td>しんし</td>
+<td>真挚，认真</td>
+<td></td>
+</tr>
+<tr>
+<td>優れる</td>
+<td>すぐれる</td>
+<td>出色，优秀；杰出</td>
+<td></td>
+</tr>
+<tr>
+<td>膨大</td>
+<td>ぼうだい</td>
+<td>膨胀，巨大</td>
+<td></td>
+</tr>
+<tr>
+<td>二次的</td>
+<td>にじてき</td>
+<td>次要的，第二位的</td>
+<td></td>
+</tr>
+<tr>
+<td>還元</td>
+<td>かんげん</td>
+<td>还原</td>
+<td></td>
+</tr>
+<tr>
+<td>昇華</td>
+<td>しょうか</td>
+<td></td>
+<td>消化・商科・商家</td>
+</tr>
+<tr>
+<td>カンブリア紀</td>
+<td></td>
+<td>寒武纪</td>
+<td></td>
+</tr>
+<tr>
+<td>氷山の一角</td>
+<td>ひょうざんのいっかく</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>生息</td>
+<td>せいそく</td>
+<td>生长，生存</td>
+<td></td>
+</tr>
+<tr>
+<td>食い止める</td>
+<td>くいとめる</td>
+<td>防止住，阻止住</td>
+<td></td>
+</tr>
+<tr>
+<td>転じる</td>
+<td>てんじる</td>
+<td>改换，改变</td>
+<td></td>
+</tr>
+<tr>
+<td>ゆりかご</td>
+<td></td>
+<td>摇篮</td>
+<td></td>
+</tr>
+<tr>
+<td>復活</td>
+<td>ふっかつ</td>
+<td>复活，复兴，恢复</td>
+<td></td>
+</tr>
+<tr>
+<td>拍車</td>
+<td>はくしゃ</td>
+<td>加速，推动</td>
+<td></td>
+</tr>
+<tr>
+<td>懸念</td>
+<td>けねん</td>
+<td>惦记，担忧，固执</td>
+<td></td>
+</tr>
+<tr>
+<td>著しい</td>
+<td>いちじるしい</td>
+<td>显著，显然，非常</td>
+<td></td>
+</tr>
+<tr>
+<td>破壊</td>
+<td>はかい</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ウエイト</td>
+<td>weight</td>
+<td>重点，权重</td>
+<td></td>
+</tr>
+<tr>
+<td>溢れる</td>
+<td>あふれる</td>
+<td>溢出，挤满，充满</td>
+<td></td>
+</tr>
+<tr>
+<td>飽くまで</td>
+<td>あくまで</td>
+<td>彻底，始终，到底</td>
+<td></td>
+</tr>
+<tr>
+<td>取り残す</td>
+<td>とりのこす</td>
+<td>剩下，留下，掉队</td>
+<td></td>
+</tr>
+<tr>
+<td>あっという間に</td>
+<td>まに</td>
+<td>一瞬间</td>
+<td></td>
+</tr>
+<tr>
+<td>土台</td>
+<td>どだい</td>
+<td>地基，基础</td>
+<td></td>
+</tr>
+<tr>
+<td>占有率</td>
+<td>せんゆうりつ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>いきなり</td>
+<td></td>
+<td>突然，冷不防</td>
+<td></td>
+</tr>
+<tr>
+<td>出くわす</td>
+<td>でくわす</td>
+<td>偶遇，碰见</td>
+<td></td>
+</tr>
+<tr>
+<td>占める</td>
+<td>しめる</td>
+<td>占有，占据</td>
+<td></td>
+</tr>
+<tr>
+<td>割合</td>
+<td>わりあい</td>
+<td>比例</td>
+<td></td>
+</tr>
+<tr>
+<td>たまたま</td>
+<td></td>
+<td>偶尔，偶然，无意中</td>
+<td></td>
+</tr>
+<tr>
+<td>刻む</td>
+<td>きざむ</td>
+<td>剁碎；牢记</td>
+<td></td>
+</tr>
+<tr>
+<td>肝心</td>
+<td>かんじん</td>
+<td>首要，重要，关键</td>
+<td></td>
+</tr>
+<tr>
+<td>かっこうつける</td>
+<td></td>
+<td>装酷</td>
+<td></td>
+</tr>
+<tr>
+<td>奇を衒う</td>
+<td>きをてらう</td>
+<td>故作不一样的事而引起注意</td>
+<td></td>
+</tr>
+<tr>
+<td>穏やか</td>
+<td>おだやか</td>
+<td>平稳，稳重</td>
+<td></td>
+</tr>
+<tr>
+<td>実像</td>
+<td>じつぞう</td>
+<td>真实的样子</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="听力">听力</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>修理</td>
+<td>しゅうり</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>電子レンジ</td>
+<td>でんしれんじ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>変な匂い</td>
+<td>へんなにおい</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>焦げ臭い</td>
+<td>こげくさい</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>煙</td>
+<td>けむり</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>内側</td>
+<td>うちがわ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>油</td>
+<td>あぶら</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>汚れ</td>
+<td>よごれ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>拭き取る</td>
+<td>ふきとる</td>
+<td>擦去</td>
+<td></td>
+</tr>
+<tr>
+<td>支社</td>
+<td>ししゃ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>明後日</td>
+<td>あさって</td>
+<td>后天</td>
+<td></td>
+</tr>
+<tr>
+<td>フェアー</td>
+<td></td>
+<td>展览会</td>
+<td>家電フェアー</td>
+</tr>
+<tr>
+<td>予備</td>
+<td>よび</td>
+<td>预备，备品</td>
+<td></td>
+</tr>
+<tr>
+<td>状況を把握する</td>
+<td>じょうきょうをはあく</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>運送会社</td>
+<td>うんそうかいしゃ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>問い合わせる</td>
+<td>といあわせる</td>
+<td>询问，打听</td>
+<td></td>
+</tr>
+<tr>
+<td>迫る</td>
+<td>せまる</td>
+<td>迫近，临近</td>
+<td>日が迫ってるからすぐ動いてね。</td>
+</tr>
+<tr>
+<td>お好み焼き</td>
+<td>おこのみやき</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>半々ぐらい</td>
+<td>はんはん</td>
+<td>一半一半</td>
+<td></td>
+</tr>
+<tr>
+<td>予想以上</td>
+<td>よそういじょう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>余裕</td>
+<td>よゆう</td>
+<td>富余</td>
+<td></td>
+</tr>
+<tr>
+<td>知り合う</td>
+<td>しりあう</td>
+<td>相识，结识</td>
+<td></td>
+</tr>
+<tr>
+<td>きっかけ</td>
+<td></td>
+<td>契机</td>
+<td></td>
+</tr>
+<tr>
+<td>叩き台</td>
+<td>たたきだい</td>
+<td>砧板；原案</td>
+<td></td>
+</tr>
+<tr>
+<td>コーディデート</td>
+<td>coordinate</td>
+<td>协调</td>
+<td></td>
+</tr>
+<tr>
+<td>測定</td>
+<td>そくてい</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>実技</td>
+<td>じつぎ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>適当</td>
+<td>てきとう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>試し</td>
+<td>ためし</td>
+<td>尝试，试验</td>
+<td></td>
+</tr>
+<tr>
+<td>教える</td>
+<td>おしえる</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>記者</td>
+<td>きしゃ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>転職</td>
+<td>てんしょく</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>言い換える</td>
+<td>いいかえる</td>
+<td>换句话说；前后不一</td>
+<td></td>
+</tr>
+<tr>
+<td>生の言葉</td>
+<td>なまのことば</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>録音</td>
+<td>ろくおん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>要約</td>
+<td>ようやく</td>
+<td>要点，摘要，归纳</td>
+<td></td>
+</tr>
+<tr>
+<td>活かす</td>
+<td>いかす</td>
+<td>有效利用</td>
+<td>最大限生かさないと。</td>
+</tr>
+<tr>
+<td>バザー</td>
+<td>bazaar</td>
+<td>义卖会，义卖市场</td>
+<td></td>
+</tr>
+<tr>
+<td>品物</td>
+<td>しなもの</td>
+<td>物品，东西</td>
+<td></td>
+</tr>
+<tr>
+<td>仕分け</td>
+<td>しわけ</td>
+<td>分类，区分</td>
+<td></td>
+</tr>
+<tr>
+<td>交代</td>
+<td>こうたい</td>
+<td>轮流，替换</td>
+<td></td>
+</tr>
+<tr>
+<td>好調</td>
+<td>こうちょう</td>
+<td>顺利，情况良好</td>
+<td></td>
+</tr>
+<tr>
+<td>製造</td>
+<td>せいぞう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>中止</td>
+<td>ちゅうし</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>愛着</td>
+<td>あいちゃく</td>
+<td>留恋</td>
+<td></td>
+</tr>
+<tr>
+<td>創業</td>
+<td>そうぎょう</td>
+<td>创业，创立</td>
+<td></td>
+</tr>
+<tr>
+<td>看板</td>
+<td>かんばん</td>
+<td>招牌；牌子</td>
+<td></td>
+</tr>
+<tr>
+<td>おしゃれ</td>
+<td></td>
+<td>好打扮；时髦</td>
+<td></td>
+</tr>
+<tr>
+<td>優勝</td>
+<td>ゆうしょう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>資金力</td>
+<td>しきんりょく</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>獲得</td>
+<td>かくとく</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>主力</td>
+<td>しゅりょく</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>後半</td>
+<td>こうはん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>レギュラー</td>
+<td>regular</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>なければ</td>
+<td></td>
+<td>没有的话</td>
+<td></td>
+</tr>
+<tr>
+<td>前回</td>
+<td>ぜんかい</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>拘る</td>
+<td>こだわる</td>
+<td>拘泥</td>
+<td></td>
+</tr>
+<tr>
+<td>見た目</td>
+<td>みため</td>
+<td>看来，外表</td>
+<td></td>
+</tr>
+<tr>
+<td>瞑る</td>
+<td>つぶる</td>
+<td>闭眼</td>
+<td></td>
+</tr>
+<tr>
+<td>目を瞑る</td>
+<td>めをつぶる</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>売上を伸ばす</td>
+<td>うりあげをのばす</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>改装</td>
+<td>かいそう</td>
+<td></td>
+<td>階層・回想</td>
+</tr>
+<tr>
+<td>内装</td>
+<td>ないそう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>青</td>
+<td>あお</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>統一</td>
+<td>とういつ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>活動</td>
+<td>かつどう</td>
+<td></td>
+<td>活動的な気分</td>
+</tr>
+<tr>
+<td>滞在時間</td>
+<td>たいざいじかん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>回転率</td>
+<td>かいてんりつ</td>
+<td>翻桌率，回转率</td>
+<td></td>
+</tr>
+<tr>
+<td>視界</td>
+<td>しかい</td>
+<td>视野，眼界</td>
+<td>司会</td>
+</tr>
+<tr>
+<td>居心地</td>
+<td>いごこち</td>
+<td>心情，感觉</td>
+<td></td>
+</tr>
+<tr>
+<td>寛ぐ</td>
+<td>くつろぐ</td>
+<td>舒畅，惬意，随便</td>
+<td></td>
+</tr>
+<tr>
+<td>思い出</td>
+<td>おもいで</td>
+<td>回忆，纪念</td>
+<td></td>
+</tr>
+<tr>
+<td>詰まる</td>
+<td>つまる</td>
+<td>挤满，堆满</td>
+<td></td>
+</tr>
+<tr>
+<td>使わなくなった</td>
+<td></td>
+<td>不用的</td>
+<td></td>
+</tr>
+<tr>
+<td>協力していない</td>
+<td></td>
+<td>不配合</td>
+<td></td>
+</tr>
+<tr>
+<td>引き出し</td>
+<td>ひきだし</td>
+<td>抽出，拉出；抽屉</td>
+<td></td>
+</tr>
+<tr>
+<td>廃棄</td>
+<td>はいき</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>希少金属</td>
+<td>きしょうきんぞく</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>莫大</td>
+<td>ばくだい</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>回収</td>
+<td>かいしゅう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>消去</td>
+<td>しょうきょ</td>
+<td></td>
+<td>データを消去</td>
+</tr>
+<tr>
+<td>あやふや</td>
+<td></td>
+<td>含糊</td>
+<td></td>
+</tr>
+<tr>
+<td>流出</td>
+<td>りゅうしゅつ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>資源</td>
+<td>しげん</td>
+<td></td>
+<td>貴重な資源</td>
+</tr>
+<tr>
+<td>役立つ</td>
+<td>やくだつ</td>
+<td>有用，有帮助</td>
+<td>漫画は社長にとって何に役立っていると言っていますか？</td>
+</tr>
+<tr>
+<td>読書</td>
+<td>どくしょ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>早速ですが</td>
+<td>さっそくですが</td>
+<td>立刻，马上；话不多说</td>
+<td></td>
+</tr>
+<tr>
+<td>きっかけ</td>
+<td></td>
+<td>契机</td>
+<td>それがきっかけでうちの商品開発につながったんですよ。</td>
+</tr>
+<tr>
+<td>方向</td>
+<td>ほうこう</td>
+<td></td>
+<td>漫画はアイデアの方向だと思います。</td>
+</tr>
+<tr>
+<td>幅広い</td>
+<td>はばひろい</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>にとどまらず</td>
+<td></td>
+<td>不仅仅是…，不止局限于…</td>
+<td></td>
+</tr>
+<tr>
+<td>担う</td>
+<td>になる</td>
+<td>担负</td>
+<td></td>
+</tr>
+<tr>
+<td>対応策</td>
+<td>たいおうさく</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>喜ぶ</td>
+<td>よろこぶ</td>
+<td></td>
+<td>どんな対応策が一番喜ばれていると言っていますか。</td>
+</tr>
+<tr>
+<td>スーパー</td>
+<td></td>
+<td>超市</td>
+<td></td>
+</tr>
+<tr>
+<td>乗り出す</td>
+<td>のりだす</td>
+<td>乘…出去；积极从事；亲自出马</td>
+<td>様々な対応に乗り出しています。</td>
+</tr>
+<tr>
+<td>自宅</td>
+<td>じたく</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>なかでも</td>
+<td></td>
+<td>尤其，其中尤以…</td>
+<td></td>
+</tr>
+<tr>
+<td>評判がいい</td>
+<td>ひょうばんがいい</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>乗せる</td>
+<td>のせる</td>
+<td>装上，搭乘，加入</td>
+<td></td>
+</tr>
+<tr>
+<td>定期的</td>
+<td>ていきてき</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>回る</td>
+<td>まわる</td>
+<td>巡回，转动</td>
+<td></td>
+</tr>
+<tr>
+<td>背景</td>
+<td>はいけい</td>
+<td></td>
+<td>読書時間減少の背景</td>
+</tr>
+<tr>
+<td>経済的状況</td>
+<td>けいざいてきじょうきょう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>目的</td>
+<td>もくてき</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>傾向</td>
+<td>けいこう</td>
+<td></td>
+<td>読む本の傾向</td>
+</tr>
+<tr>
+<td>生活時間調査の結果</td>
+<td>せいかつじかんちょうさのけっか</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>まったくない</td>
+<td></td>
+<td>完全没有</td>
+<td></td>
+</tr>
+<tr>
+<td>読書離れ</td>
+<td>どくしょばなれ</td>
+<td>远离读书</td>
+<td></td>
+</tr>
+<tr>
+<td>加速</td>
+<td>かそく</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>かさむ</td>
+<td></td>
+<td>增大，涨</td>
+<td></td>
+</tr>
+<tr>
+<td>交際費</td>
+<td>こうさいひ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>年々</td>
+<td>ねんねん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>影響</td>
+<td>えいきょう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>明確な関係</td>
+<td>めいかくなかんけい</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>思考力を鍛える</td>
+<td>しこうりょくをきたえる</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>哲学書</td>
+<td>てつがくしょ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>部署</td>
+<td>ぶしょ</td>
+<td>工作岗位，职守</td>
+<td>自分の部署の会議の問題点</td>
+</tr>
+<tr>
+<td>理想的</td>
+<td>りそうてき</td>
+<td></td>
+<td>理想的な会議の進め方</td>
+</tr>
+<tr>
+<td>打合せ</td>
+<td>うちあわせ</td>
+<td>商量，磋商，碰头</td>
+<td>会議前の打合せの必要性</td>
+</tr>
+<tr>
+<td>役割</td>
+<td>やくわり</td>
+<td>职务，角色</td>
+<td>会議における自分の役割</td>
+</tr>
+<tr>
+<td>に於ける</td>
+<td>における</td>
+<td>在…之中，在…方面</td>
+<td></td>
+</tr>
+<tr>
+<td>仕切る</td>
+<td>しきる</td>
+<td>隔开；结账；掌管，主持</td>
+<td>仕切る人の手際の問題？</td>
+</tr>
+<tr>
+<td>手際</td>
+<td>てぎわ</td>
+<td>手法，技巧，手腕</td>
+<td></td>
+</tr>
+<tr>
+<td>議論</td>
+<td>ぎろん</td>
+<td>议论，争辩</td>
+<td></td>
+</tr>
+<tr>
+<td>紛糾</td>
+<td>ふんきゅう</td>
+<td>纠纷</td>
+<td></td>
+</tr>
+<tr>
+<td>異議</td>
+<td>いぎ</td>
+<td></td>
+<td>意義・威儀</td>
+</tr>
+<tr>
+<td>唱える</td>
+<td>となえる</td>
+<td>念；高喊；声明，倡导</td>
+<td>異議を唱える人たち</td>
+</tr>
+<tr>
+<td>反論</td>
+<td>はんろん</td>
+<td></td>
+<td>正論：せいろん</td>
+</tr>
+<tr>
+<td>集約</td>
+<td>しゅうやく</td>
+<td>总结，汇集</td>
+<td></td>
+</tr>
+<tr>
+<td>方法</td>
+<td>ほうほう</td>
+<td></td>
+<td>アイデアを忘れない方法</td>
+</tr>
+<tr>
+<td>思いつく</td>
+<td></td>
+<td>突然想出</td>
+<td>アイデアを思いつく方法</td>
+</tr>
+<tr>
+<td>作詞</td>
+<td>さくし</td>
+<td></td>
+<td>作詞家</td>
+</tr>
+<tr>
+<td>浮かぶ</td>
+<td>うかぶ</td>
+<td>漂浮；想出；浮现</td>
+<td>せっかく浮かんだアイデア</td>
+</tr>
+<tr>
+<td>悔しい</td>
+<td>くやしい</td>
+<td>令人懊悔，遗憾</td>
+<td></td>
+</tr>
+<tr>
+<td>しょっちゅう</td>
+<td></td>
+<td>总是，经常</td>
+<td></td>
+</tr>
+<tr>
+<td>克服</td>
+<td>こくふく</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>逃す</td>
+<td>のがす</td>
+<td>错过，放过</td>
+<td>そういう瞬間を逃さないようにするために、…</td>
+</tr>
+<tr>
+<td>香り</td>
+<td>かおり</td>
+<td></td>
+<td>味噌の香りの成分の特性</td>
+</tr>
+<tr>
+<td>特性</td>
+<td>とくせい</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>発酵</td>
+<td>はっこう</td>
+<td>発行・発光</td>
+<td>味噌の発酵のさせかた（使味增发酵的方法）</td>
+</tr>
+<tr>
+<td>和食</td>
+<td>わしょく</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>味噌汁</td>
+<td>みそしる</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>をはじめ</td>
+<td></td>
+<td>以…为首的</td>
+<td>味噌は味噌汁をはじめ和食に欠かせない調味料ですね。</td>
+</tr>
+<tr>
+<td>加熱</td>
+<td>かねつ</td>
+<td></td>
+<td>…加熱し過ぎないようにすると香りよく作れます。</td>
+</tr>
+<tr>
+<td>過程</td>
+<td>かてい</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>気体</td>
+<td>きたい</td>
+<td>期待</td>
+<td></td>
+</tr>
+<tr>
+<td>鼻</td>
+<td>はな</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>沸騰</td>
+<td>ふっとう</td>
+<td></td>
+<td>味噌汁も沸騰させてしまうとその成分が飛んでしまい、…</td>
+</tr>
+<tr>
+<td>芸術</td>
+<td>げいじゅつ</td>
+<td></td>
+<td>病院で芸術にふれる機会を作る試み</td>
+</tr>
+<tr>
+<td>試み</td>
+<td>こころみ</td>
+<td>尝试</td>
+<td></td>
+</tr>
+<tr>
+<td>触れる</td>
+<td>ふれる</td>
+<td>接触，触及</td>
+<td></td>
+</tr>
+<tr>
+<td>方策</td>
+<td>ほうさく</td>
+<td>对策</td>
+<td>病院の経営を改善する方策</td>
+</tr>
+<tr>
+<td>充実</td>
+<td>じゅうじつ</td>
+<td></td>
+<td>医療設備を充実させる必要性</td>
+</tr>
+<tr>
+<td>治療</td>
+<td>ちりょう</td>
+<td></td>
+<td>芸術を利用した病気の治療方法</td>
+</tr>
+<tr>
+<td>廊下</td>
+<td>ろうか</td>
+<td>走廊</td>
+<td></td>
+</tr>
+<tr>
+<td>病室</td>
+<td>びょうしつ</td>
+<td>病房</td>
+<td></td>
+</tr>
+<tr>
+<td>絵画</td>
+<td>かいが</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>飾る</td>
+<td>かざる</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>昨年</td>
+<td>さくねん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>購入</td>
+<td>こうにゅう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>医療機器</td>
+<td>いりょうきき</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>アンケート</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>癒す</td>
+<td>いやす</td>
+<td>治疗</td>
+<td></td>
+</tr>
+<tr>
+<td>肯定</td>
+<td>こうてい</td>
+<td></td>
+<td>肯定的な反応が大半でした（たいはん）</td>
+</tr>
+<tr>
+<td>ゆとり</td>
+<td></td>
+<td>宽裕，余裕</td>
+<td>こころのゆとりが生まれています。</td>
+</tr>
+<tr>
+<td>連携</td>
+<td>れんけい</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>待合室</td>
+<td>まちあいしつ</td>
+<td>等候室</td>
+<td></td>
+</tr>
+<tr>
+<td>装飾</td>
+<td>そうしょく</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>遺跡</td>
+<td>いせき</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>発掘</td>
+<td>はっくつ</td>
+<td></td>
+<td>遺跡の発掘の意義</td>
+</tr>
+<tr>
+<td>考古学</td>
+<td>こうこがく</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>地道</td>
+<td>じみち</td>
+<td>踏实，质朴</td>
+<td></td>
+</tr>
+<tr>
+<td>世紀</td>
+<td>せいき</td>
+<td></td>
+<td>正規・生気</td>
+</tr>
+<tr>
+<td>大発見</td>
+<td>だいはっけん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>書物</td>
+<td>しょもつ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>時代区分</td>
+<td>じだいくぶん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>目を通す</td>
+<td>めをとおす</td>
+<td>浏览，过目</td>
+<td></td>
+</tr>
+<tr>
+<td>この資料、会議までに目を通しといてね。</td>
+<td></td>
+<td></td>
+<td>あ、読んでおきます。</td>
+</tr>
+<tr>
+<td>二度と行くんもんかって思った。</td>
+<td></td>
+<td></td>
+<td>なんで、サービスがひどかったの？</td>
+</tr>
+<tr>
+<td>居眠り</td>
+<td>いねむり</td>
+<td>瞌睡，打盹</td>
+<td></td>
+</tr>
+<tr>
+<td>伸びる</td>
+<td>のびる</td>
+<td>伸长，长长</td>
+<td>随分髪伸びましたね。</td>
+</tr>
+<tr>
+<td>締め切り</td>
+<td>しめきり</td>
+<td>截止，期限</td>
+<td></td>
+</tr>
+<tr>
+<td>出すことは出したんだけどね。</td>
+<td></td>
+<td>虽然提交是提交了。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>とりあえず出せたんだからよかったんじゃない。</td>
+</tr>
+<tr>
+<td>砂糖をいっさい使わずに作ったんだよ。</td>
+<td></td>
+<td>完全没使用砂糖而制作的。</td>
+<td></td>
+</tr>
+<tr>
+<td>恐縮</td>
+<td>きょうしゅく</td>
+<td>不好意思</td>
+<td>お褒めいただき恐縮です。</td>
+</tr>
+<tr>
+<td>味気ない</td>
+<td>あじけない</td>
+<td>乏味，无聊</td>
+<td>市販のクッキーじゃ味気ないかな。</td>
+</tr>
+<tr>
+<td>添える</td>
+<td>そえる</td>
+<td>加上</td>
+<td>じゃあ、可愛いカードでも添えたら？</td>
+</tr>
+<tr>
+<td>メモをとろうともしないんだよ。</td>
+<td></td>
+<td></td>
+<td>そっか、メモぐらいとってほしいよね。</td>
+</tr>
+<tr>
+<td>達成感</td>
+<td>たっせいかん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>雨が降っても大雨にならないかぎり予定通りでいいよね</td>
+<td></td>
+<td>即使下雨只要不是大雨就如期进行对吧</td>
+<td></td>
+</tr>
+<tr>
+<td>施設</td>
+<td>しせつ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>交流</td>
+<td>こうりゅう</td>
+<td></td>
+<td>他の施設の職員と交流できる研修を行う</td>
+</tr>
+<tr>
+<td>数年</td>
+<td>すうねん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>高齢者向け施設</td>
+<td>こうれいしゃ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>介護</td>
+<td>かいご</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>人手不足</td>
+<td>ひとでぶそく</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>何か手を打たないと。</td>
+<td>てをうたない</td>
+<td>不采取什么措施的话</td>
+<td></td>
+</tr>
+<tr>
+<td>離職率</td>
+<td>りしょくりつ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>三年未満</td>
+<td>さんねんみまん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>体力的</td>
+<td>たいりょくてき</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>きつい</td>
+<td></td>
+<td>强烈，厉害；严厉；费力</td>
+<td></td>
+</tr>
+<tr>
+<td>待遇</td>
+<td>たいぐう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>近道</td>
+<td>ちかみち</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>打ち明ける</td>
+<td>うちあける</td>
+<td>坦率说出</td>
+<td>悩みを打ち明ける</td>
+</tr>
+<tr>
+<td>救う</td>
+<td>すくう</td>
+<td></td>
+<td>悩みを救い上げる</td>
+</tr>
+<tr>
+<td>同世代</td>
+<td>どうせだい</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>同期</td>
+<td>どうき</td>
+<td></td>
+<td>動機</td>
+</tr>
+<tr>
+<td>調整</td>
+<td>ちょうせい</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>気軽</td>
+<td>きがる</td>
+<td>轻松愉快</td>
+<td></td>
+</tr>
+<tr>
+<td>過重労働</td>
+<td>かじゅうろうどう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>軽減</td>
+<td>けいげん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>補助金</td>
+<td>ほじょきん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>制度を設ける</td>
+<td>せいどをもうける</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>繋がり</td>
+<td>つながり</td>
+<td>联系，关联</td>
+<td>横の繋がり</td>
+</tr>
+<tr>
+<td>見直し</td>
+<td>みなおし</td>
+<td>重新评估</td>
+<td></td>
+</tr>
+<tr>
+<td>経営</td>
+<td>けいえい</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>公共政策</td>
+<td>こうきょうせいさく</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>行政</td>
+<td>ぎょうせい</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>観光</td>
+<td>かんこう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>活性化</td>
+<td>かっせいか</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>実習</td>
+<td>じっしゅう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>メディア情報</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>地元</td>
+<td>じもと</td>
+<td>当地，本地</td>
+<td></td>
+</tr>
+<tr>
+<td>勤める</td>
+<td>つとめる</td>
+<td>工作，任职</td>
+<td></td>
+</tr>
+<tr>
+<td>活気</td>
+<td>かっき</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>旅行者</td>
+<td>りょこうしゃ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>歴史</td>
+<td>れきし</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>情報発信力</td>
+<td>じょうほうはっしんりょく</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="http://wayne06.github.io/"><img src="/img/favicon.png" />WZhong</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/%E6%97%A5%E8%AF%AD-n1-202107-%E6%A8%A1%E6%9D%BF/" data-toggle="tooltip" data-placement="top" title="日语 - N1 - 202107">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/%E6%97%A5%E8%AF%AD-n1-201912/" data-toggle="tooltip" data-placement="top" title="日语 - N1 - 201912">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/ci/cd" title="ci/cd">
+                            ci/cd
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/design-pattern" title="design-pattern">
+                            design-pattern
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/devops" title="devops">
+                            devops
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/interview" title="interview">
+                            interview
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/japanese-language" title="japanese-language">
+                            japanese-language
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/jlpt" title="jlpt">
+                            jlpt
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/kafka" title="kafka">
+                            kafka
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n3" title="n3">
+                            n3
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n4" title="n4">
+                            n4
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n5" title="n5">
+                            n5
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/saas" title="saas">
+                            saas
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E5%8A%A8%E8%AF%8D%E5%8F%98%E5%BD%A2" title="动词变形">
+                            动词变形
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E6%96%87%E6%AD%8C" title="日文歌">
+                            日文歌
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E5%BA%94%E7%94%A8%E8%AF%BE%E6%96%87" title="日语应用课文">
+                            日语应用课文
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95" title="日语语法">
+                            日语语法
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%A0%87%E5%87%86%E6%97%A5%E6%9C%AC%E8%AF%AD" title="标准日本语">
+                            标准日本语
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="http://wayne06.top/">TBD</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                    
+                    <li>
+                        <a href="mailto:zs577215@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    <li>
+                        <a target="_blank" href="/img/wechat_qrcode.jpg">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/wayne06">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; WZhong 2023
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>
