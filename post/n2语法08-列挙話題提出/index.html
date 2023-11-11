@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="WZhong">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="N2语法08 - 列挙、話題提出" />
+    <meta property="og:title" content="N2语法08 - 列挙、話題提出" />
+    <meta property="twitter:title" content="N2语法08 - 列挙、話題提出" />
+    
+
+    
+    <meta name="description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan.">
+    <meta property="og:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    <meta property="twitter:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>N2语法08 - 列挙、話題提出-Wayne Zhong Blog</title>
+
+    <link rel="canonical" href="/post/n2%E8%AF%AD%E6%B3%9508-%E5%88%97%E6%8C%99%E8%A9%B1%E9%A1%8C%E6%8F%90%E5%87%BA/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/docco.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">WZhong</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/design-pattern">design-pattern</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/it">it</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/japanese">japanese</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/java">java</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/microservice">microservice</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/others">others</a>
+                    </li>
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://img.zhaohuabing.com/post-bg-2015.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/japanese-language" title="Japanese Language">
+                            Japanese Language
+                        </a>
+                        
+                        <a class="tag" href="/tags/jlpt" title="JLPT">
+                            JLPT
+                        </a>
+                        
+                        <a class="tag" href="/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95" title="日语语法">
+                            日语语法
+                        </a>
+                        
+                        <a class="tag" href="/tags/n2" title="N2">
+                            N2
+                        </a>
+                        
+                    </div>
+                    <h1>N2语法08 - 列挙、話題提出</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                WZhong
+                         
+                        on 
+                        Friday, November 10, 2023
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第八部分列挙話題提出">第八部分：列挙、話題提出</a>
+      <ul>
+        <li><a href="#１やらやら">１．～やら～やら</a></li>
+        <li><a href="#２もばも">２．==～も～ば～も==</a></li>
+        <li><a href="#３につけにつけ">３．～につけ～につけ</a></li>
+        <li><a href="#４にしてもにしても">４．～にしても～にしても</a></li>
+        <li><a href="#５というと">５．～というと</a></li>
+        <li><a href="#６といえば">６．～といえば</a></li>
+        <li><a href="#７といったら">７．～といったら</a></li>
+        <li><a href="#８かというとかといえばかといったら">８．～かというと・かといえば・かといったら</a></li>
+        <li><a href="#９からいうとからいえばからいって">９．～からいうと・からいえば・からいって</a></li>
+        <li><a href="#１０からするとからすれば">１０．～からすると・からすれば</a></li>
+        <li><a href="#１１から見るとから見ればから見て">１１．～から見ると・から見れば・から見て</a></li>
+        <li><a href="#１２にしてみれば">１２．==～にしてみれば==</a></li>
+        <li><a href="#１３はともかく">１３．～はともかく</a></li>
+        <li><a href="#１４ならともく">１４．～ならともく</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                
+                <h2 id="第八部分列挙話題提出">第八部分：列挙、話題提出</h2>
+<h3 id="１やらやら">１．～やら～やら</h3>
+<p>接続：名詞、辞書形</p>
+<p>意味：。。。啦。。。啦（列举代表性的事物）</p>
+<p>例文：（必背）</p>
+<p>家に帰って料理やら洗濯やら何もしなければならない。</p>
+<p>帰国前、買い物やら荷造りやらで、たいへん忙しかった。</p>
+<h3 id="２もばも">２．==～も～ば～も==</h3>
+<p>接続：ば型</p>
+<p>意味：既。。。又。。。</p>
+<p>例文：（必背）</p>
+<p>あの人は給料も高ければ能力もある。</p>
+<p>彼氏はお酒も飲めば、タバコも吸う。</p>
+<h3 id="３につけにつけ">３．～につけ～につけ</h3>
+<p>接続：名詞、辞書形</p>
+<p>意味：无论。。。还是</p>
+<p>例文：（必背）</p>
+<p>いいにつけ悪いにつけ、成績を先生に伝えるべきだ。</p>
+<p>嬉しいにつけ、悲しいにつけ、彼と話したい。</p>
+<h3 id="４にしてもにしても">４．～にしても～にしても</h3>
+<p>接続：名詞、辞書形</p>
+<p>意味：无论。。。还是。。。</p>
+<p>例文：（必背）</p>
+<p>高いにしても安いにしても、</p>
+<p>進学にしても、就職にしても、自分で決めなければならない。</p>
+<h3 id="５というと">５．～というと</h3>
+<p>接続：体言</p>
+<p>意味：谈起，说到</p>
+<p>例文：（必背）</p>
+<p>川端康成というと、「雪国」という小説が心に浮かぶ人が多いでしょう。</p>
+<p>映画というと、「ハリウッド」を思い出す。</p>
+<h3 id="６といえば">６．～といえば</h3>
+<p>（１）接続：体言</p>
+<p>意味：说起</p>
+<p>例文：（必背）</p>
+<p>日本といえば、すぐ富士山を思い出します。</p>
+<p>田中さんといえば、最近仕事を辞めてそうです。</p>
+<p>（２）接続：体言</p>
+<p>意味：要说。。。的确是。。。</p>
+<p>例文：（必背）</p>
+<p>不便といえば不便だが、なんとかやるよ。</p>
+<p>高いといえば高いですが、必需品ですから、買っておいたほうがいいよ。</p>
+<h3 id="７といったら">７．～といったら</h3>
+<p>接続：体言</p>
+<p>意味：提起，说到（提出话题）</p>
+<p>例文：（必背）</p>
+<p>その話を聞いたとき彼女の顔といったら、本当に悲しそうだった。</p>
+<p>紅葉といったら高尾山、あの景色のうつくしさといったら、言葉で言い表せないほどだ。</p>
+<h3 id="８かというとかといえばかといったら">８．～かというと・かといえば・かといったら</h3>
+<p>接続：体言</p>
+<p>意味：从。。。来讲（以事实为依据谈论自己的看法）</p>
+<p>なぜ成績が悪いかというと、普段の勉強が足りないからです。</p>
+<p>大学を卒業したらとうするかといえば、まだ何も決めてないだ。</p>
+<h3 id="９からいうとからいえばからいって">９．～からいうと・からいえば・からいって</h3>
+<p>接続：体言</p>
+<p>意味：从。。。来讲（以事实为依据谈论自己的看法）</p>
+<p>例文：（必背）</p>
+<p>彼は実力からいうと、大学に入るのは大丈夫だ。</p>
+<p>彼女は妹だけど、性格からいうと、私と全然違っている。</p>
+<h3 id="１０からするとからすれば">１０．～からすると・からすれば</h3>
+<p>接続：体言</p>
+<p>意味：从。。。来看（从事物的某个角度衡量）</p>
+<p>例文：（必背）</p>
+<p>話し方からすると、彼は東京の人ではないようだ。</p>
+<p>収入からすると、そんな高いかばんはとても買えない。</p>
+<h3 id="１１から見るとから見ればから見て">１１．～から見ると・から見れば・から見て</h3>
+<p>接続：体言</p>
+<p>意味：从。。。看来（角度，看法）</p>
+<p>例文：（必背）</p>
+<p>親の立場から見ると、子供はいくつになっても子供です。</p>
+<p>服装から見れば、彼は金持ちのようだ。</p>
+<h3 id="１２にしてみれば">１２．==～にしてみれば==</h3>
+<p>接続：体言</p>
+<p>意味：前接人物，从。。。视点来看</p>
+<p>例文：（必背）</p>
+<p>初心者にしてみれば、もっとわかりやすく話してもらいたいだろう。</p>
+<p>私にしてみれば、どうでもいいことだ。</p>
+<h3 id="１３はともかく">１３．～はともかく</h3>
+<p>接続：体言、連体形</p>
+<p>意味：。。。暂且不论</p>
+<p>例文：（必背）</p>
+<p>この店はサービスはともかく、味がわるくない。</p>
+<p>他人のことはともかく、まず自分がどうするかを決めるべきだ。</p>
+<h3 id="１４ならともく">１４．～ならともく</h3>
+<p>接続：体言、連体形</p>
+<p>意味：如果。。。另当别论，但是。。。（情有可原）</p>
+<p>勉強しているならともかく、遊んでばかりいては成績がよくなるはずがない。</p>
+<p>遅刻ならともかく、欠席はだめだ。</p>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="http://wayne06.github.io/"><img src="/img/favicon.png" />WZhong</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/n2%E8%AF%AD%E6%B3%9507-%E5%BC%B7%E8%AA%BF%E9%99%90%E5%AE%9A/" data-toggle="tooltip" data-placement="top" title="N2语法07 - 強調、限定">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/n2%E8%AF%AD%E6%B3%9509-%E5%8F%AF%E8%83%BD%E6%8E%A5%E5%B0%BE/" data-toggle="tooltip" data-placement="top" title="N2语法09 - 可能、接尾">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/ci/cd" title="ci/cd">
+                            ci/cd
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/design-pattern" title="design-pattern">
+                            design-pattern
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/devops" title="devops">
+                            devops
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/interview" title="interview">
+                            interview
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/japanese-language" title="japanese-language">
+                            japanese-language
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/jlpt" title="jlpt">
+                            jlpt
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/kafka" title="kafka">
+                            kafka
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n2" title="n2">
+                            n2
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n3" title="n3">
+                            n3
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n4" title="n4">
+                            n4
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n5" title="n5">
+                            n5
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/saas" title="saas">
+                            saas
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E5%8A%A8%E8%AF%8D%E5%8F%98%E5%BD%A2" title="动词变形">
+                            动词变形
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E6%96%87%E6%AD%8C" title="日文歌">
+                            日文歌
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E5%BA%94%E7%94%A8%E8%AF%BE%E6%96%87" title="日语应用课文">
+                            日语应用课文
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95" title="日语语法">
+                            日语语法
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%A0%87%E5%87%86%E6%97%A5%E6%9C%AC%E8%AF%AD" title="标准日本语">
+                            标准日本语
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="http://wayne06.top/">TBD</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                    
+                    <li>
+                        <a href="mailto:zs577215@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    <li>
+                        <a target="_blank" href="/img/wechat_qrcode.jpg">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/wayne06">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; WZhong 2023
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,2294 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="WZhong">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="日语 - N2 - 202212" />
+    <meta property="og:title" content="日语 - N2 - 202212" />
+    <meta property="twitter:title" content="日语 - N2 - 202212" />
+    
+
+    
+    <meta name="description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan.">
+    <meta property="og:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    <meta property="twitter:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>日语 - N2 - 202212-Wayne Zhong Blog</title>
+
+    <link rel="canonical" href="/post/%E6%97%A5%E8%AF%AD-n2-202212/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/docco.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">WZhong</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/design-pattern">design-pattern</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/it">it</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/japanese">japanese</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/java">java</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/microservice">microservice</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/others">others</a>
+                    </li>
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://img.zhaohuabing.com/post-bg-2015.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/japanese-language" title="Japanese Language">
+                            Japanese Language
+                        </a>
+                        
+                    </div>
+                    <h1>日语 - N2 - 202212</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                WZhong
+                         
+                        on 
+                        Thursday, September 28, 2023
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#文字词汇">文字词汇</a></li>
+    <li><a href="#阅读">阅读</a></li>
+    <li><a href="#听力">听力</a></li>
+  </ul>
+</nav>
+                
+                <h2 id="文字词汇">文字词汇</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>警備</td>
+<td>けいび</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>経費</td>
+<td>けいひ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>刺激</td>
+<td>しげき</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>使役</td>
+<td>しえき</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>世間</td>
+<td>せけん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>世界</td>
+<td>せかい</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>生還</td>
+<td>せいかん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>勇ましい</td>
+<td>いさましい</td>
+<td>勇敢，活泼</td>
+<td></td>
+</tr>
+<tr>
+<td>喧しい</td>
+<td>やかましい</td>
+<td>吵闹，喧闹</td>
+<td></td>
+</tr>
+<tr>
+<td>厚かましい</td>
+<td>あつかましい</td>
+<td>厚脸皮，无耻</td>
+<td></td>
+</tr>
+<tr>
+<td>等しい</td>
+<td>ひとしい</td>
+<td>相等</td>
+<td>AとBは、大きさが等しい。</td>
+</tr>
+<tr>
+<td>深く</td>
+<td>ふかく</td>
+<td>深的，浓厚</td>
+<td>注意深く・用心深く</td>
+</tr>
+<tr>
+<td>違反</td>
+<td>いはん</td>
+<td></td>
+<td>規則に違反する</td>
+</tr>
+<tr>
+<td>進出</td>
+<td>しんしゅつ</td>
+<td>进入，挤进，参加，发展</td>
+<td>健康食品の分野に進出する</td>
+</tr>
+<tr>
+<td>稀・希</td>
+<td>まれ</td>
+<td>稀少，少见</td>
+<td></td>
+</tr>
+<tr>
+<td>微か</td>
+<td>かすか</td>
+<td>微弱，隐约</td>
+<td></td>
+</tr>
+<tr>
+<td>細やか</td>
+<td>ささやか</td>
+<td>细小</td>
+<td></td>
+</tr>
+<tr>
+<td>なだらか</td>
+<td></td>
+<td>坡度小，平缓，顺畅</td>
+<td></td>
+</tr>
+<tr>
+<td>ぎっしり</td>
+<td></td>
+<td>满满地</td>
+<td>箱の中には、隙間なくぎっしりお菓子が詰まっていた。</td>
+</tr>
+<tr>
+<td>抱く</td>
+<td>いだく</td>
+<td>怀有，感到</td>
+<td>私は前回の実験の結果にずっと疑問を抱いている。</td>
+</tr>
+<tr>
+<td>備える</td>
+<td>そなえる</td>
+<td>准备，具备</td>
+<td>そなえて</td>
+</tr>
+<tr>
+<td>握る</td>
+<td>にぎる</td>
+<td>握住，抓住</td>
+<td>にぎって</td>
+</tr>
+<tr>
+<td>保つ</td>
+<td>たもつ</td>
+<td>保持，维持</td>
+<td>たもって</td>
+</tr>
+<tr>
+<td>一転</td>
+<td>いってん</td>
+<td>转圈，大转变</td>
+<td>今年になって国の方針が一転した。</td>
+</tr>
+<tr>
+<td>すっかり</td>
+<td></td>
+<td>全部</td>
+<td>すっかり変わった</td>
+</tr>
+<tr>
+<td>尖る</td>
+<td>とがる</td>
+<td>尖锐，敏锐</td>
+<td>この道具は先がとがっている。</td>
+</tr>
+<tr>
+<td>細い</td>
+<td>ほそい</td>
+<td>细的，瘦的</td>
+<td>細くなって</td>
+</tr>
+<tr>
+<td>くだらない</td>
+<td></td>
+<td>没有意义，没有价值</td>
+<td></td>
+</tr>
+<tr>
+<td>頑固</td>
+<td>がんこ</td>
+<td>顽固，固执</td>
+<td></td>
+</tr>
+<tr>
+<td>打合せ</td>
+<td>うちあわせ</td>
+<td>商量，磋商，碰头</td>
+<td></td>
+</tr>
+<tr>
+<td>中断</td>
+<td>ちゅうだん</td>
+<td></td>
+<td>雨が強くなってきたので、やむまで試合を中断した。</td>
+</tr>
+<tr>
+<td>荒れる</td>
+<td>あれる</td>
+<td>乱；荒芜；天气变坏</td>
+<td>今日は海が荒れていて、船に釣りに行くことはできない。</td>
+</tr>
+<tr>
+<td>読みかける</td>
+<td></td>
+<td>读至一半</td>
+<td>先週末は、読みかけだった3冊の本をすべて最後まで読んだ。</td>
+</tr>
+<tr>
+<td>むしろ</td>
+<td></td>
+<td>与其不如，宁可</td>
+<td>子どものころはピーマンが嫌いだったが、今は嫌いではない。むしろ好きな野菜の1つだ。</td>
+</tr>
+<tr>
+<td>に向けて</td>
+<td>にむけて</td>
+<td>面向，为了</td>
+<td>来年3月の完成に向けて、新しい体育館の建設工事が着々と進んでいる。</td>
+</tr>
+<tr>
+<td>なら</td>
+<td></td>
+<td>若是…的话（意见）</td>
+<td>通話ができるだけでいいなら、これにしたら？</td>
+</tr>
+<tr>
+<td>ように</td>
+<td></td>
+<td></td>
+<td>課長に、次の会議までにこの資料を読んでおくように言われた。</td>
+</tr>
+<tr>
+<td>だからといって</td>
+<td></td>
+<td>尽管如此，虽说</td>
+<td>休みの日だからといって、昼過ぎまで寝ているのは良くないと思う。</td>
+</tr>
+<tr>
+<td>ずにいる</td>
+<td>ないでいる</td>
+<td></td>
+<td>「倉庫の中を片付けなければ」と前からずっと思っているのだが、忙しくてなかなかできずにいる。</td>
+</tr>
+<tr>
+<td>申し上げます</td>
+<td>言う・する</td>
+<td></td>
+<td>お客様にご案内申し上げます。</td>
+</tr>
+<tr>
+<td>飛ばされそうになった</td>
+<td></td>
+<td>差点被弄飞了</td>
+<td>昨日はかなり風が強くて、何度も帽子を飛ばされそうになった。</td>
+</tr>
+<tr>
+<td>～のは～だ</td>
+<td></td>
+<td></td>
+<td>そんな私が教師になりたいと思ったのはある先生との出会いがきっかけだった。</td>
+</tr>
+<tr>
+<td>と比べて</td>
+<td></td>
+<td></td>
+<td>この町では、都心で家を借りる場合と比べて半分程度の家賃で家が借りられる。</td>
+</tr>
+<tr>
+<td>によって</td>
+<td></td>
+<td>手段方法</td>
+<td>血液によって運ばれる酸素や栄養</td>
+</tr>
+<tr>
+<td>に先立って</td>
+<td>にさきだって</td>
+<td>在…开始之前</td>
+<td></td>
+</tr>
+<tr>
+<td>てくる</td>
+<td></td>
+<td>从过去到现在的变化</td>
+<td>座りすぎが様々な体の不調の原因になるという研究報告も増えてきました。</td>
+</tr>
+<tr>
+<td>ていく</td>
+<td></td>
+<td>从现在到今后的变化</td>
+<td></td>
+</tr>
+<tr>
+<td>ところが</td>
+<td></td>
+<td>然而，但是</td>
+<td></td>
+</tr>
+<tr>
+<td>少なくとも</td>
+<td>すくなくとも</td>
+<td>至少</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="阅读">阅读</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>不完全</td>
+<td>ふかんぜん</td>
+<td>不完全，不够</td>
+<td></td>
+</tr>
+<tr>
+<td>不十分</td>
+<td>ふじゅうぶん</td>
+<td>不够，不充分</td>
+<td></td>
+</tr>
+<tr>
+<td>キャンパス</td>
+<td>campus</td>
+<td>大学校园</td>
+<td></td>
+</tr>
+<tr>
+<td>整備</td>
+<td>せいび</td>
+<td>整备；加强；维修；保养</td>
+<td></td>
+</tr>
+<tr>
+<td>により</td>
+<td></td>
+<td>根据，因为</td>
+<td>移転作業に伴い、利用は9月5日までになるとお知らせしましたが、…</td>
+</tr>
+<tr>
+<td>閉室</td>
+<td>へいしつ</td>
+<td>关闭</td>
+<td>…、工事期間の変更により8月31日に閉室することになりました。</td>
+</tr>
+<tr>
+<td>及び</td>
+<td>および</td>
+<td>和，及，以及</td>
+<td></td>
+</tr>
+<tr>
+<td>飼う</td>
+<td>かう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>崩す</td>
+<td>くずす</td>
+<td>拆毁；打乱</td>
+<td>…、餌をあまり多く与えると消化不良を起こして体調をくずしてしまいます。</td>
+</tr>
+<tr>
+<td>保つ</td>
+<td>たもつ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>活発</td>
+<td>かっぱつ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>接する</td>
+<td>せっする</td>
+<td>接触；接待，见面</td>
+<td></td>
+</tr>
+<tr>
+<td>高原さん</td>
+<td>たかはら</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>合同</td>
+<td>ごうどう</td>
+<td>联合，合并</td>
+<td>営業課・企画課</td>
+</tr>
+<tr>
+<td>のめり込む</td>
+<td></td>
+<td>向前倾；陷入，热衷</td>
+<td></td>
+</tr>
+<tr>
+<td>常識</td>
+<td>じょうしき</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>即座</td>
+<td>そくざ</td>
+<td>立即，即刻</td>
+<td></td>
+</tr>
+<tr>
+<td>生産的</td>
+<td>せいさんてき</td>
+<td>生产的，建设性的</td>
+<td></td>
+</tr>
+<tr>
+<td>察知</td>
+<td>さっち</td>
+<td>察觉，推测得知</td>
+<td></td>
+</tr>
+<tr>
+<td>落胆</td>
+<td>らくたん</td>
+<td>灰心，气馁</td>
+<td></td>
+</tr>
+<tr>
+<td>入り混じる・入り交じる</td>
+<td>いりまじる</td>
+<td>混杂，掺杂</td>
+<td></td>
+</tr>
+<tr>
+<td>話し合い</td>
+<td>はなしあい</td>
+<td>商量，商谈，协商</td>
+<td></td>
+</tr>
+<tr>
+<td>不可能</td>
+<td>ふかのう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>受け止める</td>
+<td>うけとめる</td>
+<td>接住；理解；接受意见、批评</td>
+<td>批判を受け止める</td>
+</tr>
+<tr>
+<td>時間をあけてから、</td>
+<td></td>
+<td>过了一段时间之后</td>
+<td></td>
+</tr>
+<tr>
+<td>一日おいて</td>
+<td>一日たってから</td>
+<td>过了一天之后</td>
+<td></td>
+</tr>
+<tr>
+<td>一向に</td>
+<td>いっこうに</td>
+<td>一点也；只顾；完全</td>
+<td>さあ読書感想文を書けと言われても、いっこうに書けないのだ。</td>
+</tr>
+<tr>
+<td>永年</td>
+<td>えいねん</td>
+<td>长年，长时间</td>
+<td></td>
+</tr>
+<tr>
+<td>氷解</td>
+<td>ひょうかい</td>
+<td>完全消释，冰释</td>
+<td>つい先日、その永年の疑問が氷解した。</td>
+</tr>
+<tr>
+<td>退屈</td>
+<td>たいくつ</td>
+<td>无聊，闷；厌倦</td>
+<td></td>
+</tr>
+<tr>
+<td>扱える</td>
+<td>あつかえる</td>
+<td>可以处理</td>
+<td></td>
+</tr>
+<tr>
+<td>典型的</td>
+<td>てんけいてき</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>読書感想文が書ける本とはどのような本か。最後まで読む必要がある本。</td>
+</tr>
+<tr>
+<td>所謂</td>
+<td>いわゆる</td>
+<td>所谓，世人常说的，所说的</td>
+<td></td>
+</tr>
+<tr>
+<td>買い与える</td>
+<td>かいあたえる</td>
+<td>买给…</td>
+<td></td>
+</tr>
+<tr>
+<td>親しむ</td>
+<td>したしむ</td>
+<td>亲近，接近；喜好</td>
+<td></td>
+</tr>
+<tr>
+<td>～ではなかろうか「書」</td>
+<td>～ではないでしょうか</td>
+<td>是不是</td>
+<td>本の形をしているものに親しむことが大切なのではなかろうか。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>本の種類に関係なく、興味のある本を読めばいい。</td>
+</tr>
+<tr>
+<td>双方向</td>
+<td>そうほうこう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ゆえに</td>
+<td></td>
+<td>所以，因而</td>
+<td></td>
+</tr>
+<tr>
+<td>自ら</td>
+<td>みずから</td>
+<td>自己，亲自</td>
+<td></td>
+</tr>
+<tr>
+<td>もとに</td>
+<td></td>
+<td>以…为基础</td>
+<td></td>
+</tr>
+<tr>
+<td>妨げる</td>
+<td>さまたげる</td>
+<td>妨碍，阻碍，禁止</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>見る者が何も知らないことを前提にする。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>すべてを説明するのではなく、必要な情報を整理して伝えること。</td>
+</tr>
+<tr>
+<td>そもそも</td>
+<td></td>
+<td>说起来；到底；最初</td>
+<td></td>
+</tr>
+<tr>
+<td>突き進め</td>
+<td>つきすすめ</td>
+<td>突破，前进，猛冲</td>
+<td></td>
+</tr>
+<tr>
+<td>押しつける</td>
+<td>おしつける</td>
+<td>猛推；按住，压住</td>
+<td></td>
+</tr>
+<tr>
+<td>裏切る</td>
+<td>うらぎる</td>
+<td>背叛；辜负</td>
+<td></td>
+</tr>
+<tr>
+<td>囲む</td>
+<td>かこむ</td>
+<td>围绕；包围</td>
+<td></td>
+</tr>
+<tr>
+<td>耳を傾ける</td>
+<td>みみをかたむける</td>
+<td>倾听，细听</td>
+<td></td>
+</tr>
+<tr>
+<td>掘り下げる</td>
+<td>ほりさげる</td>
+<td>往下挖；深入思考</td>
+<td>深く掘り下げる</td>
+</tr>
+<tr>
+<td>語り合う</td>
+<td>かたりあう</td>
+<td>交谈</td>
+<td></td>
+</tr>
+<tr>
+<td>つぶやき</td>
+<td></td>
+<td>咕哝；轻声低语</td>
+<td></td>
+</tr>
+<tr>
+<td>産む</td>
+<td>うむ</td>
+<td>生孩子</td>
+<td></td>
+</tr>
+<tr>
+<td>憧れ</td>
+<td>あこがれ</td>
+<td>憧憬；向往</td>
+<td></td>
+</tr>
+<tr>
+<td>読み取る</td>
+<td>よみとる</td>
+<td>领会，读懂，理解</td>
+<td></td>
+</tr>
+<tr>
+<td>思いつく</td>
+<td>おもいつく</td>
+<td>忽然想起，想出</td>
+<td></td>
+</tr>
+<tr>
+<td>思いつかない</td>
+<td></td>
+<td>意想不到</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>大人がいいと考える目標を求めがちだ。</td>
+</tr>
+<tr>
+<td>ますます</td>
+<td></td>
+<td>越发，更加</td>
+<td></td>
+</tr>
+<tr>
+<td>付き合う</td>
+<td>つきあう</td>
+<td>交往；打交道</td>
+<td></td>
+</tr>
+<tr>
+<td>共通</td>
+<td>きょうつう</td>
+<td>共同</td>
+<td></td>
+</tr>
+<tr>
+<td>想像</td>
+<td>そうぞう</td>
+<td></td>
+<td>Aは成功した自分を想像した方がいいと述べ、…</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>…、Bは自分をよく見せようと考えるのをやめたほうがいいと述べている。</td>
+</tr>
+<tr>
+<td>大分</td>
+<td>だいぶ</td>
+<td>很，相当地</td>
+<td></td>
+</tr>
+<tr>
+<td>熟成</td>
+<td>じゅくせい</td>
+<td>熟练，成熟</td>
+<td></td>
+</tr>
+<tr>
+<td>とりわけ</td>
+<td></td>
+<td>特别，尤其，格外</td>
+<td></td>
+</tr>
+<tr>
+<td>あまりに</td>
+<td></td>
+<td>太，过于</td>
+<td></td>
+</tr>
+<tr>
+<td>押し寄せる</td>
+<td>おしよせる</td>
+<td>涌来</td>
+<td></td>
+</tr>
+<tr>
+<td>つい</td>
+<td></td>
+<td>不知不觉，不由得，不禁</td>
+<td></td>
+</tr>
+<tr>
+<td>おろそか</td>
+<td></td>
+<td>马虎，疏忽</td>
+<td></td>
+</tr>
+<tr>
+<td>ないといけない</td>
+<td></td>
+<td>必须</td>
+<td>学んだことをすぐ活かせないといけないとか、すぐに行動を起こせないといけないとか、…</td>
+</tr>
+<tr>
+<td>じっくり</td>
+<td></td>
+<td>慢慢地，仔细地，不慌不忙</td>
+<td></td>
+</tr>
+<tr>
+<td>生み出す</td>
+<td>うみだす</td>
+<td>产生，创造</td>
+<td>自分の持っていた情報を活かして、新しいアイディアを生み出す。</td>
+</tr>
+<tr>
+<td>適応</td>
+<td>てきおう</td>
+<td>适应，顺应</td>
+<td>複数の割引は同時に適応できません。一番条件のいい割引が一つ適用されます。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="听力">听力</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>合宿</td>
+<td>がっしゅく</td>
+<td>集训，共同寄宿</td>
+<td></td>
+</tr>
+<tr>
+<td>明後日</td>
+<td>あさって</td>
+<td>后天</td>
+<td></td>
+</tr>
+<tr>
+<td>入れる</td>
+<td>いれる</td>
+<td>装进，放入；包含，算上</td>
+<td>参加者は、コーチを入れて20人で確定です。</td>
+</tr>
+<tr>
+<td>都合</td>
+<td>つごう</td>
+<td>原因，情况</td>
+<td></td>
+</tr>
+<tr>
+<td>貸切</td>
+<td>かしきり</td>
+<td>包租</td>
+<td>貸切バスの会社には、もう知らせたって言ってたよね？</td>
+</tr>
+<tr>
+<td>ペンション</td>
+<td>pension</td>
+<td>简易旅馆；年金；津贴</td>
+<td>ペンションにも、到着時間の変更を伝えてあるよね？</td>
+</tr>
+<tr>
+<td>着く</td>
+<td>つく</td>
+<td>到达</td>
+<td>着く時間をペンションに伝える。</td>
+</tr>
+<tr>
+<td>生け花</td>
+<td>いけばな</td>
+<td>插花</td>
+<td></td>
+</tr>
+<tr>
+<td>位置</td>
+<td>いち</td>
+<td></td>
+<td>位置がいくらか左によっている感じがするんだ。</td>
+</tr>
+<tr>
+<td>真ん中</td>
+<td>まんなか</td>
+<td>正中，中间</td>
+<td>少し真ん中に寄せてくれる？</td>
+</tr>
+<tr>
+<td>寄せる</td>
+<td>よせる</td>
+<td>使…靠近，挪近</td>
+<td></td>
+</tr>
+<tr>
+<td>一回り</td>
+<td>ひとまわり</td>
+<td>一圈，一周，一轮</td>
+<td></td>
+</tr>
+<tr>
+<td>甘い</td>
+<td>あまい</td>
+<td></td>
+<td>甘さを抑えた大人向けのクッキーの企画、いいと思いますよ。</td>
+</tr>
+<tr>
+<td>ターゲット</td>
+<td>target</td>
+<td></td>
+<td>これまで子どもをターゲットにした商品ばかりでしたからね。</td>
+</tr>
+<tr>
+<td>高級感</td>
+<td>こうきゅうかん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>狙い</td>
+<td>ねらい</td>
+<td>瞄准；目标；用意</td>
+<td>箱のデザインは、高級感を出そうという狙いですね。</td>
+</tr>
+<tr>
+<td>目立つ</td>
+<td>めだつ</td>
+<td>显眼，显著，引人注目</td>
+<td>少し目立つ色を入れたりするとか、してみてくれます？</td>
+</tr>
+<tr>
+<td>調整</td>
+<td>ちょうせい</td>
+<td></td>
+<td>価格は、後で細かい調整をしますから、…</td>
+</tr>
+<tr>
+<td>金魚</td>
+<td>きんぎょ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>飼う</td>
+<td>かう</td>
+<td></td>
+<td>鈴木君、確か金魚飼ってるって言ってたよね？</td>
+</tr>
+<tr>
+<td>日当たり</td>
+<td>ひあたり</td>
+<td>向阳</td>
+<td></td>
+</tr>
+<tr>
+<td>影響</td>
+<td>えいきょう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>少ない</td>
+<td>すくない</td>
+<td>少，不多</td>
+<td></td>
+</tr>
+<tr>
+<td>玄関</td>
+<td>げんかん</td>
+<td></td>
+<td>場所は、玄関に置けば？</td>
+</tr>
+<tr>
+<td>餌</td>
+<td>えさ</td>
+<td></td>
+<td>餌はいいとして、置き場所を変えてみる。</td>
+</tr>
+<tr>
+<td>洗濯機</td>
+<td>せんたくき</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>詳細</td>
+<td>しょうさい</td>
+<td></td>
+<td>詳細な取扱説明書と簡単な簡易説明書</td>
+</tr>
+<tr>
+<td>三つ</td>
+<td>みつ</td>
+<td></td>
+<td>この三つということですね？</td>
+</tr>
+<tr>
+<td>見やすい</td>
+<td>みやすい</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>時間を取る</td>
+<td></td>
+<td></td>
+<td>あんなに時間を取らなくてもいいんじゃないですか？</td>
+</tr>
+<tr>
+<td>省く</td>
+<td>はぶく</td>
+<td></td>
+<td>余計なところは省いて、もう少し簡潔にしてみてください。</td>
+</tr>
+<tr>
+<td>字幕</td>
+<td>じまく</td>
+<td></td>
+<td>動画の字幕を複数の言語に対応させたのは、今のニーズに合っていると思いますよ。</td>
+</tr>
+<tr>
+<td>希望</td>
+<td>きぼう</td>
+<td></td>
+<td>希望が持てるラストシーン</td>
+</tr>
+<tr>
+<td>評判</td>
+<td>ひょうばん</td>
+<td></td>
+<td>音楽も映像も、評判通り印象的だった。</td>
+</tr>
+<tr>
+<td>泣きそう</td>
+<td>なきそう</td>
+<td></td>
+<td>途中で何度も泣きそうになったよ。</td>
+</tr>
+<tr>
+<td>原作</td>
+<td>げんさく</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>明るい</td>
+<td>あかるい</td>
+<td></td>
+<td>明るい未来</td>
+</tr>
+<tr>
+<td>主役</td>
+<td>しゅやく</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>新人</td>
+<td>しんじん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>演技力</td>
+<td>えんぎりょく</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>授業</td>
+<td>じゅぎょう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>実験</td>
+<td>じっけん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>協力</td>
+<td>きょうりょく</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>研究室</td>
+<td>けんきゅうしつ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>運動機能</td>
+<td>うんどうきのう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>関係</td>
+<td>かんけい</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>少なくとも</td>
+<td>すくなくとも</td>
+<td>至少</td>
+<td>一日に、少なくとも六時間は睡眠を取っている人のみ参加できます。</td>
+</tr>
+<tr>
+<td>質問</td>
+<td>しつもん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>走る</td>
+<td>はしる</td>
+<td></td>
+<td>実験中に走ってもらうようなことはありません。</td>
+</tr>
+<tr>
+<td>過去</td>
+<td>かこ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>寝る</td>
+<td>ねる</td>
+<td></td>
+<td>一日に6時間以上寝ている人</td>
+</tr>
+<tr>
+<td>人数</td>
+<td>にんずう</td>
+<td></td>
+<td>ひとクラスの人数が少ないから</td>
+</tr>
+<tr>
+<td>専門学校</td>
+<td>せんもんがっこう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>選ぶ</td>
+<td>えらぶ</td>
+<td></td>
+<td>この専門学校を選んだ一番の理由は何ですか？</td>
+</tr>
+<tr>
+<td>通う</td>
+<td>かよう</td>
+<td>往来，通行；上学，上班；流通</td>
+<td>仕事の後、山川IT専門学校に通ってるんだって？</td>
+</tr>
+<tr>
+<td>少人数</td>
+<td>しょうにんずう</td>
+<td></td>
+<td>山川は少人数制のクラスだから、丁寧に指導してもらえると思って。</td>
+</tr>
+<tr>
+<td>価値</td>
+<td>かち</td>
+<td></td>
+<td>授業料が安いとは言えないんだけど、行く価値はあると思ったんだ。</td>
+</tr>
+<tr>
+<td>資格</td>
+<td>しかく</td>
+<td></td>
+<td>何かWeb関係の資格を取るつもり？</td>
+</tr>
+<tr>
+<td>合格率</td>
+<td>ごうかくりつ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>高校</td>
+<td>こうこう</td>
+<td></td>
+<td>高校でサッカーのコーチとして働く</td>
+</tr>
+<tr>
+<td>やりがい</td>
+<td></td>
+<td>值得做的</td>
+<td></td>
+</tr>
+<tr>
+<td>退職</td>
+<td>たいしょく</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>機会</td>
+<td>きかい</td>
+<td></td>
+<td>コーチの仕事をする機会を得ました。</td>
+</tr>
+<tr>
+<td>地域</td>
+<td>ちいき</td>
+<td>地域，地区</td>
+<td></td>
+</tr>
+<tr>
+<td>実習生</td>
+<td>じっしゅうせい</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>気を配れる</td>
+<td>きをくばれる</td>
+<td>留神，注意</td>
+<td></td>
+</tr>
+<tr>
+<td>屈む</td>
+<td>かがむ</td>
+<td>蹲下</td>
+<td>だからこそ、子供と接する時、もう少し低く屈んで話せたら、いいと思いました。</td>
+</tr>
+<tr>
+<td>見上げる</td>
+<td>みあげる</td>
+<td>仰视，向上看</td>
+<td></td>
+</tr>
+<tr>
+<td>保護者</td>
+<td>ほごしゃ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>感心</td>
+<td>かんしん</td>
+<td>钦佩，佩服</td>
+<td></td>
+</tr>
+<tr>
+<td>指摘</td>
+<td>してき</td>
+<td></td>
+<td>ご指摘いただいた点に気を付けて頑張ります。</td>
+</tr>
+<tr>
+<td>仕入れる</td>
+<td>しいれる</td>
+<td>采购，购入；获得</td>
+<td>今はいろいろな地域のものも、仕入れやすくなってきたから、うちもいろいろ置いてみようか。</td>
+</tr>
+<tr>
+<td>扱う</td>
+<td>あつかう</td>
+<td>经营；使用；处理；接待</td>
+<td>うちの店でまだ扱っていない魚、結構あるよね。</td>
+</tr>
+<tr>
+<td>向こう</td>
+<td>むこう</td>
+<td>前面，正面，对面，另一边</td>
+<td></td>
+</tr>
+<tr>
+<td>流れる</td>
+<td>ながれる</td>
+<td>流动；传播；流逝；人的移动</td>
+<td>スーパーの方が安いですし、お客さんは向こうに流れちゃいますよね。</td>
+</tr>
+<tr>
+<td>惣菜</td>
+<td>そうざい</td>
+<td>家常菜</td>
+<td></td>
+</tr>
+<tr>
+<td>鮮魚</td>
+<td>せんぎょ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>宅配</td>
+<td>たくはい</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>需要</td>
+<td>じゅよう</td>
+<td></td>
+<td>需要あるかな？</td>
+</tr>
+<tr>
+<td>手間</td>
+<td>てま</td>
+<td>工夫；工钱</td>
+<td>手間がかかる</td>
+</tr>
+<tr>
+<td>偶に</td>
+<td>たまに</td>
+<td>偶尔</td>
+<td></td>
+</tr>
+<tr>
+<td>宿泊</td>
+<td>しゅくはく</td>
+<td></td>
+<td>宿泊客に人気がある理由</td>
+</tr>
+<tr>
+<td>施設</td>
+<td>しせつ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>宿</td>
+<td>やど</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>滞在</td>
+<td>たいざい</td>
+<td>停留，旅居</td>
+<td></td>
+</tr>
+<tr>
+<td>オーナー</td>
+<td>ower</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>食事</td>
+<td>しょくじ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>常連</td>
+<td>じょうれん</td>
+<td>常客，熟客</td>
+<td>常連のお客様はもちろんのこと、評判を聞いて訪れる新規の方も多いとのことです。</td>
+</tr>
+<tr>
+<td>香り</td>
+<td>かおり</td>
+<td>香气</td>
+<td></td>
+</tr>
+<tr>
+<td>広がり</td>
+<td>ひろがり</td>
+<td>扩大</td>
+<td>香りを利用したサービスの広がり</td>
+</tr>
+<tr>
+<td>意識</td>
+<td>いしき</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>活用</td>
+<td>かつよう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>市場</td>
+<td>しじょう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>楽しむ</td>
+<td>たのしむ</td>
+<td>快乐，享受</td>
+<td></td>
+</tr>
+<tr>
+<td>役割</td>
+<td>やくわり</td>
+<td>职务，角色，社会性作用</td>
+<td>高齢者をサポートする役割</td>
+</tr>
+<tr>
+<td>積み込む</td>
+<td>つみこむ</td>
+<td>装进，装货</td>
+<td></td>
+</tr>
+<tr>
+<td>豊富さ</td>
+<td>ほうふさ</td>
+<td>丰富</td>
+<td></td>
+</tr>
+<tr>
+<td>送り迎え</td>
+<td>おくりむかえ</td>
+<td>迎送，接送</td>
+<td></td>
+</tr>
+<tr>
+<td>メリット</td>
+<td>merit</td>
+<td></td>
+<td>子どもに料理をさせることのメリット</td>
+</tr>
+<tr>
+<td>覚える</td>
+<td>おぼえる</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>親子</td>
+<td>おやこ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>財産</td>
+<td>ざいさん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>対策</td>
+<td>たいさく</td>
+<td></td>
+<td>医師の数を確保するための対策</td>
+</tr>
+<tr>
+<td>地方</td>
+<td>ちほう</td>
+<td>地方，地区</td>
+<td></td>
+</tr>
+<tr>
+<td>都市</td>
+<td>とし</td>
+<td>都市，城市</td>
+<td></td>
+</tr>
+<tr>
+<td>解消</td>
+<td>かいしょう</td>
+<td></td>
+<td>長年、医師不足の解消が課題となっていました。</td>
+</tr>
+<tr>
+<td>募集</td>
+<td>ぼしゅう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>転職</td>
+<td>てんしょく</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>勤務</td>
+<td>きんむ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>奨学金</td>
+<td>しょうがくきん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>影響</td>
+<td>えいきょう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>減る</td>
+<td>へる</td>
+<td>へった</td>
+<td></td>
+</tr>
+<tr>
+<td>応募状況</td>
+<td>おうぼじょうきょう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>乗り遅れる</td>
+<td>のりおくれる</td>
+<td>赶不上，跟不上</td>
+<td></td>
+</tr>
+<tr>
+<td>断る</td>
+<td>ことわる</td>
+<td>推辞，拒绝</td>
+<td>桜電気からの提案、断るつもりだったけど、プレゼンを聞いたら文句のつけようがなかったよ。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>じゃあ、受けることにしたの？</td>
+</tr>
+<tr>
+<td>海外勤務</td>
+<td>かいがいきんむ</td>
+<td></td>
+<td>今度、初めて海外勤務になるんだけど、うまくやれるか不安でしょうがないよ。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>大変かもしれないけど、頑張って。</td>
+</tr>
+<tr>
+<td>来られたら</td>
+<td>こられたら</td>
+<td></td>
+<td>昨日のゼミのパーティー、中野さんも来られたらよかったのに。</td>
+</tr>
+<tr>
+<td>行きたい</td>
+<td></td>
+<td></td>
+<td>行きたかったんだけどね。</td>
+</tr>
+<tr>
+<td>都合が合えばね</td>
+<td>つごう</td>
+<td>时间合适的话</td>
+<td></td>
+</tr>
+<tr>
+<td>夕立</td>
+<td>ゆうだち</td>
+<td>骤雨；雷阵雨</td>
+<td>今日のイベント、天気予報が言うように、夕立が来たら、途中で中止にせざるを得ませんね。</td>
+</tr>
+<tr>
+<td>続行</td>
+<td>ぞっこう</td>
+<td>继续进行，持续进行</td>
+<td>続行できないですもんね。</td>
+</tr>
+<tr>
+<td>一昨年</td>
+<td>おととし</td>
+<td>前年</td>
+<td></td>
+</tr>
+<tr>
+<td>次いで</td>
+<td>ついで</td>
+<td>接着，随后</td>
+<td>今年度の売り上げが出たよ。過去最高だった一昨年に次いで高かったよ。</td>
+</tr>
+<tr>
+<td>超える</td>
+<td>こえる</td>
+<td></td>
+<td>来年こそは、一昨年を超えたいですね。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>商品の発送作業、終わりそうにないね。他の人に手伝ってもらうよりほかないか。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>そうですね。誰か呼んできます。</td>
+</tr>
+<tr>
+<td>取り入れる</td>
+<td>とりいれる</td>
+<td>收获；引进；采取</td>
+<td>手に持つものを取り入れる。</td>
+</tr>
+<tr>
+<td>サークル</td>
+<td>circle</td>
+<td>圆；社团</td>
+<td></td>
+</tr>
+<tr>
+<td>コンテスト</td>
+<td>contest</td>
+<td>竞赛</td>
+<td></td>
+</tr>
+<tr>
+<td>賞を取りたい</td>
+<td>しょうをとりたい</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>動き</td>
+<td>うごき</td>
+<td></td>
+<td>もっと難しい動きを取り入れた方がいいのかな？</td>
+</tr>
+<tr>
+<td>時間的に厳しいね</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>踊る</td>
+<td>おどる</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>衣装</td>
+<td>いしょう</td>
+<td></td>
+<td>衣装は、もうできてるんだよね？</td>
+</tr>
+<tr>
+<td>格好いい</td>
+<td>かっこういい</td>
+<td>帅，棒</td>
+<td></td>
+</tr>
+<tr>
+<td>曲</td>
+<td>きょく</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>道具</td>
+<td>どうぐ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>何か手に持つとか。</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>和風</td>
+<td>わふう</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>扇子</td>
+<td>せんす</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>見直す</td>
+<td>みなおす</td>
+<td>重新评估</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>500円分の割引券がみんなもらえるなら、良いよね。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>スケートも行きたいなあ。次の月にしよう？</td>
+</tr>
+<tr>
+<td>月毎</td>
+<td>つきごと</td>
+<td>每个月</td>
+<td></td>
+</tr>
+<tr>
+<td>用意</td>
+<td>ようい</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>学生証</td>
+<td>がくせいしょう</td>
+<td></td>
+<td>入口で学生証を提示すると、入場料が半額になります。</td>
+</tr>
+<tr>
+<td>割引券</td>
+<td>わりびきけん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>一人一枚</td>
+<td>ひとりいちまい</td>
+<td></td>
+<td>売店とレストランで使える500円分の割引券を一人一枚差し上げます。</td>
+</tr>
+<tr>
+<td>くじ</td>
+<td></td>
+<td>彩票，占卜</td>
+<td>12月は入り口でお客さまにくじを配り、毎日抽選会を行います。</td>
+</tr>
+<tr>
+<td>抽選会</td>
+<td>ちゅうせんかい</td>
+<td>抽签，抽奖</td>
+<td></td>
+</tr>
+<tr>
+<td>年間パスポート</td>
+<td>ねんかん</td>
+<td>年票，年度通行证</td>
+<td></td>
+</tr>
+<tr>
+<td>オリジナルグッズ</td>
+<td>original goods</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>豪華な景品</td>
+<td>ごうかなけいひん</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>毎年</td>
+<td>まいとし</td>
+<td></td>
+<td>また、毎年人気のスケート場を、今年も12月と1月の二か月間オープンします。</td>
+</tr>
+</tbody>
+</table>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="http://wayne06.github.io/"><img src="/img/favicon.png" />WZhong</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/%E6%97%A5%E8%AF%AD-n1-201907/" data-toggle="tooltip" data-placement="top" title="日语 - N1 - 201907">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/%E6%97%A5%E8%AF%AD-n2-202207/" data-toggle="tooltip" data-placement="top" title="日语 - N2 - 202207">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/ci/cd" title="ci/cd">
+                            ci/cd
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/design-pattern" title="design-pattern">
+                            design-pattern
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/devops" title="devops">
+                            devops
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/interview" title="interview">
+                            interview
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/japanese-language" title="japanese-language">
+                            japanese-language
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/jlpt" title="jlpt">
+                            jlpt
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/kafka" title="kafka">
+                            kafka
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n2" title="n2">
+                            n2
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n3" title="n3">
+                            n3
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n4" title="n4">
+                            n4
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n5" title="n5">
+                            n5
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/saas" title="saas">
+                            saas
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E5%8A%A8%E8%AF%8D%E5%8F%98%E5%BD%A2" title="动词变形">
+                            动词变形
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E6%96%87%E6%AD%8C" title="日文歌">
+                            日文歌
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E5%BA%94%E7%94%A8%E8%AF%BE%E6%96%87" title="日语应用课文">
+                            日语应用课文
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95" title="日语语法">
+                            日语语法
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%A0%87%E5%87%86%E6%97%A5%E6%9C%AC%E8%AF%AD" title="标准日本语">
+                            标准日本语
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="http://wayne06.top/">TBD</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                    
+                    <li>
+                        <a href="mailto:zs577215@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    <li>
+                        <a target="_blank" href="/img/wechat_qrcode.jpg">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/wayne06">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; WZhong 2023
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>

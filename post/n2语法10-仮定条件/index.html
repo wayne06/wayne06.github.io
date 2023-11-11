@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="WZhong">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="N2语法10 - 仮定、条件" />
+    <meta property="og:title" content="N2语法10 - 仮定、条件" />
+    <meta property="twitter:title" content="N2语法10 - 仮定、条件" />
+    
+
+    
+    <meta name="description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan.">
+    <meta property="og:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    <meta property="twitter:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>N2语法10 - 仮定、条件-Wayne Zhong Blog</title>
+
+    <link rel="canonical" href="/post/n2%E8%AF%AD%E6%B3%9510-%E4%BB%AE%E5%AE%9A%E6%9D%A1%E4%BB%B6/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/docco.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">WZhong</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/design-pattern">design-pattern</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/it">it</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/japanese">japanese</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/java">java</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/microservice">microservice</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/others">others</a>
+                    </li>
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://img.zhaohuabing.com/post-bg-2015.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/japanese-language" title="Japanese Language">
+                            Japanese Language
+                        </a>
+                        
+                        <a class="tag" href="/tags/jlpt" title="JLPT">
+                            JLPT
+                        </a>
+                        
+                        <a class="tag" href="/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95" title="日语语法">
+                            日语语法
+                        </a>
+                        
+                        <a class="tag" href="/tags/n2" title="N2">
+                            N2
+                        </a>
+                        
+                    </div>
+                    <h1>N2语法10 - 仮定、条件</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                WZhong
+                         
+                        on 
+                        Friday, November 10, 2023
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第十部分仮定条件">第十部分：仮定、条件</a>
+      <ul>
+        <li><a href="#１たとえてもでも">１．～たとえ～ても・でも</a></li>
+        <li><a href="#２としても">２．～としても</a></li>
+        <li><a href="#３にしても">３．～にしても</a></li>
+        <li><a href="#４にしろにせよ">４．～にしろ/～にせよ</a></li>
+        <li><a href="#５としたらとするととすれば">５．==～としたら・とすると・とすれば==</a></li>
+        <li><a href="#６にしたらにすれば">６．～にしたら・にすれば</a></li>
+        <li><a href="#７ようものなら">７．～ようものなら</a></li>
+        <li><a href="#８てからでないと">８．～てからでないと</a></li>
+        <li><a href="#９ないことには">９．～ないことには</a></li>
+        <li><a href="#ｐｓ８９一个意思">ＰＳ：８～９一个意思</a></li>
+        <li><a href="#１０なしにはなくしては">１０．～なしには・なくしては</a></li>
+        <li><a href="#１１さえば">１１．==～さえ～ば==</a></li>
+        <li><a href="#１２限り">１２．～限り</a></li>
+      </ul>
+    </li>
+    <li><a href="#第十一部分その他">第十一部分：その他</a>
+      <ul>
+        <li><a href="#１ずつ">１．～ずつ</a></li>
+        <li><a href="#２おきに">２．～おきに</a></li>
+        <li><a href="#３ごとに">３．～ごとに</a></li>
+        <li><a href="#４なんて">４．～なんて</a></li>
+        <li><a href="#５なんか">５．～なんか</a></li>
+        <li><a href="#６っけ">６．～っけ</a></li>
+        <li><a href="#７ようではないか">７．～ようではないか</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                
+                <h2 id="第十部分仮定条件">第十部分：仮定、条件</h2>
+<h3 id="１たとえてもでも">１．～たとえ～ても・でも</h3>
+<p>接続：て型</p>
+<p>意味：即使，就算</p>
+<p>例文：（必背）</p>
+<p>たとえ負けても、気を落としてはいけない。</p>
+<p>たとえ高くても、買わなければならない。</p>
+<h3 id="２としても">２．～としても</h3>
+<p>（１）接続：連体形、体言</p>
+<p>意味：即使，就算</p>
+<p>例文：（必背）</p>
+<p>大地震が起こったとしても、このビルは大丈夫でしょう。</p>
+<p>（２）接続：身份地位的名词</p>
+<p>意味：就算作为。。。</p>
+<p>例文：（必背）</p>
+<p>田中先生は詩人としても有名だ。</p>
+<p>校長としても規則を守るべきだ。</p>
+<h3 id="３にしても">３．～にしても</h3>
+<p>接続：連体形、体言</p>
+<p>意味：即使。。。；无论。。。都（连接疑问词）；作为。。。也</p>
+<p>例文：（必背）</p>
+<p>だれにしても、同じでしょう。</p>
+<p>忙しいにしても、電話ぐらいはくれればいいのに。</p>
+<h3 id="４にしろにせよ">４．～にしろ/～にせよ</h3>
+<p>接続：連体形、体言</p>
+<p>意味：即使（约等于にしても，略正式）</p>
+<p>例文：（必背）</p>
+<p>冗談にせよ、そんな話をすべきではない。</p>
+<p>どんなに辛いにしろ、最後まで頑張らなければならない。</p>
+<h3 id="５としたらとするととすれば">５．==～としたら・とすると・とすれば==</h3>
+<p>接続：辞書型</p>
+<p>意味：如果</p>
+<p>例文：（必背）</p>
+<p>Ｘは３だとすれば、Ｙは５になる。</p>
+<p>証言は正しいとすれば、彼は無罪だ。</p>
+<h3 id="６にしたらにすれば">６．～にしたら・にすれば</h3>
+<p>接続：体言</p>
+<p>意味：在。。。看来</p>
+<p>例文：（必背）</p>
+<p>いくら大きくなっても、親にしたらまだ子供なのだ。</p>
+<p>生活が苦しくても、彼と一緒にいられることは、彼女にしたら最大の幸福だ。</p>
+<h3 id="７ようものなら">７．～ようものなら</h3>
+<p>接続：意向形</p>
+<p>意味：一旦。。。的话</p>
+<p>例文：（必背）</p>
+<p>ちょっとミスしようものなら、命が危ない。</p>
+<p>本当のことを話そうものなら、大変になる。</p>
+<h3 id="８てからでないと">８．～てからでないと</h3>
+<p>接続：て型</p>
+<p>意味：不在。。。之后的话，就无法。。。</p>
+<p>例文：（必背）</p>
+<p>みんなと相談してからでないと、一人で決められない。</p>
+<p>親になってからでないと、親としての苦しさが分からない。</p>
+<h3 id="９ないことには">９．～ないことには</h3>
+<p>接続：否定型</p>
+<p>意味：如果不。。。（就不能）。。。</p>
+<p>例文：（必背）</p>
+<p>やってみないことには、その面白さがわからないでしょう。</p>
+<p>Ｎ２に合格しないことには、この大学に入れない。</p>
+<h3 id="ｐｓ８９一个意思">ＰＳ：８～９一个意思</h3>
+<h3 id="１０なしにはなくしては">１０．～なしには・なくしては</h3>
+<p>接続：体言</p>
+<p>意味：没有。。。（就不能）。。。</p>
+<p>例文：（必背）</p>
+<p>愛なしにはなんの人生か。</p>
+<p>政府からの許可なしには、この計画が実施できないんだろう。</p>
+<h3 id="１１さえば">１１．==～さえ～ば==</h3>
+<p>接続：体言＋でさえあれば、体言＋さえ＋ば形、動詞連用形＋さえすれば、形容詞連用形＋さえあれば、形容動詞語幹＋でさえあれば</p>
+<p>意味：只要。。。</p>
+<p>例文：（只要）</p>
+<p>無事でさえあれば、何よりです。</p>
+<p>お金さえあれば、何でも買える。</p>
+<p>この問題を解決しさえすれば、あとは簡単だ。</p>
+<p>安くさえあれば、ちょっと狭くても構わない。</p>
+<h3 id="１２限り">１２．～限り</h3>
+<p>接続：連体形</p>
+<p>意味：只要</p>
+<p>例文：（必背）</p>
+<p>用事がない限り、必ず参加します。</p>
+<p>暇がある限り、彼と一緒にいたい。</p>
+<h2 id="第十一部分その他">第十一部分：その他</h2>
+<h3 id="１ずつ">１．～ずつ</h3>
+<p>接続：数量詞</p>
+<p>意味：每。。。</p>
+<p>例文：（必背）</p>
+<p>五人ずつでグループを作る。</p>
+<p>一人に３枚ずつあげる。</p>
+<h3 id="２おきに">２．～おきに</h3>
+<p>接続：数量詞</p>
+<p>意味：每隔</p>
+<p>例文：（必背）</p>
+<p>１メートルおきに気を一本植える。</p>
+<p>3時間おきに薬を飲んでください。</p>
+<h3 id="３ごとに">３．～ごとに</h3>
+<p>接続：体言、連体形</p>
+<p>意味：每。。。(频度)</p>
+<p>例文：（必背）</p>
+<p>このバスは五分ごとに出る。</p>
+<p>日曜日ごとにプールに行く。</p>
+<p>五人ごとにグループを作る。</p>
+<h3 id="４なんて">４．～なんて</h3>
+<p>接続：辞書形、体言</p>
+<p>意味：など口语，表示列举，或轻蔑不以为然的语气</p>
+<p>例文：（必背）</p>
+<p>こんなところで君に会うなんて、びっくりしたよ。</p>
+<h3 id="５なんか">５．～なんか</h3>
+<p>接続：辞書形、体言</p>
+<p>意味：など口语，什么的</p>
+<p>例文：（必背）</p>
+<p>小説を読んだりなんかして、暇をつぶす。</p>
+<h3 id="６っけ">６．～っけ</h3>
+<p>接続：過去式</p>
+<p>意味：“来着”。表示回忆；对记忆不清的事实进行证实</p>
+<p>例文：（必背）</p>
+<p>昨日の朝ごはん、何食べたっけ。</p>
+<p>三年前はどこで働いたんだっけ。</p>
+<h3 id="７ようではないか">７．～ようではないか</h3>
+<p>接続：意向形</p>
+<p>意味：号召劝诱，。。。吧</p>
+<p>例文：（必背）</p>
+<p>最後まで頑張ってみようじゃないか</p>
+
+
+                
+                
+<div class="entry-shang text-center">
+    
+	    <p>「真诚赞赏，手留余香」</p>
+	
+	<button class="zs show-zs btn btn-bred">赞赏支持</button>
+</div>
+<div class="zs-modal-bg"></div>
+<div class="zs-modal-box">
+	<div class="zs-modal-head">
+		<button type="button" class="close">×</button>
+		<span class="author"><a href="http://wayne06.github.io/"><img src="/img/favicon.png" />WZhong</a></span>
+        
+	        <p class="tip"><i></i><span>真诚赞赏，手留余香</span></p>
+		
+ 
+	</div>
+	<div class="zs-modal-body">
+		<div class="zs-modal-btns">
+			<button class="btn btn-blink" data-num="2">2元</button>
+			<button class="btn btn-blink" data-num="5">5元</button>
+			<button class="btn btn-blink" data-num="10">10元</button>
+			<button class="btn btn-blink" data-num="50">50元</button>
+			<button class="btn btn-blink" data-num="100">100元</button>
+			<button class="btn btn-blink" data-num="1">任意金额</button>
+		</div>
+		<div class="zs-modal-pay">
+			<button class="btn btn-bred" id="pay-text">2元</button>
+			<p>使用<span id="pay-type">微信</span>扫描二维码完成支付</p>
+			<img src="/img/reward/wechat-2.png"  id="pay-image"/>
+		</div>
+	</div>
+	<div class="zs-modal-footer">
+		<label><input type="radio" name="zs-type" value="wechat" class="zs-type" checked="checked"><span ><span class="zs-wechat"><img src="/img/reward/wechat-btn.png"/></span></label>
+		<label><input type="radio" name="zs-type" value="alipay" class="zs-type" class="zs-alipay"><img src="/img/reward/alipay-btn.png"/></span></label>
+	</div>
+</div>
+<script type="text/javascript" src="/js/reward.js"></script>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/n2%E8%AF%AD%E6%B3%9509-%E5%8F%AF%E8%83%BD%E6%8E%A5%E5%B0%BE/" data-toggle="tooltip" data-placement="top" title="N2语法09 - 可能、接尾">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/ci/cd" title="ci/cd">
+                            ci/cd
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/design-pattern" title="design-pattern">
+                            design-pattern
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/devops" title="devops">
+                            devops
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/interview" title="interview">
+                            interview
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/japanese-language" title="japanese-language">
+                            japanese-language
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/jlpt" title="jlpt">
+                            jlpt
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/kafka" title="kafka">
+                            kafka
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n2" title="n2">
+                            n2
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n3" title="n3">
+                            n3
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n4" title="n4">
+                            n4
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/n5" title="n5">
+                            n5
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/saas" title="saas">
+                            saas
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E5%8A%A8%E8%AF%8D%E5%8F%98%E5%BD%A2" title="动词变形">
+                            动词变形
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E6%96%87%E6%AD%8C" title="日文歌">
+                            日文歌
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E5%BA%94%E7%94%A8%E8%AF%BE%E6%96%87" title="日语应用课文">
+                            日语应用课文
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95" title="日语语法">
+                            日语语法
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E6%A0%87%E5%87%86%E6%97%A5%E6%9C%AC%E8%AF%AD" title="标准日本语">
+                            标准日本语
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="http://wayne06.top/">TBD</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                    
+                    <li>
+                        <a href="mailto:zs577215@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    <li>
+                        <a target="_blank" href="/img/wechat_qrcode.jpg">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/wayne06">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; WZhong 2023
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>

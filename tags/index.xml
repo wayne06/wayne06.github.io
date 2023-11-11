@@ -6,7 +6,7 @@
     <description>Recent content in Tags on WZhong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 21 Sep 2023 01:25:13 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 10 Nov 2023 00:36:13 +0800</lastBuildDate>
     
 	<atom:link href="http://wayne06.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Japanese Language</title>
       <link>http://wayne06.github.io/tags/japanese-language/</link>
-      <pubDate>Thu, 21 Sep 2023 01:25:13 +0800</pubDate>
+      <pubDate>Fri, 10 Nov 2023 00:36:13 +0800</pubDate>
       
       <guid>http://wayne06.github.io/tags/japanese-language/</guid>
       <description></description>
@@ -23,9 +23,27 @@
     <item>
       <title>JLPT</title>
       <link>http://wayne06.github.io/tags/jlpt/</link>
-      <pubDate>Sun, 15 Jan 2023 03:25:13 +0800</pubDate>
+      <pubDate>Fri, 10 Nov 2023 00:36:13 +0800</pubDate>
       
       <guid>http://wayne06.github.io/tags/jlpt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>N2</title>
+      <link>http://wayne06.github.io/tags/n2/</link>
+      <pubDate>Fri, 10 Nov 2023 00:36:13 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/tags/n2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>日语语法</title>
+      <link>http://wayne06.github.io/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Fri, 10 Nov 2023 00:36:13 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95/</guid>
       <description></description>
     </item>
     
@@ -35,15 +53,6 @@
       <pubDate>Sun, 15 Jan 2023 03:25:13 +0800</pubDate>
       
       <guid>http://wayne06.github.io/tags/n5/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>日语语法</title>
-      <link>http://wayne06.github.io/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95/</link>
-      <pubDate>Sun, 15 Jan 2023 03:25:13 +0800</pubDate>
-      
-      <guid>http://wayne06.github.io/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95/</guid>
       <description></description>
     </item>
     
