@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ソフトウェア工学の開発実践 on WZhong</title>
+    <link>http://wayne06.github.io/categories/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E5%B7%A5%E5%AD%A6%E3%81%AE%E9%96%8B%E7%99%BA%E5%AE%9F%E8%B7%B5/</link>
+    <description>Recent content in ソフトウェア工学の開発実践 on WZhong</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 20 Jan 2024 02:25:13 +0800</lastBuildDate>
+    
+	<atom:link href="http://wayne06.github.io/categories/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E5%B7%A5%E5%AD%A6%E3%81%AE%E9%96%8B%E7%99%BA%E5%AE%9F%E8%B7%B5/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>会話による ソフトウェア工学の開発実践01 - 案件の打ち合わせ</title>
+      <link>http://wayne06.github.io/post/%E4%BC%9A%E8%A9%B1%E3%81%AB%E3%82%88%E3%82%8B-%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E5%B7%A5%E5%AD%A6%E3%81%AE%E9%96%8B%E7%99%BA%E5%AE%9F%E8%B7%B505-%E3%83%A6%E3%83%BC%E3%82%B9%E3%82%B1%E3%83%BC%E3%82%B9%E3%82%92%E6%9B%B8%E3%81%8F/</link>
+      <pubDate>Sat, 20 Jan 2024 02:25:13 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/post/%E4%BC%9A%E8%A9%B1%E3%81%AB%E3%82%88%E3%82%8B-%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E5%B7%A5%E5%AD%A6%E3%81%AE%E9%96%8B%E7%99%BA%E5%AE%9F%E8%B7%B505-%E3%83%A6%E3%83%BC%E3%82%B9%E3%82%B1%E3%83%BC%E3%82%B9%E3%82%92%E6%9B%B8%E3%81%8F/</guid>
+      <description>単語 相互作用 そうごさよう 互相作用 契約 けいやく 合同，协议 （開発）しようとする 正要（开发）的 駆動する くどう 驱动 現場 げんば 境界 きょうかい 边界 手段 し</description>
+    </item>
+    
+  </channel>
+</rss>
