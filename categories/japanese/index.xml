@@ -21,7 +21,7 @@
     </item>
     
     <item>
-      <title>会話による ソフトウェア工学の開発実践01 - 案件の打ち合わせ</title>
+      <title>会話による ソフトウェア工学の開発実践05 - ユースケースを書く</title>
       <link>http://wayne06.github.io/post/%E4%BC%9A%E8%A9%B1%E3%81%AB%E3%82%88%E3%82%8B-%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E5%B7%A5%E5%AD%A6%E3%81%AE%E9%96%8B%E7%99%BA%E5%AE%9F%E8%B7%B505-%E3%83%A6%E3%83%BC%E3%82%B9%E3%82%B1%E3%83%BC%E3%82%B9%E3%82%92%E6%9B%B8%E3%81%8F/</link>
       <pubDate>Sat, 20 Jan 2024 02:25:13 +0800</pubDate>
       
@@ -93,11 +93,110 @@
     </item>
     
     <item>
-      <title>N1语法 - 总结</title>
-      <link>http://wayne06.github.io/post/n1%E8%AF%AD%E6%B3%95-%E6%80%BB%E7%BB%93/</link>
-      <pubDate>Fri, 24 Nov 2023 00:36:13 +0800</pubDate>
+      <title>N1语法12 - 结尾词</title>
+      <link>http://wayne06.github.io/post/n1%E8%AF%AD%E6%B3%9512-%E7%BB%93%E5%B0%BE%E8%AF%8D/</link>
+      <pubDate>Fri, 24 Nov 2023 00:36:12 +0800</pubDate>
       
-      <guid>http://wayne06.github.io/post/n1%E8%AF%AD%E6%B3%95-%E6%80%BB%E7%BB%93/</guid>
+      <guid>http://wayne06.github.io/post/n1%E8%AF%AD%E6%B3%9512-%E7%BB%93%E5%B0%BE%E8%AF%8D/</guid>
+      <description>12. 结尾词 总结 そこなう（損なう） 失败 こなす 熟练 あげる 做完</description>
+    </item>
+    
+    <item>
+      <title>N1语法11 - 状态</title>
+      <link>http://wayne06.github.io/post/n1%E8%AF%AD%E6%B3%9511-%E7%8A%B6%E6%80%81/</link>
+      <pubDate>Fri, 24 Nov 2023 00:36:11 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/post/n1%E8%AF%AD%E6%B3%9511-%E7%8A%B6%E6%80%81/</guid>
+      <description>11. 状态 总结 ずにはおかない 势必，一定要，不能不 てかなわない 受不了 ともなく・ともなしに 不知不觉地，无意中（見るともなく見て） ことなく・ことなしに</description>
+    </item>
+    
+    <item>
+      <title>N1语法10 - 可能</title>
+      <link>http://wayne06.github.io/post/n1%E8%AF%AD%E6%B3%9510-%E5%8F%AF%E8%83%BD/</link>
+      <pubDate>Fri, 24 Nov 2023 00:36:10 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/post/n1%E8%AF%AD%E6%B3%9510-%E5%8F%AF%E8%83%BD/</guid>
+      <description>10. 可能 总结 ないものか 能不能…啊，要是能…就好了（外国に行けないものか。） ずに済む 没有…也过得去，不用…就行 を禁じ得ない 无法禁止 を余儀なくせれ</description>
+    </item>
+    
+    <item>
+      <title>N1语法09  - 判断评价</title>
+      <link>http://wayne06.github.io/post/n1%E8%AF%AD%E6%B3%9509-%E5%88%A4%E6%96%AD%E8%AF%84%E4%BB%B7/</link>
+      <pubDate>Fri, 24 Nov 2023 00:36:09 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/post/n1%E8%AF%AD%E6%B3%9509-%E5%88%A4%E6%96%AD%E8%AF%84%E4%BB%B7/</guid>
+      <description>9. 判断评价 总结 までもない 不必 にあたらない 不必 にかたくない 不难想象 に限ったことではない 不限于 ないとも限らない 未必不 と言ったらありゃしない・と言</description>
+    </item>
+    
+    <item>
+      <title>N1语法08 - 提出话题</title>
+      <link>http://wayne06.github.io/post/n1%E8%AF%AD%E6%B3%9508-%E6%8F%90%E5%87%BA%E8%AF%9D%E9%A2%98/</link>
+      <pubDate>Fri, 24 Nov 2023 00:36:08 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/post/n1%E8%AF%AD%E6%B3%9508-%E6%8F%90%E5%87%BA%E8%AF%9D%E9%A2%98/</guid>
+      <description>8. 提出话题 总结 ときたら 提起，提到 に至っては 至于 たるもの 作为谁 とは 所谓 ～はいざ知らず・ならいざ知らず 姑且不论 はともあれ 总之，先放一边 はさておき</description>
+    </item>
+    
+    <item>
+      <title>N1语法07 - 并列</title>
+      <link>http://wayne06.github.io/post/n1%E8%AF%AD%E6%B3%9507-%E5%B9%B6%E5%88%97/</link>
+      <pubDate>Fri, 24 Nov 2023 00:36:07 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/post/n1%E8%AF%AD%E6%B3%9507-%E5%B9%B6%E5%88%97/</guid>
+      <description>7. 并列 总结 あるかと思えば～もある 既怎么样也怎么样 だの～だの 列举 なり～なり 列举选项 といい～といい …也好…也好 であれ～であれ 无论…还是… つ～つ （</description>
+    </item>
+    
+    <item>
+      <title>N1语法06 - 强调、限定</title>
+      <link>http://wayne06.github.io/post/n1%E8%AF%AD%E6%B3%9506-%E5%BC%BA%E8%B0%83%E9%99%90%E5%AE%9A/</link>
+      <pubDate>Fri, 24 Nov 2023 00:36:06 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/post/n1%E8%AF%AD%E6%B3%9506-%E5%BC%BA%E8%B0%83%E9%99%90%E5%AE%9A/</guid>
+      <description>6. 强调、限定 总结 はおろか 别提…了 もさることながら …是当然的 言うに及ばず 自不必说 AならではのB 只有A才有的B ともあろう者が 作为…，竟然做了一件</description>
+    </item>
+    
+    <item>
+      <title>N1语法05 - 对象，二者关系</title>
+      <link>http://wayne06.github.io/post/n1%E8%AF%AD%E6%B3%9505-%E5%AF%B9%E8%B1%A1%E4%BA%8C%E8%80%85%E5%85%B3%E7%B3%BB/</link>
+      <pubDate>Fri, 24 Nov 2023 00:36:05 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/post/n1%E8%AF%AD%E6%B3%9505-%E5%AF%B9%E8%B1%A1%E4%BA%8C%E8%80%85%E5%85%B3%E7%B3%BB/</guid>
+      <description>5. 对象，二者关系 总结 に即して（にそくして） 沿着，按照 にひきかえ 与…相反 に関わる 关于 に関わりなく 与…无关 にかけては 在…方面是最好的 と相まって（</description>
+    </item>
+    
+    <item>
+      <title>N1语法04 - 假定，条件</title>
+      <link>http://wayne06.github.io/post/n1%E8%AF%AD%E6%B3%9504-%E5%81%87%E5%AE%9A%E6%9D%A1%E4%BB%B6/</link>
+      <pubDate>Fri, 24 Nov 2023 00:36:04 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/post/n1%E8%AF%AD%E6%B3%9504-%E5%81%87%E5%AE%9A%E6%9D%A1%E4%BB%B6/</guid>
+      <description>4. 假定，条件 总结 ものなら 如果能…的话 ものとして 就当没吵架，好好旅行吧 としたって 就算… にしたって 就算… としたところで 即使 にしたところで 即使 とあ</description>
+    </item>
+    
+    <item>
+      <title>N1语法03 - 逆接</title>
+      <link>http://wayne06.github.io/post/n1%E8%AF%AD%E6%B3%9503-%E9%80%86%E6%8E%A5/</link>
+      <pubDate>Fri, 24 Nov 2023 00:36:03 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/post/n1%E8%AF%AD%E6%B3%9503-%E9%80%86%E6%8E%A5/</guid>
+      <description>3. 逆接 总结 には～が～ 去倒是去，但是… とはいえ 虽然 といえども 虽说 であれ 即使…也 ものを 本来，可是 ないまでも 即使还没到…的程度 ならまだしも …的话还</description>
+    </item>
+    
+    <item>
+      <title>N1语法02 - 原因，理由，结果</title>
+      <link>http://wayne06.github.io/post/n1%E8%AF%AD%E6%B3%9502-%E5%8E%9F%E5%9B%A0%E7%90%86%E7%94%B1%E7%BB%93%E6%9E%9C/</link>
+      <pubDate>Fri, 24 Nov 2023 00:36:02 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/post/n1%E8%AF%AD%E6%B3%9502-%E5%8E%9F%E5%9B%A0%E7%90%86%E7%94%B1%E7%BB%93%E6%9E%9C/</guid>
+      <description>2. 原因，理由，结果 总结 とあって 原因 こととて 原因 ことだし 原因 こともあって 原因 ゆえに 因为 からこそ・ばこそ 正因为 ではあるまいし 又不是 始末だ 结果是 た</description>
+    </item>
+    
+    <item>
+      <title>N1语法01 - 时间</title>
+      <link>http://wayne06.github.io/post/n1%E8%AF%AD%E6%B3%9501-%E6%97%B6%E9%97%B4/</link>
+      <pubDate>Fri, 24 Nov 2023 00:36:01 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/post/n1%E8%AF%AD%E6%B3%9501-%E6%97%B6%E9%97%B4/</guid>
       <description>1. 时间 总结 や否や（やいなや） 一…就；是否 や 一…就 が早いか 一…就 なり 一…就 そばから 一…就（可重复，如一背就忘） がてら 顺便 かたがた 顺便；大家 かた</description>
     </item>
     

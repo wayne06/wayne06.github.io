@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="WZhong">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="http://wayne06.github.io//img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="N3语法" />
+    <meta property="og:title" content="N3语法" />
+    <meta property="twitter:title" content="N3语法" />
+    
+
+    
+    <meta name="description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan.">
+    <meta property="og:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    <meta property="twitter:description" content="Hi, I&#39;m Wayne Zhong, a code monkey in China, focus on backend development. I&#39;m learning Japanese and hope I can find a job in Japan." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="waynezhong, 互联网, Web, 云原生, PaaS, Kubernetes, 微服务, Microservice">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>N3语法-Wayne Zhong Blog</title>
+
+    <link rel="canonical" href="/tags/n3%E8%AF%AD%E6%B3%95/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/docco.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">WZhong</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/design-pattern">design-pattern</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/it">it</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/japanese">japanese</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/java">java</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/microservice">microservice</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/others">others</a>
+                    </li>
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+<header class="intro-header" style="background-image: url('/img/home-bg-jeep.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>WZhong </h1>
+                    
+		    <span class="subheading">love them anyway.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+  
+<div class="container">
+    <div class="row">
+        
+        
+   	    <div class="
+            col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            post-container
+        ">
+            
+
+<div class="post-preview">
+    <a href="http://wayne06.github.io/post/n3%E8%AF%AD%E6%B3%9516-%E6%95%AC%E8%AF%AD/">
+        <h2 class="post-title">
+            N3语法16 - 敬語
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            尊敬語（そんけいご）：尊他语（用于表示长辈或上司的行为） 和对方相关的任何事物 称呼：～先生・～さん・～様・～部長・どなた・あの方 形容词：お忙し
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    Posted by WZhong Monday, September 28, 2020
+    
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="http://wayne06.github.io/post/n3%E8%AF%AD%E6%B3%9515-%E5%8F%97%E8%BA%AB%E4%BD%BF%E5%BD%B9%E4%BD%BF%E5%BD%B9%E5%8F%97%E8%BA%AB/">
+        <h2 class="post-title">
+            N3语法15 - 受身、使役、使役受身
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            受身（うけみ） ： 表示受到他人行为的作用，或某个事项的影响 人做主语（一般是说话人或心理上与说话人亲近的人） 家の子は先生にしかられた。 私は誰かに
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    Posted by WZhong Monday, September 28, 2020
+    
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="http://wayne06.github.io/post/n3%E8%AF%AD%E6%B3%9514-%E6%8E%88%E5%8F%97/">
+        <h2 class="post-title">
+            N3语法14 - 授受
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            授受关系总结：～てあげる・～てくれる・～てもらう 用词 例句 我给别人.. あげる 私はトニさんにプレゼントをあげます。 别人给我.. くれる トニさんは私
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    Posted by WZhong Monday, September 28, 2020
+    
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="http://wayne06.github.io/post/n3%E8%AF%AD%E6%B3%9513-%E7%BB%93%E5%B0%BE%E8%AF%8D/">
+        <h2 class="post-title">
+            N3语法13 - 结尾词
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            总结 ある動作のどの段階かを表す / 表示动作进行到的阶段 文法形式 意味 ～始める 开始做某事（意志性表达） ～出す 突然开始 ～かける・～かけだ・～かけの～
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    Posted by WZhong Sunday, September 27, 2020
+    
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="http://wayne06.github.io/post/n3%E8%AF%AD%E6%B3%9512-%E5%89%AF%E8%AF%8D/">
+        <h2 class="post-title">
+            N3语法12 - 副词
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            总结 意味 副詞 いっしょに使う表現 完全不 全く・全然 ～ない 一点也不 少しも ～ない 没那么 そんなに・そう ～ない 不怎么 たいして ～ない 决不会 決して ～ない 几乎
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    Posted by WZhong Sunday, September 27, 2020
+    
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="http://wayne06.github.io/post/n3%E8%AF%AD%E6%B3%9511-%E3%81%B0%E3%81%8B%E3%82%8A/">
+        <h2 class="post-title">
+            N3语法11 - ばかり
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            ～ばかり【光是~没有其他东西；光干~不干其他的（多用于说话人不认同的某种情形）】 名词（助词）+ ～ばかり 家の子は漫画ばかり読んでいる。 彼はいつ
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    Posted by WZhong Saturday, September 26, 2020
+    
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="http://wayne06.github.io/post/n3%E8%AF%AD%E6%B3%9510-%E3%82%88%E3%81%86/">
+        <h2 class="post-title">
+            N3语法10 - よう
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            ～（かの）ようだ・～のようだ・～（かの）ように&hellip;・～のように&hellip;【就像】 动词＋（かの）ようだ： 常用 まるで～ようだ 始
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    Posted by WZhong Saturday, September 26, 2020
+    
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="http://wayne06.github.io/post/n3%E8%AF%AD%E6%B3%9509-%E5%AF%BE%E3%81%97%E3%81%A6/">
+        <h2 class="post-title">
+            N3语法09 - 対して
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            ～について：关于（某个话题） 名词＋～について：关于某个话题，动词句（聞く、思う、話す、説明する） 事故について報告する 進学について相談する 植物
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    Posted by WZhong Friday, September 25, 2020
+    
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="http://wayne06.github.io/post/n3%E8%AF%AD%E6%B3%9508-%E3%82%8F%E3%81%91/">
+        <h2 class="post-title">
+            N3语法08 - わけ
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            わけ：理由、有瑕疵、当然、也就是说、难怪 わけ（訳）【道理，理由】 訳を説明する 訳わからない人 これには深い訳がある わけあり【有隐情，有瑕疵】 わけ
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    Posted by WZhong Friday, September 25, 2020
+    
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="http://wayne06.github.io/post/n3%E8%AF%AD%E6%B3%9507-%E4%BC%A0%E9%97%BB/">
+        <h2 class="post-title">
+            N3语法07 - 传闻
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            普通型＋そうです：表示传闻 雨が降るそうです。 ます型＋そうです：表示样态 雨が降りそうです。 ～んだって： 听说（偏口语表达） 动词普通型/い形容词＋
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    Posted by WZhong Thursday, September 24, 2020
+    
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="http://wayne06.github.io/post/n3%E8%AF%AD%E6%B3%9506-%E5%9B%A0%E6%9E%9C/">
+        <h2 class="post-title">
+            N3语法06 - 因果
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            「～から」と「～ので」の比較・まとめ 「～から」と「～ので」は、多くの場合、置き換えができます。 ～から 話し言葉。論文には使えない。 自己主張度強
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    Posted by WZhong Thursday, September 24, 2020
+    
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="http://wayne06.github.io/post/n3%E8%AF%AD%E6%B3%9505-%E6%9D%A1%E4%BB%B6/">
+        <h2 class="post-title">
+            N3语法05 - 条件
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            总结 車を買うと、お金がなくなる。 - 买了车，就会没钱。 車を買えば、ドライブに行けます。 - 只要买了车，就可以兜风。 車を買ったら、皆でドライブに行
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    Posted by WZhong Wednesday, September 23, 2020
+    
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="http://wayne06.github.io/post/n3%E8%AF%AD%E6%B3%9504-%E5%85%B3%E7%B3%BB/">
+        <h2 class="post-title">
+            N3语法04 - 关系
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            ～通り ～るとおり、～たとおり、名詞+のとおり、名詞+どおり 后面按照前面一样 先生が書く通り、皆さんも一緒に書いてください。 山田さんの言った通り
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    Posted by WZhong Tuesday, September 22, 2020
+    
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="http://wayne06.github.io/post/n3%E8%AF%AD%E6%B3%9503-%E5%AF%B9%E6%AF%94/">
+        <h2 class="post-title">
+            N3语法03 - 对比
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            くらい（ぐらい）・ほど ： 偏口语・偏书面语 【大概~，~左右】 数量词 + くらい（ぐらい）・ほど 二歳くらいの子供。 この道を五分くらい行くと、大きな川
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    Posted by WZhong Monday, September 21, 2020
+    
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="http://wayne06.github.io/post/n3%E8%AF%AD%E6%B3%9502-%E6%97%B6%E9%97%B4/">
+        <h2 class="post-title">
+            N3语法02 - 时间
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            ～おきに 【每～】每间隔&hellip; 今学期は一日おきに授業があります。月曜日、水曜日、金曜日にあります。 2日おきにジムに行きます。 ～ごとに
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    Posted by WZhong Sunday, September 20, 2020
+    
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="http://wayne06.github.io/post/n3%E8%AF%AD%E6%B3%9501-%E5%8A%A9%E8%AF%8D/">
+        <h2 class="post-title">
+            N3语法01 - 助词
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            を 动作、作用的目标、对象：名词+を+他动词 ご飯を食べる 本を読む 弟を殴る 母に手紙を書く 猫が好き / 猫を好きになる 移动经过的场所：を+自动词 空を飛
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    Posted by WZhong Saturday, September 19, 2020
+    
+    
+    </p>
+
+</div>
+<hr>
+
+
+            
+
+
+
+       	</div>
+        
+
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5>FEATURED TAGS</h5>
+        <div class="tags">
+             
+            
+                
+            
+                
+                    <a href="/tags/ci/cd" title="ci/cd">
+                        ci/cd
+                    </a>
+                
+            
+                
+                    <a href="/tags/design-pattern" title="design-pattern">
+                        design-pattern
+                    </a>
+                
+            
+                
+                    <a href="/tags/devops" title="devops">
+                        devops
+                    </a>
+                
+            
+                
+            
+                
+                    <a href="/tags/interview" title="interview">
+                        interview
+                    </a>
+                
+            
+                
+                    <a href="/tags/it%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9%E6%97%A5%E6%9C%AC%E8%AA%9E" title="itビジネス日本語">
+                        itビジネス日本語
+                    </a>
+                
+            
+                
+                    <a href="/tags/japanese-language" title="japanese-language">
+                        japanese-language
+                    </a>
+                
+            
+                
+                    <a href="/tags/jlpt" title="jlpt">
+                        jlpt
+                    </a>
+                
+            
+                
+                    <a href="/tags/kafka" title="kafka">
+                        kafka
+                    </a>
+                
+            
+                
+                    <a href="/tags/n1%E7%9C%9F%E9%A2%98" title="n1真题">
+                        n1真题
+                    </a>
+                
+            
+                
+                    <a href="/tags/n1%E8%AF%AD%E6%B3%95" title="n1语法">
+                        n1语法
+                    </a>
+                
+            
+                
+                    <a href="/tags/n2%E7%9C%9F%E9%A2%98" title="n2真题">
+                        n2真题
+                    </a>
+                
+            
+                
+                    <a href="/tags/n2%E8%AF%AD%E6%B3%95" title="n2语法">
+                        n2语法
+                    </a>
+                
+            
+                
+                    <a href="/tags/n3" title="n3">
+                        n3
+                    </a>
+                
+            
+                
+                    <a href="/tags/n3%E8%AF%AD%E6%B3%95" title="n3语法">
+                        n3语法
+                    </a>
+                
+            
+                
+                    <a href="/tags/n4%E8%AF%AD%E6%B3%95" title="n4语法">
+                        n4语法
+                    </a>
+                
+            
+                
+            
+                
+                    <a href="/tags/n5%E8%AF%AD%E6%B3%95" title="n5语法">
+                        n5语法
+                    </a>
+                
+            
+                
+                    <a href="/tags/saas" title="saas">
+                        saas
+                    </a>
+                
+            
+                
+                    <a href="/tags/shadowing" title="shadowing">
+                        shadowing
+                    </a>
+                
+            
+                
+                    <a href="/tags/%E4%BA%95%E4%B8%8A" title="井上">
+                        井上
+                    </a>
+                
+            
+                
+                    <a href="/tags/%E4%BB%95%E4%BA%8B%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E-it%E6%A5%AD%E5%8B%99%E7%B7%A8" title="仕事の日本語-it業務編">
+                        仕事の日本語-it業務編
+                    </a>
+                
+            
+                
+                    <a href="/tags/%E4%BC%9A%E8%A9%B1%E3%81%AB%E3%82%88%E3%82%8B%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E9%96%8B%E7%99%BA" title="会話によるソフトウェア開発">
+                        会話によるソフトウェア開発
+                    </a>
+                
+            
+                
+                    <a href="/tags/%E5%8A%A8%E8%AF%8D%E5%8F%98%E5%BD%A2" title="动词变形">
+                        动词变形
+                    </a>
+                
+            
+                
+                    <a href="/tags/%E6%97%A5%E6%96%87%E6%AD%8C" title="日文歌">
+                        日文歌
+                    </a>
+                
+            
+                
+            
+                
+                    <a href="/tags/%E6%97%A5%E8%AF%AD%E5%BA%94%E7%94%A8%E8%AF%BE%E6%96%87" title="日语应用课文">
+                        日语应用课文
+                    </a>
+                
+            
+                
+                    <a href="/tags/%E6%97%A5%E8%AF%AD%E8%AF%AD%E6%B3%95" title="日语语法">
+                        日语语法
+                    </a>
+                
+            
+                
+                    <a href="/tags/%E6%A0%87%E5%87%86%E6%97%A5%E6%9C%AC%E8%AF%AD" title="标准日本语">
+                        标准日本语
+                    </a>
+                
+            
+                
+                    <a href="/tags/%E8%A1%A8%E7%8F%BE%E6%96%87%E5%9E%8B" title="表現文型">
+                        表現文型
+                    </a>
+                
+            
+        </div>
+    </section>
+    
+
+    
+	
+    <section class="visible-md visible-lg">
+	<hr><h5><a href="/top/about">ABOUT ME</a></h5>
+        <div class="short-about">
+            
+            <a href="/top/about">
+               <img src="/img/wnzhong.png" alt="avatar" style="cursor: pointer" />
+            </a>
+            
+            
+                <p>Software Developer, Open Source Enthusiast and Life Adventurer</p>
+            
+           
+           <ul class="list-inline"> 
+               
+               
+               
+               
+               
+               
+               <li>
+                   <a target="_blank" href="/img/wechat_qrcode.jpg">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+               <li>
+                   <a target="_blank" href="https://github.com/wayne06">
+                       <span class="fa-stack fa-lg">
+                           <i class="fa fa-circle fa-stack-2x"></i>
+                           <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+               
+               
+               
+               
+            
+            
+               
+                </ul>
+            </div>
+    </section>
+	
+    
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5>FRIENDS</h5>
+        <ul class="list-inline">
+            
+            <li><a target="_blank" href="http://wayne06.top/">TBD</a></li>
+            
+        </ul>
+    </section>
+    
+
+    
+    
+    <section>
+        <hr>
+        <h5>BOOKMARKS</h5>
+        <ul class="list-inline">
+            
+            <li><a target="_blank" href="https://kubernetes.io/">Kubernetes</a></li>
+            
+            <li><a target="_blank" href="https://www.cncf.io/">CloudNative</a></li>
+            
+            <li><a target="_blank" href="https://www.docker.com/">Docker</a></li>
+            
+            <li><a target="_blank" href="https://homenew.console.aliyun.com/">AliyunConsole</a></li>
+            
+            <li><a target="_blank" href="https://swagger.io/">Swagger</a></li>
+            
+        </ul>
+    </section>
+    
+</div>
+
+	</div>
+</div>
+
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                    
+                    <li>
+                        <a href="mailto:zs577215@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    <li>
+                        <a target="_blank" href="/img/wechat_qrcode.jpg">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wechat fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/wayne06">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; WZhong 2024
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>
