@@ -6,10 +6,28 @@
     <description>Recent content in 仕事の日本語-IT業務編 on WZhong</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Aug 2022 01:25:13 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 07 Aug 2022 02:25:13 +0800</lastBuildDate>
     
 	<atom:link href="http://wayne06.github.io/tags/%E4%BB%95%E4%BA%8B%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E-it%E6%A5%AD%E5%8B%99%E7%B7%A8/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－3．発注処理</title>
+      <link>http://wayne06.github.io/post/%E4%BB%95%E4%BA%8B%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E-it%E6%A5%AD%E5%8B%99%E7%B7%A83.3%E7%99%BA%E6%B3%A8%E5%87%A6%E7%90%86/</link>
+      <pubDate>Sun, 07 Aug 2022 02:25:13 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/post/%E4%BB%95%E4%BA%8B%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E-it%E6%A5%AD%E5%8B%99%E7%B7%A83.3%E7%99%BA%E6%B3%A8%E5%87%A6%E7%90%86/</guid>
+      <description>0. フローチャート 0. スタート 1. 在庫移動トップ（店舗の在庫数が発注点を下回った時は、在庫移動画面が表示される） 2. 商品コード、数量、移動先を入力（</description>
+    </item>
+    
+    <item>
+      <title>仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－2．受注処理</title>
+      <link>http://wayne06.github.io/post/%E4%BB%95%E4%BA%8B%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E-it%E6%A5%AD%E5%8B%99%E7%B7%A83.2%E5%8F%97%E6%B3%A8%E5%87%A6%E7%90%86/</link>
+      <pubDate>Thu, 04 Aug 2022 02:25:13 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/post/%E4%BB%95%E4%BA%8B%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E-it%E6%A5%AD%E5%8B%99%E7%B7%A83.2%E5%8F%97%E6%B3%A8%E5%87%A6%E7%90%86/</guid>
+      <description>0. フローチャート 0. スタート 1. 受注画面トップ 2. 取引先コード入力 3. 与信チェック（入力された取引先コードで取引先の与信を参照する。） if 与信なし：与</description>
+    </item>
     
     <item>
       <title>仕事の日本語－3．仕様書を読む－文章表現に慣れておこう－1．販促対象検索処理</title>
@@ -198,6 +216,15 @@
       
       <guid>http://wayne06.github.io/post/%E4%BB%95%E4%BA%8B%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E-it%E6%A5%AD%E5%8B%99%E7%B7%A81.1-%E6%B1%82%E4%BA%BA%E3%83%9D%E3%82%B9%E3%82%BF%E3%83%BC/</guid>
       <description>0. 求人ポスター たしかな技術・高いレベル・あたたかい仲間たち 私たちは未来を作る会社です。夢に向かって走っている人を求めています。 私たちといっし</description>
+    </item>
+    
+    <item>
+      <title>仕事の日本語－0.0　目次　と　目標</title>
+      <link>http://wayne06.github.io/post/%E4%BB%95%E4%BA%8B%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E-it%E6%A5%AD%E5%8B%99%E7%B7%A80.0-%E7%9B%AE%E6%AC%A1%E3%81%A8%E7%9B%AE%E6%A8%99/</link>
+      <pubDate>Thu, 21 Jul 2022 01:25:13 +0800</pubDate>
+      
+      <guid>http://wayne06.github.io/post/%E4%BB%95%E4%BA%8B%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E-it%E6%A5%AD%E5%8B%99%E7%B7%A80.0-%E7%9B%AE%E6%AC%A1%E3%81%A8%E7%9B%AE%E6%A8%99/</guid>
+      <description>1. ウオームアップ － 日本で仕事を見つけよう 1．求人ポスター 求人ポスターの内容が理解できる 募集している会社の概要が理解できる 2．電話で問い合わせ</description>
     </item>
     
   </channel>
