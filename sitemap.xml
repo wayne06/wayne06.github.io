@@ -4,32 +4,37 @@
   
   <url>
     <loc>http://wayne06.github.io/categories/</loc>
-    <lastmod>2024-03-31T03:25:13+08:00</lastmod>
+    <lastmod>2024-04-01T03:25:13+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://wayne06.github.io/categories/japanese/</loc>
-    <lastmod>2024-03-31T03:25:13+08:00</lastmod>
+    <lastmod>2024-04-01T03:25:13+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://wayne06.github.io/post/</loc>
-    <lastmod>2024-03-31T03:25:13+08:00</lastmod>
+    <lastmod>2024-04-01T03:25:13+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://wayne06.github.io/tags/</loc>
-    <lastmod>2024-03-31T03:25:13+08:00</lastmod>
+    <lastmod>2024-04-01T03:25:13+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://wayne06.github.io/</loc>
-    <lastmod>2024-03-31T03:25:13+08:00</lastmod>
+    <lastmod>2024-04-01T03:25:13+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://wayne06.github.io/tags/%E3%81%BE%E3%81%A8%E3%82%81/</loc>
-    <lastmod>2024-03-31T03:25:13+08:00</lastmod>
+    <loc>http://wayne06.github.io/post/%E6%97%A5%E8%AF%AD-%E8%83%8C%E8%AF%B5-n2-200%E5%8F%A5/</loc>
+    <lastmod>2024-04-01T03:25:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wayne06.github.io/tags/%E6%97%A5%E8%AF%AD%E8%83%8C%E8%AF%B5/</loc>
+    <lastmod>2024-04-01T03:25:13+08:00</lastmod>
   </url>
   
   <url>
@@ -38,7 +43,7 @@
   </url>
   
   <url>
-    <loc>http://wayne06.github.io/post/%E6%97%A5%E8%AF%AD-%E8%83%8C%E8%AF%B5-%E5%9F%BA%E7%A1%80100%E5%8F%A5/</loc>
+    <loc>http://wayne06.github.io/post/%E6%97%A5%E8%AF%AD-%E8%83%8C%E8%AF%B5-n3-100%E5%8F%A5/</loc>
     <lastmod>2024-03-30T03:25:13+08:00</lastmod>
   </url>
   
@@ -425,6 +430,11 @@
   <url>
     <loc>http://wayne06.github.io/post/it%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9%E6%97%A5%E6%9C%AC%E8%AA%9E-00-%E7%9B%AE%E6%AC%A1/</loc>
     <lastmod>2023-04-01T01:25:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://wayne06.github.io/tags/%E3%81%BE%E3%81%A8%E3%82%81/</loc>
+    <lastmod>2023-01-15T03:25:13+08:00</lastmod>
   </url>
   
   <url>
@@ -883,12 +893,12 @@
   </url>
   
   <url>
-    <loc>http://wayne06.github.io/tags/design-pattern/</loc>
+    <loc>http://wayne06.github.io/categories/design-pattern/</loc>
     <lastmod>2020-03-18T00:04:12+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://wayne06.github.io/categories/design-pattern/</loc>
+    <loc>http://wayne06.github.io/tags/design-pattern/</loc>
     <lastmod>2020-03-18T00:04:12+08:00</lastmod>
   </url>
   
